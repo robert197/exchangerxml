@@ -1,0 +1,18 @@
+<!DOCTYPE TEI.2 PUBLIC "-//TEI//DTD TEI Lite XML ver. 1.1//EN" "http://www.tei-c.org/Lite/DTD/teixlite.dtd">
+
+<TEI.2>
+    <teiHeader> 
+    	<!-- TEI Header information -->
+    </teiHeader>
+    <text>
+        <front> 
+        	<!-- front matter ... --> 
+        </front>
+        <body>  
+        	<!-- body of text ...  -->
+        </body>
+        <back>  
+        	<!-- back matter ... -->  
+        </back>
+    </text>
+</TEI.2>

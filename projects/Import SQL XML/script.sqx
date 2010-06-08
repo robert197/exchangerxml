@@ -1,0 +1,1 @@
+SELECT XML2CLOB( XMLELEMENT(NAME "Department", XMLATTRIBUTES(workdept AS "name"), XMLAGG(XMLELEMENT(NAME "employee", XMLATTRIBUTES(lastname, firstnme, empno)) ORDER BY lastname) ))  FROM employee  WHERE workdept = 'A00' GROUP BY workdept

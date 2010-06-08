@@ -1,0 +1,1473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+	This is a non normative version of the FO schema.
+	Do not use to validate against!
+-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.w3.org/1999/XSL/Format" elementFormDefault="qualified">
+
+  <group name="initial_property_set_List_Not">
+    <choice>
+      <element ref="fo:initial-property-set"/>
+    </choice>
+  </group>
+  
+  <group name="initial_property_set_List">
+    <choice>
+      <group ref="fo:initial_property_set_List_Not"/>
+    </choice>
+  </group>
+  <group name="marker_List">
+    <choice>
+      <element ref="fo:marker"/>
+    </choice>
+  </group>
+  <group name="inline_List_FOP">
+    <choice>
+      <element ref="fo:character"/>
+      <element ref="fo:external-graphic"/>
+      <element ref="fo:instream-foreign-object"/>
+      <element ref="fo:inline"/>
+      <element ref="fo:leader"/>
+      <element ref="fo:page-number"/>
+      <element ref="fo:page-number-citation"/>
+      <element ref="fo:basic-link"/>
+    </choice>
+  </group>
+  <group name="inline_List_Not">
+    <choice>
+      <element ref="fo:bidi-override"/>
+      <element ref="fo:inline-container"/>
+      <element ref="fo:multi-toggle"/>
+    </choice>
+  </group>
+  <group name="inline_List">
+    <choice>
+      <group ref="fo:inline_List_FOP"/>
+      <group ref="fo:inline_List_Not"/>
+    </choice>
+  </group>
+  <group name="block_List_FOP">
+    <choice>
+      <element ref="fo:block"/>
+      <element ref="fo:block-container"/>
+      <element ref="fo:table"/>
+      <element ref="fo:list-block"/>
+    </choice>
+  </group>
+  <group name="block_List_Not">
+    <choice>
+      <element ref="fo:table-and-caption"/>
+    </choice>
+  </group>
+  <group name="block_List">
+    <choice>
+      <group ref="fo:block_List_FOP"/>
+      <group ref="fo:block_List_Not"/>
+    </choice>
+  </group>
+  <group name="neutral_List_FOP">
+    <choice>
+      <element ref="fo:wrapper"/>
+      <element ref="fo:retrieve-marker"/>
+    </choice>
+  </group>
+  <group name="neutral_List_Not">
+    <choice>
+      <element ref="fo:multi-switch"/>
+      <element ref="fo:multi-properties"/>
+    </choice>
+  </group>
+  <group name="neutral_List">
+    <choice>
+      <group ref="fo:neutral_List_FOP"/>
+      <group ref="fo:neutral_List_Not"/>
+    </choice>
+  </group>
+  <group name="float_List_Not">
+    <choice>
+      <element ref="fo:float"/>
+    </choice>
+  </group>
+  <group name="float_List">
+    <choice>
+      <group ref="fo:float_List_Not"/>
+    </choice>
+  </group>
+  <group name="footnote_List">
+    <choice>
+      <element ref="fo:footnote"/>
+    </choice>
+  </group>
+
+  <attributeGroup name="block_properties_Not">
+    <attribute name="page-break-after" type="string"/>
+    <attribute name="page-break-before" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="block_properties_FOP">
+  </attributeGroup>
+  <attributeGroup name="block_properties">
+    <attributeGroup ref="fo:block_properties_FOP"/>
+    <attributeGroup ref="fo:block_properties_Not"/>
+  </attributeGroup>
+
+  <attributeGroup name="list_properties_Not">
+    <attribute name="page-break-after" type="string"/>
+    <attribute name="page-break-before" type="string"/>
+    <attribute name="background-position" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="list_properties_FOP">
+  </attributeGroup>
+  <attributeGroup name="list_properties">
+    <attributeGroup ref="fo:list_properties_FOP"/>
+    <attributeGroup ref="fo:list_properties_Not"/>
+  </attributeGroup>
+
+  <attributeGroup name="inheritable_properties_List_Not">
+    <attribute name="auto-restore" type="string"/>
+    <attribute name="background" type="string"/> 
+    <attribute name="border-spacing" type="string"/>
+    <attribute name="caption-side" type="string"/>
+    <attribute name="direction" type="string"/>
+    <attribute name="empty-cells" type="string"/>
+    <attribute name="font" type="xs:string"/>
+    <attribute name="font-selection-strategy" type="string"/>
+    <attribute name="font-size-adjust" type="string"/>
+    <attribute name="font-stretch" type="xs:string"/>
+    <attribute name="font-variant" type="string"/>
+    <attribute name="glyph-orientation-vertical" type="string"/>
+    <attribute name="glyph-orientation-horizontal" type="string"/>
+    <attribute name="hyphenation-keep" type="string"/>
+    <attribute name="hyphenation-ladder-count" type="string"/>
+    <attribute name="intrusion-displace" type="string"/>
+    <attribute name="last-line-end-indent" type="string"/>
+    <attribute name="line-height-shift-adjustment" type="string"/>
+    <attribute name="line-stacking-strategy" type="string"/>
+    <attribute name="linefeed-treatment" type="string"/>
+    <attribute name="margin" type="string"/> 
+    <attribute name="max-width" type="string"/>
+    <attribute name="min-height" type="string"/>
+    <attribute name="min-width" type="string"/>
+    <attribute name="page-break-inside" type="string"/>
+    <attribute name="reference-orientation" type="string"/>
+    <attribute name="score-spaces" type="string"/>
+    <attribute name="script" type="xs:string"/>
+    <attribute name="text-transform" type="string"/>
+    <attribute name="visibility" type="string"/>
+    <attribute name="white-space" type="string"/>
+    <attribute name="white-space-treatment" type="string"/>
+    <attribute name="word-spacing" type="string"/>
+    <attribute name="writing-mode" type="string"/>
+  </attributeGroup>
+
+
+  <attributeGroup name="inheritable_properties_List_FOP">
+    <attribute name="border-bottom" type="string"/> 
+    <attribute name="border-collapse" type="string"/>
+    <attribute name="border-color" type="string"/> 
+    <attribute name="border-left" type="string"/> 
+    <attribute name="border-right" type="string"/> 
+    <attribute name="border-separation" type="string"/>
+    <attribute name="border-style" type="string"/> 
+    <attribute name="border-top" type="string"/> 
+    <attribute name="border-width" type="string"/> 
+    <attribute name="color" type="string"/>
+    <attribute name="country" type="string"/>
+    <attribute name="display-align" type="string"/>
+    <attribute name="end-indent" type="string"/>
+    <attribute name="font-family" type="string"/>
+    <attribute name="font-size" type="string"/>
+    <attribute name="font-style" type="string"/>
+    <attribute name="font-weight" type="string"/>
+    <attribute name="hyphenate" type="string"/>
+    <attribute name="hyphenation-character" type="string"/>
+    <attribute name="hyphenation-push-character-count" type="string"/>
+    <attribute name="hyphenation-remain-character-count" type="string"/>
+    <attribute name="keep-together" type="string"/>
+    <attribute name="keep-together.within-column" type="string"/>
+    <attribute name="keep-together.within-line" type="string"/>
+    <attribute name="keep-together.within-page" type="string"/>
+    <attribute name="language" type="string"/>
+    <attribute name="leader-alignment" type="string"/>
+    <attribute name="leader-length" type="string"/>
+    <attribute name="leader-length.maximum" type="string"/>
+    <attribute name="leader-length.minimum" type="string"/>
+    <attribute name="leader-length.optimum" type="string"/>
+    <attribute name="leader-pattern" type="string"/>
+    <attribute name="leader-pattern-width" type="string"/>
+    <attribute name="letter-spacing" type="string"/>
+    <attribute name="line-height" type="string"/>
+    <attribute name="orphans" type="string"/>
+    <attribute name="position" type="string"/>
+    <attribute name="provisional-distance-between-starts" type="string"/>
+    <attribute name="provisional-label-separation" type="string"/>
+    <attribute name="relative-align" type="string"/>
+    <attribute name="rule-style" type="string"/>
+    <attribute name="rule-thickness" type="string"/>
+    <attribute name="start-indent" type="string"/>
+    <attribute name="text-align" type="string"/>
+    <attribute name="text-align-last" type="string"/>
+    <attribute name="text-indent" type="string"/>
+    <attribute name="white-space-collapse" type="string"/>
+    <attribute name="widows" type="string"/>
+    <attribute name="wrap-option" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="inheritable_properties_List">
+    <attributeGroup ref="fo:inheritable_properties_List_FOP"/>
+    <attributeGroup ref="fo:inheritable_properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="break_Properties_List_Not">
+  </attributeGroup>
+  <attributeGroup name="break_Properties_List_FOP">
+    <attribute name="break-after" type="string"/>
+    <attribute name="break-before" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="break_Properties_List">
+    <attributeGroup ref="fo:break_Properties_List_FOP"/>
+    <attributeGroup ref="fo:break_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="text_one_Properties_List_FOP"/>
+  <attributeGroup name="text_one_Properties_List_Not">
+    <attribute name="text-depth" type="string"/>
+    <attribute name="text-altitude" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="text_one_Properties_List">
+    <attributeGroup ref="fo:text_one_Properties_List_FOP"/>
+    <attributeGroup ref="fo:text_one_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="line_height_Properties_List_FOP"/>
+  <attributeGroup name="line_height_Properties_List_Not">
+  </attributeGroup>
+  <attributeGroup name="line_height_Properties_List">
+    <attributeGroup ref="fo:line_height_Properties_List_FOP"/>
+    <attributeGroup ref="fo:line_height_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="keep_Properties_List_FOP">
+    <attribute name="keep-with-next" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="keep_Properties_List_Not">
+    <attribute name="keep-with-previous" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="keep_Properties_List">
+    <attributeGroup ref="fo:keep_Properties_List_FOP"/>
+    <attributeGroup ref="fo:keep_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="block_hyphenation_Properties_List_FOP"/>
+  <attributeGroup name="block_hyphenation_Properties_List_Not">
+    </attributeGroup>
+  <attributeGroup name="block_hyphenation_Properties_List">
+    <attributeGroup ref="fo:block_hyphenation_Properties_List_FOP"/>
+    <attributeGroup ref="fo:block_hyphenation_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="intrusion_displace_Properties_List_FOP"/>
+  <attributeGroup name="intrusion_displace_Properties_List_Not">
+    </attributeGroup>
+  <attributeGroup name="intrusion_displace_Properties_List">
+    <attributeGroup ref="fo:intrusion_displace_Properties_List_FOP"/>
+    <attributeGroup ref="fo:intrusion_displace_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="progression_Properties_List_FOP"/>
+  <attributeGroup name="progression_Properties_List_Not">
+    <attribute name="block-progression-dimension" type="string"/>
+    <attribute name="block-progression-dimension.minimum" type="string"/>
+    <attribute name="block-progression-dimension.optimum" type="string"/>
+    <attribute name="block-progression-dimension.maximum" type="string"/>
+    <attribute name="inline-progression-dimension" type="string"/>
+    <attribute name="inline-progression-dimension.minimum" type="string"/>
+    <attribute name="inline-progression-dimension.optimum" type="string"/>
+    <attribute name="inline-progression-dimension.maximum" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="progression_Properties_List">
+    <attributeGroup ref="fo:progression_Properties_List_FOP"/>
+    <attributeGroup ref="fo:progression_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="clip_Properties_List_FOP"/>
+  <attributeGroup name="clip_Properties_List_Not">
+    <attribute name="clip" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="clip_Properties_List">
+    <attributeGroup ref="fo:clip_Properties_List_FOP"/>
+    <attributeGroup ref="fo:clip_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="reference_Properties_List_FOP"/>
+  <attributeGroup name="reference_Properties_List_Not">
+    </attributeGroup>
+  <attributeGroup name="reference_Properties_List">
+    <attributeGroup ref="fo:reference_Properties_List_FOP"/>
+    <attributeGroup ref="fo:reference_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Accessibility_Properties_List_FOP"/>
+  <attributeGroup name="Accessibility_Properties_List_Not">
+    <attribute name="source-document" type="xs:string"/>
+    <attribute name="role" type="xs:string"/>
+  </attributeGroup>
+  <attributeGroup name="Accessibility_Properties_List">
+    <attributeGroup ref="fo:Accessibility_Properties_List_FOP"/>
+    <attributeGroup ref="fo:Accessibility_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Relative_Position_Properties_List_FOP">
+    <attribute name="top" type="string"/>
+    <attribute name="right" type="string"/>
+    <attribute name="bottom" type="string"/>
+    <attribute name="left" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Relative_Position_Properties_List_Not">
+    <attribute name="relative-position" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Relative_Position_Properties_List">
+    <attributeGroup ref="fo:Relative_Position_Properties_List_FOP"/>
+    <attributeGroup ref="fo:Relative_Position_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="absolute_or_Relative_Position_Properties_List_FOP">
+    <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+  </attributeGroup>
+  <attributeGroup name="absolute_or_Relative_Position_Properties_List_Not">
+    <attribute name="absolute-position" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="absolute_or_Relative_Position_Properties_List">
+    <attributeGroup ref="fo:absolute_or_Relative_Position_Properties_List_FOP"/>
+    <attributeGroup ref="fo:absolute_or_Relative_Position_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Aural_Properties_List_FOP"/>
+  <attributeGroup name="Aural_Properties_List_Not">
+    <attribute name="azimuth" type="string"/>
+    <attribute name="cue" type="xs:string"/>
+    <attribute name="cue-after" type="xs:string"/>
+    <attribute name="cue-before" type="xs:string"/>
+    <attribute name="elevation" type="string"/>
+    <attribute name="pause" type="xs:string"/>
+    <attribute name="pause-after" type="xs:string"/>
+    <attribute name="pause-before" type="xs:string"/>
+    <attribute name="pitch" type="xs:string"/>
+    <attribute name="pitch-range" type="xs:string"/>
+    <attribute name="play-during" type="xs:string"/>
+    <attribute name="richness" type="xs:string"/>
+    <attribute name="speak" type="xs:string"/>
+    <attribute name="speak-header" type="xs:string"/>
+    <attribute name="speak-numeral" type="string"/>
+    <attribute name="speak-punctuation" type="xs:string"/>
+    <attribute name="speech-rate" type="string"/>
+    <attribute name="stress" type="xs:string"/>
+    <attribute name="voice-family" type="xs:string"/>
+    <attribute name="volume" type="xs:string"/>
+  </attributeGroup>
+  <attributeGroup name="Aural_Properties_List">
+    <attributeGroup ref="fo:Aural_Properties_List_FOP"/>
+    <attributeGroup ref="fo:Aural_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Border_Padding_and_Background_Properties_List">
+    <attributeGroup ref="fo:Border_Properties_List"/>
+    <attributeGroup ref="fo:Padding_Properties_List"/>
+    <attributeGroup ref="fo:Background_Properties_List"/>
+  </attributeGroup>
+  <attributeGroup name="Absolute_Position_Properties_List_FOP">
+    <attribute name="top" type="string"/>
+    <attribute name="right" type="string"/>
+    <attribute name="bottom" type="string"/>
+    <attribute name="left" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Absolute_Position_Properties_List_Not">
+    <attribute name="absolute-position" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Absolute_Position_Properties_List">
+    <attributeGroup ref="fo:Absolute_Position_Properties_List_FOP"/>
+    <attributeGroup ref="fo:Absolute_Position_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Background_Properties_List_FOP">
+    <attribute name="background-color" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Background_Properties_List_Not">
+    <attribute name="background-attachment" type="string"/>
+    <attribute name="background-image" type="xs:string"/>
+    <attribute name="background-repeat" type="string"/>
+    <attribute name="background-position-horizontal" type="string"/>
+    <attribute name="background-position-vertical" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Background_Properties_List">
+    <attributeGroup ref="fo:Background_Properties_List_FOP"/>
+    <attributeGroup ref="fo:Background_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Border_Properties_List">
+    <attribute name="border" type="string"/>
+    <attribute name="border-before-color" type="string"/>
+    <attribute name="border-before-style" type="string"/>
+    <attribute name="border-before-width" type="string"/>
+    <attribute name="border-before-width.length" type="string"/>
+    <attribute name="border-before-width.conditionality" type="NMTOKEN"/>
+    <attribute name="border-after-color" type="string"/>
+    <attribute name="border-after-style" type="string"/>
+    <attribute name="border-after-width" type="string"/>
+    <attribute name="border-after-width.length" type="string"/>
+    <attribute name="border-after-width.conditionality" type="NMTOKEN"/>
+    <attribute name="border-start-color" type="string"/>
+    <attribute name="border-start-style" type="string"/>
+    <attribute name="border-start-width" type="string"/>
+    <attribute name="border-start-width.length" type="string"/>
+    <attribute name="border-start-width.conditionality" type="NMTOKEN"/>
+    <attribute name="border-end-color" type="string"/>
+    <attribute name="border-end-style" type="string"/>
+    <attribute name="border-end-width" type="string"/>
+    <attribute name="border-end-width.length" type="string"/>
+    <attribute name="border-end-width.conditionality" type="NMTOKEN"/>
+    <attribute name="border-top-color" type="string"/>
+    <attribute name="border-top-style" type="string"/>
+    <attribute name="border-top-width" type="string"/>
+    <attribute name="border-top-width.length" type="string"/>
+    <attribute name="border-top-width.conditionality" type="NMTOKEN"/>
+    <attribute name="border-bottom-color" type="string"/>
+    <attribute name="border-bottom-style" type="string"/>
+    <attribute name="border-bottom-width" type="string"/>
+    <attribute name="border-bottom-width.length" type="string"/>
+    <attribute name="border-bottom-width.conditionality" type="NMTOKEN"/>
+    <attribute name="border-left-color" type="string"/>
+    <attribute name="border-left-style" type="string"/>
+    <attribute name="border-left-width" type="string"/>
+    <attribute name="border-left-width.length" type="string"/>
+    <attribute name="border-left-width.conditionality" type="NMTOKEN"/>
+    <attribute name="border-right-color" type="string"/>
+    <attribute name="border-right-style" type="string"/>
+    <attribute name="border-right-width" type="string"/>
+    <attribute name="border-right-width.length" type="string"/>
+    <attribute name="border-right-width.conditionality" type="NMTOKEN"/>
+  </attributeGroup>
+  <attributeGroup name="Padding_Properties_List">
+    <attribute name="padding" type="string"/>
+    <attribute name="padding-before" type="string"/>
+    <attribute name="padding-before.length" type="string"/>
+    <attribute name="padding-before.conditionality" type="NMTOKEN"/>
+    <attribute name="padding-after" type="string"/>
+    <attribute name="padding-after.length" type="string"/>
+    <attribute name="padding-after.conditionality" type="NMTOKEN"/>
+    <attribute name="padding-start" type="string"/>
+    <attribute name="padding-start.length" type="string"/>
+    <attribute name="padding-start.conditionality" type="NMTOKEN"/>
+    <attribute name="padding-end" type="string"/>
+    <attribute name="padding-end.length" type="string"/>
+    <attribute name="padding-end.conditionality" type="NMTOKEN"/>
+    <attribute name="padding-top" type="string"/>
+    <attribute name="padding-top.length" type="string"/>
+    <attribute name="padding-top.conditionality" type="NMTOKEN"/>
+    <attribute name="padding-bottom" type="string"/>
+    <attribute name="padding-bottom.length" type="string"/>
+    <attribute name="padding-bottom.conditionality" type="NMTOKEN"/>
+    <attribute name="padding-left" type="string"/>
+    <attribute name="padding-left.length" type="string"/>
+    <attribute name="padding-left.conditionality" type="NMTOKEN"/>
+    <attribute name="padding-right" type="string"/>
+    <attribute name="padding-right.length" type="string"/>
+    <attribute name="padding-right.conditionality" type="NMTOKEN"/>
+  </attributeGroup>
+  <attributeGroup name="Font_Properties_List_FOP">
+    </attributeGroup>
+  <attributeGroup name="Font_Properties_List_Not">
+    </attributeGroup>
+  <attributeGroup name="Font_Properties_List">
+    <attributeGroup ref="fo:Font_Properties_List_FOP"/>
+    <attributeGroup ref="fo:Font_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Hyphenation_Properties_List_FOP">
+    </attributeGroup>
+  <attributeGroup name="Hyphenation_Properties_List_Not">
+    </attributeGroup>
+  <attributeGroup name="Hyphenation_Properties_List">
+    <attributeGroup ref="fo:Hyphenation_Properties_List_FOP"/>
+    <attributeGroup ref="fo:Hyphenation_Properties_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Margin_Properties_Basic_List">
+    <attribute name="margin-top" type="string"/>
+    <attribute name="margin-bottom" type="string"/>
+    <attribute name="margin-left" type="string"/>
+    <attribute name="margin-right" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Margin_Properties_vertical_Space_List_FOP">
+    <attribute name="space-before.optimum" type="string"/>
+    <attribute name="space-after.optimum" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Margin_Properties_vertical_Space_List_Not">
+    <attribute name="space-before" type="string"/>
+    <attribute name="space-before.minimum" type="string"/>
+    <attribute name="space-before.maximum" type="string"/>
+    <attribute name="space-before.conditionality" type="NMTOKEN"/>
+    <attribute name="space-before.precedence" type="string"/>
+    <attribute name="space-after" type="string"/>
+    <attribute name="space-after.minimum" type="string"/>
+    <attribute name="space-after.maximum" type="string"/>
+    <attribute name="space-after.conditionality" type="NMTOKEN"/>
+    <attribute name="space-after.precedence" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Margin_Properties_vertical_Space_List">
+    <attributeGroup ref="fo:Margin_Properties_vertical_Space_List_FOP"/>
+    <attributeGroup ref="fo:Margin_Properties_vertical_Space_List_Not"/>
+  </attributeGroup>
+  <attributeGroup name="Margin_Properties_Block_List">
+    <attributeGroup ref="fo:Margin_Properties_Basic_List"/>
+    <attributeGroup ref="fo:Margin_Properties_vertical_Space_List"/>
+  </attributeGroup>
+  <attributeGroup name="Margin_Properties_Inline_List">
+    <attributeGroup ref="fo:Margin_Properties_Basic_List"/>
+    <attributeGroup ref="fo:Margin_Properties_Horizontal_Space_List"/>
+  </attributeGroup>
+  <attributeGroup name="Margin_Properties_Horizontal_Space_List_FOP"/>
+  <attributeGroup name="Margin_Properties_Horizontal_Space_List_Not">
+    <attribute name="space-start" type="string"/>
+    <attribute name="space-start.minimum" type="string"/>
+    <attribute name="space-start.optimum" type="string"/>
+    <attribute name="space-start.maximum" type="string"/>
+    <attribute name="space-start.conditionality" type="NMTOKEN"/>
+    <attribute name="space-start.precedence" type="string"/>
+    <attribute name="space-end" type="string"/>
+    <attribute name="space-end.minimum" type="string"/>
+    <attribute name="space-end.optimum" type="string"/>
+    <attribute name="space-end.maximum" type="string"/>
+    <attribute name="space-end.conditionality" type="NMTOKEN"/>
+    <attribute name="space-end.precedence" type="string"/>
+  </attributeGroup>
+  <attributeGroup name="Margin_Properties_Horizontal_Space_List">
+    <attributeGroup ref="fo:Margin_Properties_Horizontal_Space_List_FOP"/>
+    <attributeGroup ref="fo:Margin_Properties_Horizontal_Space_List_Not"/>
+  </attributeGroup>
+
+  <element name="root">
+    <complexType>
+      <sequence>
+        <element ref="fo:layout-master-set"/>
+        <element ref="fo:declarations" minOccurs="0"/>
+        <element ref="fo:page-sequence" maxOccurs="unbounded"/>
+      </sequence>
+      <attribute name="media-usage" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="declarations">
+    <complexType>
+      <sequence>
+        <element ref="fo:color-profile" maxOccurs="unbounded"/>
+        <any minOccurs="0" maxOccurs="unbounded" namespace="##other" processContents="skip"/>
+      </sequence>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="color-profile">
+    <complexType>
+      <attribute name="src" type="xs:string" use="required"/>
+      <attribute name="color-profile-name" type="xs:string" use="required"/>
+      <attribute name="rendering-intent" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="layout-master-set">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <element ref="fo:simple-page-master"/>
+        <element ref="fo:page-sequence-master"/>
+      </choice>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="page-sequence-master">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <element ref="fo:single-page-master-reference"/>
+        <element ref="fo:repeatable-page-master-reference"/>
+        <element ref="fo:repeatable-page-master-alternatives"/>
+      </choice>
+      <attribute name="master-name" type="xs:string" use="required"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="single-page-master-reference">
+    <complexType>
+      <attribute name="master-reference" type="xs:string" use="required"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="repeatable-page-master-reference">
+    <complexType>
+      <attribute name="master-reference" type="xs:string" use="required"/>
+      <attribute name="maximum-repeats" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="repeatable-page-master-alternatives">
+    <complexType>
+      <sequence>
+        <element ref="fo:conditional-page-master-reference" maxOccurs="unbounded"/>
+      </sequence>
+      <attribute name="maximum-repeats" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="conditional-page-master-reference">
+    <complexType>
+      <attribute name="master-reference" type="xs:string" use="required"/>
+      <attribute name="page-position" type="string"/>
+      <attribute name="odd-or-even" type="string"/>
+      <attribute name="blank-or-not-blank" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="simple-page-master">
+    <complexType>
+      <sequence>
+        <element ref="fo:region-body"/>
+        <element ref="fo:region-before" minOccurs="0"/>
+        <element ref="fo:region-after" minOccurs="0"/>
+        <element ref="fo:region-start" minOccurs="0"/>
+        <element ref="fo:region-end" minOccurs="0"/>
+      </sequence>
+      <attributeGroup ref="fo:Margin_Properties_Block_List"/>
+      <attribute name="master-name" type="xs:string" use="required"/>
+      <attribute name="page-height" type="string"/>
+      <attribute name="page-width" type="string"/>
+      <attributeGroup ref="fo:reference_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="region-body">
+    <complexType>
+      <attributeGroup ref="fo:Margin_Properties_Block_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="column-count" type="string"/>
+      <attribute name="column-gap" type="string"/>
+      <attribute name="overflow" type="string"/>
+      <attribute name="region-name" type="xs:string"/>
+      <attributeGroup ref="fo:reference_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="region-before">
+    <complexType>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="extent" type="string"/>
+      <attribute name="overflow" type="string"/>
+      <attribute name="precedence" type="string"/>
+      <attribute name="region-name" type="xs:string"/>
+      <attributeGroup ref="fo:reference_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="region-after">
+    <complexType>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="extent" type="string"/>
+      <attribute name="overflow" type="string"/>
+      <attribute name="precedence" type="string"/>
+      <attribute name="region-name" type="xs:string"/>
+      <attributeGroup ref="fo:reference_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="region-start">
+    <complexType>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="extent" type="string"/>
+      <attribute name="overflow" type="string"/>
+      <attribute name="precedence" type="string"/>
+      <attribute name="region-name" type="xs:string"/>
+      <attributeGroup ref="fo:reference_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="region-end">
+    <complexType>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="extent" type="string"/>
+      <attribute name="overflow" type="string"/>
+      <attribute name="precedence" type="string"/>
+      <attribute name="region-name" type="xs:string"/>
+      <attributeGroup ref="fo:reference_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="page-sequence">
+    <complexType>
+      <sequence>
+        <element ref="fo:title" minOccurs="0"/>
+        <element ref="fo:static-content" minOccurs="0" maxOccurs="unbounded"/>
+        <element ref="fo:flow"/>
+      </sequence>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="master-reference" type="xs:string" use="required"/>
+      <attribute name="initial-page-number" type="string"/>
+      <attribute name="force-page-count" type="string"/>
+      <attribute name="format" type="xs:string"/>
+      <attribute name="letter-value" type="string"/>
+      <attribute name="grouping-separator" type="string"/>
+      <attribute name="grouping-size" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="title">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:inline_List"/>
+        <group ref="fo:neutral_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="static-content">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attribute name="flow-name" type="xs:string" use="required"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="flow">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attribute name="flow-name" type="xs:string" use="required"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="block">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:initial_property_set_List"/>
+        <group ref="fo:inline_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:block_properties"/>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Hyphenation_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Block_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attributeGroup ref="fo:break_Properties_List"/>
+      <attributeGroup ref="fo:text_one_Properties_List"/>
+      <attributeGroup ref="fo:block_hyphenation_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:intrusion_displace_Properties_List"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attributeGroup ref="fo:line_height_Properties_List"/>
+      <attribute name="span" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="block-container">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:block_properties"/>
+      <attributeGroup ref="fo:Absolute_Position_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Block_List"/>
+      <attributeGroup ref="fo:progression_Properties_List"/>
+      <attributeGroup ref="fo:break_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="height" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:intrusion_displace_Properties_List"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attribute name="overflow" type="string"/>
+      <attributeGroup ref="fo:reference_Properties_List"/>
+      <attribute name="span" type="string"/>
+      <attribute name="width" type="string"/>
+      <attribute name="z-index" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="bidi-override">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:inline_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="unicode-bidi" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="character">
+    <complexType>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Hyphenation_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="treat-as-word-space" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attribute name="character" type="string"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attributeGroup ref="fo:text_one_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="keep-with-next" type="string"/>
+      <attribute name="keep-with-previous" type="string"/>
+      <attribute name="suppress-at-line-break" type="string"/>
+      <attribute name="text-decoration" type="string"/>
+      <attribute name="text-shadow" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="initial-property-set">
+    <complexType>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="text-decoration" type="string"/>
+      <attribute name="text-shadow" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="external-graphic">
+    <complexType>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attributeGroup ref="fo:progression_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="content-height" type="string"/>
+      <attribute name="content-type" type="xs:string"/>
+      <attribute name="content-width" type="string"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attribute name="height" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="keep-with-next" type="string"/>
+      <attribute name="keep-with-previous" type="string"/>
+      <attribute name="overflow" type="string"/>
+      <attribute name="scaling" type="string"/>
+      <attribute name="scaling-method" type="string"/>
+      <attribute name="src" type="xs:string" use="required"/>
+      <attribute name="width" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="instream-foreign-object">
+    <complexType>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attributeGroup ref="fo:progression_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="content-height" type="string"/>
+      <attribute name="content-type" type="xs:string"/>
+      <attribute name="content-width" type="string"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attribute name="height" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="keep-with-next" type="string"/>
+      <attribute name="keep-with-previous" type="string"/>
+      <attribute name="overflow" type="string"/>
+      <attribute name="scaling" type="string"/>
+      <attribute name="scaling-method" type="string"/>
+      <attribute name="width" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="inline">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:inline_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List">
+      </attributeGroup>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attributeGroup ref="fo:progression_Properties_List"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attribute name="height" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attribute name="text-decoration" type="string"/>
+      <attribute name="width" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="inline-container">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attributeGroup ref="fo:progression_Properties_List"/>
+      <attributeGroup ref="fo:clip_Properties_List"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attribute name="height" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attribute name="overflow" type="string"/>
+      <attributeGroup ref="fo:reference_Properties_List"/>
+      <attribute name="width" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="leader">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:inline_List"/>
+        <group ref="fo:neutral_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attributeGroup ref="fo:text_one_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="keep-with-next" type="string"/>
+      <attribute name="keep-with-previous" type="string"/>
+      <attribute name="text-shadow" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="page-number">
+    <complexType>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="keep-with-next" type="string"/>
+      <attribute name="keep-with-previous" type="string"/>
+      <attributeGroup ref="fo:text_one_Properties_List"/>
+      <attribute name="text-decoration" type="string"/>
+      <attribute name="text-shadow" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="page-number-citation">
+    <complexType>
+      <attribute name="ref-id" type="xs:string" use="required"/>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Font_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="keep-with-next" type="string"/>
+      <attribute name="keep-with-previous" type="string"/>
+      <attributeGroup ref="fo:text_one_Properties_List"/>
+      <attribute name="text-decoration" type="string"/>
+      <attribute name="text-shadow" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="table-and-caption">
+    <complexType>
+      <sequence>
+        <element ref="fo:table-caption" minOccurs="0"/>
+        <element ref="fo:table"/>
+      </sequence>
+      <attributeGroup ref="fo:block_properties"/>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Block_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attributeGroup ref="fo:break_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:intrusion_displace_Properties_List"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="table-caption">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attributeGroup ref="fo:progression_Properties_List"/>
+      <attribute name="height" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:intrusion_displace_Properties_List"/>
+      <attribute name="width" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="table">
+    <complexType>
+      <sequence>
+        <element ref="fo:table-column" minOccurs="0" maxOccurs="unbounded"/>
+        <element ref="fo:table-header" minOccurs="0"/>
+        <element ref="fo:table-footer" minOccurs="0"/>
+        <element ref="fo:table-body" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="fo:block_properties"/>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Block_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attributeGroup ref="fo:progression_Properties_List"/>
+      <attribute name="border-after-precedence" type="string"/>
+      <attribute name="border-before-precedence" type="string"/>
+      <attribute name="border-end-precedence" type="string"/>
+      <attribute name="border-start-precedence" type="string"/>
+      <attributeGroup ref="fo:break_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:intrusion_displace_Properties_List"/>
+      <attribute name="height" type="string"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attribute name="table-layout" type="string"/>
+      <attribute name="table-omit-footer-at-break" type="string"/>
+      <attribute name="table-omit-header-at-break" type="string"/>
+      <attribute name="width" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="table-column">
+    <complexType>
+      <attributeGroup ref="fo:Border_Properties_List"/>
+      <attributeGroup ref="fo:Background_Properties_List"/>
+      <attribute name="border-after-precedence" type="string"/>
+      <attribute name="border-before-precedence" type="string"/>
+      <attribute name="border-end-precedence" type="string"/>
+      <attribute name="border-start-precedence" type="string"/>
+      <attribute name="column-number" type="string"/>
+      <attribute name="column-width" type="string"/>
+      <attribute name="number-columns-repeated" type="string"/>
+      <attribute name="number-columns-spanned" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="table-header">
+    <complexType>
+      <choice>
+        <element ref="fo:table-row" maxOccurs="unbounded"/>
+        <element ref="fo:table-cell" maxOccurs="unbounded"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Properties_List"/>
+      <attributeGroup ref="fo:Background_Properties_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="border-after-precedence" type="string"/>
+      <attribute name="border-before-precedence" type="string"/>
+      <attribute name="border-end-precedence" type="string"/>
+      <attribute name="border-start-precedence" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="table-footer">
+    <complexType>
+      <choice>
+        <element ref="fo:table-row" maxOccurs="unbounded"/>
+        <element ref="fo:table-cell" maxOccurs="unbounded"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Properties_List"/>
+      <attributeGroup ref="fo:Background_Properties_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="border-after-precedence" type="string"/>
+      <attribute name="border-before-precedence" type="string"/>
+      <attribute name="border-end-precedence" type="string"/>
+      <attribute name="border-start-precedence" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="table-body">
+    <complexType>
+      <choice>
+        <element ref="fo:table-row" maxOccurs="unbounded"/>
+        <element ref="fo:table-cell" maxOccurs="unbounded"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Properties_List"/>
+      <attributeGroup ref="fo:Background_Properties_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="border-after-precedence" type="string"/>
+      <attribute name="border-before-precedence" type="string"/>
+      <attribute name="border-end-precedence" type="string"/>
+      <attribute name="border-start-precedence" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="table-row">
+    <complexType>
+      <sequence>
+        <element ref="fo:table-cell" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Properties_List"/>
+      <attributeGroup ref="fo:Background_Properties_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="block-progression-dimension" type="string"/>
+      <attribute name="block-progression-dimension.minimum" type="string"/>
+      <attribute name="block-progression-dimension.optimum" type="string"/>
+      <attribute name="block-progression-dimension.maximum" type="string"/>
+      <attribute name="border-after-precedence" type="string"/>
+      <attribute name="border-before-precedence" type="string"/>
+      <attribute name="border-end-precedence" type="string"/>
+      <attribute name="border-start-precedence" type="string"/>
+      <attributeGroup ref="fo:break_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="height" type="string"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="page-break-after" type="string"/>
+      <attribute name="page-break-before" type="string"/>
+    </complexType>
+  </element>
+  <element name="table-cell">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="border-after-precedence" type="string"/>
+      <attribute name="border-before-precedence" type="string"/>
+      <attribute name="border-end-precedence" type="string"/>
+      <attribute name="border-start-precedence" type="string"/>
+      <attributeGroup ref="fo:progression_Properties_List"/>
+      <attribute name="column-number" type="string"/>
+      <attribute name="ends-row" type="string"/>
+      <attribute name="height" type="string"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="number-columns-spanned" type="string"/>
+      <attribute name="number-rows-spanned" type="string"/>
+      <attribute name="starts-row" type="string"/>
+      <attribute name="width" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="list-block">
+    <complexType>
+      <sequence>
+        <element ref="fo:list-item" maxOccurs="unbounded"/>
+      </sequence>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Block_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attributeGroup ref="fo:break_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:intrusion_displace_Properties_List"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attributeGroup ref="fo:list_properties"/>
+    </complexType>
+  </element>
+  <element name="list-item">
+    <complexType>
+      <sequence>
+        <element ref="fo:list-item-label"/>
+        <element ref="fo:list-item-body"/>
+      </sequence>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Block_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attributeGroup ref="fo:break_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:intrusion_displace_Properties_List"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attributeGroup ref="fo:list_properties"/>
+    </complexType>
+  </element>
+  <element name="list-item-body">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attributeGroup ref="fo:list_properties"/>
+    </complexType>
+  </element>
+  <element name="list-item-label">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attributeGroup ref="fo:list_properties"/>
+    </complexType>
+  </element>
+  <element name="float">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attribute name="float" type="string"/>
+      <attribute name="clear" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="footnote">
+    <complexType>
+      <sequence>
+        <element ref="fo:inline"/>
+        <element ref="fo:footnote-body"/>
+      </sequence>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="footnote-body">
+    <complexType>
+      <choice maxOccurs="unbounded">
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="basic-link">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:inline_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attributeGroup ref="fo:Aural_Properties_List"/>
+      <attributeGroup ref="fo:Border_Padding_and_Background_Properties_List"/>
+      <attributeGroup ref="fo:Margin_Properties_Inline_List"/>
+      <attributeGroup ref="fo:Relative_Position_Properties_List"/>
+      <attribute name="alignment-adjust" type="string"/>
+      <attribute name="alignment-baseline" type="string"/>
+      <attribute name="baseline-shift" type="string"/>
+      <attribute name="destination-placement-offset" type="string"/>
+      <attribute name="dominant-baseline" type="string"/>
+      <attribute name="external-destination" type="xs:string"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="indicate-destination" type="string"/>
+      <attribute name="internal-destination" type="xs:string"/>
+      <attributeGroup ref="fo:keep_Properties_List"/>
+      <attribute name="show-destination" type="string"/>
+      <attribute name="target-processing-context" type="xs:string"/>
+      <attribute name="target-presentation-context" type="xs:string"/>
+      <attribute name="target-stylesheet" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="wrapper">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:marker_List"/>
+        <group ref="fo:inline_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="marker">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:inline_List"/>
+        <group ref="fo:block_List"/>
+      </choice>
+      <attribute name="marker-class-name" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="retrieve-marker">
+    <complexType>
+      <attribute name="retrieve-class-name" type="xs:string"/>
+      <attribute name="retrieve-position" type="string"/>
+      <attribute name="retrieve-boundary" type="string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="multi-switch">
+    <complexType>
+      <sequence>
+        <element ref="fo:multi-case"/>
+      </sequence>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="multi-case">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:inline_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="starting-state" type="string"/>
+      <attribute name="case-name" type="xs:string"/>
+      <attribute name="case-title" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="multi-toggle">
+    <complexType mixed="true">
+      <choice minOccurs="0" maxOccurs="unbounded">
+        <group ref="fo:inline_List"/>
+        <group ref="fo:block_List"/>
+        <group ref="fo:neutral_List"/>
+        <group ref="fo:float_List"/>
+        <group ref="fo:footnote_List"/>
+      </choice>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="switch-to" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+      <attribute name="vertical-align" type="string"/>
+    </complexType>
+  </element>
+  <element name="multi-properties">
+    <complexType>
+      <sequence>
+        <element ref="fo:multi-property-set" maxOccurs="unbounded"/>
+        <element ref="fo:wrapper"/>
+      </sequence>
+      <attributeGroup ref="fo:Accessibility_Properties_List"/>
+      <attribute name="id" type="xs:string"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+  <element name="multi-property-set">
+    <complexType>
+      <attribute name="id" type="xs:string"/>
+      <attribute name="active-state" type="string" use="required"/>
+      <attributeGroup ref="fo:inheritable_properties_List"/>
+    </complexType>
+  </element>
+</schema>

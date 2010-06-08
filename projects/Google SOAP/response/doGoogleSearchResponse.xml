@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance" xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+ <SOAP-ENV:Body>
+  <ns1:doGoogleSearchResponse xmlns:ns1="urn:GoogleSearch" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   <return xsi:type="ns1:GoogleSearchResult">
+    <directoryCategories xmlns:ns2="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="ns2:Array" ns2:arrayType="ns1:DirectoryCategory[0]"></directoryCategories>
+    <documentFiltering xsi:type="xsd:boolean">true</documentFiltering>
+    <endIndex xsi:type="xsd:int">10</endIndex>
+    <estimateIsExact xsi:type="xsd:boolean">false</estimateIsExact>
+    <estimatedTotalResultsCount xsi:type="xsd:int">2250</estimatedTotalResultsCount>
+    <resultElements xmlns:ns3="http://schemas.xmlsoap.org/soap/encoding/" xsi:type="ns3:Array" ns3:arrayType="ns1:ResultElement[10]">
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://xngr.org/</URL>
+      <cachedSize xsi:type="xsd:string">22k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;. Download and evaluate the &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; for free. As&lt;br&gt; seen at &lt;b&gt;XML&lt;/b&gt; Europe. &lt;b&gt;...&lt;/b&gt; &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; As seen at &lt;b&gt;XML&lt;/b&gt; Europe. Advertisement. &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; browser</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://www.exchangerxml.com/</URL>
+      <cachedSize xsi:type="xsd:string">18k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string">Top/Computers/Programming/Languages/Java/XML/Text_Editors</fullViewableName>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;</directoryTitle>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;. Download and evaluate the &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; for free.&lt;br&gt; As seen at &lt;b&gt;XML&lt;/b&gt; Europe. &lt;b&gt;...&lt;/b&gt; Subscribe to Newsletter: &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;. &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string">A Java-based &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;editor&lt;/b&gt; that facilitates easy browsing, editing, managing and conversion of &lt;b&gt;XML&lt;/b&gt; documents...</summary>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://www.exchangerxml.com/editor/downloads.htm</URL>
+      <cachedSize xsi:type="xsd:string">20k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string">www.exchangerxml.com</hostName>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;. Download and evaluate the &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; for free. &lt;b&gt;...&lt;/b&gt; Please&lt;br&gt; select the platform you want to download the &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; for. &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; (Downloads)</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://www.icewalkers.com/Linux/Software/520480/Exchanger-XML-Editor.html</URL>
+      <cachedSize xsi:type="xsd:string">20k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; 1.3. Rate &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;, &lt;b&gt;...&lt;/b&gt; &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; - Easy&lt;br&gt; to use, Java-based &lt;b&gt;XML&lt;/b&gt; IDE. &lt;b&gt;...&lt;/b&gt; Update &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;. Contact / Links : &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; - Easy to use, Java-based &lt;b&gt;XML&lt;/b&gt; IDE</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://download.com.com/3000-7241-10238312.html</URL>
+      <cachedSize xsi:type="xsd:string">23k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">&lt;b&gt;...&lt;/b&gt; &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; 1.0 popular. Download Now Download Now Free download&lt;br&gt; 28.9MB More download links. Downloads: 1,861. Publisher: Cladonia. &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; - Reviews and free downloads at Download.com</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://www.tucows.com/preview/335025.html</URL>
+      <cachedSize xsi:type="xsd:string">30k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">Download &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; and other Commercial software from the &lt;b&gt;XML&lt;/b&gt; category&lt;br&gt; at Tucows.com. Tucows logo, &lt;b&gt;...&lt;/b&gt; Windows &amp;gt; Internet &amp;gt; &lt;b&gt;XML&lt;/b&gt; &amp;gt; &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;. &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; - Download Commercial software from our &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;...&lt;/b&gt;</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://www.downlinx.com/proghtml/542/54239.htm</URL>
+      <cachedSize xsi:type="xsd:string">7k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">The &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; is a Java-based &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; that facilitates easy browsing,&lt;br&gt; editing, managing and conversion of &lt;b&gt;XML&lt;/b&gt; Documents.&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;It features &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; by Cladonia Ltd</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://www.topshareware.com/Exchanger-XML-Editor-download-13293.htm</URL>
+      <cachedSize xsi:type="xsd:string">15k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; - The &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; is a Java-based &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; that offers&lt;br&gt; a broad spectrum of functionality to help &lt;b&gt;XML&lt;/b&gt; Authors, Business Analysts &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; - Download &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; - The &lt;b&gt;...&lt;/b&gt;</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://www.softonic.com/ie/33039</URL>
+      <cachedSize xsi:type="xsd:string">40k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;: Descarga e informaciÃ³n. &lt;b&gt;Editor&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; polivalente con&lt;br&gt; soporte XHTML, SVG, WSDL, XSL, etc. &lt;b&gt;...&lt;/b&gt; &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; 1.3, nuevo. &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; - Softonic.com</title>
+     </item>
+     <item xsi:type="ns1:ResultElement">
+      <URL xsi:type="xsd:string">http://descargas.terra.es/informacion_extendida.phtml?n_id=33039&amp;plat=4</URL>
+      <cachedSize xsi:type="xsd:string">27k</cachedSize>
+      <directoryCategory xsi:type="ns1:DirectoryCategory">
+       <fullViewableName xsi:type="xsd:string"/>
+       <specialEncoding xsi:type="xsd:string"/>
+      </directoryCategory>
+      <directoryTitle xsi:type="xsd:string"/>
+      <hostName xsi:type="xsd:string"/>
+      <relatedInformationPresent xsi:type="xsd:boolean">true</relatedInformationPresent>
+      <snippet xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;: Descarga e informaciÃ³n. &lt;b&gt;Editor&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; polivalente con soporte&lt;br&gt; XHTML, SVG, WSDL, XSL, etc. &lt;b&gt;...&lt;/b&gt; &lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt;: Descarga e informaciÃ³n. &lt;b&gt;...&lt;/b&gt;</snippet>
+      <summary xsi:type="xsd:string"/>
+      <title xsi:type="xsd:string">&lt;b&gt;Exchanger&lt;/b&gt; &lt;b&gt;XML&lt;/b&gt; &lt;b&gt;Editor&lt;/b&gt; 1.3 - Descargas TERRA</title>
+     </item>
+    </resultElements>
+    <searchComments xsi:type="xsd:string"/>
+    <searchQuery xsi:type="xsd:string">exchanger xml editor</searchQuery>
+    <searchTime xsi:type="xsd:double">0.563848</searchTime>
+    <searchTips xsi:type="xsd:string"/>
+    <startIndex xsi:type="xsd:int">1</startIndex>
+   </return>
+  </ns1:doGoogleSearchResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

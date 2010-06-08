@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+   <book>
+      <author>
+         <AUTHOR>Stephen R. Davis</AUTHOR>
+      </author>
+      <title>
+         <TITLE>Learn Java Now</TITLE>
+      </title>
+   </book>
+   <book>
+      <author>
+         <AUTHOR>Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</AUTHOR>
+      </author>
+      <title>
+         <TITLE>Design Patterns</TITLE>
+      </title>
+   </book>
+   <book>
+      <author>
+         <AUTHOR>Wardlaw, Lee</AUTHOR>
+      </author>
+      <title>
+         <TITLE>Tales of Grandpa Cat</TITLE>
+      </title>
+   </book>
+   <book>
+      <author>
+         <AUTHOR>Milne, A. A.</AUTHOR>
+      </author>
+      <title>
+         <TITLE>When We Were Very Young</TITLE>
+      </title>
+   </book>
+   <book>
+      <author>
+         <AUTHOR>Danzig</AUTHOR>
+      </author>
+      <title>
+         <TITLE>Number, the Language of Science</TITLE>
+      </title>
+   </book>
+   <book>
+      <author>
+         <AUTHOR>Danzig</AUTHOR>
+      </author>
+      <title>
+         <TITLE>Language &amp; the Science of Number</TITLE>
+      </title>
+   </book>
+   <book>
+      <author>
+         <AUTHOR>Bonner</AUTHOR>
+      </author>
+      <title>
+         <TITLE>Patterns of Crime in Animal Culture</TITLE>
+      </title>
+   </book>
+   <book>
+      <author>
+         <AUTHOR>Bonner</AUTHOR>
+      </author>
+      <title>
+         <TITLE>Evolution of Complexity in Animal Culture</TITLE>
+      </title>
+   </book>
+</books>

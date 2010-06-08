@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scenario name="UBL to FO">
+ <xml src="../input/OfficeOrder.xml" type="url"/>
+ <xsl src="../style/OfficeOrder-htmlfo.xsl" type="url" processor="default"/>
+ <output src="../fo/OfficeOrder.html.fo" type="url"/>
+</scenario>

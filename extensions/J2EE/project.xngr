@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * $Id: project.xngr,v 1.1 2004/11/15 14:48:25 edankert Exp $
+ *
+ * Copyright (C) 2004, Cladonia Ltd. All rights reserved.
+ *
+ * This software is the proprietary information of Cladonia Ltd.  
+ * Use is subject to license terms.
+ -->
+
+<xngr>
+	<!-- ******************* Projects ******************* -->
+	<projects/>
+
+	<!-- ******************* Types ******************* -->
+	<types>
+		<type name="Connector 1.0 Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD Connector 1.0//EN" extensions="xml">
+			<root name="connector">
+				<namespace prefix="" uri=""/>
+			</root>
+			<template src="dtd/connector_1_0.dtd" type="dtd"/>
+			<validation src="dtd/connector_1_0.dtd" type="dtd" useDocumentLocation="false"/>
+			<schema src=""/>
+		</type>
+		<type name="EJB 2.0 Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN" extensions="xml">
+			<root name="ejb-jar">
+				<namespace prefix="" uri=""/>
+			</root>
+			<template src="dtd/ejb-jar_2_0.dtd" type="dtd"/>
+			<validation src="dtd/ejb-jar_2_0.dtd" type="dtd" useDocumentLocation="false"/>
+			<schema src=""/>
+		</type>
+		<type name="J2EE 1.3 Application Client Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD J2EE Application Client 1.3//EN" extensions="xml">
+			<root name="application-client">
+				<namespace prefix="" uri=""/>
+			</root>
+			<template src="dtd/application-client_1_3.dtd" type="dtd"/>
+			<validation src="dtd/application-client_1_3.dtd" type="dtd" useDocumentLocation="false"/>
+			<schema src=""/>
+		</type>
+		<type name="J2EE 1.3 Application Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN" extensions="xml">
+			<root name="application">
+				<namespace prefix="" uri=""/>
+			</root>
+			<template src="dtd/application_1_3.dtd" type="dtd"/>
+			<validation src="dtd/application_1_3.dtd" type="dtd" useDocumentLocation="false"/>
+			<schema src=""/>
+		</type>
+		<type name="JSP 1.2 Tag Library Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" extensions="xml">
+			<root name="taglib">
+				<namespace prefix="" uri=""/>
+			</root>
+			<template src="dtd/web-jsptaglibrary_1_2.dtd" type="dtd"/>
+			<validation src="dtd/web-jsptaglibrary_1_2.dtd" type="dtd" useDocumentLocation="false"/>
+			<schema src=""/>
+		</type>
+		<type name="JSP" icon="J2EEIcon.gif" publicID="" extensions="xml">
+			<root name="root">
+				<namespace prefix="jsp" uri="http://java.sun.com/JSP/Page"/>
+			</root>
+			<template src="dtd/jspxml.xsd" type="xsd"/>
+			<validation src="dtd/jspxml.xsd" type="xsd" useDocumentLocation="false"/>
+			<schema src=""/>
+		</type>
+		<type name="Servlet 2.3 Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" extensions="">
+			<root name="web-app">
+				<namespace prefix="" uri=""/>
+			</root>
+			<template src="dtd/web-app_2_3.dtd" type="dtd"/>
+			<validation src="dtd/web-app_2_3.dtd" type="dtd" useDocumentLocation="false"/>
+			<schema src=""/>
+		</type>
+	</types>
+
+	<!-- ******************* Scenarios ******************* -->
+	<scenarios/>
+
+	<!-- ******************* Templates ******************* -->
+	<templates>
+		<template name="Connector 1.0 Deployment Descriptor" src="ConnectorDeploymentDescriptor.xml"/>
+		<template name="EJB 2.0 Deployment Descriptor" src="EJBDeploymentDescriptor.xml"/>
+		<template name="J2EE 1.3 Apllication Client Deployment Descriptor" src="ApplicationClientDeploymentDescriptor.xml"/>
+		<template name="J2EE 1.3 Application Deployment Descriptor" src="ApplicationDeploymentDescriptor.xml"/>
+		<template name="JSP 1.2 Tag Library Descriptor" src="JSPTagLibraryDescriptor.xml"/>
+		<template name="JSP" src="JSP.xml"/>
+		<template name="Servlet 2.3 Deployment Descriptor" src="ServletDeploymentDescriptor.xml"/>
+	</templates>
+</xngr>

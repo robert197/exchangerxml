@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Company>
+        <Person>
+                <Name>John Doe</Name>
+                <SSN>123-45-6789</SSN>
+        </Person>
+        <Person>
+                <Name>Jane Smith</Name>
+                <SSN>454-23-1234</SSN>
+        </Person>
+</Company>

@@ -1,0 +1,197 @@
+<h4 class="title"><a name="d0e290"></a>Editor Toolbar</h4>
+
+<p>The Editor toolbar is only visible in the Editor view. It consists of 6 buttons: Tag, Comment, Indent, Unindent,
+					Goto and Format.</p><br>
+
+
+<img src="../../images/editorToolbar.gif" alt="Editor Toolbar">
+
+<p class="title"><b>Figure&nbsp;5.&nbsp;Editor Toolbar</b></p>
+
+
+<table>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonSelEl.gif" alt="Select Element Button"></td>
+<td>
+
+<p>Selects the current element for the cursor position. Used repeatedly, selects the content of all ancestors up to the root element.</p>
+
+</td>
+</tr>
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonSelElCont.gif" alt="Select Element Content Button"></td>
+<td>
+
+<p>Selects the current element content (without start and end tags) for the cursor position.</p>
+
+</td>
+</tr>
+
+
+
+
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonTag.gif" alt="Tag Button"></td>
+<td>
+
+<p>Use the <b>Tag</b> button (or select <b><span class="guilabel">Edit-&gt;Tag</span></b> or use the key combination <b><span class="guilabel">Ctrl-T</span></b>) to easily surround an existing piece of 
+			content with an element of your choosing. Simply highlight the piece of content and press the Tag button. Enter the desired 
+			element name in the pop-up dialog box.</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonComment.gif" alt="Comment Button"></td>
+<td>
+
+<p>Use the <b>Comment</b> button (or select <b><span class="guilabel">Edit-&gt;Comment</span></b>) to comment out an existing piece 
+			of content. Simply highlight the piece of content and press the Comment button. (Remember: nested comments are not allowed in XML).</p>
+</td>
+</tr>
+
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonCDATA.gif" alt="CDATA Button"></td>
+<td>
+
+<p>Use the <b>CDATA</b> button (or select <b><span class="guilabel">Edit-&gt;CDATA</span></b>) to convert an existing piece 
+			of content to a CDATA section. Simply highlight the piece of content and press the CDATA button.</p>
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonSplit.gif" alt="Split Element Button"></td>
+<td>
+
+<p>Use the <b>Split Element</b> button (or select <b><span class="guilabel">Edit-&gt;Split Element</span></b>) to add an end tag and new start tag for the current element at the cursor position.</p>
+</td>
+</tr>
+
+
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/ch2ent.gif" alt="Convert Characters to Entities Button"></td>
+<td>
+
+<p>Use the <b><span class="guilabel">Convert Characters to Entities</span></b> button to
+				change characters above a certain range to the equivalent character reference or to a named entity reference.
+				Special care must be taken when converting content with nested elements, comments, CDATA, etc. See the section on Special Characters for more details.</p>
+</td>
+</tr>
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/ent2ch.gif" alt="Convert Entities to Characters Button"></td>
+<td>
+
+<p>Use the <b><span class="guilabel">Convert Entities to Characters</span></b> button 
+         to	change named entity references or character references to actual characters. See the section on Special Characters 
+				for more details.</p>
+</td>
+</tr>
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonStrip.gif" alt="Strip Tags From Selection Button"></td>
+<td>
+
+<p>Use the <b><span class="guilabel">Strip Tags From Selection</span></b> button  to 
+				remove start and end tags from the current selection. Note that Comments, CDATA, PIs, etc will not be affected.</p>
+</td>
+</tr>
+
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonGotoSTAG.gif" alt="Goto Start Tag Button"></td>
+<td>
+
+<p>Use the <b>Goto Start Tag</b> button to highlight the start tag for the current cursor position</p>
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonGotoETAG.gif" alt="Goto End Tag Button"></td>
+<td>
+
+<p>Use the <b>Goto End Tag</b> button to highlight the end tag for the current cursor position</p>
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonGotoLine.gif" alt="Goto Button"></td>
+<td>
+
+<p>Use the <b>Goto</b> button (or select <b><span class="guilabel">Edit-&gt;Goto</span></b>) to go to a particular line number. Enter the 
+			line number in the pop-up dialog and press <b><span class="guilabel">OK</span></b> (or the Enter key). To turn line numbering on or off in the
+			Editor select <b><span class="guilabel">File-&gt;Preferences</span></b>, go to the Views tab and set/reset the <b><span class="guilabel">Show Line Numbers</span></b> 
+			field in the Editor section.</p>
+</td>
+</tr>
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonFormat.gif" alt="Format Button"></td>
+<td>
+
+<p>Use the <b>Format</b> button (or select <b><span class="guilabel">Edit-&gt;Format</span></b>) to pretty-print the XML content. 
+			To control the formatting options, select <b><span class="guilabel">File-&gt;Preferences</span></b> and choose the Format tab.</p>
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonUnlock.gif" alt="Unlock Button"></td>
+<td>
+
+<p>The <b>Unlock</b> button indicates that all content can be edited. Click once or select <b><span class="guilabel">Edit-&gt;Lock</span></b>). The button changes to Lock (<img src="../../images/buttonLock.gif" alt="Lock Button">) and indicates that all element names in start and end tags will no longer be editable. (Only attribute values and text content can now be modified).</p>
+ 
+<p>Click the Lock button once or select <b><span class="guilabel">Edit-&gt;Double Lock</span></b>. The button changes to Double Lock (<img src="../../images/buttonDoubleLock.gif" alt="Double Lock Button">) and indicates that attribute values will no longer editable, effectively locking all the markup and only allowing changes to text content. Note that while the Lock or Double Lock buttons are active, there will be no tag prompting and any attempt to create start or end tags will result in automatic entity replacement (for example, if you copy and paste tags).</p>
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonHighlight.gif" alt="Highlight Button"></td>
+<td>
+
+<p>Use the <b>Highlight</b> button (or select <b><span class="guilabel">View-&gt;Highlight</span></b>) to highlight elements and attributes from different namespaces, using a different color for each namespace.</p>
+</td>
+</tr>
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonCollapseAll.gif" alt="Collapse All Button"></td>
+<td>
+
+<p>Use the <b>Collapse All</b> button (or select <b><span class="guilabel">View-&gt;Collapse All</span></b>) to only show the root element in Content Folding.</p>
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonExpandAll.gif" alt="Expand All Button"></td>
+<td>
+
+<p>Use the <b>Expand All</b> button (or select <b><span class="guilabel">View-&gt;Expand All</span></b>) to show every element in  Content Folding.</p>
+</td>
+</tr>
+
+
+
+
+</table>
+
+
+
+
+

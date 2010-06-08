@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Tiny Attribute Collection Module .............................. -->
+<!--
+  file: svg11-tiny-attribs.mod
+  
+  This is SVG Tiny, a proper subset of SVG.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg11-tiny-attribs.mod.xsd,v 1.1 2004/03/26 10:28:59 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Tiny Attribute Collection//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny-attribs.mod"
+  
+  .......................................................................
+-->
+<!--
+  SVG 1.1 Tiny Attribute Collection
+  
+  This module defines the set of common attributes that can be present
+  on many SVG elements.
+-->
+<!-- module: svg-conditional.mod ....................... -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11-tiny.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:simpleType name="ExtensionList.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="FeatureList.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.Conditional.attrib">
+    <xs:attribute name="requiredFeatures" type="FeatureList.datatype"/>
+    <xs:attribute name="requiredExtensions" type="ExtensionList.datatype"/>
+    <xs:attribute name="systemLanguage" type="LanguageCodes.datatype"/>
+  </xs:attributeGroup>
+  <!-- module: svg-basic-text.mod ........................ -->
+  <xs:simpleType name="FontFamilyValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="FontSizeValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.TextContent.attrib">
+    <xs:attribute name="text-anchor">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="start"/>
+          <xs:enumeration value="middle"/>
+          <xs:enumeration value="end"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.Font.attrib">
+    <xs:attribute name="font-family" type="FontFamilyValue.datatype"/>
+    <xs:attribute name="font-size" type="FontSizeValue.datatype"/>
+    <xs:attribute name="font-style">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="italic"/>
+          <xs:enumeration value="oblique"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="font-weight">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="bold"/>
+          <xs:enumeration value="bolder"/>
+          <xs:enumeration value="lighter"/>
+          <xs:enumeration value="100"/>
+          <xs:enumeration value="200"/>
+          <xs:enumeration value="300"/>
+          <xs:enumeration value="400"/>
+          <xs:enumeration value="500"/>
+          <xs:enumeration value="600"/>
+          <xs:enumeration value="700"/>
+          <xs:enumeration value="800"/>
+          <xs:enumeration value="900"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of svg11-tiny-attribs.mod -->

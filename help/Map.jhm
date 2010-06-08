@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
+
+
+<map version="1.0">
+	<mapID target="toplevelfolder" url="images/toplevel.gif"/>
+
+	<mapID target="exchanger.intro" url="ExchangerHelp/intro.html"/>
+
+	<mapID target="start.intro" url="ExchangerHelp/start/intro.html"/>
+	<mapID target="start.overview" url="ExchangerHelp/start/overview.html"/>
+	<mapID target="start.browsing" url="ExchangerHelp/start/browsing.html"/>
+	<mapID target="start.xpath" url="ExchangerHelp/start/xpath.html"/>
+	<mapID target="start.editing" url="ExchangerHelp/start/editing.html"/>
+	<mapID target="start.grid" url="ExchangerHelp/start/grid.html"/>
+	<!--<mapID target="start.grammars" url="ExchangerHelp/start/grammars.html"/>
+	<mapID target="start.xmlmenu" url="ExchangerHelp/start/xmlmenu.html"/>
+	<mapID target="start.specchar" url="ExchangerHelp/start/specchar.html"/>
+	<mapID target="start.remote" url="ExchangerHelp/start/remote.html"/>-->
+	<mapID target="start.projects" url="ExchangerHelp/start/projects.html"/>
+	<mapID target="start.schema" url="ExchangerHelp/start/schema.html"/>
+	<mapID target="start.types" url="ExchangerHelp/start/types.html"/>
+	<mapID target="start.transforms" url="ExchangerHelp/start/transforms.html"/>
+	<mapID target="start.debugger" url="ExchangerHelp/start/debugger.html"/>
+	<mapID target="start.import" url="ExchangerHelp/start/import.html"/>
+	<mapID target="start.diff" url="ExchangerHelp/start/diff.html"/>
+	<mapID target="start.soap" url="ExchangerHelp/start/soap.html"/>
+	<mapID target="start.wsdl" url="ExchangerHelp/start/wsdl.html"/>
+	<mapID target="start.canon" url="ExchangerHelp/start/canon.html"/>
+	<mapID target="start.sign" url="ExchangerHelp/start/sign.html"/>
+	<mapID target="start.query" url="ExchangerHelp/start/query.html"/>
+	<!--<mapID target="start.db" url="ExchangerHelp/start/db.html"/>-->
+	<mapID target="start.svg" url="ExchangerHelp/start/svg.html"/>
+	<mapID target="start.outliner" url="ExchangerHelp/start/outliner.html"/>
+	<mapID target="start.emacsshort" url="ExchangerHelp/start/emacsshort.html"/>
+	<mapID target="start.winunixshort" url="ExchangerHelp/start/winunixshort.html"/>
+	<mapID target="start.macshort" url="ExchangerHelp/start/macshort.html"/>
+			
+	<mapID target="proj.intro" url="ExchangerHelp/projects/intro.html"/>
+	<mapID target="proj.projects" url="ExchangerHelp/projects/projects.html"/>
+
+	<mapID target="edit.intro" url="ExchangerHelp/edit/intro.html"/>
+	<mapID target="edit.basic" url="ExchangerHelp/edit/basic.html"/>
+	<mapID target="edit.controls" url="ExchangerHelp/edit/controls.html"/>
+	<mapID target="edit.syntax" url="ExchangerHelp/edit/syntax.html"/>
+	<mapID target="edit.font" url="ExchangerHelp/edit/font.html"/>
+	<mapID target="edit.find" url="ExchangerHelp/edit/dialogs/find.html"/>
+	<mapID target="edit.replace" url="ExchangerHelp/edit/dialogs/replace.html"/>
+
+	<mapID target="pref.intro" url="ExchangerHelp/prefs/intro.html"/>
+	<mapID target="pref.text" url="ExchangerHelp/prefs/text.html"/>
+	<mapID target="pref.views" url="ExchangerHelp/prefs/views.html"/>
+	<mapID target="pref.xml" url="ExchangerHelp/prefs/xml.html"/>
+	<mapID target="pref.format" url="ExchangerHelp/prefs/format.html"/>
+	<mapID target="pref.print" url="ExchangerHelp/prefs/print.html"/>
+	<mapID target="pref.network" url="ExchangerHelp/prefs/network.html"/>
+	<mapID target="pref.security" url="ExchangerHelp/prefs/security.html"/>
+	<mapID target="pref.system" url="ExchangerHelp/prefs/system.html"/>
+	<mapID target="pref.keys" url="ExchangerHelp/prefs/keys.html"/>
+
+	<mapID target="menus.intro" url="ExchangerHelp/menus/intro.html"/>
+	<mapID target="menus.file" url="ExchangerHelp/menus/file.html"/>
+	<mapID target="menus.edit" url="ExchangerHelp/menus/edit.html"/>
+	<mapID target="menus.view" url="ExchangerHelp/menus/view.html"/>
+	<mapID target="menus.project" url="ExchangerHelp/menus/project.html"/>
+	<mapID target="menus.xml" url="ExchangerHelp/menus/xml.html"/>
+	<mapID target="menus.schema" url="ExchangerHelp/menus/schema.html"/>
+	<mapID target="menus.transform" url="ExchangerHelp/menus/transform.html"/>
+	<mapID target="menus.security" url="ExchangerHelp/menus/security.html"/>
+	<mapID target="menus.tools" url="ExchangerHelp/menus/tools.html"/>
+	<mapID target="menus.grid" url="ExchangerHelp/menus/grid.html"/>
+	<mapID target="menus.help" url="ExchangerHelp/menus/help.html"/>
+
+	<mapID target="toolbar.intro" url="ExchangerHelp/toolbars/intro.html"/>
+	<mapID target="toolbar.general" url="ExchangerHelp/toolbars/general.html"/>
+	<mapID target="toolbar.edit" url="ExchangerHelp/toolbars/edit.html"/>
+	<mapID target="toolbar.debugger" url="ExchangerHelp/toolbars/debugger.html"/>
+	<mapID target="toolbar.grid" url="ExchangerHelp/toolbars/grid.html"/>
+
+	<mapID target="xngr-editor-icon" url="images/xngr-editor-icon.gif"/>
+
+
+</map>

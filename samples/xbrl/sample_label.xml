@@ -1,0 +1,96 @@
+<!-- 
+  Sample XBRL Version 2 Taxonomy 
+  Label Linkbase
+  January 2002
+  Don Bruey, Creative Solutions
+  dbruey@creativesolutions.com
+-->
+<linkbase xmlns="http://www.xbrl.org/2001/XLink/xbrllinkbase" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xlink="http://www.w3.org/1999/xlink" 
+          xsi:schemaLocation="http://www.xbrl.org/2001/XLink/xbrllinkbase xbrl-linkbase.xsd">
+
+	<labelLink xlink:type="extended">
+
+    <loc xlink:type="locator" xlink:href="sample_taxonomy.xsd#balanceSheet" 
+         xlink:label="sample_balanceSheet" xlink:title="sample_balanceSheet"/>  
+		<label xlink:type="resource" xlink:label="sample_balanceSheet_en" 
+           xlink:title="sample_balanceSheet_en" 
+           xlink:role="http://www.xbrl.org/linkprops/label/standard" 
+           xml:lang="en">Balance Sheet</label>
+		<labelArc xlink:type="arc" xlink:from="sample_balanceSheet" xlink:to="sample_balanceSheet_en" 
+              xlink:show="embed" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/element-label" 
+              xlink:title="Go to label of sample_balanceSheet_en"/>
+		<labelArc xlink:type="arc" xlink:from="sample_balanceSheet_en" xlink:to="sample_balanceSheet" 
+              xlink:show="replace" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/label-element" 
+              xlink:title="Go to element sample_balanceSheet"/>
+
+    <loc xlink:type="locator" xlink:href="sample_taxonomy.xsd#currentAssets" 
+         xlink:label="sample_currentAssets" xlink:title="sample_currentAssets"/>  
+		<label xlink:type="resource" xlink:label="sample_currentAssets_en" 
+           xlink:title="sample_currentAssets_en" 
+           xlink:role="http://www.xbrl.org/linkprops/label/standard" 
+           xml:lang="en">Current Assets</label>
+		<labelArc xlink:type="arc" xlink:from="sample_currentAssets" xlink:to="sample_currentAssets_en" 
+              xlink:show="embed" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/element-label" 
+              xlink:title="Go to label of sample_currentAssets_en"/>
+		<labelArc xlink:type="arc" xlink:from="sample_currentAssets_en" xlink:to="sample_currentAssets" 
+              xlink:show="replace" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/label-element" 
+              xlink:title="Go to element sample_currentAssets"/>
+
+    <loc xlink:type="locator" xlink:href="sample_taxonomy.xsd#assets.cash" 
+         xlink:label="sample_assets.cash" xlink:title="sample_assets.cash"/>  
+		<label xlink:type="resource" xlink:label="sample_assets.cash_en" 
+           xlink:title="sample_assets.cash_en" 
+           xlink:role="http://www.xbrl.org/linkprops/label/standard" 
+           xml:lang="en">Cash</label>
+		<labelArc xlink:type="arc" xlink:from="sample_assets.cash" xlink:to="sample_assets.cash_en" 
+              xlink:show="embed" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/element-label" 
+              xlink:title="Go to label of sample_assets.cash_en"/>
+		<labelArc xlink:type="arc" xlink:from="sample_assets.cash_en" xlink:to="sample_assets.cash" 
+              xlink:show="replace" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/label-element" 
+              xlink:title="Go to element sample_assets.cash"/>
+
+    <loc xlink:type="locator" xlink:href="sample_taxonomy.xsd#assets.netReceivables" 
+         xlink:label="sample_assets.netReceivables" xlink:title="sample_assets.netReceivables"/>  
+		<label xlink:type="resource" xlink:label="sample_assets.netReceivables_en" 
+           xlink:title="sample_assets.netReceivables_en" 
+           xlink:role="http://www.xbrl.org/linkprops/label/total" 
+           xml:lang="en">Net Receivables</label>
+		<labelArc xlink:type="arc" xlink:from="sample_assets.netReceivables" 
+              xlink:to="sample_assets.netReceivables_en" 
+              xlink:show="embed" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/element-label" 
+              xlink:title="Go to label of sample_assets.netReceivables_en"/>
+		<labelArc xlink:type="arc" xlink:from="sample_assets.netReceivables_en" 
+              xlink:to="sample_assets.netReceivables" 
+              xlink:show="replace" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/label-element" 
+              xlink:title="Go to element sample_assets.netReceivables"/>
+
+    <loc xlink:type="locator" xlink:href="sample_taxonomy.xsd#business.descriptionOfBusiness" 
+         xlink:label="sample_business.descriptionOfBusiness" 
+         xlink:title="sample_business.descriptionOfBusiness"/>  
+		<label xlink:type="resource" xlink:label="sample_business.descriptionOfBusiness_en" 
+           xlink:title="sample_business.descriptionOfBusiness_en" 
+           xlink:role="http://www.xbrl.org/linkprops/label/standard" 
+           xml:lang="en">Description of Business</label>
+		<labelArc xlink:type="arc" xlink:from="sample_business.descriptionOfBusiness" 
+              xlink:to="sample_business.descriptionOfBusiness_en" 
+              xlink:show="embed" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/element-label" 
+              xlink:title="Go to label of sample_business.descriptionOfBusiness_en"/>
+		<labelArc xlink:type="arc" xlink:from="sample_business.descriptionOfBusiness_en" 
+              xlink:to="sample_business.descriptionOfBusiness" 
+              xlink:show="replace" xlink:actuate="onRequest" 
+              xlink:arcrole="http://www.xbrl.org/linkprops/arc/label-element" 
+              xlink:title="Go to element sample_business.descriptionOfBusiness"/>
+	</labelLink>
+
+</linkbase>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  Sample XBRL Version 2 Instance Document
+  January 2002
+  Don Bruey, Creative Solutions
+  dbruey@creativesolutions.com
+--><?xml-stylesheet type="text/xsl" href="InstView.xsl"?>
+
+<group xmlns="http://www.xbrl.org/2001/instance" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:link="http://www.xbrl.org/2001/XLink/xbrllinkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ISO4217="http://www.iso.org/4217" xmlns:sample="http://www.sample.org/xbrl/2001-12-31" xsi:schemaLocation="http://www.sample.org/xbrl/2001-12-31 schema/sample_taxonomy.xsd http://www.xbrl.org/2001/instance schema/xbrl-instance.xsd">
+ 
+	<sample:assets.cash id="assets.cash" numericContext="numC1">52000</sample:assets.cash>
+	<sample:assets.netReceivables numericContext="numC1">1800</sample:assets.netReceivables>
+	<sample:business.descriptionOfBusiness nonNumericContext="nonNumC1">Financial and Tax Planning Services</sample:business.descriptionOfBusiness>
+	<link:footnoteLink xlink:type="extended" xlink:role="Merger" xlink:title="1">
+		<link:footnote xlink:type="resource" xlink:label="footnote1" xlink:title="1" xlink:role="standard" xml:lang="en"/>
+		<link:loc xlink:type="locator" xlink:label="fact1" xlink:href="#assets.cash"/>
+		<link:footnoteArc xlink:from="fact1" xlink:to="footnote1" xlink:title="fact1-footnote1" xlink:arcrole="http://www.xbrl.org/linkprops/arc/fact-footnote" xlink:show="replace" xlink:actuate="onRequest"/>
+		<link:footnoteArc xlink:from="footnote1" xlink:to="fact1" xlink:title="footnote1-fact1" xlink:arcrole="http://www.xbrl.org/linkprops/arc/footnote-fact" xlink:show="replace" xlink:actuate="onRequest"/>
+	</link:footnoteLink>
+	<numericContext id="numC1" precision="18" cwa="true">
+		<entity>
+			<identifier scheme="http://www.stockMarket.com/">SMPL</identifier>
+			<segment/>
+		</entity>
+		<period>
+			<instant>2001-11-30</instant>
+		</period>
+		<unit>
+			<measure>ISO4217:USD</measure>
+		</unit>
+		<scenario name="Actual values">
+			<sample:scenarioType>actual</sample:scenarioType>
+		</scenario>
+	</numericContext>
+	<nonNumericContext id="nonNumC1">
+		<entity>
+			<identifier scheme="http://www.stockMarket.com/">SMPL</identifier>
+		</entity>
+		<period>
+			<instant>2001-11-30</instant>
+		</period>
+	</nonNumericContext>
+	<link:linkbaseRef xlink:type="simple" xlink:href="sample_customLabel.xml" xlink:actuate="onRequest" xlink:role="http://www.xbrl.org/linkprops/linkRef/label" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase"/>
+</group>

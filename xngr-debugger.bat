@@ -1,0 +1,1 @@
+java -ms256M -mx256M -noclassgc -splash:xngr-splash.gif -jar xngr-editor.jar -debugger %1

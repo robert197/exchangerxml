@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Style Module .................................................. -->
+<!--
+  file: svg-style.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-style.mod.xsd,v 1.1 2004/03/26 10:24:10 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 Style//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-style.mod"
+  
+  .......................................................................
+-->
+<!--
+  Style
+  
+     style
+  
+  This module declares markup to provide support for stylesheet.
+-->
+<!-- list of classes -->
+<!-- comma-separated list of media descriptors. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:simpleType name="MediaDesc.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!-- style sheet data -->
+  <!-- Qualified Names (Default) ......................... -->
+  <!-- Attribute Collections (Default) ................... -->
+  <!-- SVG.Style.class ................................... -->
+  <!-- SVG.Style.attrib .................................. -->
+  <!-- style: Style Element .............................. -->
+  <xs:element name="style" substitutionGroup="SVG.Style.class"/>
+  <!-- end of SVG.style.element -->
+  <xs:attributeGroup name="attlist.style">
+    <xs:attribute ref="xml:space" default="preserve"/>
+    <xs:attributeGroup ref="xml:SVG.id.attrib"/>
+    <xs:attributeGroup ref="xml:SVG.base.attrib"/>
+    <xs:attributeGroup ref="xml:SVG.lang.attrib"/>
+    <xs:attribute name="type" use="required" type="ContentType.datatype"/>
+    <xs:attribute name="media" type="svg:MediaDesc.datatype"/>
+    <xs:attribute name="title" type="Text.datatype"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.style.attlist -->
+<!-- end of svg-style.mod -->

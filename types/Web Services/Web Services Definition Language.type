@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Web Services Definition Language" publicID="" extensions="wsdl">
+	<root name="definitions">
+		<namespace prefix="wsdl" uri="http://schemas.xmlsoap.org/wsdl/"/>
+	</root>
+	<template src="wsdl.xsd"/>
+	<validation src="wsdl.xsd" type="xsd" useDocumentLocation="false"/>
+</type>

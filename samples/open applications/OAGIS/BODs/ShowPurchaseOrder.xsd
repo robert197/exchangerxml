@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    License information for this file is provided in LICENSE.TXT
+    For support, more information, or to report implementation bugs, 
+    please contact the Open Applications Group at xml@openapplications.org 
+     
+    ** Revision: 8.0 **
+    ** Date: 05 April 2002 **
+    Open Applications Group XSD
+    Copyright 1998-2002, All Rights Reserved
+    
+    Name: ShowPurchaseOrder.xsd
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.openapplications.org/oagis"
+	targetNamespace="http://www.openapplications.org/oagis" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+        <xs:include schemaLocation="../Resources/Verbs/Show.xsd"/>
+        <xs:include schemaLocation="../Resources/Nouns/PurchaseOrder.xsd"/>
+        <xs:element name="ShowPurchaseOrder" type="ShowPurchaseOrder">
+                <xs:annotation>
+                        <xs:documentation source="http://www.openapplications.org/oagis">The purpose of the Show PurchaseOrder is to supply Purchase Order Information to another business application module.  This request may be used as a response to a Get PurchaseOrder request or as a push notification of an event.
+
+There are many possible business applications in several environments that may use this capability.  Examples include:
+
+1. A Order Management application could use this BOD to send information to a Plant Data Collection application.
+
+2. An MRP, Inventory or Manufacturing business application could use this to obtain order information.
+
+3. The Order Management application can notify the MRP/Inventory application when a vendor gives or changes a promise day.
+
+</xs:documentation>
+                </xs:annotation>
+        </xs:element>
+        <xs:complexType name="ShowPurchaseOrder">
+                <xs:complexContent>
+                        <xs:extension base="BusinessObjectDocument">
+                                <xs:sequence>
+                                        <xs:element name="DataArea" type="ShowPurchaseOrderDataArea">
+                                                <xs:annotation>
+                                                        <xs:documentation source="http://www.openapplications.org/oagis">Is where the information that the BOD message carries is provided, in this case ShowPurchaseOrder. The information consists of a Verb and one or more Nouns. The verb (Show) indicates the action to be performed on the Noun (PurchaseOrder).</xs:documentation>
+                                                </xs:annotation>
+                                        </xs:element>
+                                </xs:sequence>
+                        </xs:extension>
+                </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="ShowPurchaseOrderDataArea">
+                <xs:complexContent>
+                        <xs:extension base="DataArea">
+                                <xs:sequence>
+                                        <xs:element ref="Show"/>
+                                        <xs:element ref="PurchaseOrder" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                        </xs:extension>
+                </xs:complexContent>
+        </xs:complexType>
+</xs:schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="JSP 1.2 Tag Library Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" extensions="xml">
+	<root name="taglib">
+		<namespace prefix="" uri=""/>
+	</root>
+	<template src="" type="xsd"/>
+	<validation src="dtd/web-jsptaglibrary_1_2.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

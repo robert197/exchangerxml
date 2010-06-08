@@ -1,0 +1,15 @@
+<xngr>
+	<projects>	
+<project name="XPath">
+
+   <document src="Contacts.xml"/>
+   <document src="ContactsNS.xml"/>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

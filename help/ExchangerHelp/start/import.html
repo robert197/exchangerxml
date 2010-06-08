@@ -1,0 +1,130 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">Data Import</h2>
+      <p>Exchanger XML provides a number of ways to import from various external data sources including structured text files, Excel
+         spreadsheets and database tables.
+      </p>
+      <h3 class="title">Import From Text File</h3>
+      <p> 
+         				Select <b>File-&gt;Import-&gt;From Text File ...</b> and set the Location URL to 
+         				<tt class="filename">projects/Import Text/input/assets.txt</tt> In the Options section of the <b>Import...</b> dialog, set the 
+         				<b>Document Element</b> to be <b>Assets</b> and the <b>Row Element</b> to <b>Item</b>. 
+         				The Field Delimiter defaults to Comma, but can be set explicitly in the drop down if required. If the data contains characters
+         such as <b>&lt;</b> or <b>&amp;</b>, then
+         				ensure that these special characters are escaped with entities by checking the appropriate tick box. The input data is
+         				displayed in the Dialog in tabular form above a Preview containing an example of what the generated XML will look like.
+      </p><img src="../../images/importText.gif" alt="Import From Text File"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Import From Text File</b></p>
+      <p>
+         				The first row of this particular input file contains field names and these will be used as tokens in the created XML file.
+         However, the field names (along with all other values) can be edited directly in the tabular preview by double-clicking on
+         the desired item and entering the required value.
+      </p>
+      <p>
+         				By default, all data items in the input will be converted to element content, but this can be over-ridden by clicking
+         on the
+         				individual column headers. Clicking once on a column header will cause the data from this column to be used as attribute
+         values on the row elements,
+         				rather than as separate child elements. Clicking a second time will cause the column's data to be ignored when generating
+         the
+         				XML file. Repeatedly clicking on the column header will cycle through the 3 different options. For the <b>CompanyID</b> and <b>AssetID</b> columns, set
+         				the field type to <b>="ATTRIBUTE"</b>  and for some other columns, set the type to <b>&lt;!--SKIP--&gt;</b> and the 
+         				Preview should adjust accordingly. Now, click <b>OK</b> and the complete XML file corresponding to the input data will open
+         				in the editor.			 
+         				
+         				
+      </p>
+      <h3 class="title">Import From Excel File</h3>
+      <p>
+         				Select <b>File-&gt;Import-&gt;From Excel File...</b> and set the Location URL to 
+         				<tt class="filename">projects/Import Excel/input/sample.xls</tt> In the Worksheet section of the <b>Import...</b> dialog, choose
+         				<b>Sheet 1</b>  in the drop down menu, and set <b>Import Formulas</b> to <b>No</b>.
+         				Set the <b>Document Element</b> to <b>Contacts</b> and the <b>Row Element</b> to <b>Person</b>. 
+         				The input data is displayed in the Dialog in tabular form above a Preview containing an example of what the generated
+         XML will look like.
+      </p><img src="../../images/importExcel.gif" alt="Import From Excel File"></img><p class="title"><b>Figure&nbsp;2.&nbsp;Import From Excel File</b></p>
+      <p>
+         				The first row of this particular input file contains field names and these will be used as tokens in the generated XML
+         file.  However, the field names (along with all other values) can be edited directly in the tabular preview by double-clicking
+         on the desired item and entering the required value.
+      </p>
+      <p>
+         				By default, all data items in the input will be converted to element content, but this can be over-ridden by clicking
+         on the
+         				individual column headers. Clicking once on a column header will cause the data from this column to be used as attribute
+         values on the row elements,
+         				rather than as separate child elements. Clicking a second time will cause the column's data to be ignored when generating
+         the
+         				XML file. Repeatedly clicking on the column header will cycle through the 3 different options. For the <b>Surname</b> column, set
+         				the field type to <b>="ATTRIBUTE"</b>  and for the <b>County</b> column, set the type to <b>&lt;!--SKIP--&gt;</b> and the 
+         				Preview should adjust accordingly. Now, click <b>OK</b> and the complete XML document corresponding to the input Excel spreadsheet will open
+         				in the editor.			 
+         				
+         				
+      </p>
+      <h3 class="title">Import From Database Table</h3>
+      <p>
+         				When importing data from database tables, the appropriate JDBC drivers must be made available to the application using
+         the System tab in the
+         				 <b>File-&gt;Preferences</b> dialog. The JDBC-ODBC bridge is automatically included by default and can be used to easily access 
+         				 SQL Server databases, among others. See the Preferences section of this documentation for more details on adding Jar/Zip
+         files  for other drivers
+         				 to the application. Select <b>File-&gt;Import-&gt;From Database Table...</b> and enter the connection details.
+         				 
+         				 
+      </p>
+      <p>
+         				 Using the JDBC-ODBC bridge, the
+         				<b>Driver</b> field is <b>sun.jdbc.odbc.JdbcOdbcDriver</b> while the <b>Database</b> field will be similar
+         				to <b>jdbc:odbc:LocalServer</b>. 
+         				
+      </p><img src="../../images/importDatabaseODBC.gif" alt="Import From Database Using ODBC"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Import From Database Using ODBC</b></p>
+      <p>
+         				
+         				Using the Microsoft Type 4 Driver, the corresponding fields would be something like
+         				 <b>com.microsoft.jdbc.sqlserver.SQLServerDriver</b> and
+         				  <b>jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=Northwind;</b>
+         				
+      </p><img src="../../images/importDatabaseSQLServer.gif" alt="Import From SQL Server Database"></img><p class="title"><b>Figure&nbsp;4.&nbsp;Import From SQL Server Database</b></p>
+      <p>
+         				 Using the LGPL version of the MySQL driver that is bundled with Exchanger XML, the
+         				<b>Driver</b> field is <b>org.gjt.mm.mysql.Driver</b> while the <b>Database</b> field will be similar
+         				to <b>jdbc:mysql://localhost:3306/testdb</b>. 	
+      </p><img src="../../images/importDatabaseMySQL.gif" alt="Import From MySQL Database"></img><p class="title"><b>Figure&nbsp;5.&nbsp;Import From MySQL Database</b></p>
+      <p>
+         				Enter the appropriate Username and Password, and click <b>OK</b>. In the Import... dialog, choose the appropriate Table and set the 
+         				Document Element and Row Element as required. If the data contains characters such as <b>&lt;</b> or <b>&amp;</b>, then
+         				ensure that these special characters are escaped with entities by checking the appropriate tick box. (If the database
+         contains Blobs of valid XML, 
+         				then there is no need to perform this escaping). Select the field types as described in the preceding sections and enter
+         criteria for the 
+         				<b>Where</b>, <b>Order By</b>, and <b>Group By</b> clauses at the bottom of the dialog, as necessary.
+         				Now, click <b>OK</b> and the complete XML document corresponding to the database table will open
+         				in the editor.			 
+         				
+         				
+      </p><img src="../../images/importDatabase.gif" alt="Import From Database Table"></img><p class="title"><b>Figure&nbsp;6.&nbsp;Import From Database Table</b></p>
+      <h3 class="title">Import From SQL/XML Query</h3>
+      <p>A number of databases, including IBM DB2 and Oracle, support a standard mechanism for automatically generating XML output
+         from SQL-like 
+         				queries. Ensure that the correct JDBC drivers have been added to the application and then select <b>File-&gt;Import-&gt;From SQL/XML Query......</b>. 
+         				
+         				Enter the appropriate Driver, Databse, Username and Password in the connection dialog, and click <b>OK</b>.
+         				
+      </p><img src="../../images/importSQLXML.gif" alt="Import From SQL/XML Query"></img><p class="title"><b>Figure&nbsp;7.&nbsp;Import From SQL/XML Query</b></p>
+      <p>
+         				For the IBM DB2 Universal Driver, the <b>Driver</b> field is <b>com.ibm.db2.jcc.DB2Driver</b> while 
+         				the <b>Database</b> field will be similar to <b>jdbc:db2://localhost:50000/SAMPLE</b>.
+         				
+         				In the popup window, either manually type in a query or use the <b>Import Script</b> button and select the file <tt class="filename">sample.sqx</tt> from the <tt class="filename">Import SQL/XML</tt> project. 
+      </p><img src="../../images/importSQLXMLScript.gif" alt="Import SQL/XML Script"></img><p class="title"><b>Figure&nbsp;8.&nbsp;Import SQL/XML Script</b></p>
+      <p>
+         				Press <b>OK</b> and the query results will be displayed in the Editor. Note that SQL/XML will not always return valid XML - often, the returned
+         elements will need to be surrounded by a root element.
+         				
+      </p>
+   </body>
+</html>

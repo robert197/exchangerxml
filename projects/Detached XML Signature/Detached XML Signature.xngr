@@ -1,0 +1,17 @@
+<xngr>
+	<projects>	
+<project name="Detached XML Signature">
+  <folder name="input">
+   <document src="http://www.exchangerxml.com/Cladonia.gif"/>
+  </folder>
+  <folder name="signed">
+   <document src="signed/detachedSignature.xml"/>
+  </folder>
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+		<h3 class="title">Creating New Projects</h3>
+		<p>To create a new project choose <b>Project-&gt;New Project</b> and enter the project name.  
+      </p>
+		<h3 class="title">Adding Folders and Files to Projects</h3>
+		<p>A link to a directory on the filesystem can be added to a project by using <b>Project-&gt;Add Virtual Folder</b>. The project will load up the contents of the directory at startup, and the view can be updated at any stage using <b>Project-&gt;Refresh Virtual Folder</b>.  
+      </p>
+		<p>Folders can be added to a project by selecting <b>Project-&gt;Add Folder...</b> or right-click and choose Add Folder from the popup. Folders are handy for grouping associated files from various locations
+         
+         				on disk. Individual files can be added to Projects or Folders by selecting <b>Project-&gt;Add file</b> or right-clicking in the 
+         				Project view and choosing Add File from the popup. To expand a  project or folder, double-click the icon or name in the
+         project view. 
+      </p>
+		<p>To add a directory and its contents to a project or folder, select <b>Project-&gt;Add Directory</b> or alteratively, 
+         				right-click on the project name in the Project view and select Add Directory in the popup. To only add the directory contents
+         without the top-level directory itself, choose <b>Project-&gt;Add Directory Contents</b>.
+      </p>
+		<p>Remote files can similarly be added to Projects or Folders by selecting the appropriate Project or Folder 
+         				and then selecting <b>Project-&gt;Add Remote</b> (or alternatively right-clicking and choosing Add Remote from 
+         				the popup)
+      </p>
+		<h3 class="title">Removing Folders and Files from Projects</h3>
+		<p>A file can be removed from a Project or Folder by clicking on the file name in the Project view and 
+         				then choosing <b>Project-&gt;Remove File</b> (or alternatively, right-clicking and choosing Remove File from 
+         				the popup). Note: the file will not be deleted from disk.
+      </p>
+		<p>A folder can be removed from a Project or parent Folder by clicking on the folder name in the 
+         				Project view and then choosing <b>Project-&gt;Remove Folder</b> (or alternatively, right-clicking and 
+         				choosing Remove Folder from the popup). Note: the directory will not be deleted from disk.
+      </p>
+		<h3 class="title">Deleting Projects</h3>
+		<p>To delete a project, click on the project name and then either select <b>Project-&gt;Delete 
+            				Project</b> or right-click and choose Delete Project.
+      </p>
+		<h3 class="title">Find in Projects</h3>
+		<p>Exchanger XML Editor supports searching for content in arbitrary directories on the file system using the <b>Edit-&gt;Find in Files...</b> functionality. However, it is possible to restrict searching to the contents of a project using <b>Projects-&gt;Find in Projects</b>. 
+      </p>
+		<img src="../../images//findInProjects.gif" alt="Find in Projects"/>
+		<p class="title">
+			<b>Figure&nbsp;1.&nbsp;Find in Projects</b>
+		</p>
+		<p>Choose the desired project from the drop-down (the active project, if any, will be  selected automatically). Enter the search
+         criteria and press
+         				<b>Find</b>.  The search results will be displayed in the <b>Find in Files</b> tab at the bottom of the screen. Double-clicking on a result will open the corresponding file in the editor and scroll the
+         text to the correct location.
+      </p>
+      <p>A project can be imported into the editor and can automatically generate folders, files, templates, etc in the editor. Select
+         <b>Project-&gt;Import Project</b>, choose the file 
+         <tt class="filename">projects/XPath/XPath.xngr</tt> and press <b>OK</b>. As this project already exists in the Editor, you will be asked if you want to override the existing project. By selecting
+         yes, you will import the project along with any folders, files, templates, etc that have been set up in the project file.
+         To create your own project files for import, look at any of the example project files - they typically end in <b>.xngr</b> 
+      </p>
+   </body>
+</html>

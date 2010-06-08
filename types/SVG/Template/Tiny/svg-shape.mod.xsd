@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Shape Module .................................................. -->
+<!--
+  file: svg-shape.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-shape.mod.xsd,v 1.1 2004/03/26 10:28:59 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 Shape//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-shape.mod"
+  
+  .......................................................................
+-->
+<!--
+  Shape
+  
+     path, rect, circle, line, ellipse, polyline, polygon
+  
+  This module declares markup to provide support for graphical shapes.
+-->
+<!-- a list of points -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:simpleType name="Points.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!-- Qualified Names (Default) ......................... -->
+  <!-- Attribute Collections (Default) ................... -->
+  <!-- SVG.Shape.class ................................... -->
+  <!-- path: Path Element ................................ -->
+  <xs:complexType name="SVG.path.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="path" substitutionGroup="SVG.Shape.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.path.content">
+          <xs:attributeGroup ref="svg:attlist.path"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.path.element -->
+  <xs:attributeGroup name="attlist.path">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="d" use="required" type="PathData.datatype"/>
+    <xs:attribute name="pathLength" type="Number.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.path.attlist -->
+  <!-- rect: Rectangle Element ........................... -->
+  <xs:complexType name="SVG.rect.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="rect" substitutionGroup="SVG.Shape.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.rect.content">
+          <xs:attributeGroup ref="svg:attlist.rect"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.rect.element -->
+  <xs:attributeGroup name="attlist.rect">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x" type="Coordinate.datatype"/>
+    <xs:attribute name="y" type="Coordinate.datatype"/>
+    <xs:attribute name="width" use="required" type="Length.datatype"/>
+    <xs:attribute name="height" use="required" type="Length.datatype"/>
+    <xs:attribute name="rx" type="Length.datatype"/>
+    <xs:attribute name="ry" type="Length.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.rect.attlist -->
+  <!-- circle: Circle Element ............................ -->
+  <xs:complexType name="SVG.circle.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="circle" substitutionGroup="SVG.Shape.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.circle.content">
+          <xs:attributeGroup ref="svg:attlist.circle"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.circle.element -->
+  <xs:attributeGroup name="attlist.circle">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="cx" type="Coordinate.datatype"/>
+    <xs:attribute name="cy" type="Coordinate.datatype"/>
+    <xs:attribute name="r" use="required" type="Length.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.circle.attlist -->
+  <!-- line: Line Element ................................ -->
+  <xs:complexType name="SVG.line.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="line" substitutionGroup="SVG.Shape.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.line.content">
+          <xs:attributeGroup ref="svg:attlist.line"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.line.element -->
+  <xs:attributeGroup name="attlist.line">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x1" type="Coordinate.datatype"/>
+    <xs:attribute name="y1" type="Coordinate.datatype"/>
+    <xs:attribute name="x2" type="Coordinate.datatype"/>
+    <xs:attribute name="y2" type="Coordinate.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.line.attlist -->
+  <!-- ellipse: Ellipse Element .......................... -->
+  <xs:complexType name="SVG.ellipse.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ellipse" substitutionGroup="SVG.Shape.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.ellipse.content">
+          <xs:attributeGroup ref="svg:attlist.ellipse"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.ellipse.element -->
+  <xs:attributeGroup name="attlist.ellipse">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="cx" type="Coordinate.datatype"/>
+    <xs:attribute name="cy" type="Coordinate.datatype"/>
+    <xs:attribute name="rx" use="required" type="Length.datatype"/>
+    <xs:attribute name="ry" use="required" type="Length.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.ellipse.attlist -->
+  <!-- polyline: Polyline Element ........................ -->
+  <xs:complexType name="SVG.polyline.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="polyline" substitutionGroup="SVG.Shape.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.polyline.content">
+          <xs:attributeGroup ref="svg:attlist.polyline"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.polyline.element -->
+  <xs:attributeGroup name="attlist.polyline">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="points" use="required" type="svg:Points.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.polyline.attlist -->
+  <!-- polygon: Polygon Element .......................... -->
+  <xs:complexType name="SVG.polygon.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="polygon" substitutionGroup="SVG.Shape.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.polygon.content">
+          <xs:attributeGroup ref="svg:attlist.polygon"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.polygon.element -->
+  <xs:attributeGroup name="attlist.polygon">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="points" use="required" type="svg:Points.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.polygon.attlist -->
+<!-- end of svg-shape.mod -->

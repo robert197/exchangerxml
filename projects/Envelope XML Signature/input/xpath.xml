@@ -1,0 +1,7 @@
+<Company>
+        <Person>
+                <Name>John Doe</Name>
+                <SSN>123-45-6789</SSN>
+                <Salary>30000</Salary>
+        </Person>
+</Company>

@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<types>
+	<type name="Ant build file" icon="Ant/AntIcon.gif" publicID="" extensions="xml">
+		<root name="project">
+			<namespace prefix="" uri=""/>
+		</root>
+		<template src="Ant/Template/project.xsd" type="xsd"/>
+		<validation src="Ant/Validation/project.dtd" type="dtd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+<type name="DocBook 4.3 (Book)" icon="DocBook/DocbookIcon.gif" publicID="-//OASIS//DTD DocBook XML V4.3//EN" systemID="" extensions="xml db">
+	<root name="book">
+		<namespace prefix="" uri=""/>
+	</root>
+	<fragment block="false" name="emphasis (bold)" key="Alt+Shift+B" order="0" icon="DocBook/Bold16.gif">&lt;emphasis role="bold"&gt;${cursor}${selection}&lt;/emphasis&gt;</fragment>
+	<fragment block="false" name="emphasis" key="Alt+Shift+E" order="1" icon="DocBook/Italic16.gif">&lt;emphasis&gt;${cursor}${selection}&lt;/emphasis&gt;</fragment>
+	<fragment block="true" name="para" key="Alt+Shift+P" order="2" icon="DocBook/para.gif">&lt;para&gt;${selection}${cursor}&lt;para&gt;</fragment>
+	<fragment block="true" name="orderedlist" key="Alt+Shift+O" order="3" icon="DocBook/orderedlist.gif">&lt;orderedlist&gt;
+	&lt;listitem&gt; 
+		&lt;para&gt;${cursor}&lt;/para&gt;
+	&lt;/listitem&gt;
+	&lt;listitem&gt;
+		&lt;para&gt;&lt;/para&gt;
+	&lt;/listitem&gt;
+&lt;/orderedlist&gt;</fragment>
+	<fragment block="true" name="itemizedlist" key="Alt+Shift+I" order="4" icon="DocBook/itemizedlist.gif">&lt;itemizedlist&gt;
+	&lt;listitem&gt; 
+		&lt;para&gt;${cursor}&lt;/para&gt;
+	&lt;/listitem&gt;
+	
+	&lt;listitem&gt;
+		&lt;para&gt;&lt;/para&gt;
+	&lt;/listitem&gt;
+&lt;/itemizedlist&gt;</fragment>
+	<fragment block="true" name="variablelist" key="Alt+Shift+V" order="5" icon="">&lt;variablelist&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+ 	&lt;varlistentry&gt;
+		&lt;term&gt;&lt;/term&gt;
+		&lt;listitem&gt;&lt;para&gt;&lt;/para&gt;&lt;/listitem&gt;
+	&lt;/varlistentry&gt;
+	&lt;varlistentry&gt;
+		&lt;term&gt;&lt;/term&gt;
+		&lt;listitem&gt;&lt;para&gt;&lt;/para&gt;&lt;/listitem&gt;
+	&lt;/varlistentry&gt;
+&lt;/variablelist&gt;</fragment>
+	<fragment block="true" name="table" key="Alt+Shift+T" order="6" icon="DocBook/table.gif">&lt;table&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;tgroup cols="2"&gt;
+		&lt;thead&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+		&lt;/tbody&gt;
+	&lt;/tgroup&gt;
+&lt;/table&gt;</fragment>
+	<fragment block="true" name="note" key="Alt+Shift+Q" order="7" icon="">&lt;note&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/note&gt;</fragment>
+	<fragment block="true" name="warning" key="Alt+Shift+R" order="8" icon="">&lt;warning&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/warning&gt;</fragment>
+	<fragment block="true" name="caution" key="Alt+Shift+C" order="9" icon="">&lt;caution&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/caution&gt;</fragment>
+	<fragment block="true" name="important" key="Alt+Shift+N" order="10" icon="">&lt;important&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/important&gt;</fragment>
+	<fragment block="true" name="tip" key="Alt+Shift+Z" order="11" icon="">&lt;tip&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/tip&gt;</fragment>
+	<fragment block="true" name="menuchoice" key="Alt+Shift+M" order="12" icon="">&lt;menuchoice&gt;
+	&lt;shortcut&gt;
+		&lt;keycombo&gt;
+			&lt;keycap&gt;${cursor}&lt;/keycap&gt;
+			&lt;keycap&gt;&lt;/keycap&gt;
+		&lt;/keycombo&gt;
+	&lt;/shortcut&gt;
+	&lt;guimenu&gt;&lt;/guimenu&gt;
+	&lt;guimenuitem&gt;&lt;/guimenuitem&gt;
+&lt;/menuchoice&gt;</fragment>
+	<fragment block="true" name="author" key="Alt+Shift+U" order="13" icon="">&lt;author&gt;
+	&lt;firstname&gt;${cursor}&lt;/firstname&gt;
+	&lt;surname&gt;&lt;/surname&gt;
+	&lt;affiliation&gt;
+		&lt;address&gt;&lt;email&gt;&lt;/email&gt;&lt;/address&gt;
+	&lt;/affiliation&gt;
+&lt;/author&gt;</fragment>
+	<fragment block="true" name="abstract" key="Alt+Shift+Y" order="14" icon="">&lt;abstract&gt;
+	&lt;para&gt;${cursor}&lt;/para&gt;
+&lt;/abstract&gt;</fragment>
+	<fragment block="true" name="sect1" key="Alt+Shift+1" order="15" icon="">&lt;sect1&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt; 
+	&lt;/para&gt;
+&lt;/sect1&gt;</fragment>
+	<fragment block="true" name="sect2" key="Alt+Shift+2" order="16" icon="">&lt;sect2&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect2&gt;</fragment>
+	<fragment block="true" name="sect3" key="Alt+Shift+3" order="17" icon="">&lt;sect3&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect3&gt;</fragment>
+	<fragment block="true" name="sect4" key="Alt+Shift+4" order="18" icon="">&lt;sect4&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect4&gt;</fragment>
+	<fragment block="true" name="section" key="Alt+Shift+0" order="19" icon="">&lt;section&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/section&gt;</fragment>
+	<fragment block="false" name="indexterm" key="Alt+Shift+X" order="20" icon="">${selection}&lt;indexterm&gt;&lt;primary&gt;${selection}&lt;/primary&gt;&lt;secondary&gt;${cursor}&lt;/secondary&gt;&lt;indexterm&gt;</fragment>
+	<xpath name="Sections and Titles" xpath="//title/text() | //section | //sect1 | //sect2 | //sect3 | // sect4 | /article | /book" default="false" showElementNames="true" showElementContent="true" showAttributes="false" showAttributeNames="false"/>
+	<xpath name="Titles" xpath="//title" default="true" showElementNames="false" showElementContent="true" showAttributes="false" showAttributeNames="false"/>
+	<template src="DocBook/dtd/docbookx.dtd" type="dtd"/>
+	<validation src="DocBook/dtd/docbookx.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src="DocBook/schema/docbook.xsd"/>
+</type>
+<type name="DocBook 4.3 (Article)" icon="DocBook/DocbookIcon.gif" publicID="-//OASIS//DTD DocBook XML V4.3//EN" systemID="" extensions="xml db">
+	<root name="article">
+		<namespace prefix="" uri=""/>
+	</root>
+	<fragment block="false" name="emphasis (bold)" key="Alt+Shift+B" order="0" icon="DocBook/Bold16.gif">&lt;emphasis role="bold"&gt;${cursor}${selection}&lt;/emphasis&gt;</fragment>
+	<fragment block="false" name="emphasis" key="Alt+Shift+E" order="1" icon="DocBook/Italic16.gif">&lt;emphasis&gt;${cursor}${selection}&lt;/emphasis&gt;</fragment>
+	<fragment block="true" name="para" key="Alt+Shift+P" order="2" icon="DocBook/para.gif">&lt;para&gt;${selection}${cursor}&lt;para&gt;</fragment>
+	<fragment block="true" name="orderedlist" key="Alt+Shift+O" order="3" icon="DocBook/orderedlist.gif">&lt;orderedlist&gt;
+	&lt;listitem&gt; 
+		&lt;para&gt;${cursor}&lt;/para&gt;
+	&lt;/listitem&gt;
+	&lt;listitem&gt;
+		&lt;para&gt;&lt;/para&gt;
+	&lt;/listitem&gt;
+&lt;/orderedlist&gt;</fragment>
+	<fragment block="true" name="itemizedlist" key="Alt+Shift+I" order="4" icon="DocBook/itemizedlist.gif">&lt;itemizedlist&gt;
+	&lt;listitem&gt; 
+		&lt;para&gt;${cursor}&lt;/para&gt;
+	&lt;/listitem&gt;
+	
+	&lt;listitem&gt;
+		&lt;para&gt;&lt;/para&gt;
+	&lt;/listitem&gt;
+&lt;/itemizedlist&gt;</fragment>
+	<fragment block="true" name="variablelist" key="Alt+Shift+V" order="5" icon="">&lt;variablelist&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+ 	&lt;varlistentry&gt;
+		&lt;term&gt;&lt;/term&gt;
+		&lt;listitem&gt;&lt;para&gt;&lt;/para&gt;&lt;/listitem&gt;
+	&lt;/varlistentry&gt;
+	&lt;varlistentry&gt;
+		&lt;term&gt;&lt;/term&gt;
+		&lt;listitem&gt;&lt;para&gt;&lt;/para&gt;&lt;/listitem&gt;
+	&lt;/varlistentry&gt;
+&lt;/variablelist&gt;</fragment>
+	<fragment block="true" name="table" key="Alt+Shift+T" order="6" icon="DocBook/table.gif">&lt;table&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;tgroup cols="2"&gt;
+		&lt;thead&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+		&lt;/tbody&gt;
+	&lt;/tgroup&gt;
+&lt;/table&gt;</fragment>
+	<fragment block="true" name="note" key="Alt+Shift+Q" order="7" icon="">&lt;note&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/note&gt;</fragment>
+	<fragment block="true" name="warning" key="Alt+Shift+R" order="8" icon="">&lt;warning&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/warning&gt;</fragment>
+	<fragment block="true" name="caution" key="Alt+Shift+C" order="9" icon="">&lt;caution&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/caution&gt;</fragment>
+	<fragment block="true" name="important" key="Alt+Shift+N" order="10" icon="">&lt;important&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/important&gt;</fragment>
+	<fragment block="true" name="tip" key="Alt+Shift+Z" order="11" icon="">&lt;tip&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/tip&gt;</fragment>
+	<fragment block="true" name="menuchoice" key="Alt+Shift+M" order="12" icon="">&lt;menuchoice&gt;
+	&lt;shortcut&gt;
+		&lt;keycombo&gt;
+			&lt;keycap&gt;${cursor}&lt;/keycap&gt;
+			&lt;keycap&gt;&lt;/keycap&gt;
+		&lt;/keycombo&gt;
+	&lt;/shortcut&gt;
+	&lt;guimenu&gt;&lt;/guimenu&gt;
+	&lt;guimenuitem&gt;&lt;/guimenuitem&gt;
+&lt;/menuchoice&gt;</fragment>
+	<fragment block="true" name="author" key="Alt+Shift+U" order="13" icon="">&lt;author&gt;
+	&lt;firstname&gt;${cursor}&lt;/firstname&gt;
+	&lt;surname&gt;&lt;/surname&gt;
+	&lt;affiliation&gt;
+		&lt;address&gt;&lt;email&gt;&lt;/email&gt;&lt;/address&gt;
+	&lt;/affiliation&gt;
+&lt;/author&gt;</fragment>
+	<fragment block="true" name="abstract" key="Alt+Shift+Y" order="14" icon="">&lt;abstract&gt;
+	&lt;para&gt;${cursor}&lt;/para&gt;
+&lt;/abstract&gt;</fragment>
+	<fragment block="true" name="sect1" key="Alt+Shift+1" order="15" icon="">&lt;sect1&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt; 
+	&lt;/para&gt;
+&lt;/sect1&gt;</fragment>
+	<fragment block="true" name="sect2" key="Alt+Shift+2" order="16" icon="">&lt;sect2&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect2&gt;</fragment>
+	<fragment block="true" name="sect3" key="Alt+Shift+3" order="17" icon="">&lt;sect3&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect3&gt;</fragment>
+	<fragment block="true" name="sect4" key="Alt+Shift+4" order="18" icon="">&lt;sect4&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect4&gt;</fragment>
+	<fragment block="true" name="section" key="Alt+Shift+0" order="19" icon="">&lt;section&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/section&gt;</fragment>
+	<fragment block="false" name="indexterm" key="Alt+Shift+X" order="20" icon="">${selection}&lt;indexterm&gt;&lt;primary&gt;${selection}&lt;/primary&gt;&lt;secondary&gt;${cursor}&lt;/secondary&gt;&lt;indexterm&gt;</fragment>
+	<xpath name="Sections and Titles" xpath="//title/text() | //section | //sect1 | //sect2 | //sect3 | // sect4 | /article | /book" default="false" showElementNames="true" showElementContent="true" showAttributes="false" showAttributeNames="false"/>
+	<xpath name="Titles" xpath="//title" default="true" showElementNames="false" showElementContent="true" showAttributes="false" showAttributeNames="false"/>
+	<template src="DocBook/dtd/docbookx.dtd" type="dtd"/>
+	<validation src="DocBook/dtd/docbookx.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src="DocBook/schema/docbook.xsd"/>
+</type>
+	<type name="Formatting Objects" icon="FOP/FOPIcon.gif" publicID="" extensions="fo,fop">
+		<root name="root">
+			<namespace prefix="fo" uri="http://www.w3.org/1999/XSL/Format"/>
+		</root>
+		<template src="FOP/Template/fop.xsd" type="xsd"/>
+		<validation src="FOP/Validation/fop.xsd" type="xsd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="MathML 2.0" icon="MathML/MathMLIcon.gif" publicID="-//W3C//DTD MathML 2.0//EN" extensions="mml">
+		<root name="math">
+			<namespace prefix="" uri="http://www.w3.org/1998/Math/MathML"/>
+		</root>
+		<template src="MathML/Template/mathml2.xsd" type="xsd"/>
+		<validation src="MathML/Validation/mathml2.dtd" type="dtd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="RelaxNG" icon="RelaxNG/RNGIcon.gif" publicID="" systemID="" extensions="rng">
+		<root name="grammar">
+			<namespace prefix="rng" uri="http://relaxng.org/ns/structure/1.0"/>
+		</root>
+		<fragment block="true" name="element" key="Alt+Shift+E" order="0" icon="">&lt;element name="${cursor}"/&gt;</fragment>
+		<fragment block="true" name="attribute" key="Alt+Shift+T" order="1" icon="">&lt;attribute name="${cursor}"/&gt;</fragment>
+		<fragment block="true" name="define" key="Alt+Shift+D" order="2" icon="">&lt;define name="${cursor}"/&gt;</fragment>
+		<fragment block="true" name="ref" key="Alt+Shift+R" order="3" icon="">&lt;ref name="${cursor}"/&gt;</fragment>
+		<xpath name="Definitions" xpath="//rng:define/@name" default="true" showElementNames="false" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+		<validation src="RelaxNG/Validation/relaxng.rng" type="rng" useDocumentLocation="false"/>
+		<schema src="RelaxNG/Template/relaxng.xsd"/>
+	</type>
+	<type name="SVG 1.0" icon="SVG/SVGIcon.gif" publicID="-//W3C//DTD SVG 1.0//EN" extensions="svg">
+		<root name="svg">
+			<namespace prefix="" uri="http://www.w3.org/2000/svg"/>
+		</root>
+		<namespace prefix="xlink" uri="http://www.w3.org/1999/xlink"/>
+		<template src="SVG/Template/svg10.xsd" type="xsd"/>
+		<validation src="SVG/Validation/svg10.dtd" type="dtd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="SVG 1.1 Basic" icon="SVG/SVGIcon.gif" publicID="-//W3C//DTD SVG 1.1 Basic//EN" extensions="svg">
+		<root name="svg">
+			<namespace prefix="" uri="http://www.w3.org/2000/svg"/>
+		</root>
+		<namespace prefix="xlink" uri="http://www.w3.org/1999/xlink"/>
+		<template src="SVG/Template/Basic/svg11-basic.xsd" type="xsd"/>
+		<validation src="SVG/Validation/svg11-basic.dtd" type="dtd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="SVG 1.1 Full" icon="SVG/SVGIcon.gif" publicID="-//W3C//DTD SVG 1.1//EN" extensions="svg">
+		<root name="svg">
+			<namespace prefix="" uri="http://www.w3.org/2000/svg"/>
+		</root>
+		<namespace prefix="xlink" uri="http://www.w3.org/1999/xlink"/>
+		<template src="SVG/Template/Full/svg11.xsd" type="xsd"/>
+		<validation src="SVG/Validation/svg11.dtd" type="dtd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="SVG 1.1 Tiny" icon="SVG/SVGIcon.gif" publicID="-//W3C//DTD SVG 1.1 Tiny//EN" extensions="svg">
+		<root name="svg">
+			<namespace prefix="" uri="http://www.w3.org/2000/svg"/>
+		</root>
+		<namespace prefix="xlink" uri="http://www.w3.org/1999/xlink"/>
+		<template src="SVG/Template/Tiny/svg11-tiny.xsd" type="xsd"/>
+		<validation src="SVG/Validation/svg11-tiny.dtd" type="dtd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="Web Services Definition Language" publicID="" extensions="wsdl">
+		<root name="definitions">
+			<namespace prefix="wsdl" uri="http://schemas.xmlsoap.org/wsdl/"/>
+		</root>
+		<template src="" type=""/>
+		<validation src="Web Services/wsdl.xsd" type="xsd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="XHTML 1.0 Frameset" icon="XHTML/XHTMLIcon.gif" publicID="-//W3C//DTD XHTML 1.0 Frameset//EN" extensions="htm html">
+		<root name="html">
+			<namespace prefix="" uri="http://www.w3.org/1999/xhtml"/>
+		</root>
+	<fragment block="false" name="Bold" key="Alt+Shift+B" order="0" icon="XHTML/Bold16.gif">&lt;b&gt;${selection}${cursor}&lt;/b&gt;</fragment>
+	<fragment block="false" name="Italic" key="Alt+Shift+I" order="1" icon="XHTML/Italic16.gif">&lt;i&gt;${selection}${cursor}&lt;/i&gt;</fragment>
+	<fragment block="false" name="Break" key="Alt+Shift+R" order="2" icon="XHTML/br.gif">&lt;br/&gt;${cursor}</fragment>
+	<fragment block="true" name="Paragraph" key="Alt+Shift+P" order="3" icon="XHTML/para.gif">&lt;p&gt;
+${selection}${cursor}
+&lt;/p&gt;</fragment>
+	<fragment block="true" name="Image" key="Alt+Shift+M" order="4" icon="XHTML/image.gif">&lt;img src="${src}" border="0" alt="${alts}"/&gt;${cursor}</fragment>
+	<fragment block="false" name="Link" key="Alt+Shift+L" order="5" icon="XHTML/link.gif">&lt;a href="${cursor}"&gt;${selection}&lt;/a&gt;</fragment>
+	<fragment block="true" name="Unordered List" key="Alt+Shift+U" order="6" icon="XHTML/itemizedlist.gif">&lt;ul&gt;
+	&lt;li&gt;${cursor}&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</fragment>
+	<fragment block="true" name="Ordered List" key="Alt+Shift+O" order="7" icon="XHTML/orderedlist.gif">&lt;ol&gt;
+	&lt;li&gt;${cursor}&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</fragment>
+	<fragment block="true" name="Table" key="Alt+Shift+T" order="8" icon="XHTML/table.gif">&lt;table border="0"&gt;
+	&lt;tr&gt;&lt;td&gt;${cursor}&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</fragment>
+		<template src="XHTML/Template/xhtml1-frameset.xsd" type="xsd"/>
+		<validation src="XHTML/Validation/xhtml1-frameset.dtd" type="dtd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="XHTML 1.0 Strict" icon="XHTML/XHTMLIcon.gif" publicID="-//W3C//DTD XHTML 1.0 Strict//EN" extensions="htm html">
+		<root name="html">
+			<namespace prefix="" uri="http://www.w3.org/1999/xhtml"/>
+		</root>
+	<fragment block="false" name="Bold" key="Alt+Shift+B" order="0" icon="XHTML/Bold16.gif">&lt;b&gt;${selection}${cursor}&lt;/b&gt;</fragment>
+	<fragment block="false" name="Italic" key="Alt+Shift+I" order="1" icon="XHTML/Italic16.gif">&lt;i&gt;${selection}${cursor}&lt;/i&gt;</fragment>
+	<fragment block="false" name="Break" key="Alt+Shift+R" order="2" icon="XHTML/br.gif">&lt;br/&gt;${cursor}</fragment>
+	<fragment block="true" name="Paragraph" key="Alt+Shift+P" order="3" icon="XHTML/para.gif">&lt;p&gt;
+${selection}${cursor}
+&lt;/p&gt;</fragment>
+	<fragment block="true" name="Image" key="Alt+Shift+M" order="4" icon="XHTML/image.gif">&lt;img src="${src}" border="0" alt="${alts}"/&gt;${cursor}</fragment>
+	<fragment block="false" name="Link" key="Alt+Shift+L" order="5" icon="XHTML/link.gif">&lt;a href="${cursor}"&gt;${selection}&lt;/a&gt;</fragment>
+	<fragment block="true" name="Unordered List" key="Alt+Shift+U" order="6" icon="XHTML/itemizedlist.gif">&lt;ul&gt;
+	&lt;li&gt;${cursor}&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</fragment>
+	<fragment block="true" name="Ordered List" key="Alt+Shift+O" order="7" icon="XHTML/orderedlist.gif">&lt;ol&gt;
+	&lt;li&gt;${cursor}&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</fragment>
+	<fragment block="true" name="Table" key="Alt+Shift+T" order="8" icon="XHTML/table.gif">&lt;table border="0"&gt;
+	&lt;tr&gt;&lt;td&gt;${cursor}&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</fragment>
+		<template src="XHTML/Template/xhtml1-strict.xsd" type="xsd"/>
+		<validation src="XHTML/Validation/xhtml1-strict.dtd" type="dtd" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="XHTML 1.0 Transitional" icon="XHTML/XHTMLIcon.gif" publicID="-//W3C//DTD XHTML 1.0 Transitional//EN" extensions="htm html">
+		<root name="html">
+			<namespace prefix="" uri="http://www.w3.org/1999/xhtml"/>
+		</root>
+	<fragment block="false" name="Bold" key="Alt+Shift+B" order="0" icon="XHTML/Bold16.gif">&lt;b&gt;${selection}${cursor}&lt;/b&gt;</fragment>
+	<fragment block="false" name="Italic" key="Alt+Shift+I" order="1" icon="XHTML/Italic16.gif">&lt;i&gt;${selection}${cursor}&lt;/i&gt;</fragment>
+	<fragment block="false" name="Break" key="Alt+Shift+R" order="2" icon="XHTML/br.gif">&lt;br/&gt;${cursor}</fragment>
+	<fragment block="true" name="Paragraph" key="Alt+Shift+P" order="3" icon="XHTML/para.gif">&lt;p&gt;
+${selection}${cursor}
+&lt;/p&gt;</fragment>
+	<fragment block="true" name="Image" key="Alt+Shift+M" order="4" icon="XHTML/image.gif">&lt;img src="${src}" border="0" alt="${alts}"/&gt;${cursor}</fragment>
+	<fragment block="false" name="Link" key="Alt+Shift+L" order="5" icon="XHTML/link.gif">&lt;a href="${cursor}"&gt;${selection}&lt;/a&gt;</fragment>
+	<fragment block="true" name="Unordered List" key="Alt+Shift+U" order="6" icon="XHTML/itemizedlist.gif">&lt;ul&gt;
+	&lt;li&gt;${cursor}&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</fragment>
+	<fragment block="true" name="Ordered List" key="Alt+Shift+O" order="7" icon="XHTML/orderedlist.gif">&lt;ol&gt;
+	&lt;li&gt;${cursor}&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</fragment>
+	<fragment block="true" name="Table" key="Alt+Shift+T" order="8" icon="XHTML/table.gif">&lt;table border="0"&gt;
+	&lt;tr&gt;&lt;td&gt;${cursor}&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</fragment>
+		<template src="XHTML/Template/xhtml1-transitional.xsd" type="xsd"/>
+		<validation src="XHTML/Validation/xhtml1-transitional.dtd" type="dtd" useDocumentLocation="true"/>
+		<schema src=""/>
+	</type>
+<type name="XML Stylesheet Language" icon="XSL/XSLIcon.gif" publicID="" systemID="" extensions="xsl">
+	<root name="stylesheet">
+		<namespace prefix="xsl" uri="http://www.w3.org/1999/XSL/Transform"/>
+	</root>
+	<fragment block="true" name="apply-templates" key="Alt+Shift+1" order="0" icon="">&lt;xsl:apply-templates select="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="attribute" key="Alt+Shift+U" order="1" icon="">&lt;xsl:attribute name="${name}" select="${select}"/&gt;${cursor}</fragment>
+	<fragment block="true" name="call-template" key="Alt+Shift+J" order="2" icon="">&lt;xsl:call-template name="${Template Name}"&gt;
+  &lt;xsl:with-param name="${Param Name}" select="${Param Select}"/&gt;
+&lt;/xsl:call-template&gt;${cursor}</fragment>
+	<fragment block="true" name="choose" key="Alt+Shift+C" order="3" icon="">&lt;xsl:choose&gt;
+  &lt;xsl:when test="${cursor}"&gt;
+    ${selection}
+  &lt;/xsl:when&gt;
+  &lt;xsl:otherwise&gt;
+
+  &lt;/xsl:otherwise&gt;
+&lt;/xsl:choose&gt;</fragment>
+	<fragment block="true" name="comment" key="Alt+Shift+K" order="4" icon="">&lt;xsl:comment&gt;${cursor}&lt;/xsl:comment&gt;</fragment>
+	<fragment block="true" name="copy" key="Alt+Shift+L" order="5" icon="">&lt;xsl:copy&gt;
+${cursor}
+&lt;/xsl:copy&gt;</fragment>
+	<fragment block="true" name="copy-of" key="Alt+Shift+Q" order="6" icon="">&lt;xsl:copy-of select="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="document" key="Alt+Shift+D" order="7" icon="">&lt;xsl:document href="${cursor}" method="xml"&gt;</fragment>
+	<fragment block="true" name="element" key="Alt+Shift+E" order="8" icon="">&lt;xsl:element name="${cursor}"&gt;
+	
+&lt;/xsl:element&gt;</fragment>
+	<fragment block="true" name="for-each" key="Alt+Shift+F" order="9" icon="">&lt;xsl:for-each select="${cursor}"&gt;
+	
+&lt;/xsl:for-each&gt;</fragment>
+	<fragment block="true" name="if" key="Alt+Shift+I" order="10" icon="">&lt;xsl:if test="${cursor}"&gt;
+	
+&lt;/xsl:if&gt;</fragment>
+	<fragment block="true" name="include" key="Alt+Shift+Y" order="11" icon="">&lt;xsl:include href="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="import" key="Alt+Shift+Z" order="12" icon="">&lt;xsl:import href="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="message" key="Alt+Shift+M" order="13" icon="">&lt;xsl:message&gt;${cursor}&lt;/xsl:message&gt;</fragment>
+	<fragment block="true" name="number" key="Alt+Shift+N" order="14" icon="">&lt;xsl:number count="${cursor}" level="any"/&gt;</fragment>
+	<fragment block="true" name="otherwise" key="Alt+Shift+O" order="15" icon="">&lt;xsl:otherwise&gt;
+	${cursor}
+&lt;/xsl:otherwise&gt;</fragment>
+	<fragment block="true" name="output" key="Alt+Shift+G" order="16" icon="">&lt;xsl:output method="${cursor}html"/&gt;</fragment>
+	<fragment block="true" name="param" key="Alt+Shift+P" order="17" icon="">&lt;xsl:param name="${cursor}" select=""/&gt;</fragment>
+	<fragment block="true" name="stylesheet" key="Alt+Shift+2" order="18" icon="">&lt;xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+	${cursor}
+&lt;/xsl:stylesheet&gt;</fragment>
+	<fragment block="true" name="sort" key="Alt+Shift+R" order="19" icon="">&lt;xsl:sort select="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="template" key="Alt+Shift+T" order="20" icon="">&lt;xsl:template match="${cursor}"&gt;
+	
+&lt;/xsl:template&gt;</fragment>
+	<fragment block="true" name="text" key="Alt+Shift+X" order="21" icon="">&lt;xsl:text&gt;${cursor}&lt;/xsl:text&gt;</fragment>
+	<fragment block="true" name="value-of" key="Alt+Shift+V" order="22" icon="">&lt;xsl:value-of select="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="variable" key="Alt+Shift+B" order="23" icon="">&lt;xsl:variable name="${cursor}" select=""/&gt;</fragment>
+	<fragment block="true" name="when" key="Alt+Shift+W" order="24" icon="">&lt;xsl:when test="${cursor}"&gt;
+	
+&lt;/xsl:when&gt;</fragment>
+	<fragment block="true" name="with-param" key="Alt+Shift+H" order="25" icon="">&lt;xsl:with-param name="${cursor}" select=""/&gt;</fragment>
+	<xpath name="All Templates" xpath="//xsl:template/@name | //xsl:template/@match" default="true" showElementNames="false" showElementContent="false" showAttributes="true" showAttributeNames="true"/>
+	<template src="XSL/xslt.rng" type="rng"/>
+	<template src="XSL/Template/xhtml1-transitional.xsd" type="xsd"/>
+	<validation src="XSL/xslt.rng" type="rng" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>
+<type name="XML Schema Definition" icon="XML Schema/XSDIcon.gif" publicID="" systemID="" extensions="xsd">
+	<root name="schema">
+		<namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema"/>
+	</root>
+	<fragment block="false" name="New Element (+Child Element + Attribute)" key="" order="0" icon="">&lt;xs:element name="${Element Name}"&gt;
+  &lt;xs:complexType&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="${Child Name}"/&gt;
+    &lt;/xs:sequence&gt;
+		&lt;xs:attribute name="${Attribute Name}" use="optional"/&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:element&gt;${cursor}
+</fragment>
+	<fragment block="false" name="New Element (+Attribute)" key="" order="1" icon="">&lt;xsd:element name="${Element Name}"&gt;
+  &lt;xsd:complexType&gt;
+    &lt;xsd:simpleContent&gt;
+      &lt;xsd:extension base="${Simple Type}"&gt;
+        &lt;xsd:attribute name="${Attribute Name}"/&gt;
+      &lt;/xsd:extension&gt;
+    &lt;/xsd:simpleContent&gt;
+  &lt;/xsd:complexType&gt;
+&lt;/xsd:element&gt;${cursor}</fragment>
+	<fragment block="false" name="New Empty Element (+Attribute)" key="" order="2" icon="">&lt;xsd:element name="${Element Name}"&gt;
+  &lt;xsd:complexType&gt;
+    &lt;xsd:attribute name="${Attribute Name}"/&gt;
+  &lt;/xsd:complexType&gt;
+&lt;/xsd:element&gt;${cursor}</fragment>
+	<xpath name="All Global Definitions" xpath="/xsd:schema/*/@name" default="true" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global Attribute Definitions" xpath="/xsd:schema/xsd:attribute/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global AttributeGroup Definitions" xpath="/xsd:schema/xsd:attributeGroup/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global ComplexType Definitions" xpath="/xsd:schema/xsd:complexType/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global Element Definitions" xpath="/xsd:schema/xsd:element/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global Group Definitions" xpath="/xsd:schema/xsd:group/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global SimpleType Definitions" xpath="/xsd:schema/xsd:simpleType/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<template src="XML Schema/Template/XMLSchema.xsd" type="xsd"/>
+	<validation src="XML Schema/Validation/XMLSchema.xsd" type="xsd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>
+	<type name="Namespace Routing Language" icon="NRL/NRLIcon.gif" publicID="" extensions="nrl">
+		<root name="rules">
+			<namespace prefix="" uri="http://www.thaiopensource.com/validate/nrl"/>
+		</root>
+		<template src="" type="xsd"/>
+		<validation src="NRL/nrl.rng" type="rng" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="Resource Description Framework" icon="RDF/RDFIcon.gif" publicID="" systemID="" extensions="rdf">
+		<root name="RDF">
+			<namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+		</root>
+		<validation src="RDF/rdfxml.rng" type="rng" useDocumentLocation="false"/>
+		<schema src=""/>
+	</type>
+	<type name="Schematron Schema 1.5" icon="Schematron15/SchematronIcon.gif" publicID="" systemID="" extensions="xml">
+		<root name="schema">
+			<namespace prefix="" uri="http://www.ascc.net/xml/schematron"/>
+		</root>
+		<namespace prefix="xlink" uri="http://www.w3.org/1999/xlink"/>
+		<namespace prefix="m" uri="http://www.w3.org/1998/Math/MathML"/>
+		<validation src="Schematron15/Validation/schematron1-5.xsd" type="xsd" useDocumentLocation="false"/>
+		<schema src="Schematron15/Template/schematron1-5.xsd"/>
+	</type>
+	<type name="Schematron Schema ISO" icon="SchematronISO/SchematronIcon.gif" publicID="" systemID="" extensions="">
+		<root name="schema">
+			<namespace prefix="" uri="http://purl.oclc.org/dsdl/schematron"/>
+		</root>
+	</type>
+	
+</types>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <soap:Body>
+  <GetIndicesResponse xmlns="http://www.xignite.com/services/">
+   <GetIndicesResult>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Identity>IP</Identity>
+     <Delay>0</Delay>
+     <Symbol>^DJI</Symbol>
+     <Category>Dow Jones Averages</Category>
+     <Name>30 Industrials</Name>
+     <Last>10080.36</Last>
+     <Change>111.85</Change>
+     <PercentChange>+1.12</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^DJT</Symbol>
+     <Category>Dow Jones Averages</Category>
+     <Name>20 Transportation</Name>
+     <Last>2879.15</Last>
+     <Change>36.79</Change>
+     <PercentChange>+1.29</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^DJU</Symbol>
+     <Category>Dow Jones Averages</Category>
+     <Name>15 Utilities</Name>
+     <Last>266.41</Last>
+     <Change>1.14</Change>
+     <PercentChange>+0.43</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^DJA</Symbol>
+     <Category>Dow Jones Averages</Category>
+     <Name>65 Composite</Name>
+     <Last>2906.56</Last>
+     <Change>30.17</Change>
+     <PercentChange>+1.05</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^TV.N</Symbol>
+     <Category>New York Stock Exchange</Category>
+     <Name>Volume in 000's</Name>
+     <Last>362816</Last>
+     <Change>0</Change>
+     <PercentChange>0.00</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^NYA</Symbol>
+     <Category>New York Stock Exchange</Category>
+     <Name>Composite</Name>
+     <Last>6365.41</Last>
+     <Change>88.88</Change>
+     <PercentChange>+1.42</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^NUS</Symbol>
+     <Category>New York Stock Exchange</Category>
+     <Name>U.S 100</Name>
+     <Last>5606.09</Last>
+     <Change>57.89</Change>
+     <PercentChange>+1.04</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^NIN</Symbol>
+     <Category>New York Stock Exchange</Category>
+     <Name>International 100</Name>
+     <Last>4213.77</Last>
+     <Change>80.49</Change>
+     <PercentChange>+1.95</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^NWL</Symbol>
+     <Category>New York Stock Exchange</Category>
+     <Name>World Leaders</Name>
+     <Last>5051.8</Last>
+     <Change>69.14</Change>
+     <PercentChange>+1.39</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^NTM</Symbol>
+     <Category>New York Stock Exchange</Category>
+     <Name>TMT</Name>
+     <Last>4903.06</Last>
+     <Change>113.67</Change>
+     <PercentChange>+2.37</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^TIC.N</Symbol>
+     <Category>New York Stock Exchange</Category>
+     <Name>Tick</Name>
+     <Last>499</Last>
+     <Change>-32</Change>
+     <PercentChange>-6.03</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^STI.N</Symbol>
+     <Category>New York Stock Exchange</Category>
+     <Name>ARMS</Name>
+     <Last>0.34</Last>
+     <Change>-0.47</Change>
+     <PercentChange>-57.74</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXIC</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Composite</Name>
+     <Last>1932.49</Last>
+     <Change>34.67</Change>
+     <PercentChange>+1.83</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^TV.O</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Volume in 000's</Name>
+     <Last>481695</Last>
+     <Change>0</Change>
+     <PercentChange>0.00</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXQ</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>National Market Composite</Name>
+     <Last>872.81</Last>
+     <Change>15.71</Change>
+     <PercentChange>+1.83</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^NDX</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Nasdaq 100</Name>
+     <Last>1423.65</Last>
+     <Change>26.18</Change>
+     <PercentChange>+1.87</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXBK</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Banks</Name>
+     <Last>2799.64</Last>
+     <Change>28.56</Change>
+     <PercentChange>+1.03</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXFN</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Financials</Name>
+     <Last>3180.32</Last>
+     <Change>59.27</Change>
+     <PercentChange>+1.90</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXF</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Financials 100</Name>
+     <Last>2486.29</Last>
+     <Change>33.11</Change>
+     <PercentChange>+1.35</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXID</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Industrials</Name>
+     <Last>1609.74</Last>
+     <Change>29.24</Change>
+     <PercentChange>+1.85</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXIS</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Insurance</Name>
+     <Last>2931.94</Last>
+     <Change>29.33</Change>
+     <PercentChange>+1.01</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXK</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Computers</Name>
+     <Last>871.19</Last>
+     <Change>17.31</Change>
+     <PercentChange>+2.03</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXTR</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Transportation</Name>
+     <Last>1711.66</Last>
+     <Change>31.52</Change>
+     <PercentChange>+1.88</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IXUT</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Telecommunications</Name>
+     <Last>173.57</Last>
+     <Change>4.15</Change>
+     <PercentChange>+2.45</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^NBI</Symbol>
+     <Category>Nasdaq</Category>
+     <Name>Biotech</Name>
+     <Last>760.59</Last>
+     <Change>7.46</Change>
+     <PercentChange>+0.99</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^GSPC</Symbol>
+     <Category>Standard and Poor's</Category>
+     <Name>500 Index</Name>
+     <Last>1104.7</Last>
+     <Change>13.21</Change>
+     <PercentChange>+1.21</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^OEX</Symbol>
+     <Category>Standard and Poor's</Category>
+     <Name>100 Index</Name>
+     <Last>539.45</Last>
+     <Change>5.63</Change>
+     <PercentChange>+1.05</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^MID</Symbol>
+     <Category>Standard and Poor's</Category>
+     <Name>400 MidCap</Name>
+     <Last>574.71</Last>
+     <Change>8.02</Change>
+     <PercentChange>+1.42</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^SML</Symbol>
+     <Category>Standard and Poor's</Category>
+     <Name>600 SmallCap</Name>
+     <Last>272.5</Last>
+     <Change>3.96</Change>
+     <PercentChange>+1.47</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^XAX</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>AMEX Composite</Name>
+     <Last>1177.19</Last>
+     <Change>13.58</Change>
+     <PercentChange>+1.17</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IIX</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>AMEX Internet</Name>
+     <Last>147.28</Last>
+     <Change>3.67</Change>
+     <PercentChange>+2.56</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^NWX</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>AMEX Networking</Name>
+     <Last>235.85</Last>
+     <Change>7.87</Change>
+     <PercentChange>+3.45</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^XMI</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>Major Market</Name>
+     <Last>1040.37</Last>
+     <Change>9.34</Change>
+     <PercentChange>+0.91</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^PSE</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>Pacific Exchange Technology</Name>
+     <Last>695.16</Last>
+     <Change>13.33</Change>
+     <PercentChange>+1.96</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^SOXX</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>Philadelphia Semiconductor</Name>
+     <Last>469</Last>
+     <Change>15.64</Change>
+     <PercentChange>+3.45</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^RUI</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>Russell 1000</Name>
+     <Last>589.27</Last>
+     <Change>6.48</Change>
+     <PercentChange>+1.11</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^RUT</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>Russell 2000</Name>
+     <Last>551.82</Last>
+     <Change>9.26</Change>
+     <PercentChange>+1.71</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^RUA</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>Russell 3000</Name>
+     <Last>624.51</Last>
+     <Change>7.14</Change>
+     <PercentChange>+1.16</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^DOT</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>TSC Internet</Name>
+     <Last>163.38</Last>
+     <Change>3.69</Change>
+     <PercentChange>+2.31</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^VLIC</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>Value Line</Name>
+     <Last>354.99</Last>
+     <Change>5.73</Change>
+     <PercentChange>+1.64</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^TMW</Symbol>
+     <Category>Other U.S. Indices</Category>
+     <Name>Wilshire 5000 TOT</Name>
+     <Last>10732.7</Last>
+     <Change>134.44</Change>
+     <PercentChange>+1.27</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^TYX</Symbol>
+     <Category>Treasury Securities (yield x10)</Category>
+     <Name>30-Year Bond</Name>
+     <Last>54.94</Last>
+     <Change>0.41</Change>
+     <PercentChange>+0.75</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^TNX</Symbol>
+     <Category>Treasury Securities (yield x10)</Category>
+     <Name>10-Year Note</Name>
+     <Last>47.86</Last>
+     <Change>0.5</Change>
+     <PercentChange>+1.06</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^FVX</Symbol>
+     <Category>Treasury Securities (yield x10)</Category>
+     <Name>5-Year Note</Name>
+     <Last>39.17</Last>
+     <Change>0.54</Change>
+     <PercentChange>+1.40</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^IRX</Symbol>
+     <Category>Treasury Securities (yield x10)</Category>
+     <Name>13-Week Bill</Name>
+     <Last>10.27</Last>
+     <Change>0</Change>
+     <PercentChange>0.00</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^DJS</Symbol>
+     <Category>Commodities</Category>
+     <Name>Dow Jones Spot</Name>
+     <Last>193.94</Last>
+     <Change>0</Change>
+     <PercentChange>0.00</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^DJC</Symbol>
+     <Category>Commodities</Category>
+     <Name>Dow Jones Futures</Name>
+     <Last>146.902</Last>
+     <Change>0</Change>
+     <PercentChange>0.00</PercentChange>
+    </MarketIndex>
+    <MarketIndex>
+     <Outcome>Success</Outcome>
+     <Delay>0</Delay>
+     <Symbol>^XAU</Symbol>
+     <Category>Commodities</Category>
+     <Name>Philadelphia Gold &amp; Silver</Name>
+     <Last>84.98</Last>
+     <Change>2.02</Change>
+     <PercentChange>+2.43</PercentChange>
+    </MarketIndex>
+   </GetIndicesResult>
+  </GetIndicesResponse>
+ </soap:Body>
+</soap:Envelope>

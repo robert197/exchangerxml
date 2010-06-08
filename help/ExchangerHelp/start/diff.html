@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">XML Unordered Differencing and Merging</h2>
+      <p>Comparing two or more files consists of identifying the parts that have been added, deleted, changed or moved.
+         			 However, in many cases, movement is not such an important issue and does not necessarily lead to any fundamental differences.
+         			 For example, moving a <b>template</b> in an XSLT file or a global <b>complexType</b> definition in an XML Schema does 
+         			 not alter the underlying meaning. As a result, normal (or Ordered) differencing can often report spurious changes and
+         where many such moves
+         		have occurred in the input, the over-zealous reporting of such occurrences can render the differencing report useless. In
+         light of this, the current release 
+         		of Exchanger XML provides an Unordered differencing tool, specifically for those formats where document order is not an
+         overriding concern when making
+         		comparisons. It goes without saying that this may not always be appropriate, particulary for textual data, and a future
+         release will enhance the current 
+         		offering with an Ordered Differencing mechanism as well. Note particularly that even when the two compared files are not
+         identical, the Unordered Differencing
+         		 tool may not always signal modifications.
+         		
+      </p>
+      <h3 class="title">Differencing</h3>
+      <p>
+         				In the <tt class="filename">projects/XML Differencing</tt> project, open the files <tt class="filename">input/contacts.xsd</tt> and
+         				 <tt class="filename">input/contacts2.xsd</tt>. Use the
+         				 <b>View-&gt;Split Vertically</b> function to visually compare the two files side-by-side. Notice how some elements/attribues
+         				  have been added, deleted, changed and moved. Now open the differencing window by selecting <b>Tools-&gt;XML Diff and Merge...</b>. In
+         				  the dialog, choose <tt class="filename">contacts.xsd</tt> as the Base URL and <tt class="filename">contacts2.xsd</tt> as the Modified URL. 
+      </p><img src="../../images/xmlDiff.gif" alt="XML Diff"></img><p class="title"><b>Figure&nbsp;1.&nbsp;XML Diff</b></p>
+      <p>A tree view will 
+         				  be displayed to show additions (in Green), deletions (in Red) and changes (with the new version in Blue and a line through
+         the original). An
+         				   asterisk is displayed on any element that contains a difference (either directly or in a descendant node). Use the
+         normal "+" and "-" buttons to
+         				    expand and collapse the tree nodes and use the <b>Show First Difference</b> button <img src="../../images/buttonShowFirstDiff.gif"></img> , <b>Show Next Difference</b> <img src="../../images/buttonShowNextDiff.gif"></img>,
+         				     <b>Show Previous Difference</b> <img src="../../images/buttonShowPreviousDiff.gif"></img> and <b>Show Last Difference</b>   <img src="../../images/buttonShowLastDiff.gif"></img> buttons to easily navigate between the reported
+         				      changes. Notice how the XPath for the location of each diffference is shown in the status bar at the bottom of the
+         window - this is useful if you want to navigate to the difference outside of the Diff window. Notice also that although the
+         relative positions of the Contacts and Address element definitions have changed
+         				    between the 2 files, no difference is reported for this as it is not significant.
+         			
+      </p>
+      <h3 class="title">Merging</h3>
+      <p>Changes in the Modified document can be selectively merged on top of the Base document using the Merge Tree. Click the <b>Show Merge Tree</b> button <img src="../../images/buttonShowMergeTree.gif"></img> on the XML Diff and Merge toolbar and a second tree view will appear to the right of the original view.
+      </p><img src="../../images/xmlMerge.gif" alt="XML Merge"></img><p class="title"><b>Figure&nbsp;2.&nbsp;XML Merge</b></p>
+      <p> Navigate to the first difference (the Firstname element definition) and right-click with the mouse placed on the highlighted
+         difference in the Diff view. A pop-up will appear asking if you would like to use the Modified version or just retain the
+         Base version. Choose to use the Modified version and it will appear in the Merge Tree on the right-hand side, 
+         			highlighted in pink.
+      </p><img src="../../images/xmlMerge2.gif" alt="XML Merge Using Modified Version"></img><p class="title"><b>Figure&nbsp;3.&nbsp;XML Merge Using Modified Version</b></p>
+      <p> To undo the merge and revert to original version, simply click right-click again on the difference in the Diff Tree and this
+         time choose to use the <b>Base</b> version. The modified (pink) element definition will disappear and revert to its original form. 
+         			
+      </p>
+      <p>Now, in the Diff Tree, navigate to the fourth change, the "deleted" node that was an element reference for Address. Right-click
+         with the mouse on the highlighted difference and you will be prompted to choose whether or not to delete the node in the merged
+         version. Choose <b>Delete</b> and the node will be removed in the Merge Tree. Navigate to the last change in the Diff Tree where an attribute definition
+         has been inserted in the <b>Modified</b> version, and a right-click will prompt whether or not to insert the new node in the merged version. Choose to <b>Insert</b> and the node will be added to the Merge Tree, again highlighted in pink. Note that when the Merge Tree view has focus, the
+         navigation buttons apply to it and move the cursor to the first, next, previous and last changes that have been merged.
+      </p>
+      <p>When you have completed the merging process,  press the <b>Edit</b> on the top right of the Merge Tree to create a new document that can be further edited or saved to disk and then close the
+         Diff/Merge window. 
+      </p>
+   </body>
+</html>

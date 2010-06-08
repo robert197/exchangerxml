@@ -1,0 +1,158 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">XML Canonicalization</h2>
+      <p>Exchanger XML Editor supports Inclusive and Exclusive canonicalization of documents according to the W3C Canonicalization
+         specifications.
+      </p>
+      <h3 class="title">Inclusive Canonicalization</h3>
+      <p>The following list contains a summary of the possible changes the input document undergoes during Inclusive Canonicalization:</p>
+      <ul type="disc">
+         <li>
+            <p>The document is encoded in UTF-8</p>
+         </li>
+         <li>
+            <p>Line breaks are normalized to #xA</p>
+         </li>
+         <li>
+            <p>Attribute values are normalized (Character and parsed entity references are replaced; White space characters (#xD, #xA, #x9)
+               are replaced by the space character #x20; If the attribute type is not CDATA, any leading and trailing space (#x20) characters
+               are discarded, and any sequences of space (#x20) characters are replaced by a single space (#x20) character.) All attributes
+               for which no declaration has been read should be treated by a non-validating processor as if declared CDATA. Note: a validating
+               parser will produce different output to one that just checks well-formedness since leading/trailing spaces are discarded and
+               sequences of spaces are collapsed for non-CDATA atrributes by the validating parser - the canonicalisation spec requires that
+               attribute values are normalized "as if by a validating processor".
+            </p>
+         </li>
+         <li>
+            <p>Character and parsed entity references in content are replaced</p>
+         </li>
+         <li>
+            <p>The XML declaration is removed</p>
+         </li>
+         <li>
+            <p>Whitespace outside of the document element is normalized</p>
+         </li>
+         <li>
+            <p>All whitespace in character content is retained (excluding characters removed during line feed normalization)</p>
+         </li>
+         <li>
+            <p>Default attributes are added to each element</p>
+         </li>
+         <li>
+            <p>A DOCUMENT_TYPE node is discarded.</p>
+         </li>
+         <li>
+            <p>Processing Instructions (PIs) before the document element are output followed by a new line each. PIs after the document element
+               are output preceeded by a new line each. PIs are output with a single space between the target name and the value, if there
+               is a value otherwise no space is output. The character #x0d is replaced by the character entity 
+               
+            </p>
+         </li>
+         <li>
+            <p>Comments before the document element are output followed by a new line. Comments after the document element are output preceeded
+               by a new line. The character #x0d is replaced by the character entity 
+               
+            </p>
+         </li>
+         <li>
+            <p>Text and CDATA nodes are output as text, with special characters replaced by character references: &amp; replaced by &amp;amp; &lt; replaced
+               by &amp;lt; &gt; replaced by &amp;gt; and the character #x0d is replaced by the character entity &amp;#xD;
+            </p>
+         </li>
+         <li>
+            <p>Empty elements are converted to start-end tag pairs.</p>
+         </li>
+         <li>
+            <p>Whitespace within start and end tags is normalized.</p>
+         </li>
+         <li>
+            <p>Attribute value delimiters are set to quotation marks (double quotes)</p>
+         </li>
+         <li>
+            <p>Special characters in attribute values are replaced by character references: &amp; replaced by &amp;amp; &lt; replaced by &amp;lt; &gt; replaced
+               by &amp;gt; and the character #x0d is replaced by the character entity &amp;#xD;
+            </p>
+         </li>
+         <li>
+            <p>Relative namespaces are not allowed and will cause the canonicalization to fail.</p>
+         </li>
+         <li>
+            <p>Namespaces and attributes: any superfluous redeclaration of namespaces or xml: attributes are dropped from the output - for
+               example, if an element has an xml:space="preserve" and an ancestor has the same declaration without an intervening xml:space="default",
+               then the xml:space attribute is dropped from the current element (and similarly for redeclared namespaces).
+            </p>
+         </li>
+         <li>
+            <p>Namespace and attribute ordering: namespaces are output before attributes. Namespaces are ordered based on the local name
+               (prefix), with the default namespace, if it exists, being placed last because it has no local name. Attributes are ordered
+               based on the namespace URI (not prefix!) as the primary key and the local name as the secondary key, with attributes in no
+               namespace being placed last (remember, default namespace does not apply to attributes).
+            </p>
+         </li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Inclusive Canonicalization Example</h3>
+      <p>Open the file 	<tt class="filename">input/books.xml</tt> in the <b>Inclusive Canonicalization</b> project and select <b>Security-&gt;Canonicalize</b>.  In 
+         the dialog, select <b>Inclusive</b>, send the output <b>To New Document</b> and click <b>OK</b>. This example shows up a number of canonicalization features, including entity and CDATA replacement, double quotes replacing
+         single quotes around attribute values, attributes being ordered alphabetically, XML Declaration and DOCTYPE stripping, etc.
+      </p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <h3 class="title">XPath and Canonicalization</h3>
+      <p>
+         XPaths can also be used to specify what portion of a document is to be canonicalized. Note that an XPath such as &nbsp;&nbsp;&nbsp; <b>//person</b> only identifies individual nodes (the apex nodes of subtrees starting at the <b>person</b> elements), whereas a construction similar to <b>(//. | //@* | //namespace::*)[ancestor-or-self::person]</b> is needed to describe the list of nodes contained within the <b>person</b> elements (for more details, see the Canonicalization specification). When using XPaths in Exchanger for Canonicalization
+         or XML Signatures, you only need to enter the <b>predicate</b>, i.e. the part inside the square brackets <b>[]</b> which in the current example is <b>ancestor-or-self::person</b>. 
+      </p>
+      <p>If you need to use namespace prefixes in your XPath predicates in Canonicalization, then you must declare them to the Editor
+         either in the Canonicalize dialog or through the XML Preferences window (available via <b>File-&gt;Preferences</b> in the XML tab). See the section on using XPaths in Exchanger at the beginning of this document and the Preferences section
+         at the end for more details on using namespace prefix mapping.
+      </p>
+      <h3 class="title">Exclusive Canonicalization</h3>
+      <p>Exclusive canonicalization deals with the canonicalization of document subsets and attempts to isolate the subset from its
+         context - this is very important when content of one XML document type is embedded (or "enveloped") within another document
+         type such as SOAP. Exclusive canonicalization adds extra restrictions, above and beyond the regular canonicalization issues
+         outlined above.
+      </p>
+      <ul type="disc">
+         <li>
+            <p>Visibly utilized namespaces: Namespaces are not automatically output on an element unless they are actually used on the element
+               itself - this holds both for namespaces delared on ancestor elements and also for those declared on the element itself. If
+               an unused namespace is used on a subsequent descendant, the appropriate namespace declaration is only output at that point.
+            </p>
+         </li>
+         <li>
+            <p>Included namespaces: specific namespace declarations can be explicitly output by supplying them to the exclusive canonicalization
+               algorithm in the InclusiveNamespaces PrefixList. This is useful when a prefix is used in an attribute value (say, as part
+               of an XPath specification) and would not be "visibly used" by default.
+            </p>
+         </li>
+         <li>
+            <p>xml: attributes that have been used on ancestors that are not part of the document subset are NOT output on the apex nodes
+               of the document subset.
+            </p>
+         </li>
+      </ul>
+      <p></p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Exclusive Canonicalisation Examples</h3>
+      <p>   Open the file 	<tt class="filename">input/xc14ntest.xml</tt> in the <b>Exclusive Canonicalization</b> 
+         project and select <b>Security-&gt;Canonicalize</b>.  In this example, we are going to exclusively
+         canonicalize the <b>verbatim</b> element contents and see how the namespaces are affected. In
+         the dialog, select <b>Exclusive</b> and set the XPath Predicate to  <b>ancestor-or-self::q:verbatim</b>. (Note: you will need to add a Namespace Prefix Mapping entry with Prefix equals to <b>q</b> and URI equals <b>http://www.q.com/sample/</b>   and send the output <b>To New Document</b>.
+      </p><img src="../../images/xc14n.gif" alt="Exclusive Canonicalization"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Exclusive Canonicalization</b></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p>In the output (also available in the <tt class="filename">output</tt> directory in the project) notice how namespace declarations are only output when needed. Also note that while the <b>w</b> prefix is used in an attribute value on the <b>b</b> element, the namespace declartion is not output on the <b>b</b> element as the namepsace is not "visibly used" but is output on the <b>i</b> element where it is visible.
+      </p>
+
+   </body>
+</html>

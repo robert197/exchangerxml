@@ -1,0 +1,21 @@
+<!DOCTYPE TEI.2 PUBLIC "-//TEI P4//DTD Main Document Type//EN" "http://www.tei-c.org/P4X/DTD/tei2.dtd" [
+  <!ENTITY % TEI.prose "INCLUDE" >
+  <!ENTITY % TEI.XML "INCLUDE">
+]>
+
+<TEI.2>
+    <teiHeader> 
+    	<!-- TEI Header information -->
+    </teiHeader>
+    <text>
+        <front> 
+        	<!-- front matter ... --> 
+        </front>
+        <body>  
+        	<!-- body of text ...  -->
+        </body>
+        <back>  
+        	<!-- back matter ... -->  
+        </back>
+    </text>
+</TEI.2>

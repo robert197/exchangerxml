@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="J2EE 1.3 Application Client Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD J2EE Application Client 1.3//EN" extensions="xml">
+	<root name="application-client">
+		<namespace prefix="" uri=""/>
+	</root>
+	<template src="" type="xsd"/>
+	<validation src="dtd/application-client_1_3.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

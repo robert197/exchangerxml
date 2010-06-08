@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Company>
+        <Person>
+                <Name>John Doe</Name>
+                <SSN>123-45-6789</SSN>
+                <Salary>30000</Salary>
+        </Person>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+<ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+<ds:XPath>ancestor-or-self::Salary</ds:XPath>
+</ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>50uX9bScUG/HNtKnIGKlI0LV/0Q=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+jYhJCLycr29tHq2U4/+E7M7Ti0WS/SN/D6egGe+QjU4lMfCtaY66zhuHguluLtk6ZSuwW904ACyA
+YZ47D5EVYqzqZXRa+xFu4sEJSrhqT/NGHQWn0X+p7/JzrZWscEuy01Md5saXHpPb+CLxgUmMqu/m
+Pz6XGb3V5za4t38xwHU=
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509SubjectName>CN=Exchanger,OU=Development,O=Cladonia,C=IE</ds:X509SubjectName>
+<ds:X509Certificate>
+MIICBjCCAW8CBEBMlo8wDQYJKoZIhvcNAQEEBQAwSjELMAkGA1UEBhMCSUUxETAPBgNVBAoTCENs
+YWRvbmlhMRQwEgYDVQQLEwtEZXZlbG9wbWVudDESMBAGA1UEAxMJRXhjaGFuZ2VyMB4XDTA0MDMw
+ODE1NTE0M1oXDTEyMDUyNTE1NTE0M1owSjELMAkGA1UEBhMCSUUxETAPBgNVBAoTCENsYWRvbmlh
+MRQwEgYDVQQLEwtEZXZlbG9wbWVudDESMBAGA1UEAxMJRXhjaGFuZ2VyMIGfMA0GCSqGSIb3DQEB
+AQUAA4GNADCBiQKBgQC/363xtXik6JrwR4vNx6xrp+OOc8fPO2jQif3yech8OvEXnGxLyoyK+xEA
+2h1JAzkzoyzSu1ursHYbnFwWFF/P65oYzv6BdI2aWY7g7HPLpZd4sawVPg9BbqaF4wBtTMAxRAi3
+Eql6fQXG4gRPp3yaTuWgQ+ydHy2TbaE6+z/dAQIDAQABMA0GCSqGSIb3DQEBBAUAA4GBAFr9UXaK
+gKv2S21T4PIZMjQePHzybpoMhq8JQQ2292foweThz2wfKTw36o+bYIdcNoI1dV9zQO3sCAGxKXTh
+9pZQLNjnH9jAGb7OQ+ogmxjwIiA9KXD3U7eZ4kzCBEvf28Tp6/HsEsOlWGBrbC1/hnvHVgZQD+En
+xog0MwTfTLms
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+v9+t8bV4pOia8EeLzcesa6fjjnPHzzto0In98nnIfDrxF5xsS8qMivsRANodSQM5M6Ms0rtbq7B2
+G5xcFhRfz+uaGM7+gXSNmlmO4Oxzy6WXeLGsFT4PQW6mheMAbUzAMUQItxKpen0FxuIET6d8mk7l
+oEPsnR8tk22hOvs/3QE=
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+</ds:Signature></Company>

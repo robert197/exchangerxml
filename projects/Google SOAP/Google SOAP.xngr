@@ -1,0 +1,22 @@
+<xngr>
+	<projects>	
+<project name="Google SOAP">
+  <folder name="wsdl">
+   <document src="wsdl/GoogleSearch.wsdl"/>
+  </folder>
+  <folder name="request">
+   <document src="request/doGoogleSearch.xml"/>
+   <document src="request/doSpellingSuggestion.xml"/>
+  </folder>
+  <folder name="response">
+   <document src="response/doGoogleSearchResponse.xml"/>
+   <document src="response/doSpellingSuggestionResponse.xml"/>
+  </folder>
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

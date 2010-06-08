@@ -1,0 +1,62 @@
+//make 1st view
+newJPanel = Packages.javax.swing.JPanel(new Packages.java.awt.BorderLayout());
+
+//make the browser and set the initial url
+browser = new Packages.org.jdesktop.jdic.browser.WebBrowser();
+browser.setURL(new Packages.java.net.URL("http://www.google.ie"));
+
+//make an address bar
+addressPanel = new Packages.javax.swing.JPanel(new Packages.org.bounce.FormLayout());
+addressLabel = new Packages.javax.swing.JLabel("Address: ");
+addressTextField = new Packages.javax.swing.JTextField("http://www.google.ie");
+
+addressTextField.addActionListener(
+        new JavaAdapter(
+            Packages.java.awt.event.ActionListener,
+            {actionPerformed:function (event) {
+                browser.setURL(new Packages.java.net.URL(addressTextField.getText()));
+            }}
+        )
+    );
+
+addressPanel.add(addressLabel, Packages.org.bounce.FormLayout.LEFT);
+addressPanel.add(addressTextField, Packages.org.bounce.FormLayout.RIGHT_FILL);
+
+
+//make a toolbar for all the standard browser buttons
+toolbar = new Packages.javax.swing.JToolBar();
+
+backButton = new Packages.javax.swing.JButton("Back");
+backButton.addActionListener(
+        new JavaAdapter(
+            Packages.java.awt.event.ActionListener,
+            {actionPerformed:function (event) {
+                browser.back();
+            }}
+        )
+    );
+
+toolbar.add(backButton);
+
+
+refreshButton = new Packages.javax.swing.JButton("Refresh");
+refreshButton.addActionListener(
+        new JavaAdapter(
+            Packages.java.awt.event.ActionListener,
+            {actionPerformed:function (event) {
+                browser.refresh();
+            }}
+        )
+    );
+
+toolbar.add(refreshButton);
+
+
+controlPanel = new Packages.javax.swing.JPanel(new Packages.java.awt.BorderLayout());
+controlPanel.add(addressPanel, Packages.java.awt.BorderLayout.NORTH);
+controlPanel.add(toolbar, Packages.java.awt.BorderLayout.CENTER);
+
+newJPanel.add(controlPanel, Packages.java.awt.BorderLayout.NORTH);
+newJPanel.add(browser, Packages.java.awt.BorderLayout.CENTER);
+exchanger.makeUserView(newJPanel, "Browser1");
+

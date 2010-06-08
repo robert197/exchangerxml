@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">Query</h2>
+      <p>Exchanger XML Editor currently supports the XQuery language, as implemented in release 8.5.1 of Saxon (see http://saxon.sourceforge.net).</p>
+      <h3 class="title">Execute XQuery</h3>
+      <p>The XQuery project contains a sample input file <tt class="filename">projects/XQuery/input/books.xml</tt> containing a list of books with their titles and authors and also a sample query file <tt class="filename">projects/XQuery/query/books.xq</tt>. The query in this case sorts the books in order of the length of their titles. Select <b>Transform-&gt;Execute XQuery</b> and enter the appropriate input and query files.The output of the transformation can be sent to a new window or saved to
+         file. Notice that in the resultant document, the books have now been sorted with the shortest title first. 
+      </p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Database Access</h3>
+      <p>The latest Saxon XSL processor provides extensions that allow data to be retrieved 
+         				from database tables.  Database drivers must be added manually by 
+         				adding the jars in the <b>System</b> tab of <b>File-&gt;Preferences</b> - this requires
+         				a restart of the application to take affect.
+         				
+      </p>
+      <p>The built-in sample is for the MySQL database and performs a simple SQL Select-From-Where query. To test the database access,
+         
+         			install the appropriate jar, edit the existing Scenario by selecting <b>Transform-&gt;Manage Scenario</b>,
+         				choose "Simple Database Access" and press the <b>Change</b> button. 
+         				Click on the <b>Parameters...</b> button in the XSLT section of the dialog to see the current
+         				settings. The default driver details are for MySQL so, if necessary, modify this parameter to match the driver for your
+         database.
+         				Now change the mandatory database name, user, password and table parameters to suit your setup. 
+         				Other optional parameters include "column" which is a comma separated list of the columns that should be returned by the
+         query
+         				- by default all (*) will be returned. Also a "where" condition can be specified to narrow the search criteria.
+         				
+      </p>
+      <p>Save the changes you have made to the Scenario and then execute it using <b>Transform-&gt;Execute Scenario</b>. If the
+         				connection is successful, the query will return data in a new window - otherwise, check the Output tab for
+         				information on possible error conditions.
+      </p>
+      <p>Note that the XSLT 2.0 version of the Saxon processor must be used to avail of this functionality (see
+         				the <b>Processor...</b> section of the Scenario dialog). More information on using the Saxon sql extensions can be found in the <tt class="filename">sql-extension.html</tt>
+         				file in the <tt class="filename">doc</tt> directory.				 				
+         				
+      </p>
+   </body>
+</html>

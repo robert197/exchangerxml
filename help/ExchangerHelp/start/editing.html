@@ -1,0 +1,944 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+
+      <h2 class="title" style="clear: both">Editing XML Content</h2>
+      <p>The Exchanger XML Editor provides numerous aids for simplifying the editing of XML content including: document templates;
+         tag prompting; end tag completion; quick commenting, tagging and indenting; and content formatting (or pretty printing). Standard
+         editing functionality such as Undo, Redo, Find/Replace, Goto Line Number is also supported.
+      </p>
+      <h3 class="title">Window Management</h3>
+      <h4 class="title">Splitting Multiple Windows</h4>
+      <p>Two or more documents can be displayed on the screen at the same time to simplify concurrent editing or comparison. Open two
+         files as normal and then
+         					 choose <b>View-&gt;Split Vertically</b> or press the <b>Split Vertically</b> 
+         					 button (<img src="../../images/buttonSplitVertically.gif"></img>) 
+         					 from the Standard Toolbar. The two files will be displayed vertically side-by-side. Multiple documents can also be
+         					 displayed one on top of the other by choosing <b>View-&gt;Split Horizontally</b> or pressing
+         					 the <b>Split Horizontally</b> button (<img src="../../images/buttonSplitHorizontally.gif"></img>). The number of splits is only limited by the number of open documents, and both vertical and horizontal splits can occur
+         at the same time. To undo a split choose <b>View-&gt;Unsplit</b> or press the Unsplit button (<img src="../../images/buttonUnsplit.gif"></img>). When working with multiple windows, it is easy to temporarily maximize or minimize a particular document by clicking on
+         the expand/collapse icons in the splitters between windows.
+      </p><img src="../../images/splitWindows.gif" alt="Splitting Windows Vertically and Horizontally"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Splitting Windows Vertically and Horizontally</b></p><img src="../../images/splitWindows2.gif" alt="Splitting Windows With Multiple Views"></img><p class="title"><b>Figure&nbsp;2.&nbsp;Splitting Windows With Multiple Views</b></p>
+      <p>Different views can be used in different windows - the above example shows concurrent documents using the Editor, Schema Viewer,
+         Grid and Viewer.
+      </p>
+      <p></p>
+      <p></p>
+      <h5 class="title">Synchronising Split Windows</h5>
+      <p>To further aid concurrent
+         					  use, the scrolling of the two or more split windows can be synchronised by selecting <b>View-&gt;Synchronise Splits on XPath</b>. This can be particularly useful when comparing versions of the same document, for example, with multiple language translations
+         where the structure remains constant while the text is different.
+         				
+      </p>
+      <h4 class="title">Splitting a Document</h4>
+      <p>Different parts of a file can be edited at the same time by splitting the file in a single window. Open a file and place the
+         cursor at the top of the editing window, just below the Editor Toolbar, so that the double-arrow cursor icon is visible. Drag
+         the cursor downwards and then release. (Alternatively, use the built-in shortcut <b>Ctrl+F6</b>, or <b>Command+F6</b> on the Macintosh, to quickly split the current document in two).
+         			 It is now possible to view and edit each section independently - this is particularly useful for editing formats such
+         as SVG and XHTML where Javascript code can be located in one section and the actual XML tagging in another. To quickly move
+         between splits, again use the keyboard shortcut <b>Ctrl+F6</b>. To remove the split, simply drag the divider to the top of the window.   
+      </p><img src="../../images/splitDocument.gif" alt="Split Document"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Split Document</b></p>
+      <h3 class="title">Built-in Key Bindings</h3>
+      <p>Exchanger XML Editor has over 200 functions and keyboard shortcuts have been created for the most frequently used ones. 
+         				    These proprietary shortcuts follow the typical conventions for the platform (for example, using the <b>COMMAND</b> key
+         				     on Macintosh while using the <b>CTRL</b> key on Windows/Unix) and are fully documented at the end of this user guide.
+         				     In addition to these defaults, Exchanger XML also supports  standard Emacs key mappings for common editing tasks.
+         
+         				    To change the active Key bindings, choose <b>File-&gt;Preferences</b> and on the <b>Keys</b> tab, 
+         				    set the Active configuration to <b>emacs</b> or <b>default</b> as required. 
+      </p>
+      <h4 class="title">Emacs Key Bindings</h4>
+      <p>Most common Emacs key mappings are supported in Exchanger XML Editor, although a few have to be modified slightly due to limitations
+         in Java. Mappings that have changed include Print current document, Find next in current document, Goto Line Number, Unindent,
+         Move to beginning of Data and Move to end of data. Otherwise the mappings are standard and all are listed below:
+      </p>
+      <p>
+         						
+      </p>
+      <p class="title"><b>Table&nbsp;1.&nbsp;</b></p>
+      <table summary="" border="0">
+         <colgroup span="1">
+            <col span="1"></col>
+            <col span="1"></col>
+            <col span="1"></col>
+         </colgroup>
+         <thead>
+            <tr>
+               <th align="left" rowspan="1" colspan="1">Action</th>
+               <th align="left" rowspan="1" colspan="1">Description</th>
+               <th align="left" rowspan="1" colspan="1">Shortcut</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">File: Close</td>
+               <td align="left" rowspan="1" colspan="1">Close current file</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;K</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">File: CloseAll</td>
+               <td align="left" rowspan="1" colspan="1">Close all files</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;Ctrl+C</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">File: NewDocument</td>
+               <td align="left" rowspan="1" colspan="1">New Document</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;Ctrl+N</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">File: Open</td>
+               <td align="left" rowspan="1" colspan="1">Open a file</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;Ctrl+F</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">File: Print</td>
+               <td align="left" rowspan="1" colspan="1">Print current document</td>
+               <td align="left" rowspan="1" colspan="1">Alt+F9</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">File: Save</td>
+               <td align="left" rowspan="1" colspan="1">Save current file</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;Ctrl+S</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">File: SaveAll</td>
+               <td align="left" rowspan="1" colspan="1">Save all files</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;S</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">File: SaveAs</td>
+               <td align="left" rowspan="1" colspan="1">Save file as</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;Ctrl+W</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit: Find</td>
+               <td align="left" rowspan="1" colspan="1">Find in current document</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+S</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit: FindNext</td>
+               <td align="left" rowspan="1" colspan="1">Find next in current document</td>
+               <td align="left" rowspan="1" colspan="1">F3</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit: GotoLine</td>
+               <td align="left" rowspan="1" colspan="1">Goto line number</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;G</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit: Indent</td>
+               <td align="left" rowspan="1" colspan="1">Indent</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+Q</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit: Redo</td>
+               <td align="left" rowspan="1" colspan="1">Redo previous undo</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;R</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit: Replace</td>
+               <td align="left" rowspan="1" colspan="1">Replace in current document</td>
+               <td align="left" rowspan="1" colspan="1">Alt+R</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit: Undo</td>
+               <td align="left" rowspan="1" colspan="1">Undo last edit</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+S&nbsp;U</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit: Unindent</td>
+               <td align="left" rowspan="1" colspan="1">Unindent</td>
+               <td align="left" rowspan="1" colspan="1">Alt+Q</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: Backward</td>
+               <td align="left" rowspan="1" colspan="1">Moves insertion point to the left one</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+B</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: Begin</td>
+               <td align="left" rowspan="1" colspan="1">Moves to beginning of data</td>
+               <td align="left" rowspan="1" colspan="1">Alt+A</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: BeginLine</td>
+               <td align="left" rowspan="1" colspan="1">Moves to beginning of line</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+A</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: Copy</td>
+               <td align="left" rowspan="1" colspan="1">Copy</td>
+               <td align="left" rowspan="1" colspan="1">Alt+W</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: Cut</td>
+               <td align="left" rowspan="1" colspan="1">Cut</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+W</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: DeleteNextChar</td>
+               <td align="left" rowspan="1" colspan="1">Deletes the next character</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+D</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: DeletePrevChar</td>
+               <td align="left" rowspan="1" colspan="1">Deletes the previous character</td>
+               <td align="left" rowspan="1" colspan="1">BACKSPACE</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: Down</td>
+               <td align="left" rowspan="1" colspan="1">Moves insertion point down one line</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+N</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: End</td>
+               <td align="left" rowspan="1" colspan="1">Moves to end of data</td>
+               <td align="left" rowspan="1" colspan="1">Alt+E</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: EndLine</td>
+               <td align="left" rowspan="1" colspan="1">Moves to end of line</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+E</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: Forward</td>
+               <td align="left" rowspan="1" colspan="1">Moves insertion point to the right one</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+F</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: NextWord</td>
+               <td align="left" rowspan="1" colspan="1">Moves to beginning of next word</td>
+               <td align="left" rowspan="1" colspan="1">Alt+F</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: PageDown</td>
+               <td align="left" rowspan="1" colspan="1">Moves down one information pane</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+V</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: PageUp</td>
+               <td align="left" rowspan="1" colspan="1">Moves up one information pane</td>
+               <td align="left" rowspan="1" colspan="1">Alt+V</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: Paste</td>
+               <td align="left" rowspan="1" colspan="1">Paste</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+Y</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: PreviousWord</td>
+               <td align="left" rowspan="1" colspan="1">Moves to beginning of previous word</td>
+               <td align="left" rowspan="1" colspan="1">Alt+B</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: SelectAll</td>
+               <td align="left" rowspan="1" colspan="1">Select All</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+X&nbsp;H</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Editor: Up</td>
+               <td align="left" rowspan="1" colspan="1">Moves insertion point up one line</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+P</td>
+            </tr>
+         </tbody>
+      </table>
+      <p>
+         					
+      </p>
+      <h3 class="title">Customized Key Bindings</h3>
+      <p>Only some of the over 200 functions of the Exchanger XML Editor have built-in shortcuts. To create new
+         		 shortcuts, or to override the existing ones, select <b>File-&gt;Preferences</b> and choose 
+         		 the <b>Keys</b> tab. In the <b>Command</b> section of the dialog, click on 
+         		 the <b>Name</b> 
+         		 drop-down and select the <b>File: ImportFromText</b>. Press the <b>Edit...</b> 
+         	button and in the <b>New Key Sequence</b> field of the <b>Edit Key Sequence</b>
+         	dialog, enter the key combination <b>Ctrl+I</b> (by holding the <b>Ctrl</b> key and 
+         	the <b>I</b> key down simultaneously)  and click <b>OK</b>. A warning is displayed,
+         	saying that the key sequence is already in use and asking if it should be over-ridden. Click
+         	<b>No</b> and instead, highlight the <b>Ctrl+I</b> sequence and this time enter 
+         	<b>Ctrl+Shift+I</b> (by holding the <b>Ctrl</b> key, the <b>Shift</b> 
+         	key and the <b>I</b> key down simultaneously) and press <b>OK</b>.  Close the
+         	Preferences dialog and then enter the key sequence <b>Ctrl+Shift+I</b> and the dialog corresponding
+         	to the <b>File-&gt;Import-&gt;From Text File... </b> menu item should appear.      	
+         	
+         	 
+      </p>
+      <h3 class="title">Convenience Editing Functions</h3>
+      <p>Under the <b>Edit-&gt;XML</b> menu item, there are a number of functions available that greatly simplify the editing of XML content.  
+      </p>
+      <p>
+         					
+      </p>
+      <p class="title"><b>Table&nbsp;2.&nbsp;Convenience Editing Functions</b></p>
+      <table summary="Convenience Editing Functions" border="0">
+         <colgroup span="1">
+            <col span="1"></col>
+            <col span="1"></col>
+            <col span="1"></col>
+         </colgroup>
+         <thead>
+            <tr>
+               <th align="left" rowspan="1" colspan="1">Action</th>
+               <th align="left" rowspan="1" colspan="1">Description</th>
+               <th align="left" rowspan="1" colspan="1">Shortcut</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit-&gt;XML-&gt;Tag...</td>
+               <td align="left" rowspan="1" colspan="1">Surround Highlighted content with Tag</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+T</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit-&gt;XML-&gt;Repeat Last Tag</td>
+               <td align="left" rowspan="1" colspan="1">Surround Highlighted content with previous tag</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+Shift+T</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit-&gt;XML-&gt;Rename Element</td>
+               <td align="left" rowspan="1" colspan="1">Change the current start and end tag</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+R</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit-&gt;XML-&gt;Expand Empty Element</td>
+               <td align="left" rowspan="1" colspan="1">Replace an empty element with a start and end tag</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+L</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit-&gt;XML-&gt;Goto Start Tag</td>
+               <td align="left" rowspan="1" colspan="1">Move the cursor to the current start tag</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+Up</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit-&gt;XML-&gt;Goto End Tag</td>
+               <td align="left" rowspan="1" colspan="1">Move the cursor to the current end tag</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+Down</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit-&gt;XML-&gt;Goto Next Attribute Value</td>
+               <td align="left" rowspan="1" colspan="1">Move the cursor into the next attribute value</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+Shift+Down</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Edit-&gt;XML-&gt;Goto Previous Attibute Value</td>
+               <td align="left" rowspan="1" colspan="1">Move the cursor into the previous attribute value</td>
+               <td align="left" rowspan="1" colspan="1">Ctrl+Shift+Up</td>
+            </tr>
+         </tbody>
+      </table>
+      <p>
+         				
+      </p>
+      <h3 class="title">Fragments</h3>
+      <p>Fragments are an extension of Key Bindings, whereby it is possible to specify a shortcut that will result in some user-defined
+         XML content being inserted into the editor at the current cursor position. For example a key sequence such as <b>Alt+Shift+C</b> in an XSLT document might insert the common xsl:choose combination:
+         <tt class="literal">
+            &lt;xsl:choose&gt; &lt;xsl:when test=""&gt; &lt;/xsl:when&gt; &lt;xsl:otherwise&gt; &lt;/xsl:otherwise&gt;  &lt;/xsl:choose&gt;
+            </tt>		
+         			Exchanger XML uses the concept of <b>Types</b> to manage configuration details relating to specific document formats. See the section later in this document for information
+         on how to specify keyboard shortcuts in the Types definition for generating XML fragments. In this section, we will look at
+         the built-in type for XSLT and how Fragments facilitate rapid editing.
+         			
+      </p>
+      <p>Open the file <tt class="filename">poem.xsl</tt> in the <tt class="filename">XSLT Fragments</tt> project. Check that the <b>Type</b> has been set correctly to <b>XML Stylesheet Language </b> by looking in the Document Properties window, or by selecting <b>Schema-&gt;Type Properties</b>. 
+      </p>
+      <p>Highlight the <b>title</b> element on line ten of <tt class="filename">poem.xsl</tt> (using the mouse, or by choosing <b>Edit-&gt;XML-&gt;Select Element</b>, or by pressing <b>Ctrl+E</b>).   
+      </p>
+      <p>Now press <b>Ctrl+Shift+SPACE</b> or choose <b>Edit-&gt;Insert Fragment</b> to see the list of pre-defined fragments for the XSLT Type. 
+      </p><img src="../../images/fragmentsPopup.gif" alt="Fragment List"></img><p class="title"><b>Figure&nbsp;4.&nbsp;Fragment List</b></p>
+      <p>Navigate through the list using the up and down arrows, or type the first character of the Fragment name you wish to select.
+         In this instance, we would like to surround the <b>title</b> element with an <b>xsl:choose</b> statement so select the <b>choose</b> entry and press Enter.  (Alternatively use the shortcut <b>Alt+Shift+C</b> directly in the editor to immediately insert the fragment.)
+      </p>
+      <p>Notice how the  the cursor is positioned in the <b>test</b> attribute of the <b>xsl:when</b> element and <b>title</b> element is now the content. Enter an expression for the test, for example <b>test="title and title !=''"</b>.
+      </p>
+      <p>Now move the cursor to inside the <b>xsl:otherwise</b> element and press <b>Alt+Shift+J</b> (or select the <b>call-template</b> fragment from the popup list using <b>Ctrl+Shift+SPACE</b>. 
+      </p><img src="../../images/fragmentPrompting.gif" alt="Fragment Prompting"></img><p class="title"><b>Figure&nbsp;5.&nbsp;Fragment Prompting</b></p>
+      <p>The <b>call-template</b> fragment automatically prompts for the name of the template, and the name of the first parameter and its value. Enter appropriate
+         values for the <b>set-title</b> named template in <tt class="filename">poem.xsl</tt> and press <b>OK</b>. The XML for the call to the template will be inserted at the cursor position, including the name and value of the prameter.
+         
+      </p><img src="../../images/fragmentResult.gif" alt="Fragment Result"></img><p class="title"><b>Figure&nbsp;6.&nbsp;Fragment Result</b></p>
+      <p>To see the definitions for current fragments, select <b>Schema-&gt;Type Properties</b> and select the <b>Other</b> tab. To learn how to create fragments, see the <b>Types</b> section later in this manual. In the current release of Exchanger XML Editor, fragments are only available through the creation
+         of <b>Types</b>. 
+      </p>
+      <h3 class="title">Editor Toolbar</h3>
+      <p>The Editor toolbar is only visible in the Editor view. It consists of the following items:</p>
+      <ul type="disc">
+         <li>
+            <p>Select Element, Select Element Content</p>
+         </li>
+         <li>
+            <p>Tag, Comment, CDATA</p>
+         </li>
+         <li>
+            <p>Split Current Element</p>
+         </li>
+         <li>
+            <p>Convert Characters to Entities, Convert Entities to Characters, Strip Tags</p>
+         </li>
+         <li>
+            <p>Goto Start Tag, GoTo End Tag, Goto Line Number</p>
+         </li>
+         <li>
+            <p>Format</p>
+         </li>
+         <li>
+            <p>Lock, Double Lock, Unlock</p>
+         </li>
+         <li>
+            <p>Highlight</p>
+         </li>
+         <li>
+            <p>Expand, Collapse</p>
+         </li>
+      </ul>
+      <p></p>
+      <p></p><img src="../../images/editorToolbar.gif" alt="Editor Toolbar"></img><p class="title"><b>Figure&nbsp;7.&nbsp;Editor Toolbar</b></p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonSelEl.gif"></img> 
+         Use the <b>Select Element</b> button or select <b>Edit-&gt;XML-&gt;Select Element</b> to highlight 
+         				the current element, including the start and end tag. By pressing the button repeatedly, the content of
+         				the current element's ancestors can be selected all the way up to the root element.
+      </p>
+      <p><img src="../../images/buttonSelElCont.gif"></img> Use the <b>Select Element Content</b> button  or select <b>Edit-&gt;XML-&gt;Select Element Content</b> to highlight 
+         				the content of the current element.
+      </p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonTag.gif"></img> Use the <b>Tag</b> button  or select <b>Edit-&gt;XML-&gt;Tag</b> (or use the key combination <b>Ctrl-T</b>) to easily surround an existing piece of 
+         			content with an element of your choosing. Simply highlight the piece of content and press the Tag button. Enter the desired
+         
+         			element name in the pop-up dialog box. To repeat the previous tagging operation, choose <b>Edit-&gt;XML-&gt;Repeat Last Tag</b> (or use the key combination <b>Ctrl+Sift+T</b>).
+      </p>
+      <p><img src="../../images/buttonComment.gif"></img> Use the <b>Comment</b> button  or select <b>Edit-&gt;XML-&gt;Comment</b> to comment out an existing piece 
+         			of content. Simply highlight the piece of content and press the Comment button. (Remember: nested comments are not allowed
+         in XML).
+         Note that if the cursor is actually placed within a comment, this button can be used to remove the comment markup.
+      </p>
+      <p><img src="../../images/buttonCDATA.gif"></img> Use the <b>CDATA</b> button  or select <b>Edit-&gt;XML-&gt;CDATA</b>) to surround an existing piece 
+         			of content in a CDATA section. Simply highlight the piece of content and press the CDATA button. (Remember: nested CDATA
+         sections are not allowed in XML).  Note that if the cursor is actually placed within a CDATA section, this button can be used
+         to remove the CDATA specification.
+      </p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonSplit.gif"></img> Use the <b>Split Current Element</b> button  or select <b>Edit-&gt;XML-&gt;Split Element</b> to insert an end tag for the current open element and to insert a new start tag.
+      </p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/ch2ent.gif"></img> Use the <b>Convert Characters to Entities</b> button (or select <b>Edit-&gt;XML-&gt;Convert Characters to Entities</b>) to
+         				change characters above a certain configurable range to the equivalent character reference or to a named entity reference.
+         				Special care must be taken when converting content with nested elements, comments, CDATA, etc. See the section on Special
+         Characters for more details.
+      </p>
+      <p><img src="../../images/ent2ch.gif"></img> Use the <b>Convert Entities to Characters</b> button (or select <b>Edit-&gt;XML-&gt;Convert Entities to Characters</b>)
+         to	change named entity references or character references to actual characters. See the section on Special Characters 
+         				for more details.
+      </p>
+      <p><img src="../../images/buttonStrip.gif"></img> Use the <b>Strip Tags From Selection</b> button  (or select <b>Edit-&gt;XML-&gt;Strip Tags</b>) to 
+         				remove start and end tags from the current selection. Note that Comments, CDATA, PIs, etc will not be affected.
+      </p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonGotoSTAG.gif"></img> Use the <b>Goto Start Tag</b> button  or select <b>Edit-&gt;XML-&gt;Goto Start Tag</b> to select the start tag of the
+         				current element.
+      </p>
+      <p><img src="../../images/buttonGotoETAG.gif"></img> Use the <b>Goto End Tag</b> button or select <b>Edit-&gt;XML-&gt;Goto End Tag</b> to select the end tag of the
+         				current element.
+      </p>
+      <p><img src="../../images/buttonGotoLine.gif"></img> Use the <b>Goto Line Number</b> button  or select <b>Edit-&gt;Goto</b> to go to a particular line number. Enter the 
+         			line number in the pop-up dialog and press <b>OK</b> (or the Enter key). To turn line numbering on or off in the
+         			Editor select <b>View-&gt;Editor Properties</b>, and set/reset the <b>Show LineNumber Margin</b> 
+         			property.
+      </p>
+      <p></p>
+      <p><img src="../../images/buttonFormat.gif"></img> Use the <b>Format</b> button   or select <b>Edit-&gt;XML-&gt;Format</b> to pretty-print the XML content. 
+         			To control the formatting options, select <b>File-&gt;Preferences</b> and choose the Format tab.
+      </p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonUnlock.gif"></img> The <b>Unlocked</b> button  
+         			    indicates that all content can be edited. Click it once   
+         			     or select <b>Edit-&gt;XML-&gt;Lock</b>. The button changes to Lock (<img src="../../images/buttonLock.gif"></img>) and indicates that all element names in start and end tags will no longer be editable. (Only attribute values and text content
+         can now be modified).
+         			     
+      </p>
+      <p>
+         			     Click the Lock button once   
+         			     or select <b>Edit-&gt;XML-&gt;Double Lock</b>. 
+         			     The button changes to Double Lock (<img src="../../images/buttonDoubleLock.gif"></img>) and indicates that attribute values will no longer be editable, effectively locking all the markup and only allowing changes
+         to text content. Note that while the Lock or Double Lock buttons are active, there will be no tag prompting and any attempt
+         to create start or end tags will result in automatic entity replacement (for example, if you copy and paste tags).
+      </p>
+      <p><img src="../../images/buttonHighlight.gif"></img> Use the <b>Highlight</b> button   or select <b>Edit-&gt;XML-&gt;Highlight</b> to highlight elements and attributes from different namespaces.
+      </p>
+      <p></p>
+      <p><img src="../../images/buttonCollapseAll.gif"></img> Use the <b>Collapse All</b> button  to completely collapse the current document when the Content Folding Margin is active.
+      </p>
+      <p></p>
+      <p><img src="../../images/buttonExpandAll.gif"></img> Use the <b>Expand All</b> button to fully expand any elements that are mininized when using Content Folding.  
+      </p>
+      <p></p>
+      <h3 class="title">Margins</h3>
+      <p>Four different margins are available in Exchanger XML Editor to improve navigation and overall editing efficiency. The
+         				Line Number, Bookmarks and Content Folding margins appear to the left of the editing window, while the Overview margin
+         is to 
+         				the right. The visibility of each of the margins can be controlled using the <b>View-&gt;Editor Properties...</b> menu 
+         				item, allowing the user to optimize the screen real estate as required. 
+      </p><img src="../../images/margins.gif" alt="Margins"></img><p class="title"><b>Figure&nbsp;8.&nbsp;Margins</b></p>
+      <h4 class="title">Content Folding</h4>
+      <p>Content folding greatly improves the usability of the Editor, particularly when dealing with large, complex documents 
+         					and therefore the Content Folding margin is visible by default. To collapse or expand an entire document in the Editor
+         view, use the 
+         				CollapseAll and ExpandAll buttons on the Editor Toolbar. To collapse or expand an individual element to hide or show its
+         children, click 
+         				on the appropriate "+" or "-" sign in the Content Folding margin (or with the cursor on the same line as the start tag,
+         use the key sequence 
+         				<b>Ctrl+ENTER</b>). To completely collapse or expand an element, hiding or showing all the descendant nodes, 
+         				hold down the <b>Shift</b> key and click on the "+" or "-" sign in the Content Folding margin (or with the cursor on 
+         				the same line as the start tag, use the key sequence <b>Ctrl+Shift+ENTER</b>). Note that folding only works for 
+         				elements that span more than 2 lines, and that the start tag must be the first non-whitespace content on the line. Content
+         folding can be particularly
+         				useful for establishing a "Table of Contents" style approach to editing large documents. For example, using DocBook, simply
+         enter the title on the same 
+         				line as the start tag for a section, e.g. <b>&lt;section&gt;&lt;title&gt;Chapter 1&lt;/title&gt;&lt;/section&gt;</b> and then use the
+         				section titles in association with content folding for easy navigating through the document.
+         				
+         				
+      </p>
+      <h4 class="title">Bookmarks</h4>
+      <p>Bookmarks provide another means of navigation, not just within a document but also across multiple documents. To create a
+         bookmark, ensure that the 
+         				Annotation Margin is visible using <b>View-&gt;Editor Properties...-&gt;Show Annotation Margin</b> and then simply double-click in the margin 
+         				at the appropriate place. A green icon will be placed in the margin, and in the Bookmarks tab in the panel at the bottom
+         of the screen, a new entry 
+         				will be created giving the filename, line number and content of the bookmark. Double-clicking on the entry in the Bookmarks
+         tab will automatically 
+         				scroll the  editor window to the corresponding location in the document.
+      </p>
+      <p> Bookmarks are also supported in the menus and with shortcuts. The key combination 
+         				<b>Ctrl+B</b> or the menu item <b>Edit-&gt;Toggle Bookmark</b> will create or remove a bookmark on the current line, as 
+         				appropriate. To goto a bookmark when the Bookmarks tab isn't visible, use the key combination 
+         				<b>Ctrl+Shift+B</b> or the menu item <b>Edit-&gt;Select Bookmark...</b> to display a dialog containing all the bookmarks for
+         				the current document.
+         				
+      </p>
+      <p>Green Bookmark indicators also appear in the Overview Margin to the right of the editing window, if it is currently visible.
+         The overview margin provides an indication of the relative positions of bookmarks in the entire document. Hovering over any
+         green icon in the overview margin will display details of the bookmark in a tool-tip, while single-clicking on that icon will
+         scroll the editor to the appropriate position.
+      </p>
+      <h4 class="title">Line Numbering Margin</h4>
+      <p>
+         				As in previous versions, line numbers are displayed in their own margin to the left of the editing window. However, the
+         margin can now be rapidly turned
+         				on or off using a menu item <b>View-&gt;Editor Properties...-&gt;Show Linenumber Margin</b> or better still, using a customized  shortcut as
+         				described earlier, as opposed to using the Preferences dialog. Note that the visibility of the line numbering margin,
+         as well as the other margins, is
+         				common to all open windows.
+         				
+      </p>
+      <h4 class="title">Overview Margin</h4>
+      <p>
+         				To improve navigation, a new Overview Margin has been added in this release and its visibility can be controlled using
+         the menu item
+         				<b>View-&gt;Editor Properties...-&gt;Show Linenumber Margin</b>. As well as containing bookmark indicators as mentioned earlier, the Overview
+         				margin also contains an indicator of the current cursor position (two small arrows), and red error locators for well-formedness
+         or validation errors. 
+         				Single-click on any of the indicators to move to the corresponding position in the editor.
+         				
+      </p>
+      <h3 class="title">Editor Properties</h3>
+      <p>Frequently changed settings have been moved from the Preferences dialog onto the <b>View-&gt;Editor Properties</b> sub-menus so that they are easier to access and to allow shortcuts to be created.  As mentioned previously, the four margins
+         for Annotations, Line Numbering, Content Folding, and Overview can be easily turned on and off, particularly if appropriate
+         keyboard shortcuts have been added. Tag completion (also known as tag prompting or intellisense) can be turned off as can
+         automatic end tag completion. The Smart Indentation feature attempts to position start/end tags and text content neatly in
+         relation to parent elements and is turned on by default. Syntax Error Highlighting, whereby the editor attempts to dynamically
+         indicate potential well-formedness errors, can be turned off using the <b>View-&gt;Editor Properties-&gt;Error Highlighting</b> menu item. Soft wrapping can be enabled or disabled using <b>View-&gt;Editor Properties-&gt;Soft Wrapping</b>
+         			   
+      </p>
+      <h3 class="title">Find and Replace</h3>
+      <p>Two separate mechanisms are used to support Basic and Advanced Find functionality. Basic Find simply allows searches on text
+         across the entire active document. The Advanced Find dialog allows an XPath filter to be used to narrow down the search area,
+         and supports Regular Expressions. In Advanced Replace, Regular Expression parameters can also be used in the Replace field,
+         making it much more programmable.
+      </p>
+      <p></p>
+      <p></p>
+      <h4 class="title">Basic Find</h4>
+      <p>The Basic Find dialog allows searching for text in a forwards or reverse direction from the current cursor position. To start
+         a search, press <b>Ctrl+F</b> or choose <b>Edit-&gt;Find</b>. To repeat the current search, press <b>F3</b> or choose <b>Edit-&gt;Find Next...</b> Once the end of the file is reached, Basic Find will automatically wrap and start again at the beginning of the file.
+      </p><img src="../../images/basicFind.gif" alt="Basic Find"></img><p class="title"><b>Figure&nbsp;9.&nbsp;Basic Find</b></p>
+      <h4 class="title">Advanced Find</h4>
+      <p>An XPath filter can be used in Advanced Find to narrow down the search area. If the XPath returns one or more elements, then
+         the search will be restricted to all the descendant nodes of the elements returned. If one or more attributes are returned,
+         then the corresponding attribute values will be searched.
+      </p>
+      <p>Advanced Find supports the use of Regular Expressions in the search string. For example, with the Regular Expression option
+         turned on, the search string <b>&lt;.+?&gt;</b> will find all occurrences of start and end tags (that are not split across multiple lines) in the current document. Note
+         that Regular Expressions can be combined with XPath filters to enhance the Find functionality.
+      </p><img src="../../images/advancedFind.gif" alt="Advanced Find"></img><p class="title"><b>Figure&nbsp;10.&nbsp;Advanced Find</b></p>
+      <h4 class="title">Advanced Replace</h4>
+      <p>In Advanced Replace, XPath and Regular Expressions can be used together to perform complicated edits to the current document.
+         For example, to change a tag named <b>Lastname</b> to <b>Surname</b>, but only inside <b>Person</b> nodes,  use a Find expression of <b>&lt;Lastname&gt;([^&lt;]+)&lt;/Lastname&gt;</b> and a Replace expression of <b>&lt;Surname&gt;$1&lt;/Surname&gt;</b>. Set the XPath Filter to <b>//Person</b>, ensure that the Regular Expression option is turned on and press Replace All to change all the Lastname tags to Surname.
+         				
+      </p><img src="../../images/advancedReplace.gif" alt="Advanced Replace"></img><p class="title"><b>Figure&nbsp;11.&nbsp;Advanced Replace</b></p>
+
+<h3 class="title">Find in Files...</h3>
+
+<p>Exchanger XML supports the ability to search files one or more directories. Choose <b>Edit->Find in
+Files...</b> and enter the search criteria.
+</p><img src="../../images/findInFiles.gif" alt="Find in Files"></img><p class="title"><b>Figure&nbsp;11a.&nbsp;Find in Files...</b> </p>
+
+
+<p>To choose multiple directories for the search, use the Ctrl or Shift keys when highlighting in the
+Directory chooser. If any files match the search criteria, the results will be displayed at the bottom
+of the screen in the Find in Files tab. Double-clicking on a result opens the file in the editor and
+automatically scrolls to the hit location.</p>
+
+
+
+
+      <h3 class="title">Drag and Drop</h3>
+      <p>Exchanger XML now supports the ability to drag and drop content in the Editor window. Simply highlight the text (perhaps using
+         <b>Edit-&gt;Select Element</b>) and then click in the highlighted area and with the mouse held down, drag the cursor to the desired insertion point. To
+         copy content rather than cutting and pasting, use <b>Ctrl+Drag</b> after highlighting the area. 		
+      </p>
+      <h3 class="title">Indentation</h3>
+      <p>To indent a block of content, simply highlight the desired area and press the <b>TAB</b> key (or select <b>Edit-&gt;Indent</b>).  To unindent (or exdent), use <b>Shift+TAB</b> (or select <b>Edit-&gt;Unindent</b>).
+      </p>
+      <h3 class="title">Templates</h3>
+      <p>The Exchanger XML Editor has built-in support for templates and also allows the user to create templates to simplify the editing
+         process.
+      </p>
+      <p>To try out a template, choose <b>File-&gt;New</b>, click on <b>From Template</b> and 
+         select <tt class="filename">XHTML 1.0 Transitional</tt> in the dialog. The new document will be displayed
+         in a new window. 
+      </p>
+      <p></p><img src="../../images/template.gif" alt="New document from Template"></img><p class="title"><b>Figure&nbsp;12.&nbsp;New document from Template</b></p>
+      <p></p>
+      <p>To create a template, use the editor to create the desired content (or open an existing document to use as
+         the base) and select <b>File-&gt;Save As Template...</b> Enter a name for the template and a location
+         where it should be stored (perhaps a sub-directory of Exchanger's Templates directory). Now this template
+         will be available when using <b>File-&gt;New</b>. Use <b>File-&gt;Manage Templates</b> 
+         to modify a template definition, or to Import or Export templates.
+      </p>
+      <h3 class="title">Tag Prompting and End Tag Completion</h3>
+      <p>Create a new XHTML document using <b>File-&gt;New</b> and using <b>From Template</b> select 
+         				<b>XHTML 1.0 Transitional</b>. A basic XHTML document will be displayed consiting of a simple head containing a title and a
+         				 body containing a paragraph with some text. 
+      </p>
+      <p> Position the cursor in the  <b>&lt;p&gt;</b>element,
+         				 type the character <b>&lt;</b> and a popup window appears with a list of valid element names. Type the character <b>i</b> and 
+         				 the number of available names in the popup shrinks to those starting with the letter <b>i</b>. 
+      </p><img src="../../images/tagPrompting.gif" alt="Element Prompting"></img><p class="title"><b>Figure&nbsp;13.&nbsp;Element Prompting</b></p>
+      <p>Use the Up Arrow and Down Arrow keys to move through the list - press the Enter key when the
+         				  element name <b>img</b> is highlighted. The text in the Editor view will now contain
+         				   <b>&lt;img</b>. 
+      </p>
+      <p>Enter a space character and the attribute name list will popup - required attributes will be displayed at the top of the list
+         and highlighted in red with an icon containing an exclamation mark.
+      </p><img src="../../images/attributePrompting.gif" alt="Attribute Prompting"></img><p class="title"><b>Figure&nbsp;14.&nbsp;Attribute Prompting</b></p>
+      <p>Choose <b>src</b> and press enter. The 
+         				text in the Editor view will now contain <b>&lt;img src=""</b> and the cursor will move to facilitate entry 
+         				of the attribute value. 
+      </p>
+      <p>Enter a value for the attribute, for example, <b>http://www.exchangerxml.com/Cladonia.gif</b>, and then move to the end 
+         				of the line. Enter a space and the attribute name list will reappear. Choose <b>alt</b>, press Enter and type in a value for the <b>alt</b> attribute, for example, <b>Cladonia Logo</b>. 
+         				
+      </p>
+      <p>Now, move to the end of the line and enter a close tag character <b>&gt;</b> and the corresponding end tag <b>&lt;/img&gt;</b> 
+         				will automatically be added. Automatic generation of end tags can be disabled using the <b>End Tag Completion</b> checkbox on the Views tab in the File-&gt;Preferences dialog.
+      </p>
+      <p>To dismiss the popup window containing a tag prompt, press the <b>Esc</b> key.
+         				To recall the popup after it has been dismissed, press <b>Ctrl-Space</b>. To permanently disable tag prompting, 	change the setting in the Preferences dialog.
+      </p>
+      <p>To see if the modified document is well-formed, select <b>XML-&gt;Check Well-formedness</b> or press <b>F5</b> or press the <b>Check for well-formedness</b> button (<img src="../../images/buttonWellFormed.gif"></img>). Check the Error tab in the Output Window at the bottom of the screen to see any errors reported. If the document is well-formed,
+         the button indicates this by removing the asterisk (<img src="../../images/buttonWellFormed2.gif"></img>). 
+      </p>
+      <p>To see if the modified document is valid as determined by the XHTML Transitional DTD, select <b>XML-&gt;Validate</b> or press <b>F7</b> or press the <b>Validate</b> button (<img src="../../images/buttonValidate.gif"></img>). Check the Error tab in the Output Window at the bottom of the screen to see any errors reported. If the document is valid,
+         the button indicates this by removing the asterisk (<img src="../../images/buttonValidate2.gif"></img>).  
+      </p>
+      <h3 class="title">Attribute Value Prompting</h3>
+      <p>Support has been added to enhance tag prompting for certain document formats. When editing an XML Schema, the editor
+         				will automatically prompt with appropriate values for attributes such as <b>ref</b>, <b>base</b>
+         				and <b>type</b> and for RelaxNG, the <b>ref</b> and <b>type</b> will also be
+         				 suitably handled. In XSLT, typing a <b>$</b> character will prompt with all the known variable names in the current document while the <b>call-template</b> element will display values for the <b>name</b> attribute.   
+      </p>
+      <h3 class="title">Namespace Prompting</h3>
+      <p>For documents that use namespace prefixes, tag prompting changes slightly  so that the namespace prefixes appear at the top
+         of the popup list. For example, when writing XSLT scripts, the majority of elements will start with an <b>xsl:</b> prefix, so normal prompting will be less effective as you will have to type the prefix before being able to choose from the
+         prompted elements.  To counteract this, tag prompting will now place the prefixes themselves at the top of the list, so that
+         they can easily be inserted in the document. For example, in an XSL file, pressing <b>&lt;</b> will result in the  <b>&lt;xsl:</b> prefix appearing at the top of the popup. Press     <b>Enter</b> to insert the characters <b>&lt;xsl:</b> in the document and to narrow the choice of elements in the popup to those from the XSL namespace.
+         				
+      </p><img src="../../images/namespacePrompting.gif" alt="Namepsace Prompting"></img><p class="title"><b>Figure&nbsp;15.&nbsp;Namepsace Prompting</b></p>
+      <h3 class="title">Syntax Error Highlighting</h3>
+      <p>As you type, the editor can attempt to highlight any syntax errors that may have occured using a red squiggle under the offending
+         content. If the
+         				 error is temporary and quickly rectified, the error highlighting should disappear. Note that the occurrence of this highlighting
+         does not 
+         				 guarantee that 
+         			an actual error is present and should only be used as a guide - to make sure, perform a check for well-formedness or validation.
+         The
+         			appearance of syntax error highlighting is controlled using the menu item <b>View-&gt;Editor Properties...-&gt;Show Syntax Errors</b> and
+         			is turned on by default. 
+      </p>
+      <h3 class="title">Element and Attribute Helpers</h3>
+      <p>An alternative way to create XML content is to use the element and attribute helpers that can be accessed by clicking on the
+         third (Helpers) tab on the left hand side. (The other two tabs are for 	Projects and Tree Navigator.) Position the cursor
+         inside the &lt;p&gt; element and create an anchor element by double-clicking
+         				 on <b>a</b> 
+         				in the <b>Elements:</b> section in the Helpers tab on the left hand side.  The &lt;a&gt; element is added to the document and the cursor is automatically
+         				positioned within the element. 
+      </p><img src="../../images/helpers.gif" alt="Element Helpers"></img><p class="title"><b>Figure&nbsp;16.&nbsp;Element Helpers</b></p>
+      <p>To see how attribute helpers work, double-click
+         				<b>href</b> in the attribute helper. The cursor is positioned in the attribute value, so enter the text
+         				<b>http://www.exchangerxml.com</b> Move the cursor to the content of the &lt;a&gt; element and add the text 
+         				<b>Exchanger XML Editor</b> 								 					
+         			    
+      </p>
+      <p>To view the newly created XHTML file, simply choose <b>XML-&gt;Start Browser</b> (or just press <b>F9</b>and the file will be displayed in your default browser.
+      </p>
+      <h3 class="title">Tag Prompting and Instance Validation with DTDs</h3>
+      <p>In the <b>cXML DTD</b> project, open the file <tt class="filename">OrderRequest.xml</tt>. Choose <b>XML-&gt;Set Properties...</b> and in the <b>Tag Completion</b> section of the dialog, set the Grammar to <b>DTD</b> and the <b>Location</b> to <tt class="filename">projects\cXML DTD\dtd\cXML.dtd</tt>.  Click
+         anywhere in the content 
+         of the open OrderRequest file, enter the <b>&lt;</b> character (or use the Ctrl-T short-cut) and the appropriate tags for that location 
+         			will be automatically prompted. In this example, the DTD location is stored in the sample document so to validate the file,
+         simply use the  <b>Validate</b> button or  choose <b>XML-&gt;Validate</b> or press <b>F7</b>.
+         			
+      </p>
+      <p>To explicitly set the DTD location for validating a document, choose <b>XML-&gt;Set Properties...</b> and in the <b>Validation</b> section of the dialog set the Grammar type to DTD and set the appropriate location. 
+      </p>
+      <h3 class="title">Tag Prompting and Instance Validation with RelaxNG</h3>
+      <p>In the <b>VoiceXML RelaxNG</b> project, open the file <tt class="filename">voiceform.xml</tt>. Choose <b>XML-&gt;Set Properties...</b> and in the <b>Tag Completion</b> section of the dialog, set the
+         			Grammar to RelaxNG and the location to <tt class="filename">projects\VoiceXML RelaxNG\relax\VoiceXML10.full.rng</tt>. Click anywhere in the content of the open VoiceXML file, enter the <b>&lt;</b> character (or use the Ctrl-T short-cut) and the appropriate tags for that location 
+         			will be automatically prompted. 
+      </p>
+      <p> Because there is no standard way to reference a RelaxNG grammar from withing an instance, it is necessary to explicitly set
+         up the grammar for validation. Choose <b>XML-&gt;Set Properties...</b>, set the Grammar type to RelaxNG,  set the appropriate location for the grammar and then press the <b>Validate</b> button or  choose <b>XML-&gt;Validate</b> or press <b>F7</b>.
+      </p>
+      <h3 class="title">Tag Prompting and Instance Validation with XML Schema</h3>
+      <p>In the <b>XBRL XML Schema</b> project, open the file <tt class="filename">sample_instance.xml</tt>. Choose <b>XML-&gt;Set Properties...</b> and in the <b>Tag Completion</b> section of the dialog, set the
+         			Grammar to XSD and the location to <tt class="filename">projects\XBRL XML Schema\schema\sample_taxonomy.xsd</tt>.  Click anywhere in the content of the open XBRL file, enter the <b>&lt;</b> character (or use the Ctrl-T short-cut) and the appropriate tags for that location 
+         			will be automatically prompted. 
+      </p>
+      <p> In this example, the schema location is stored in the sample document so to validate the file, simply use the  <b>Validate</b> button or  choose <b>XML-&gt;Validate</b> or press <b>F7</b>. 
+         			
+      </p>
+      <p>To explicitly set the schema location for validating a document, choose <b>XML-&gt;Set Properties...</b> and in the <b>Validation</b> section of the dialog set the Grammar type to XML Schema and enter the appropriate location.) 
+      </p>
+      <h3 class="title">Multiple Tag Completion</h3>
+      <p>It is now possible to specify more than one Tag Completion grammar - this is particularly handy for creating documents
+         			that contain a number for different formats, for example, XSLT and XHTML together, or XHTML and XForms, or DocBook and
+         MathML. Simply add extra grammars in the <b>XML-&gt;Set Properties...</b> dialog and the tag prompting will comprise of appropriate names from all the grammars specified. Not that the grammars don't
+         have to be of the same type - XML Schemas can be mixed with DTDs or RelaxNG grammars to give combined tag prompting.
+      </p>
+      <p>Note: using <b>XML-&gt;Set Properties...</b> only affects the current document during the current
+         			editing session. To set up Tag Completion and Validation grammars that can be reused across multiple document instances
+         and editing sessions, please see the section later on creating <b>Types</b>.
+      </p>
+      <h3 class="title">Encodings and the XML Declaration</h3>
+      <p>Exchanger XML Editor supports multiple encodings, including but not limited to UTF-8, UTF-16, US-ASCII, ISO-8859-1, ISO-8859-1,
+         ISO-8859-2, ISO-8859-3, ISO-8859-4, ISO-8859-5, ISO-8859-6, ISO-8859-7, ISO-8859-8, ISO-8859-9, ISO-8859-13, ISO-8859-15,
+         2022-JP, Shift-JIS, EUC-JP, GBK, Big5, ISO-2022-KR, GB2312. To set the encoding for a new file or to change the encoding for
+         an existing file, choose  <b>XML-&gt;Set XML Declaration...</b> and set the appropriate encoding (and version and standalone features if needed). The file will now be saved using the chosen
+         encoding on exit. Note that it is also possible to "manually" add or modify the XML Declaration directly while editing the
+         content of a document and the editor will respect the settings when saving the file. 
+      </p>
+      <p>Some example files with different encodings are available in the <b>International</b> project - note that if you open these files and are seeing rectangular blocks in the place of the actual characters, you
+         will need to change your font setting (via <b>File-&gt;Preferences</b> in the Text tab). For example, the Gulim font, if available, is convenient for viewing the Chinese and Japanese samples.
+         All the samples are XHTML documents and can also be opened in your default browser using  <b>Tools-&gt;Start Browser</b>.
+      </p>
+      <h3 class="title">Document Type Declaration</h3>
+      <p>A document type declaration can be modified or created using <b>XML-&gt;Set Doctype Declaration</b>. In the dialog, enter the name of the root element, the PUBLIC ID if required, and the SYSTEM ID for the location of the
+         DTD to be used. (Note that if the Type is set to INTERNAL, any existing PUBLIC and/or SYSTEM  settings will be deleted.) Again,
+         the Doctype Declaration can be edited "manually" in the editor without recourse to the utiltiy dialog and changes will be
+         recognised the next time the document is validated.  
+      </p>
+      <h3 class="title">Schema Location</h3>
+      <p>A schema location can be added or modified by choosing <b>XML-&gt;Set Schema Location</b>. (If there are multiple namespace locations present in the document, the dialog will only allow you to modify the first one
+         - this restriction will be removed in a future release of Exchanger XML Editor.)  In the dialog, choose between <b>schemaLocation</b> and <b>noNamespaceSchemaLocation</b> and enter the Namespace, if needed, and the location of the schema. A new attribute for the schema location (and potentially
+         a namespace declaration) will be added to the open document, if one doesn't already exist and will come into effect on the
+         next validation. Again, it is possible to manually edit the attribute without recourse to the utility dialog.
+      </p>
+      <h3 class="title">XInclude</h3>
+      <p>Exchanger XML Editor V2 provides support for XIncludes, as implemented by the Xerces parser. In the XInclude project, open
+         the file <tt class="filename">poem.xml</tt> and see how it references three separate files using the <tt class="filename">&lt;xi:include href=" ... "&gt; </tt> construct. Choose   <b>XML-&gt;Resolve XIncludes...</b> and the three referenced files will be automatically included in the existing document. (Remember to use <b>Save As...</b> instead of <b>Save</b> if you want to retain the original file.)
+      </p>
+      <h3 class="title">Special Characters and Entities</h3>
+      <h4 class="title">Entering Special Characters</h4>
+      <p>Entering less-than and greater-than characters as entities in content is very simple. For less-than, simply type the &lt; character
+         and when the
+         				popup window appears, press <b>Enter</b>.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/lessthan.gif" alt="Entering < in content"></img><p class="title"><b>Figure&nbsp;17.&nbsp;Entering &lt; in content</b></p>
+      <p></p>
+      <p></p>
+      <p>Similarly for &gt;, type the character and press <b>Enter</b> when the popup appears. If you
+         				don't want to use the entity replacement, press the Esc button (or just keep typing) to dismiss the popup and the &gt; is
+         left in the content.
+      </p>
+      <p>To enter ampersand, single quote or double quote characters as entities in content, simply type the character and press
+         				<b>Enter</b> when the popup appears to create the entity. Again, if you prefer not to use the entity replacement, keep typing
+         				or press <b>Esc</b>.
+      </p>
+      <h5 class="title">Entering named entities in content</h5>
+      <p>To use named entities for special characters, for example &amp;agrave; for &agrave;, enter the &amp; character and the entity popup appears.
+         Now type
+         				the character <tt class="filename">a</tt> and all the known entities begining with the letter a will appear. 
+         				Now type the character g and the popup shrinks to display only two options - use the down arrow to choose <tt class="filename">agrave</tt> and press 
+         				<b>Enter</b>. 
+      </p>
+      <p></p>
+      <p></p><img src="../../images/entitypopup1.gif" alt="Entering named entities in content"></img><p class="title"><b>Figure&nbsp;18.&nbsp;Entering named entities in content</b></p>
+      <h4 class="title">Insert Special Character</h4>
+      <p>An alternative mechanism is available for entering special characters where you may not know the 
+         				name of the appropriate entity. Choose <b>Edit-&gt;Insert Special Character</b> (or <b>
+            				Ctrl-I</b>) and  scroll down in the popup window until the agrave character is visible. Click on the character, 
+         				select whether you want to insert a named entity reference, a character reference or the character itself and
+         				press <b>Insert</b>.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/specialchars.gif" alt="Inserting Special Characters"></img><p class="title"><b>Figure&nbsp;19.&nbsp;Inserting Special Characters</b></p>
+      <h4 class="title">Convert Characters to Entities</h4>
+      <p>To convert characters to entities or character references, select the desired content and use the <b>
+            				Convert Characters to Entities</b> button (<img src="../../images/ch2ent.gif"></img>)
+         					
+         					
+         
+         
+         					
+         						
+         					
+         					.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/charstoent.gif" alt="Convert Characters to Entities"></img><p class="title"><b>Figure&nbsp;20.&nbsp;Convert Characters to Entities</b></p>
+      <p>In the example above, the selected text <tt class="filename">price &gt; &#8364;140</tt> will be converted to
+         				<tt class="filename">price &amp;gt; &amp;#8364;140</tt> &nbsp;&nbsp; (The &gt; character is converted to &amp;gt; because we have 
+         				explicitly chosen to convert it in the popup.) Automatically converting &lt;, &gt; and &amp; can be very handy, but care
+         				must be taken when there are nested elements, entities, comments, PIs, CDATA sections, etc in the selected content as
+         these will be
+         				escaped as well which is probably not what the user intended.
+      </p>
+      <p>By default, characters above 255 will be converted to the equivalent character reference. If you want to 
+         				convert these characters to named entities instead, select the <b>Convert to named entities</b> option
+         				in the popup. The selected text <tt class="filename">price &gt; &#8364;140</tt> will be converted to
+         				<tt class="filename">price &amp;gt; &amp;euro;140</tt> &nbsp;&nbsp; The <b>Convert to named entities</b> option will override the  <b>Escape Unicode characters</b> option when named entities are available.
+      </p>
+      <h4 class="title">Convert Entities to Characters</h4>
+      <p>To convert named entities and/or character references to characters, select the desired content and use the <b>
+            				Convert Entities  to Characters</b> button (<img src="../../images/ent2ch.gif"></img>)
+         					
+         					
+         
+         
+         					
+         						
+         					
+         					.
+      </p><img src="../../images/enttochars.gif" alt="Convert Entities to Characters"></img><p class="title"><b>Figure&nbsp;21.&nbsp;Convert Entities to Characters</b></p>
+      <p>In the example above, the selected text <tt class="filename">price &amp;gt; &amp;euro;140</tt> will be converted to
+         				<tt class="filename">price &gt; &#8364;140</tt> &nbsp;&nbsp; (The &amp;gt; entity is converted to &gt; because we have 
+         				explicitly chosen to convert it in the popup.) Automatically converting &amp;lt;, &amp;gt; and &amp;amp; can
+         				easily result in invalid XML so care must be taken when doing conversions.
+      </p>
+      <h3 class="title">XML Refactoring</h3>
+      <p>While XSLT can be used to specify arbitrary transformations, there are a number of common editing procedures for which writing
+         an XSLT script can be overkill. Exchanger XML provides a number of built-in features to handle common XML Refactoring tasks.
+      </p>
+      <h4 class="title">Strip Text Content</h4>
+      <p>When performing language translations of XML files, it is often convenient to maintain the structure of the original document
+         while removing the text. Select <b>XML-&gt;Strip Text...</b>  and set the desired parameters. By default, the text content in all elements in the current document will be removed, but
+         this can be restricted to a sub-set of the document using an XPath filter. Attribute values can also be stripped, as can as
+         elements in mixed content such as &lt;B&gt; or &lt;i&gt; which may be used for styling rather than structure. When an XPath filter is
+         used to specify an element, any text that occurs anywhere within the element including in descendants is removed.
+         					
+         				
+      </p>
+      <h4 class="title">Namespace Refactoring</h4>
+      <p>Exchanger XML Editor contains a number of functions for managing  namespace usage in the <b>XML-&gt;Namespaces</b> menu item including removing unused namespace declarations, moving all declarations to the root element, and moving declarations
+         to where they are first used in the document. Of particular use is the ability to rename all occurrences of a prefix, for
+         example changing <b>xsd:</b> to <b>xs:</b> throughout an XML Schema.
+         				Open a document that uses namespaces and then select <b>XML-&gt;Namespaces-&gt;Rename a Namespace Prefix...</b>.  Choose the desired namespace from the list and press edit. Now enter the new prefix and decide whether to modify the original
+         document or create a new one. 
+      </p>
+      <h4 class="title">Changing attributes to elements</h4>
+      <p>Open the file <tt class="filename">input/attributes.xml</tt> in the <tt class="filename">XML Refactoring</tt> project. Notice how the contact details are stored as attributes on the Person element. To convert these attributes to sub-elements,
+         select <b>XML-&gt;Nodes-&gt;Convert Nodes...</b>	and in the XPath filter field, enter <tt class="filename">/Contacts/Person/@*</tt> 	 Choose a node type of <b>Element Node</b> and press <b>OK</b> to create a new document where the attribute names have been used to create sub-elements with content equal to the attribute
+         values. (Press the Format button to make the output more obvious.)
+      </p>
+      <h4 class="title">Changing elements to attributes</h4>
+      <p>Open the file <tt class="filename">input/elements.xml</tt> in the <tt class="filename">XML Refactoring</tt> project. Notice how the contact details are stored as sub-elements in the Person element. To convert the sub-elements to
+         attributes on the Person element, select <b>XML-&gt;Nodes-&gt;Convert Nodes...</b>	and in the XPath filter field, enter <tt class="filename">/Contacts/Person/*</tt> 	 Choose a node type of <b>Attribute Node</b> and press <b>OK</b> to create a new document where the sub-element names have been used to create attributes on the Person element with values
+         equal to the sub-element content. (Press the Format button to make the output more obvious.)
+      </p>
+      <h4 class="title">Sorting elements based on attribute values</h4>
+      <p>Open the file <tt class="filename">input/attributes.xml</tt> in the <tt class="filename">XML Refactoring</tt> project. To sort the Person elements based on the Lastname attribute, select <b>XML-&gt;Nodes-&gt;Sort Nodes...</b>	and in the XPath filter field, enter <tt class="filename">/Contacts/Person</tt>  and in the Sort By field, enter <tt class="filename">@Lastname</tt> Choose Sort Ascending and Output to New Document and press OK. Notice how the order of the person elements has changed, based
+         on the Lastname attribute.
+      </p>
+      <h4 class="title">Sorting elements based on sub-element content</h4>
+      <p>Open the file <tt class="filename">input/elements.xml</tt> in the <tt class="filename">XML Refactoring</tt> project. To sort the Person elements based on the content of the Lastname child element, select <b>XML-&gt;Nodes-&gt;Sort Nodes...</b>	and in the XPath filter field, enter <tt class="filename">/Contacts/Person</tt>  and in the Sort By field, enter <tt class="filename">./Lastname</tt> Choose Sort Ascending and Output to New Document and press OK. Notice how the order of the person elements has changed, based
+         on the content of the Lastname child element.
+      </p>
+      <h4 class="title">Changing element and attribute names</h4>
+      <p>Use the <b>XML-&gt;Nodes-&gt;Rename Nodes...</b> functionality to change element and attribute names, using an XPath filter to narrow the impact of the changes to a 
+         				 subset of the nodes in the document. 
+      </p>
+      <h4 class="title">Changing element and attribute values</h4>
+      <p>Use the <b>XML-&gt;Nodes-&gt;Set Node Value...</b> functionality to change element or attribute values, using an XPath filter to narrow the impact of the changes to a 
+         				 subset of the nodes in the document. 
+      </p>
+      <h4 class="title">Removing elements and attributes</h4>
+      <p>Use the <b>XML-&gt;Nodes-&gt;Remove Node</b> functionality to delete elements (including all descendants) or attributes, using an XPath filter to narrow the impact of
+         the changes to a 
+         				 subset of the nodes in the document. 
+      </p>
+      <h4 class="title">Inserting elements, attributes, comments, PIs, etc.</h4>
+      <p>Arbitrary nodes including child elements, attributes, comments, PIs can be added to elements specified by an XPath filter
+         using
+         				 <b>XML-&gt;Nodes-&gt;Add Node...</b>. Values can be set for element content, attribute values, comment content, CDATA content and PI targets using the New Node
+         Value field.Child elements will be appended as the last child to the specified element. 
+      </p>
+      <h4 class="title">Change Case</h4>
+      <p>The functionality available on the <b>XML-&gt;Change Case</b> menu items allow elements and attributes to be Capitalized, DeCapitalized, Uppercased and Lowercased, with the range being
+         controlled by an XPath filter.
+      </p>
+      <h3 class="title">WebDAV, FTP, HTTP and Remote Files</h3>
+      <h4 class="title">HTTP and HTTPS</h4><img src="../../images/remoteHTTP1.gif" alt="Open Remote file via HTTP"></img><p class="title"><b>Figure&nbsp;22.&nbsp;Open Remote file via HTTP</b></p>
+      <p>To open a remote file using HTTP (or HTTPS), choose <b>File-&gt;Open Remote</b> and in the  URL field at the top of the dialog, enter
+         			  <tt class="filename">http://www.slashdot.org/slashdot.rdf</tt> for example - this should open an RDF file describing the contents of the <tt class="filename">slashdot</tt> site. Press the <b>Format</b> button or choose <b>Edit-&gt;Format</b> (or press <b>F4</b>) 
+         			 to pretty-print the returned XML. Choose <b>File-&gt;Save As</b> or right-click in the window or on the file tab and 
+         			 choose <b>Save As...</b> to save the returned content.
+      </p>
+      <p>Alternatively, enter the Host and File separately in the Details section of the dialog (along with Port Number if required,
+         and Username and Password if authentication is necessary) and the complete URL will be built automatically from the constituent
+         parts.
+      </p>
+      <p>Depending on your environment, it may be necessary to enter proxy setting in the Preferences window to access remote documents.
+         Note: if opening the remote file fails (for example, if you are not connected to the internet) then it may not be possible
+         to re-open the remote file until you close down the Exchanger application and restart - this is a known limitation in Java).
+      </p>
+      <h4 class="title">WebDAV</h4>
+      <p>To open a remote file using WebDAV over HTTP (or HTTPS),  choose <b>File-&gt;Open Remote...</b> and  enter the URL directly or enter the constituent parts just like a regular HTTP/HTTPS request as described in the preceding
+         section with the  protocol set to WebDAV/HTTP(S).  
+      </p>
+      <p>To save an open file to a WebDAV repository,  choose <b>File-&gt;Save As Remote...</b> and  enter the URL directly or enter the constituent parts in the Details section of the dialog section with the  protocol
+         set to WebDAV/HTTP(S). 
+      </p>
+      <h4 class="title">FTP</h4>
+      <p>To open a remote file using FTP,  choose <b>File-&gt;Open Remote...</b> and  enter the URL directly or enter the constituent parts in the details section of the dialog with the  protocol set to
+         FTP.  
+      </p>
+      <p>To save an open file to a remote location using FTP,  choose <b>File-&gt;Save As Remote...</b> and  enter the URL directly or enter the constituent parts in the Details section of the dialog section with the  protocol
+         set to FTP. 
+      </p>
+   </body>
+</html>

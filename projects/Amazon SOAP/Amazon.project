@@ -1,0 +1,31 @@
+<xngr>
+	<projects>	
+<project name="Amazon SOAP">
+  <folder name="request">
+   <document src="request/DirectorSearch.xml"/>
+  </folder>
+  <folder name="response">
+   <document src="response/DirectorSearchResponse.xml"/>
+  </folder>
+  <folder name="style">
+   <document src="style/heavy-data-to-html.xsl"/>
+   <document src="style/lite-data-to-html.xsl"/>
+  </folder>
+  <folder name="html">
+   <document src="html/DirectorSearch.htm"/>
+  </folder>
+  <folder name="wsdl">
+   <document src="http://soap.amazon.com/schemas3/AmazonWebServices.wsdl"/>
+  </folder>
+  <folder name="schema">
+   <document src="http://xml.amazon.com/schemas3/dev-heavy.xsd"/>
+   <document src="http://xml.amazon.com/schemas3/dev-lite.xsd"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>

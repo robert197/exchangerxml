@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Document Events Attribute Module .............................. -->
+<!--
+  file: svg-docevents-attrib.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-docevents-attrib.mod.xsd,v 1.1 2004/03/26 10:24:10 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Document Events Attribute//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-docevents-attrib.mod"
+  
+  .......................................................................
+-->
+<!--
+  Document Events Attribute
+  
+     onunload, onabort, onerror, onresize, onscroll, onzoom
+  
+  This module defines the DocumentEvents attribute set.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11-basic.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:attributeGroup name="SVG.onunload.attrib">
+    <xs:attribute name="onunload" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.onabort.attrib">
+    <xs:attribute name="onabort" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.onerror.attrib">
+    <xs:attribute name="onerror" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.onresize.attrib">
+    <xs:attribute name="onresize" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.onscroll.attrib">
+    <xs:attribute name="onscroll" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.onzoom.attrib">
+    <xs:attribute name="onzoom" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.DocumentEvents.attrib">
+    <xs:attributeGroup ref="SVG.onunload.attrib"/>
+    <xs:attributeGroup ref="SVG.onabort.attrib"/>
+    <xs:attributeGroup ref="SVG.onerror.attrib"/>
+    <xs:attributeGroup ref="SVG.onresize.attrib"/>
+    <xs:attributeGroup ref="SVG.onscroll.attrib"/>
+    <xs:attributeGroup ref="SVG.onzoom.attrib"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of svg-docevents-attrib.mod -->

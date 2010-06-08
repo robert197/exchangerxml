@@ -1,0 +1,39 @@
+<xngr>
+	<projects>	
+<project name="UBL XSLFO">
+  <folder name="input">
+   <document src="input/OfficeOrder.xml"/>
+  </folder>
+  <folder name="fo">
+   <document src="fo/OfficeOrder.html.fo"/>
+  </folder>
+  <folder name="output">
+   <document src="output/OfficeOrder.html"/>
+   <document src="output/OfficeOrder.pdf"/>
+  </folder>
+  <folder name="scenario">
+   <document src="scenario/UBL to FO.scenario"/>
+   <document src="scenario/FO to HTML.scenario"/>
+   <document src="scenario/UBL to SVG.scenario"/>
+   <document src="scenario/UBL to PDF.scenario"/>
+  </folder>
+  <folder name="schema">
+   <document src="schema/CoreComponentParameters.xsd"/>
+   <document src="schema/CoreComponentTypes.xsd"/>
+   <document src="schema/UBL_Library_0p70_Order.xsd"/>
+   <document src="schema/UBL_Library_0p70_Reusable.xsd"/>
+  </folder>
+  <folder name="style">
+   <document src="style/OfficeOrder.xsl"/>
+   <document src="style/fo2html.xsl"/>
+   <document src="style/OfficeOrder-htmlfo.xsl"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

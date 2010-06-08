@@ -1,0 +1,116 @@
+<h4 class="title"><a name="d0e290"></a>Debugger Toolbar</h4>
+
+<p>The Debugger toolbar is only visible in the Debugger view. It consists of 10 buttons.</p><br>
+
+
+<img src="../../images/debuggerToolbar.gif" alt="Debugger Toolbar">
+
+<p class="title"><b>Debugger Toolbar</b></p>
+
+
+<table>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonDebugStartContinue.gif" alt="Start Debugging Session"></td>
+<td>
+
+<p>Use Start/Continue to commence a transformation - ensure that you have a breakpoint set or the transformation will automatically run to completion. Once the processor has been paused, use the Start/Continue button to run the transformation until the next breakpoint or until the end of the transformation is encountered.</p>
+
+</td>
+</tr>
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonDebugRunToEnd.gif" alt="Run to End"></td>
+<td>
+
+<p>Use Run to End to complete the transformation without stopping at any enabled breakpoints.</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonDebugPause.gif" alt="Pause Debugger"></td>
+<td>
+
+<p>Use Pause to interrupt a long-running transformation. When the debugger pauses, all the variables, parameters, stacks and traces will be setup correctly and you can continue execution from that point using any of the stepping or continue functions.</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonDebugStop.gif" alt="Stop Debugger"></td>
+<td>
+
+<p>Use Stop to instantaneously stop a long-running transformation - note that no information relating to the transformation will be retained and you will not be able to recommence the processing without starting at the begining again.</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonDebugStepInto.gif" alt="Step Into"></td>
+<td>
+
+<p>Use Step Into to step element-by-element through a style sheet. The Exchanger XSLT Debugger is different in this case from most others in that it allows you to step through start and end tags, providing a much more logical debugging experience compared to line-by-line operation. On encountering <b><span class="guilabel">xls:apply-template</span></b> or <b><span class="guilabel">xsl:call-template</span></b> instructions, the debugger will move the current position to the first instruction in the appropriate template. Step Into can be used at the very start of a transformation to step to the very first instruction that is executed. Note that when
+using Xalan, using Step Into at the beginning of a transformation will move processing to the first template it encounters, whereas Saxon will allow you to step through any parameters or global variables you may have in your stylesheet.  </p>
+
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonDebugStepOut.gif" alt="Step Out"></td>
+<td>
+
+<p>Use Step Out to complete execution of the current template and move to the next instruction. Again, the Exchanger XSLT Debugger is different here from other products in that it restricts the Step Out functionality exclusively to templates, making the functionality more intuitive.</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonDebugStepOver.gif" alt="Step Over"></td>
+<td>
+
+<p>Use Step Over when positioned at <b><span class="guilabel"xsl:apply-template</span></b> or <b><span class="guilabel">xsl:call-template</span></b> instructions so as to completely execute the appropriate template (without stepping into it) and to move to the next instruction.</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonFind.gif" alt="Find"></td>
+<td>
+
+<p>Use the <b>Find</b> button (or select <b><span class="guilabel">Edit-&gt;Find</span></b> or use the key combination <b><span class="guilabel">Ctrl-F</span></b>) to display the Find dialog. This allows the user to specify the search string, choose to Match Case (by default, No) and specify that the search string is a Regular Expression (by default, No) and the direction of the search (by default, Down).</p>
+
+</td>
+</tr>
+
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonFindNext.gif" alt="Find Next Button"></td>
+<td>
+
+<p>Use the <b>Find Next</b> button (or select <b><span class="guilabel">Edit-&gt;Find Next</span></b> or use the function key <b><span class="guilabel">F3</span></b>) to repeat the current search.</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="10%" valign="top"><br><img src="../../images/buttonGotoLine.gif" alt="Goto Button"></td>
+<td>
+
+<p>Use the <b>Goto</b> button (or select <b><span class="guilabel">Edit-&gt;Goto</span></b>) to go to a particular line number. Enter the 
+			line number in the pop-up dialog and press <b><span class="guilabel">OK</span></b> (or the Enter key). To turn line numbering on or off in the
+			Editor select <b><span class="guilabel">File-&gt;Preferences</span></b>, go to the Views tab and set/reset the <b><span class="guilabel">Show Line Numbers</span></b> 
+			field in the Editor section.</p>
+
+</td>
+</tr>
+
+
+
+</table>
+
+
+
+
+

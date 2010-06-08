@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    License information for this file is provided in LICENSE.TXT
+    For support, more information, or to report implementation bugs, 
+    please contact the Open Applications Group at xml@openapplications.org 
+     
+    ** Revision: 8.0 **
+    ** Date: 05 April 2002 **
+    Open Applications Group XSD
+    Copyright 1998-2002, All Rights Reserved
+    
+    Name: Nouns/PurchaseOrder.xsd
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.openapplications.org/oagis" targetNamespace="http://www.openapplications.org/oagis" elementFormDefault="qualified">
+        <xs:include schemaLocation="Order.xsd"/>
+        <xs:complexType name="PurchaseOrder">
+                <xs:complexContent>
+                        <xs:extension base="Order"/>
+                </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="PurchaseOrderHeader">
+                <xs:complexContent>
+                        <xs:extension base="OrderHeader">
+                                <xs:sequence>
+                                        <xs:element ref="UserArea" minOccurs="0"/>
+                                </xs:sequence>
+                        </xs:extension>
+                </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="PurchaseOrderLine">
+                <xs:complexContent>
+                        <xs:extension base="OrderLine">
+                                <xs:sequence>
+                                        <xs:element ref="SubLine" minOccurs="0" maxOccurs="unbounded"/>
+                                        <xs:element ref="Schedule" minOccurs="0" maxOccurs="unbounded"/>
+                                        <xs:element ref="UserArea" minOccurs="0"/>
+                                </xs:sequence>
+                        </xs:extension>
+                </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="PurchaseOrderSubLine">
+                <xs:complexContent>
+                        <xs:extension base="OrderLineBase">
+                                <xs:sequence>
+                                        <xs:element ref="UserArea" minOccurs="0"/>
+                                </xs:sequence>
+                        </xs:extension>
+                </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="PurchaseOrderSchedule">
+                <xs:complexContent>
+                        <xs:extension base="OrderSchedule">
+                                <xs:sequence>
+                                        <xs:element ref="UserArea" minOccurs="0"/>
+                                </xs:sequence>
+                        </xs:extension>
+                </xs:complexContent>
+        </xs:complexType>
+        <xs:element name="PurchaseOrder" type="PurchaseOrder" substitutionGroup="Noun">
+                <xs:annotation>
+                        <xs:documentation source="http://www.openapplications.org/oagis">The purpose of the PurchaseOrder Business Object Document is to communicate an order to purchase goods from a buyer to a supplier. The PurchaseOrder carries information to and from the buyer and supplier. The PurchaseOrder is a legally binding document once both Parties agree to the contents and the specified terms and conditions of the order.  </xs:documentation>
+                        <xs:documentation source="http://www.openapplications.org/oagis">The Process PurchaseOrder sends the electronic form of a purchase order document from a customer to a supplier in order to purchase n-number of Lines each of which containes an Ordered Item. </xs:documentation>
+                </xs:annotation>
+        </xs:element>
+        <xs:element name="Header" type="PurchaseOrderHeader">
+                <xs:annotation>
+                        <xs:documentation source="http://www.openapplications.org/oagis">The Purchase Order Header contains information that applies to the entire purchase order.  This Component is required.</xs:documentation>
+                </xs:annotation>
+        </xs:element>
+        <xs:element name="Line" type="PurchaseOrderLine">
+                <xs:annotation>
+                        <xs:documentation source="http://www.openapplications.org/oagis">The Purchase Order Line indicates the ordered item or product ordered along with the quantity, price and other descriptive information. It is also possible to provide additional Parties, PaymentTerms, Charge, and Attachment information as needed at the line level.
+
+At least one occurrence of this Component is required for each occurrence of the Purchase Order.</xs:documentation>
+                </xs:annotation>
+        </xs:element>
+        <xs:element name="SubLine" type="PurchaseOrderSubLine">
+                <xs:annotation>
+                        <xs:documentation source="http://www.openapplications.org/oagis">The Component SubLine represents any additional information concerning the product on the Line.  The SubLine can be used to describe a specific configuration of the ordered item.</xs:documentation>
+                </xs:annotation>
+        </xs:element>
+        <xs:element name="Schedule" type="PurchaseOrderSchedule">
+                <xs:annotation>
+                        <xs:documentation source="http://www.openapplications.org/oagis">The Component Schedule  represents the requested ship or delivery dates for goods ordered.  The Schedule is an optional Component.  The Schedule can not be associated with a SubLine.  It is only associated with a Line.</xs:documentation>
+                </xs:annotation>
+        </xs:element>
+</xs:schema>

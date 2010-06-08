@@ -1,0 +1,16 @@
+<xngr>
+	<projects>	
+<project name="cXML DTD">
+   <document src="OrderRequest.xml"/>
+  <folder name="dtd">
+   <document src="dtd/cXML.dtd"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

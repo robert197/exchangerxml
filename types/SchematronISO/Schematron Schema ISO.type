@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Schematron Schema ISO" icon="SchematronIcon.gif" publicID="" systemID="" extensions="">
+	<root name="schema">
+		<namespace prefix="" uri="http://purl.oclc.org/dsdl/schematron"/>
+	</root>
+</type>

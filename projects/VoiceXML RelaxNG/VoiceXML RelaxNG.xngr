@@ -1,0 +1,16 @@
+<xngr>
+	<projects>	
+<project name="VoiceXML RelaxNG">
+   <document src="voiceform.xml"/>
+  <folder name="relax">
+   <document src="relax/VoiceXML10.full.rng"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

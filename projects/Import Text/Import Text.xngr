@@ -1,0 +1,16 @@
+<xngr>
+	<projects>	
+<project name="Import Text">
+
+  <folder name="input">
+   <document src="input/assets.txt"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<x:sample xmlns:x="http://www.x.com/sample/" xmlns:q="http://www.q.com/sample/" xmlns:w="http://www.w.com/sample/">
+<?testpi 123?>
+ <section   xmlns="http://www.y.com/sample/" xml:lang="en">
+  <p style="indented" abc='xy"z' ref="q:para">
+   <q:verbatim xml:space="preserve">
+    <b xml:lang="fr" ref="w:bold">def 
+     <w:i xml:space="reset">jkl</w:i> 
+    </b> 
+    <a/>
+   </q:verbatim>
+  </p>
+ </section>	
+</x:sample>

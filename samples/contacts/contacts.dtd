@@ -1,0 +1,29 @@
+<!ELEMENT Contacts (Person)+>
+
+<!ELEMENT Person (Firstname,Lastname,Birthday?,Company,Position,Email+,
+                  Address*)>
+<!ELEMENT Firstname (#PCDATA)>
+
+<!ELEMENT Lastname (#PCDATA)>
+
+<!ELEMENT Birthday (#PCDATA)>
+
+<!ELEMENT Position (#PCDATA)>
+
+<!ELEMENT Email (#PCDATA)>
+
+<!ELEMENT Address (Company?,Street,City,(Postcode|ZIP),Country)>
+<!ATTLIST Address
+  type NMTOKEN #IMPLIED>
+
+<!ELEMENT Street (#PCDATA)>
+
+<!ELEMENT City (#PCDATA)>
+
+<!ELEMENT Postcode (#PCDATA)>
+
+<!ELEMENT ZIP (#PCDATA)>
+
+<!ELEMENT Country (#PCDATA)>
+
+<!ELEMENT Company (#PCDATA)>

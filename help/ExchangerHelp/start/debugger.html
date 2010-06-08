@@ -1,0 +1,363 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+ 
+      <h2 class="title" style="clear: both">Exchanger XSLT Debugger</h2>
+      <h3 class="title">Overview</h3>
+      <p>Exchanger XML Editor includes a comprehensive XSLT debugger for both Saxon and Xalan processors. The Exchanger XSLT Debugger
+         can be run from within the editor or as a standalone application, with the latter option allowing the use of extremely large
+         input and output documents and complex stylesheets with minimal memory and CPU requirements. It is possible to use the debugger
+         in an ad-hoc mode, choosing files and setting breakpoints as you go but the more usual approach is to use a Transformation
+         Scenario as this facilitates the reuse of setup information, including breakpoints, across debugging and editing sessions.
+         Unlike other debuggers, Exchanger allows the user to step through the stylesheets on an element-by-element basis (including
+         end tags) as opposed to line by line - this is very convenient in the usual case where multiple XSL instructions occur on
+         the same line. For Saxon users, the content from multiple files generated using the &lt;xsl:document&gt; instruction can be redirected
+         to a tabbed display in the output view for convenience.
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">XSLT Debugger Quick Start</h3>
+      <p>
+         
+         In the Editor, choose <b>Transform-&gt;XSLT Debugger</b> (or press the Debug Transformation button <img src="../../images/buttonDebug.gif"></img> on the menu bar). In the new Debugger window, choose <b>File-&gt;New Transformation</b> and dialogs are displayed for entering the input document, the stylesheet and the processor choice.
+      </p>
+      <p>
+         For the input, choose <tt class="filename">projects/XSLT Debugger Sample/input/poem.xml</tt> 
+      </p><img src="../../images/dbgNewTransformation1.gif" alt="XSLT Debugger -Input"></img><p class="title"><b>Figure&nbsp;1.&nbsp;XSLT Debugger -Input</b></p>
+      <p>For the stylesheet choose <tt class="filename">projects/XSLT Debugger Sample/style/poem.xsl</tt>
+         					
+      </p><img src="../../images/dbgNewTransformation2.gif" alt="XSLT Debugger -Input"></img><p class="title"><b>Figure&nbsp;2.&nbsp;XSLT Debugger -Input</b></p>
+      <p>
+         			
+         				
+         				
+      </p>
+      <p>Set the processor to <b>Saxon (XSLT 1.*)</b>. 
+         
+      </p><img src="../../images/dbgNewTransformation3.gif" alt="XSLT Debugger - New Transformation"></img><p class="title"><b>Figure&nbsp;3.&nbsp;XSLT Debugger - New Transformation</b></p>
+      <p>
+         After pressing <b>Enter</b>, the stylesheet (poem.xsl) is displayed in the left hand pane with the input document (poem.xml) to the right of the stylesheet.
+         The processor used (in this case Saxon XSLT 1.*) is identified in the status bar at the lower right-hand corner of the screen.
+         
+      </p><img src="../../images/dbgInitial.gif" alt="XSLT Debugger - New Transformation"></img><p class="title"><b>Figure&nbsp;4.&nbsp;XSLT Debugger - New Transformation</b></p>
+      <p></p>
+      <p>
+         Press the <b>Step Into</b> button  <img src="../../images/buttonDebugStepInto.gif"></img> (or use the shortcut <b>F5</b> or choose <b>Debug-&gt;Step Into</b>). The first template in the stylesheet (at line 5) is highlighted along with the first (<b>poem</b>) element in the input. Create a breakpoint in the stylesheet at line number 11 (the one containing &lt;xsl:apply-templates select="title"/&gt;)
+         by double-clicking in the margin to the left of the line number. 
+         
+      </p>
+      <p></p>
+      <p></p><img src="../../images/dbgStylesheetBreakpoint.gif" alt="XSLT Debugger - Stylesheet Breakpoint"></img><p class="title"><b>Figure&nbsp;5.&nbsp;XSLT Debugger - Stylesheet Breakpoint</b></p>
+      <p></p>
+      <p></p>
+      <p>
+         Now press the <b>Start/Continue</b> button <img src="../../images/buttonDebugStartContinue.gif"></img>  (or use the shortcut <b>F11</b> or choose <b>Debug-&gt;Start/Continue</b>) and the processor will execute the intervening instructions and stop at line 11. Notice how the output so far has automatically
+         appeared at the bottom of the screen. 
+      </p>
+      <p>
+         Press the <b>Step Into</b>  button <img src="../../images/buttonDebugStepInto.gif"></img> to step into the <b>title</b> template - the stylesheet scrolls down to line 19 and the corresponding <b>title</b> element is now highlighted in the input file. Notice also how the Template stack now has a new entry for <b>title</b>.  (The Template Stack is available on the first tab in  the Stacks window on the right-hand side of the screen). 
+         
+      </p><img src="../../images/dbgStyleStack.gif" alt="XSLT Debugger - Template Stack"></img><p class="title"><b>Figure&nbsp;6.&nbsp;XSLT Debugger - Template Stack</b></p>
+      <p></p>
+      <p>Press <b>Step Into</b> repeatedly to step through each instruction in the "title" template until that template is finished and execution returns
+         to line 12 which is then highlighted in the stylesheet (&lt;xsl:apply-templates select="author"/&gt; ) .
+      </p>
+      <p>This time, press the <b>Step Over</b> button once <img src="../../images/buttonDebugStepOver.gif"></img> (or use the shortcut <b>F10</b>  or choose <b>Debug-&gt;Step Over</b>) to execute all of the instructions in the "author" template at one time.
+         
+      </p>
+      <p>
+         Now create an input breakpoint by double-clicking in the margin for line number 21 in the input file. 
+         
+         Press the <b>Start/Continue</b> button and the processing will execute until line 21 is reached in the input file with the corresponding template highlighted
+         in the stylesheet.
+         
+      </p>
+      <p>Browse the stacks to see the processing state - the Template stack will show the list of XSLT templates that are active at
+         this point while the input stack will show the input elements that triggered the corresponding entries on the template stack.
+         Double-clicking an entry in the style or input stack will highlight the corresponding element in the input or stylesheet displays.
+      </p><img src="../../images/dbgInputStack.gif" alt="XSLT Debugger - Input Stack"></img><p class="title"><b>Figure&nbsp;7.&nbsp;XSLT Debugger - Input Stack</b></p>
+      <p>
+         To complete the processing, press Continue. Alternatively, repeatedly press the Step Out button <img src="../../images/buttonDebugStepOut.gif"></img> (or use the shortcut <b>Shift-F11</b> or choose  <b>Debug-&gt;Step Out</b>) to reverse back up through the call stack, one template at a time.
+         
+      </p>
+      <p>Browse the <b>Traces</b> to see a history of the stylesheet execution - the style trace will show all the XSLT instructions that were executed while
+         the input stack will show the corresponding input elements that were processed. Double-clicking an entry in the style or input
+         trace will highlight the corresponding element in the input or stylesheet displays. The output Trace presents a tree view
+         of the generated HTML while the Mixed Trace consists of a collated compiliation of the other three traces to show a complete
+         history of the transformation as it happened.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/dbgMixedTrace.gif" alt="XSLT Debugger - Mixed Trace"></img><p class="title"><b>Figure&nbsp;8.&nbsp;XSLT Debugger - Mixed Trace</b></p>
+      <h3 class="title">Debugger Layout</h3>
+      <p>The following graphic shows a complex debugging scenario, with multiple stylesheets and output files and provides a good overview
+         of the general Debugger layout.
+      </p><img src="../../images/debuggerOverview.gif" alt="XSLT Debugger Layout"></img><p class="title"><b>Figure&nbsp;9.&nbsp;XSLT Debugger Layout</b></p>
+      <p>The debugger user interface is divided vertically with input information displayed above output information. The input consists
+         of:
+      </p>
+      <ul type="disc">
+         <li>
+            <p>One or more <b>Stylesheets</b> containing breakpoints.
+            </p>
+         </li>
+         <li>
+            <p>One or more <b>input</b> documents, also allowing breakpoints.
+            </p>
+         </li>
+         <li>
+            <p>The <b>Details</b> view, consisting of:
+            </p>
+            <ul type="circle">
+               <li>
+                  <p><b>Variables</b> View containing Global Variables and Parameters, and  Local Variables and Parameters.
+                  </p>
+               </li>
+               <li>
+                  <p>A set of <b>Stacks</b> showing live information for the current state of the transformation including:
+                  </p>
+                  <ul type="disc">
+                     <li>
+                        <p>The <b>XSL Template  Stack</b>, showing the calling sequence of &lt;xsl:template&gt; instructions
+                        </p>
+                     </li>
+                     <li>
+                        <p>The <b>Input Stack</b>, showing the elements that triggered the templates. 
+                        </p>
+                     </li>
+                     <li>
+                        <p>The <b>Output Stack</b> stack, showing the matching elements created in the output.
+                        </p>
+                     </li>
+                     <li>
+                        <p>A <b>Mixed Stack</b> showing the stylesheet instructions collated with the input and output element.
+                        </p>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <p>The <b>Settings</b> view, consisting of <b>Parameters</b> and <b>Breakpoints</b>.
+            </p>
+         </li>
+      </ul>
+      <p>The <b>Output</b> View is shown in the lower part of the window and consists of:
+      </p>
+      <ul type="disc">
+         <li>
+            <p>The <b>Output</b> of the transformation, dynamically updated as it is generated.
+            </p>
+         </li>
+         <li>
+            <p>For Saxon, the content generated in output files created via &lt;xsl:document&gt; instructions  (if the <b>Transformation-&gt;Redirect Output</b> setting is true).
+            </p>
+         </li>
+         <li>
+            <p>Any <b>Messages</b> that are output as a result of the transformation via &lt;xsl:message&gt; instructions. (Saxon only)
+            </p>
+         </li>
+         <li>
+            <p>A set of <b>Traces</b> showing historical information from the start to the current position including:
+            </p>
+            <ul type="circle">
+               <li>
+                  <p>The <b>Style Trace</b>, showing a list of all stylesheet instructions executed so far, in order or occurrence.
+                  </p>
+               </li>
+               <li>
+                  <p>The <b>Input Trace</b>, showing the input elements that triggered the templates on the Style trace.
+                  </p>
+               </li>
+               <li>
+                  <p>The <b>Output Trace</b>, showing all elements  created in the output. 
+                  </p>
+               </li>
+               <li>
+                  <p>A <b>Mixed Trace</b>, showing the style, input and output traces collated in order of occurrence to give a complete historical view of the transformation
+                     to date.
+                  </p>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <h3 class="title">Debugger Functions</h3>
+      <h4 class="title">Step Into</h4>
+      <p>Use <b>Step Into</b> to step element-by-element through a stylesheet. The Exchanger XSLT Debugger is diffferent in this case from most others
+         in that it allows you to step through start and end tags, providing a much more logical debugging experience compared to line-by-line
+         operation . On encountering <b>xsl:apply-template</b> or <b>xsl:call-template</b> instructions, the debugger will  move the current position to the first instruction in the appropriate template. Step Into
+         can be used at the very start of a transformation to step to the very first instruction that is executed. Note that when using
+         Xalan, using Step Into at the beginning of a transformation will move processing to the first template it encounters, whereas
+         Saxon will allow you to step through any parameters or global variables you may have in your stylesheet. 
+      </p>
+      <h4 class="title">Step Out</h4>
+      <p>Use <b>Step Out</b> to complete execution of the current template and move to the next instruction. Again, the Exchanger XSLT Debugger is diffferent
+         here from other products in that it restricts the Step Out functionality exclusively to templates, making the functionality
+         more intuitive.
+      </p>
+      <h4 class="title">Step Over</h4>
+      <p>Use <b>Step Over</b> when positioned at <b>xsl:apply-template</b> or <b>xsl:call-template</b> instructions so as to completely execute the appropriate template (without stepping into it) and to move to the next instruction.
+      </p>
+      <h4 class="title">Start/Continue</h4>
+      <p>Use <b>Start/Continue</b> to commence a transformation - ensure that you have a breakpoint set or the transformation will automatically run to completion.
+         (Alternatively, use Step Into to commence the transformation if you want to stop at the first instruction in the stylesheet.)
+         Once the processor has been paused, use the Start/Continue button to run the transformation until the next breakpoint or until
+         the end of the transformation  is encountered.
+      </p>
+      <h4 class="title">Pause</h4>
+      <p>Use <b>Pause</b> to interrupt a long-running transformation. When the debugger pauses, all the variables, parameters, stacks and traces will
+         be setup correctly and you can continue execution from that point using any of the stepping or continue functions.
+      </p>
+      <h4 class="title">Stop</h4>
+      <p>Use <b>Stop</b> to instantaneously stop a long-running transformation - note that no information relating to the transformation will be retained
+         and you will not be able to recommence the processing without starting at the beginning again.
+      </p>
+      <h4 class="title">Run to End</h4>
+      <p>Use <b>Run to End</b> to complete the transformation without stopping at any enabled breakpoints. 
+      </p>
+
+
+
+<h3 class="title">Editing and Saving Files in the Debugger</h3>
+<p>Basic editing features are available inside the debugger for modifying stylesheets and input files.
+These features are avilable on the Edit menu and include Copy, Cut, Paste, Find, Find Next and
+Goto Line Number. Tag completion and syntax highlighting is also available. To maintain
+changes, use <b>File->Save</b> or else use <b>File->Reload</b> to discard changes and revert to the original file.
+Output files generated as a result of running a transformation can also be saved, by clicking on the
+output window and selecting <b>File->Save As...</b></p>
+
+      <h3 class="title">Using Transformation Scenarios for Debugging</h3>
+      <p>Transformation Scenarios provide a mechanism for storing commonly used setup information relating to an XSLT transformation
+         so that it doesn't have to be rekeyed for each execution.  As a result, transformation scenarios are very convenient when
+         using the debugger to repetitively test stylesheets. To use an existing scenario in the Debugger, select <b>File-&gt;Open-&gt;From Scenario...</b> and choose the appropriate scenario. The scenario will typically set up the input filename, the stylesheet, the processor
+         and the transformation parameters, if any. Any changes made to the scenario during the dubugging process, for example, adding
+         or modifying breakpoints and/or parameters, will automatically be saved so that the next time the scenario is used, the updated
+         information will be used.
+      </p>
+      <h3 class="title">Ad-hoc Debugging</h3>
+      <p>Instead of using Transformation Scenarios, the debugger can be used in ad-hoc fashion where all the setup information is entered
+         at run-time. Select <b>File-&gt;New Transformation</b> and in the pop-up dialog, enter the stylesheet, input and processsor settings you desire. Before starting the transformation,
+         it is possible to use the <b>Transformation-&gt;Set Parameters</b> dialog to pass in parameters that will be used in the transformation. At any time, it is possible to save the current ad-hoc
+         setup to a new scenario for future use by selecting <b>File-&gt;Save As Scenario...</b> and entering the scenario name. Also, you will be prompted to save the current settings in a scenario if you choose <b>File-&gt;Close Scenario...</b> or when creating a new transformation if there is one already active (or  when shutting down the debugger).
+      </p>
+      <h3 class="title">Global Debugger Settings</h3>
+      <p>There are a number of global settings available on the <b>Transformation</b> menu to control the debugging process for all transformations, whether they use an  ad-hoc or scenario setup. Turn off <b>Transformation-&gt;Automatically Open Input</b> before you  create a new transformation (or open from scenario) if you are debugging  a large input file and want to minimize
+         the amount of memory used up. Similarly turn off <b>Transformation-&gt;Enable Tracing</b> as recording and displaying every single instruction for a complicated stylesheet and/or large input document can be very
+         expensive in terms of memory usage and can cause Out of Memory failures. For Saxon users, turn off <b>Transformation-&gt;Redirect Output</b> if you want output files to be created on disk rather than being displayed in the debugger. 
+         
+         
+      </p>
+      <h3 class="title">Transformation Settings: Parameters and Breakpoints</h3>
+      <p>The Setting tab on the right hand side of the debugger window contains information relating to debugger setup, specifically
+         breakpoints and parameters.
+      </p>
+      <p></p>
+      <p></p>
+      <h4 class="title">Parameters</h4>
+      <p>The parameter window in the Transformation <b>Settings</b> tab displays details of any transformation parameters that have been set up in a scenario or via the <b>Transformation-&gt;Set Parameters</b> function. Parameter name-value pairs are displayed in the table.
+      </p><img src="../../images/dbgParameters.gif" alt="XSLT Debugger - Parameters"></img><p class="title"><b>Figure&nbsp;10.&nbsp;XSLT Debugger - Parameters</b></p>
+      <p></p>
+      <p></p>
+      <h4 class="title">Breakpoints</h4>
+      <p>To create a breakpoint in the debugger, double click on the left margin of a stylesheet or the left margin of an input document
+         and a breakpoint icon (red dot) is displayed. Note that the breakpoint must be positioned correctly to force a stop in the
+         processing. If the breakpoint is positioned at a point where there is not a tag (e.g. a blank line or a line of text) then
+         it will have no impact. Moreover, a breakpoint can only be placed on a start-tag and then, if the start tag spans multiple
+         lines, the breakpoint must be placed on the last line of the start tag for it to be effective.
+      </p>
+      <p>To temporarily de-activate a breakpoint, right-click on the icon (or anywhere on that line) and select <b>Disable Breakpoint</b> -  the icon should now turn grey to indicate that it won't cause a stop in processing. To re-activate a disabled breakpoint,
+         right-click on the icon (or anywhere on that line) and select <b>Enable Breakpoint</b> - the icon will now be colored red to indicate it will cause a stop in processing. To remove a breakpoint enitirely, right-click
+         on the icon (or anywhere on that line) and select <b>Remove Breakpoint</b>. Note that right-clicking in a file and choosing ,  <b>Enable All Breakpoints</b>, <b>Disable All Breakpoints</b> or <b>Remove All Breakpoints</b> will cause that operation to be carried out on all the breakpoints in that particular file.
+      </p>
+      <p>A complete list of breakpoints can be viewed by selecting the Transformation <b>Settings</b> tab on the right-hand side of the screen. There are two separate lists, one for all stylesheet breakpoints and one for all
+         input breakpoints. The lists are linked back to the content so double-clicking on a breakpoint definition highlights the appropriate
+         line in the stylesheet or input file. Any breakpoints in the list that have been selected (or highlighted) can be enabled,
+         disabled or removed by right-clicking and choosing the appropriate option.
+         
+         					
+         						
+         					
+         					
+      </p><img src="../../images/dbgBreakpoints.gif" alt="XSLT Debugger - Breakpoints"></img><p class="title"><b>Figure&nbsp;11.&nbsp;XSLT Debugger - Breakpoints</b></p>
+      <p> Convenience fuctions for dealing with breakpoints as a whole across both stylesheets and input documents are available on
+         the <b>Transformation</b> menu. <b>Transformation-&gt;Disable All Breakpoints</b>, <b>Transformation-&gt;Enable All Breakpoints</b> and <b>Transformation-&gt;Remove All Breakpoints</b>  will affect any breakpoints in all the  stylesheets or input files used in the transformation.
+         
+      </p>
+      <h3 class="title">Transformation Details: Variables, Stacks and Traces</h3>
+      <h4 class="title">Variables</h4>
+      <p>The Variables tab displays details of any global and local variables, including parameters that have been initialised in a
+         scenario or via the <b>Transformation-&gt;Set Parameters</b> function and also default parameter values in the stylesheet itself. The variable/parameter name, type and string value are
+         displayed in the table. Note that because of the use of "Lazy Evaluation" in Xalan, the values for variables and parameters
+         is typically not available for that processor until they are actually used in the stylesheet.  
+      </p>
+      <p></p>
+      <p></p><img src="../../images/dbgGlobalVariables.gif" alt="XSLT Debugger - Global Variables"></img><p class="title"><b>Figure&nbsp;12.&nbsp;XSLT Debugger - Global Variables</b></p><img src="../../images/dbgLocalVariables.gif" alt="XSLT Debugger - Local Variables"></img><p class="title"><b>Figure&nbsp;13.&nbsp;XSLT Debugger - Local Variables</b></p>
+      <h4 class="title">Stacks</h4>
+      <p>The Stacks window contains live information for the state of the current transformation and is made up of four separate tabs.</p>
+      <p>The left-most tab contains the XSL Template stack, showing the calling sequence (top down) of &lt;xsl:template&gt; instructions
+         that has resulted in the current position in the stylesheet. The template stack shows the template name and/or match attribute
+         and the priority and mode, if any. Double-click on a template item to scroll to the corresponding point in the stylesheet.
+      </p><img src="../../images/dbgStyleStack2.gif" alt="XSLT Debugger - Template Stack"></img><p class="title"><b>Figure&nbsp;14.&nbsp;XSLT Debugger - Template Stack</b></p>
+      <p></p>
+      <p></p>
+      <p>The next tab contains the Input stack showing the input elements that triggered the corresponding instructions on the XSL
+         Templates stack. Double-click on an input item to scroll to the corresponding point in the input file.
+      </p><img src="../../images/dbgInputStack2.gif" alt="XSLT Debugger - Input Stack"></img><p class="title"><b>Figure&nbsp;15.&nbsp;XSLT Debugger - Input Stack</b></p>
+      <p>The Output stack consists of a tree representation of the output, showing the elements that have been created as a result
+         of the instructions on the XSL Templates stack.
+      </p><img src="../../images/dbgOutputStack.gif" alt="XSLT Debugger - Output Stack"></img><p class="title"><b>Figure&nbsp;16.&nbsp;XSLT Debugger - Output Stack</b></p>
+      <p>The Mixed stack combines all the style instructions along with the corresponding input and output elements in a tree representation,
+         collated in order of occurrence.
+      </p><img src="../../images/dbgMixedStack.gif" alt="XSLT Debugger - Mixed Stack"></img><p class="title"><b>Figure&nbsp;17.&nbsp;XSLT Debugger - Mixed Stack</b></p>
+      <h4 class="title">Trace</h4>
+      <p>The <b>Trace</b> view contains historical information about the current transformation and is made up of four separate tabs.
+      </p>
+      <p>The left-most tab contains the <b>Style </b> Trace, showing all the XSL instructions that have been executed up to the current position in the stylesheet. Double-click
+         on any XSL instruction trace to scroll to the corresponding point in the stylesheet.
+      </p><img src="../../images/dbgStyleTrace.gif" alt="XSLT Debugger - Style Trace"></img><p class="title"><b>Figure&nbsp;18.&nbsp;XSLT Debugger - Style Trace</b></p>
+      <p>The next tab contains the <b>Input</b> Trace showing the input elements that have been procesed as a result of executing the xsl:template instructions on the XSL
+         trace. Double-click on an input trace item to scroll to the corresponding point in the input file.
+      </p><img src="../../images/dbgInputTrace.gif" alt="XSLT Debugger - Input Trace"></img><p class="title"><b>Figure&nbsp;19.&nbsp;XSLT Debugger - Input Trace</b></p>
+      <p>The <b>Output</b> Trace consists of a tree representation of all the output to date, showing the elements  that have been created as a result
+         of the instructions on the XSL trace.
+      </p><img src="../../images/dbgOutputTrace.gif" alt="XSLT Debugger - Output Trace"></img><p class="title"><b>Figure&nbsp;20.&nbsp;XSLT Debugger - Output Trace</b></p>
+      <p>The <b>Mixed</b> Trace combines all the style instructions along with the corresponding input and output elements in a tree representation,
+         collated in order of occurrence. This trace provides a complete historical description of the transformation to date.
+      </p><img src="../../images/dbgMixedTrace2.gif" alt="XSLT Debugger - Mixed Trace"></img><p class="title"><b>Figure&nbsp;21.&nbsp;XSLT Debugger - Mixed Trace</b></p>
+      <h3 class="title">Running the Exchanger XSLT Debugger in Stand Alone mode</h3>
+      <p>The Exchanger XSLT Debugger can be run in isolation from the Exchanger XML Editor, while still making use of any Transformation
+         Scenarios created within the Editor. Using the XSLT Debugger in stand-alone mode can be convenient when debugging memory-intensive
+         transformations, particularly when the global options are set to turn off tracing and not to open the input document.
+      </p>
+      <p>
+         To run the debugger from the command line, ensure you are in the intall directory and then simply add the <b>-debugger</b> option to the standard command as follows:
+      </p>
+      <p>
+         					<b>./jre/bin/java -jar lib/xngr-loader.jar -debugger</b>
+         				
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Multiple output files with Saxon</h3>
+      <p>By default, the content of output files created with the Saxon instruction &lt;xsl:document&gt; will automatically be redirected
+         and displayed in separate tabs in the output section of the debugger. In this case, no actual output files will be generated.
+         If you want to generate these files, or if you want to reduce memory by not displaying the files in the debugger, then change
+         the global transformation setting using  <b>Transformation-&gt;Redirect Saxon output</b>.
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Differences between debugging with Saxon and Xalan</h3>
+      <p>Because Xalan employs a Lazy Evaluation technique when dealing with variables and parameters, their values will typically
+         show up as null in the display until they are actually used in the stylesheet. In Saxon, parameter and variable values are
+         available at all times and can even change during a transformation (if the non-standard &lt;saxon:assign&gt; instruction is used).
+      </p>
+      <p>Saxon allows for stepping through the definition of parameters and global variables, while Xalan goes straight to the first
+         active template.
+      </p>
+      <p>Xalan reports the use of built-in (default) templates while Saxon does not.</p>
+      <p>XSL Messages are displayed for Saxon, but go to the console for Xalan.</p>
+   </body>
+</html>

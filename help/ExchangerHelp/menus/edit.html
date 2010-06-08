@@ -1,0 +1,594 @@
+
+<!--<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">--><html>
+   
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      
+      <title>Edit Menu</title>
+      
+   </head>
+   
+   <body bgcolor="#ffffff">
+      
+      <h1>Edit Menu</h1>
+      
+      <table width="100%" border="0" cellspacing="12">
+         
+         <tr valign="top">
+            
+            <td width="40%">
+               <strong>Undo</strong>
+               
+            </td>
+            
+            <td width="50%">Reverses the last edit. Undo can be used repeatedly to rollback a number of changes.</td>
+            
+            <td width="10%">Ctrl+Z</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Redo</strong>
+               
+            </td>
+            
+            <td>Reverses the last Undo operation. Redo can be used repeatedly to rollback a number of Redo operations.</td>
+            
+            <td>Ctrl+Y</td>
+            
+         </tr>
+         
+         <tr>
+            
+            <th colspan="3">
+               
+               <hr>
+               
+            </th>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Cut</strong>
+               
+            </td>
+            
+            <td>Cuts the current selection so that it can be moved to another location.</td>
+            
+            <td>Ctrl+X</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Copy</strong>
+               
+            </td>
+            
+            <td>Copies the current selection so that it can be pasted to another location.</td>
+            
+            <td>Ctrl+C</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Paste</strong>
+               
+            </td>
+            
+            <td>Pastes content that has previously been Cut or Copied.</td>
+            
+            <td>Ctrl+V</td>
+            
+         </tr>
+         
+         <tr>
+            
+            <th colspan="3">
+               
+               <hr>
+               
+            </th>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Add</strong>
+               
+            </td>
+            
+            <td>In the Outliner, creates the instance of the current node.</td>
+            
+            <td>ENTER</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Delete</strong>
+               
+            </td>
+            
+            <td>In the Outliner, deletes the current node.</td>
+            
+            <td>DELETE</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Create Required Nodes</strong>
+               
+            </td>
+            
+            <td>In the Outliner, this toggle controls whether required elements are automatically created.</td>
+            
+         </tr>
+         
+         <tr>
+            
+            <th colspan="3">
+               
+               <hr>
+               
+            </th>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Indent</strong>
+               
+            </td>
+            
+            <td>Indent a block of content</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Unindent</strong>
+               
+            </td>
+            
+            <td>Unindent (or exdent) a block of content.</td>
+            
+         </tr>
+         
+         <tr>
+            
+            <th colspan="3">
+               
+               <hr>
+               
+            </th>
+            
+         </tr>
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>XML</strong>
+               
+            </td>
+            
+            <td>A menu containing a series of editing functions</td>
+            
+         </tr>
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Select Element</strong>
+               
+            </td>
+            
+            <td>Selects the current element for the cursor position. Usead repeatedly, selects the content of all ancestors up to the root
+               element.
+            </td>
+            
+            <td>Ctrl+E</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Select Element Content</strong>
+               
+            </td>
+            
+            <td>Selects the current element content (without start and end tags) for the cursor position.</td>
+            
+            <td>Ctrl+Shift+E</td>
+            
+         </tr>
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Split Element</strong>
+               
+            </td>
+            
+            <td>Inserts an end tag and new start tag for the current element at the cursor position.</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Insert Special Character</strong>
+               
+            </td>
+            
+            <td>Displays a popup window with a range of characters that can be inserted at the cursor position as named entities, character
+               references or actual character occurrences.
+            </td>
+            
+            <td>Ctrl+I</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;Convert Entities to Characters</strong></td>
+            
+            <td>Displays a popup window that allows the user to specify how to replace named entities in the current selection with
+               character references or actual character occurrences.
+            </td>
+            
+         </tr>
+         
+         
+         <tr valign="top">
+            
+            <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;Convert Characters to Entities</strong></td>
+            
+            <td>Displays a popup window that allows the user to specify how to replace character occurrences in the current selection with
+               character references or names entities.
+            </td>
+            
+         </tr>      
+         
+         
+         <tr valign="top">
+            
+            <td><strong>&nbsp;&nbsp;&nbsp;&nbsp;Strip Tags</strong></td>
+            
+            <td>Removes start and end tags from the current selection.</td>
+            
+         </tr>
+         
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Tag</strong>
+               
+            </td>
+            
+            <td>Surrounds an existing piece of content with an elementstart and end tag. Simply highlight the piece of content and select
+               <b>Edit-&gt;XML-&gt;Tag</b> (or press the Tag button). Enter the desired element name in the pop-up dialog box.
+            </td>
+            
+            <td>Ctrl+T</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Repeat Last Tag</strong>
+               
+            </td>
+            
+            <td>Surrounds a piece of content with the same tag as the last time you used the <b>Edit-&gt;XML-&gt;Tag</b> function. 
+            </td>
+            
+            <td>Ctrl+Shift+T</td>
+            
+         </tr>
+         
+         <tr>
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Rename Element</strong>
+               
+            </td>
+            
+            <td>Changes the start tag and the end tag for the current element. </td>
+            
+            <td>Ctrl+R</td>
+            
+         </tr>
+         
+         <tr>
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Expand Empty Element</strong>
+               
+            </td>
+            
+            <td>Replaces an empty element with the corresponding start and end tag.</td>
+            
+            <td>Ctrl+L</td>
+            
+         </tr>
+         
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Comment</strong>
+               
+            </td>
+            
+            <td>Comment an existing content block. Simply highlight the content and select <b>Edit-&gt;Comment</b> (or press the Comment button).
+            </td>
+            
+            <td>Ctrl+K</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;CDATA</strong>
+               
+            </td>
+            
+            <td>Create a CDATA section for an existing content block. Simply highlight the content and select <b>Edit-&gt;CDATA</b> (or press the CDATA button).
+            </td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Lock</strong>
+               
+            </td>
+            
+            <td>Locks the active document so that all element names in start and end tags will no longer be editable (only attribute values
+               and text content can now be modified.
+            </td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Format</strong>
+               
+            </td>
+            
+            <td>Format the active document accoring to the current format settings. To control the format settings, select  <b>File-&gt;Preferences</b> and go to the Format tab.
+            </td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Goto Start Tag</strong>
+               
+            </td>
+            
+            <td>Highlight the start tag for the current cursor position.</td>
+            
+            <td>Ctrl+Up Arrow</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Goto End Tag</strong>
+               
+            </td>
+            
+            <td>Highlight the end tag for the current cursor position.</td>
+            
+            <td>Ctrl+Down Arrow</td>
+            
+         </tr>
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Goto Previous Attribute Value</strong>
+               
+            </td>
+            
+            <td>Move the cursor into the value field of the previous attribute.</td>
+            
+            <td>Ctrl+Shift+Up Arrow</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>&nbsp;&nbsp;&nbsp;&nbsp;Goto Next Attribute Value</strong>
+               
+            </td>
+            
+            <td>Move the cursor into the value field of the next attribute.</td>
+            
+            <td>Ctrl+Shift+Down Arrow</td>
+            
+         </tr>
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Insert Fragment</strong>
+               
+            </td>
+            
+            <td>Shows the Fragment popup list, if the current document has a Type with Fragments defined.</td>
+            
+            <td>Ctrl+Shift+Space</td>
+            
+         </tr>     
+         
+         
+         <tr>
+            
+            <th colspan="3">
+               
+               <hr>
+               
+            </th>
+            
+         </tr>
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Toggle Bookmark</strong>
+               
+            </td>
+            
+            <td>Create a bookmark on the current line. If a bookmark already exists on the current line, remove it.</td>
+            
+            <td>Ctrl+B</td>
+            
+         </tr>     
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Select Bookmark</strong>
+               
+            </td>
+            
+            <td>Choose a bookmark from a popup list of all bookmarks.</td>
+            
+            <td>Ctrl+Shift+B</td>
+            
+         </tr>     
+         
+         
+         
+         <tr>
+            
+            <th colspan="3">
+               
+               <hr>
+               
+            </th>
+            
+         </tr>
+         
+         
+         
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Goto</strong>
+               
+            </td>
+            
+            <td>Go to a line number. Enter the line number in the pop-up dialog and press  OK  (or the Enter key). To turn line numbering
+               on or off in the Editor select  <b>File-&gt;Preferences</b>, go to the Views tab and set/reset the  Show Line Numbers  field in the Editor section.
+            </td>
+            
+            <td>Ctrl+G</td>
+            
+         </tr>
+         
+         
+         <tr>
+            
+            <th colspan="3">
+               
+               <hr>
+               
+            </th>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Find</strong>
+               
+            </td>
+            
+            <td>Displays the Find dialog. </td>
+            
+            <td>Ctrl+F</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Find Next</strong>
+               
+            </td>
+            
+            <td>Repeats the current search.</td>
+            
+            <td>F3</td>
+            
+         </tr>
+         
+         <tr valign="top">
+            
+            <td>
+               <strong>Replace</strong>
+               
+            </td>
+            
+            <td>Displays the Replace dialog. </td>
+            
+            <td>Ctrl+H</td>
+            
+         </tr>
+  
+
+         <tr valign="top">
+            
+            <td>
+               <strong>Find in Files...</strong>
+               
+            </td>
+            
+            <td>Search in one or more directories on the filesystem. </td>
+            
+            <td></td>
+            
+         </tr>
+       
+      </table>
+      
+   </body>
+   
+</html>

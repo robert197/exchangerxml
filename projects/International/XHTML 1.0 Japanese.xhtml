@@ -1,0 +1,1254 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>XHTML 1.0: 拡張可能ハイパーテキストマークアップ言語</title>
+    <link href="./../../../common/W3C-translation.css" rel="stylesheet" type="text/css" />
+    <?xml-stylesheet href="./../../../common/W3C-translation.css" type="text/css"?>
+<style type="text/css">
+span.term { font-style: italic; color: rgb(0, 0, 192) }
+code {
+    color: green;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+code.greenmono {
+    color: green;
+    font-family: monospace;
+    font-weight: bold;
+}
+.good {
+    border: solid green;
+    border-width: 2px;
+    color: green;
+    font-weight: bold;
+    margin-right: 5%;
+    margin-left: 0;
+}
+.bad  {
+    border: solid red;
+    border-width: 2px;
+    margin-left: 0;
+    margin-right: 5%;
+    color: rgb(192, 101, 101);
+}
+
+img {
+    color: white;
+    border: none;
+}
+
+div.navbar { text-align: center; }
+div.contents {
+    background-color: rgb(204,204,255);
+    padding: 0.5em;
+    border: none;
+    margin-right: 5%;
+}
+.tocline { list-style: none; }
+table.exceptions { background-color: rgb(255,255,153); }
+</style>
+  </head>
+  <body>
+    <div class="doraneko">
+      <div class="navbar">
+        <span><a class="sitemap" href="/sitemap.html">サイトマップ</a></span> <span class="sitemap"> || </span> <a href="./../../../">ホーム</a> &gt; <a href="./../../">ウェブ制作</a> &gt; <a href="./../">XHTML 1.0</a> &gt; REC-20000126
+      </div>
+      <hr />
+      <h1>
+        XHTML&trade; 1.0: 拡張可能ハイパーテキストマークアップ言語
+      </h1>
+      <ul>
+        <li>
+          この文書は、<a href="http://www.w3.org/">W3C</a>により作成されW3C勧告として公開されている "<a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/">XHTML" 1.0: The Extensible HyperText Markup Language</a> " (<a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/">http://www.w3.org/TR/2000/REC-xhtml1-20000126/</a>) を、どら猫本舗が翻訳したものです。
+        </li>
+        <li>
+          最新版の文書は <a href="http://www.w3.org/TR/xhtml1/">http://www.w3.org/TR/xhtml1/</a> にあります。
+        </li>
+        <li>
+          正式なワーキングドラフトは<a href="http://www.w3.org/TR/">W3Cサイト</a>にある<a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/">英語版</a>です。この日本語版は参考にすぎません。
+        </li>
+        <li>
+          この文書には翻訳上の誤りがあるかもしれません。どら猫本舗は翻訳の正確性を保証しません。あくまでご自身の責任でご利用ください。
+        </li>
+        <li>
+          お気付きの点がありましたら<a href="mailto:webmaster@doraneko.org">どら猫本舗</a>までお知らせください。
+        </li>
+      </ul>
+    </div>
+    <hr />
+    <div class="navbar">
+      <a href="#toc">目次</a> 
+      <hr />
+    </div>
+    <div class="head">
+      <p>
+        <a href="http://www.w3.org/"><img class="head" src="./../../../common/w3c_home.gif" alt="W3C" /></a>
+      </p>
+      <h1 class="head">
+        <a name="title" id="title">XHTML</a><sup>&trade;</sup> 1.0: 拡張可能ハイパーテキストマークアップ言語
+      </h1>
+      <h2>
+        XML 1.0 によるHTML4の再定式化
+      </h2>
+      <h3>
+        W3C勧告 2000年1月26日
+      </h3>
+      <dl>
+        <dt>
+          このバージョン[原文]:
+        </dt>
+        <dd>
+          <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126">http://www.w3.org/TR/2000/REC-xhtml1-20000126</a><br />
+          ([原文の]<a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/xhtml1.ps">Postscript版</a>, <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/xhtml1.pdf">PDF版</a>, <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/xhtml1.zip">ZIPアーカイブ</a>, <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/xhtml1.tgz">Gzip圧縮TARアーカイブ</a>)
+        </dd>
+        <dt>
+          最新のバージョン:
+        </dt>
+        <dd>
+          <a href="http://www.w3.org/TR/xhtml1">http://www.w3.org/TR/xhtml1</a>
+        </dd>
+        <dt>
+          以前のバージョン:
+        </dt>
+        <dd>
+          <a href="http://www.w3.org/TR/1999/PR-xhtml1-19991210">http://www.w3.org/TR/1999/PR-xhtml1-19991210</a>
+        </dd>
+        <dt>
+          著作者:
+        </dt>
+        <dd>
+          <a href="#acks">謝辞</a>を見よ。
+        </dd>
+      </dl>
+      <p class="copyright">
+        <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">著作権</a> &copy;2000 <a href="http://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>&reg;</sup> (<a href="http://www.lcs.mit.edu/">マサチューセッツ工科大学</a>, <a href="http://www.inria.fr/">フランス国立情報処理自動化研究所</a>, <a href="http://www.keio.ac.jp/">慶應義塾大学</a>). すべての権利が留保されている。W3Cの免責(<a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>), 商標(<a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a>), 文書利用(<a href="http://www.w3.org/Consortium/Legal/copyright-documents-19990405">document use</a>), ソフトウェア使用許諾(<a href="http://www.w3.org/Consortium/Legal/copyright-software-19980720">software licensing</a>)規則が適用される。
+      </p>
+      <hr />
+    </div>
+    <h2 class="notoc">
+      概要
+    </h2>
+    <p>
+      この仕様書は、HTML 4 を XML 1.0 アプリケーションとして再定式化した<abbr title="Extensible Hypertext Markup Language">XHTML</abbr> 1.0 と、HTML 4 によって定義されているものに対応する3つの<abbr title="Document Type Definition">DTD</abbr>とを定義するものである。要素やその属性の意味論は、HTML 4 についてのW3C勧告において定義されている。これらの意味論は、XHTMLの将来的な拡張性の基礎を提供する。既存のHTMLユーザエージェントとの互換性は、小さいガイドラインの集合に従うことにより可能である。
+    </p>
+    <h2>
+      この文書の位置づけ
+    </h2>
+    <p>
+      <em>この節は、この文書の公開時における位置づけを説明したものである。他の文書がこの文書に取って代わるかもしれない。この文書シリーズの最新の位置づけは、W3Cにおいて維持管理されている。</em>
+    </p>
+    <p>
+      この文書は、W3C会員及びその他の利害関係者によりレビューされ、ディレクターによってW3C勧告として公布されているものである。この文書は安定的な文書であって、参照素材として利用したり、他の文書から規範的リファレンスとしての引用に用いてもかまわない。勧告作成におけるW3Cの役割は、仕様に対する注意を引き、その広範な配備を推進することにある。このことはウェブの機能と相互運用性とを高める。
+    </p>
+    <p>
+      この文書は <a href="http://www.w3.org/MarkUp/">W3C HTMLアクティビティ</a>の一部として作成されているものである。<a href="http://www.w3.org/MarkUp/Group/">HTMLワーキンググループ</a><i>(<a href="http://cgi.w3.org/MemberAccess/">メンバー専用</a>)</i>の目標は、<a href="http://www.w3.org/MarkUp/Group/HTMLcharter">HTMLワーキンググループ憲章</a><i>(<a href="http://cgi.w3.org/MemberAccess/">メンバー専用</a>)</i>に論じられている。
+    </p>
+    <p>
+      現行のW3C勧告及びその他の技術文書の一覧は <a href="http://www.w3.org/TR">http://www.w3.org/TR</a> で見ることができる。
+    </p>
+    <p>
+      <abbr title="HyperText Markup Language">HTML</abbr>の機能に関する公開の議論は、メーリングリスト <a href="mailto:www-html@w3.org">www-html@w3.org</a> (<a href="http://lists.w3.org/Archives/Public/www-html/">アーカイブ</a>)で行われている。
+    </p>
+    <p>
+      この文書[原文]のエラーは <a href="mailto:www-html-editor@w3.org">www-html-editor@w3.org</a> までレポートいただきたい。
+    </p>
+    <p>
+      この文書[原文]の既知のエラーの一覧は <a href="http://www.w3.org/2000/01/REC-xhtml1-20000126-errata">http://www.w3.org/2000/01/REC-xhtml1-20000126-errata</a> で入手できる。
+    </p>
+    <h2 class="notoc">
+      <a id="toc" name="toc">目次</a>
+    </h2>
+    <div class="contents">
+      <ul class="toc">
+        <li class="tocline">
+          1. <a href="#xhtml">XHTMLとは何か</a> 
+          <ul class="toc">
+            <li class="tocline">
+              1.1 <a href="#html4">HTML4とは何か</a>
+            </li>
+            <li class="tocline">
+              1.2 <a href="#xml">XMLとは何か</a>
+            </li>
+            <li class="tocline">
+              1.3 <a href="#why">XHTMLはなぜ必要か</a>
+            </li>
+          </ul>
+        </li>
+        <li class="tocline">
+          2. <a href="#defs">定義集</a> 
+          <ul class="toc">
+            <li class="tocline">
+              2.1 <a href="#terms">用語集</a>
+            </li>
+            <li class="tocline">
+              2.2 <a href="#general">一般的用語</a>
+            </li>
+          </ul>
+        </li>
+        <li class="tocline">
+          3. <a href="#normative">XHTML 1.0 の規範的な定義</a> 
+          <ul class="toc">
+            <li class="tocline">
+              3.1 <a href="#docconf">文書の適合性</a>
+            </li>
+            <li class="tocline">
+              3.2 <a href="#uaconf">ユーザエージェントの適合性</a>
+            </li>
+          </ul>
+        </li>
+        <li class="tocline">
+          4. <a href="#diffs">HTML4との相違点</a>
+        </li>
+        <li class="tocline">
+          5. <a href="#issues">互換性問題</a> 
+          <ul class="toc">
+            <li class="tocline">
+              5.1 <a href="#media">インターネットメディア型</a>
+            </li>
+          </ul>
+        </li>
+        <li class="tocline">
+          6. <a href="#future">将来的な方向性</a> 
+          <ul class="toc">
+            <li class="tocline">
+              6.1 <a href="#mods">HTMLのモジュラ化</a>
+            </li>
+            <li class="tocline">
+              6.2 <a href="#extensions">サブセットと拡張性</a>
+            </li>
+            <li class="tocline">
+              6.3 <a href="#profiles">文書プロファイル</a>
+            </li>
+          </ul>
+        </li>
+        <li class="tocline">
+          <a href="#dtds">付録A. DTD</a>
+        </li>
+        <li class="tocline">
+          <a href="#prohibitions">付録B. 要素の禁止事項</a>
+        </li>
+        <li class="tocline">
+          <a href="#guidelines">付録C. HTML互換性ガイドライン</a>
+        </li>
+        <li class="tocline">
+          <a href="#acks">付録D. 謝辞</a>
+        </li>
+        <li class="tocline">
+          <a href="#refs">付録E. 参照資料</a>
+        </li>
+      </ul>
+    </div>
+    <!--OddPage-->
+    <h1>
+      <a name="xhtml" id="xhtml">1. XHTMLとは何か</a>
+    </h1>
+    <p>
+      XHTMLは、HTML4 <a href="#ref-html4">[HTML]</a> を再生産し、サブセット化し、拡張する現在及び将来の文書型及びモジュールのファミリーである。XHTMLファミリーの文書型は<abbr title="Extensible Markup Language">XML</abbr>ベースであり、究極的にはXMLベースのユーザエージェントと結びついて機能するよう設計されている。このファミリーやその進化の詳細は、<a href="#future">将来的な方向性</a>に関する節でさらに詳しく論じられる。
+    </p>
+    <p>
+      XHTML 1.0 (この仕様書) は、XHTMLファミリーにおける初めての文書型である。これは、3つのHTML4文書型を XML 1.0 <a href="#ref-xml">[XML]</a> のアプリケーションとして再定式化したものである。XHTML 1.0 は、XML適合でもあり、かつ、いくつかの単純な<a href="#guidelines">ガイドライン</a>に従えばHTML4適合ユーザエージェントでも機能するコンテンツのための言語として使われることが予定されている。コンテンツを XHTML 1.0 に移り住ませた開発者は、以下の利点を実感するであろう。
+    </p>
+    <ul>
+      <li>
+        XHTML文書はXML適合である。それだから、標準的なXMLツールを用いて難なく見られ、編集され、検証される。
+      </li>
+      <li>
+        XHTML文書は、これまで既存のHTML4ユーザエージェントで機能していたのと同じく、あるいはそれ以上に機能し、また新しい XHTML 1.0 適合ユーザエージェントでも同様に機能するよう書くことができる。
+      </li>
+      <li>
+        XHTML文書は、HTML文書オブジェクトモデルやXML文書オブジェクトモデル <a href="#ref-dom">[DOM]</a> をあてにするアプリケーション(例. スクリプトやアプレット)を役立てることができる。
+      </li>
+      <li>
+        XHTMLファミリーが進化するにつれ、XHTML 1.0 に適合した文書が、多様なXHTML環境の中や環境間で相互運用される可能性が高まる。
+      </li>
+    </ul>
+    <p>
+      XHTMLファミリーは、インターネットの進化における次の一歩である。今日XHTMLに移り住むことにより、コンテンツ開発者は、コンテンツの後方互換性や将来的な互換性に自信をもちながら、XMLワールドに入り、その付随する利点のすべてを享受することができる。
+    </p>
+    <h2>
+      <a name="html4" id="html4">1.1 HTML4とは何か</a>
+    </h2>
+    <p>
+      HTML4 <a href="#ref-html4">[HTML]</a> は、国際規格<abbr title="Organization for International Standardization">ISO</abbr> 8879 に適合した<abbr title="Standard Generalized Markup Language">SGML</abbr> (Standard Generalized Markup Language) アプリケーションであり、広くワールド=ワイド=ウェブの標準的なパブリッシング言語とみなされている。
+    </p>
+    <p>
+      SGMLは、マークアップ言語、とりわけ電子文書の交換や文書管理、文書パブリッシングに使われるマークアップ言語を記述するための言語である。HTMLは、SGMLによって定義された言語の一例である。
+    </p>
+    <p>
+      SGMLは1980年代半ば以降普及し、きわめて安定性を保っている。この安定性の多くは、言語が機能に富み、かつ柔軟でもあるという事実によっている。しかしながら、この柔軟性は一定のコストによりもたらされるものであり、そのコストとは、ワールド=ワイド=ウェブを含め多様な環境での採用の妨げとなるレベルの複雑さのことである。
+    </p>
+    <p>
+      HTMLは、もともとそのように考えられていたのだが、文書の専門家でない人々による利用に適した、科学的その他技術的文書の交換のための言語であるべきものであった。HTMLは、SGMLの複雑さの問題を、比較的単純な文書を制作するのに適した構造的タグや意味論的タグの小さいセットを規定することにより処理した。文書構造を単純化したことに加えて、HTMLはハイパーテキストのサポートを追加した。マルチメディア機能が後に追加された。
+    </p>
+    <p>
+      非常に短い時間のうちに、HTMLはおそろしく普及し、急速に元々の目的からはみ出して成長した。HTMLの始まり以来、(標準規格としての)HTML内部で利用したり、HTMLを垂直的で高度に特化された市場に適合させるための新しい要素が急速に発明されてきた。この新しい要素の過剰は、異なるプラットフォーム間での文書の互換性問題にまて至っている。
+    </p>
+    <p>
+      ソフトウェア、プラットフォーム両者の異類混交性が急速に増殖するに伴い、これらのプラットフォームで利用することについて「クラシック」なHTML4の適性は幾分か限定されることが明らかである。
+    </p>
+    <h2>
+      <a name="xml" id="xml">1.2 XMLとは何か</a>
+    </h2>
+    <p>
+      XML<sup>&trade;</sup> は、拡張可能マークアップ言語(Extensible Markup Language)の短縮形であり、Extensible Markup Language の頭字語である <a href="#ref-xml">[XML]</a>。
+    </p>
+    <p>
+      XMLは、SGMLの複雑さのほとんどを抜きにしてSGMLの力と柔軟性とを取り戻す手段として考えられていた。SGMLの制限形式であるにもかかわらず、XMLはSGMLの力と機能の豊富さとのほとんどを保持し、なおも一般に使われているSGMLの機能のすべてを残している。
+    </p>
+    <p>
+      これらの役に立つ機能を残しつつも、XMLは、適したソフトウェアの製作や設計を困難でコストのかかるものにしているもっと複雑なSGMLの機能を多数取り除いている。
+    </p>
+    <h2>
+      <a name="why" id="why">1.3 XHTMLはなぜ必要か</a>
+    </h2>
+    <p>
+      XHTML 1.0 へ移り住むことの利点は、上記に説明されている。一般的にXHTMLへ移り住むことの利点のいくつかを挙げると、つぎのようなものがある。
+    </p>
+    <ul>
+      <li>
+        文書開発者やユーザエージェント設計者は、新しいマークアップを通じて彼らの発想を表記する新しい方法を持続的に発見している。XMLでは、新しい要素や追加的な要素属性を導入することが比較的容易である。XHTMLファミリーは、XHTMLモジュールや、(近刊のXHTMLモジュラ化仕様書で解説される)新しいXHTML適合モジュールを開発するためのテクニックを通じて、これらの拡張を収容するよう設計されている。これらのモジュールが、コンテンツを開発するときや新しいユーザエージェントを設計するときに、既存の機能セットや新しい機能セットの組み合わせを可能にすることになる。
+      </li>
+      <li>
+        インターネットにアクセスする代替方法は、コンスタントに導入されている。試算のなかには、2002年までにインターネット文書閲覧の75%がこれら代替的プラットフォーム上で実行されると示すものもある。XHTMLファミリーは、全体的なユーザエージェントの相互運用性を念頭に置いて設計されている。新しいユーザエージェントや文書プロファイリングメカニズムを通して、サーバやプロキシ、ユーザエージェントは、コンテンツの変形に最善の努力を実行することができることになる。究極的には、どのXHTML適合ユーザエージェントでも利用できるXHTML適合コンテンツを開発することが可能となるであろう。
+      </li>
+    </ul>
+    <!--OddPage-->
+    <h1>
+      <a name="defs" id="defs">2. 定義集</a>
+    </h1>
+    <h2>
+      <a name="terms" id="terms">2.1 用語集</a>
+    </h2>
+    <p>
+      以下の用語はこの仕様書の中で使われているものである。これらの用語は、ISO/<abbr title="International Electro-technical Commission">IEC</abbr> 9945-1:1990 <a href="#ref-posix">[POSIX.1]</a> での類似の定義に基づいて <a href="#ref-rfc2119">[RFC2119]</a> での定義を拡張している。
+    </p>
+    <dl>
+      <dt>
+        実装定義の (implementation-defined)
+      </dt>
+      <dd>
+        正しい文書構造についての対応する必要条件を定義[し文書化]することが実装にゆだねられているとき、値または挙動は実装定義である。
+      </dd>
+      <dt>
+        してもよい (may)
+      </dt>
+      <dd>
+        実装に関しては、「してもよい」という言葉は、この仕様書では要求されないが提供することができる任意的機能として解釈されるべきものである。<a href="#docconf">文書の適合性</a>に関しては、「してもよい」という言葉は、任意的機能が使われてはならないという意味である。「任意的」という用語は、「してもよい」と同じ定義である。
+      </dd>
+      <dt>
+        しなければならない (must)
+      </dt>
+      <dd>
+        この仕様書では、「しなければならない」という言葉は、文脈により、実装または厳格適合XHTML文書に関する義務的必要条件として解釈されるべきものである。「すべし」という用語は、「しなければならない」と同じ定義である。
+      </dd>
+      <dt>
+        予約済み (reserved)
+      </dt>
+      <dd>
+        値または挙動は規定されていないが、適合文書がそれを使うことや、適合ユーザエージェントがそれをサポートすることは許されない。
+      </dd>
+      <dt>
+        するべきである (should)
+      </dt>
+      <dd>
+        実装に関しては、「するべきである」という言葉は、実装上の勧告であるが必要条件ではないものとして解釈されるべきものである。文書に関しては、「するべきである」という言葉は、文書についての推奨されるプログラミング慣行や、厳格適合XHTML文書についての必要条件として解釈されるべきものである。
+      </dd>
+      <dt>
+        サポートされている (supported)
+      </dt>
+      <dd>
+        この仕様書にある一定の装備は任意的である。ある装備がサポートされている場合、それはこの仕様書によって規定されている通りの挙動をとる。
+      </dd>
+      <dt>
+        規定されていない (unspecified)
+      </dt>
+      <dd>
+        値または挙動が規定されていないとき、仕様書は、その装備を利用する文書に直面したときであっても、ある実装上の装備についての可搬性必要条件を定義しない。そうした場面で、その装備を使うときにどのような挙動でも容認するのではなく、特定の挙動を要求する文書は、厳格適合XHTML文書ではない。
+      </dd>
+    </dl>
+    <h2>
+      <a name="general" id="general">2.2 一般的用語</a>
+    </h2>
+    <dl>
+      <dt>
+        属性 (attribute)
+      </dt>
+      <dd>
+        属性とは、DTDで宣言されている要素に対するパラメータである。属性の型や値域は、可能なデフォルト値を含め、DTDの中で定義される。
+      </dd>
+      <dt>
+        DTD
+      </dt>
+      <dd>
+        DTD、あるいは文書型定義とは、そのDTDに従う文書の中で利用できる合法的な文書構造や<span class="term">要素</span>、<span class="term">属性</span>を、集合体として定義するXML宣言の集合体である。
+      </dd>
+      <dt>
+        文書 (document)
+      </dt>
+      <dd>
+        文書とは、参照先のその他すべてのストリームと組み合わされた後、結びつけられた<span class="term">DTD</span>で定義されているとおりに組織された<span class="term">要素</span>の中に含まれている情報を保持するよう構築されたデータのストリームである。
+      </dd>
+      <dt>
+        要素 (element)
+      </dt>
+      <dd>
+        要素とは、<span class="term">DTD</span>で宣言される、文書を構築する単位である。要素の内容モデルは<span class="term">DTD</span>の中で定義され、追加的な意味論がその要素の散文的解説の中で定義される場合がある。
+      </dd>
+      <dt>
+        <a name="facilities" id="facilities">装備 (facilities)</a>
+      </dt>
+      <dd>
+        機能(functionality)には、<span class="term">要素</span>や<span class="term">属性</span>と、それらの<span class="term">要素</span>や<span class="term">属性</span>に結びつけられた意味論とが含まれる。その機能をサポートしている実装は、必要な装備を用意していると言われる。
+      </dd>
+      <dt>
+        実装 (implementation)
+      </dt>
+      <dd>
+        実装とは、<span class="term">装備</span>やこの仕様をサポートするサービスの集合体を用意するシステムである。詳しい情報については<a href="#uaconf">ユーザエージェントの適合性</a>を見よ。
+      </dd>
+      <dt>
+        解析 (parsing)
+      </dt>
+      <dd>
+        解析とは、それによって<span class="term">文書</span>をスキャンし、<span class="term">文書</span>に含まれている情報を、その情報が構造化されている<span class="term">要素</span>の文脈の中へとフィルタリングする行動である。
+      </dd>
+      <dt>
+        レンダリング (rendering)
+      </dt>
+      <dd>
+        レンダリングとは、それによって<span class="term">文書</span>の中にある情報を呈示する行動である。この呈示は、その環境にとって最も適切な形式(例. 音声的、視覚的、印刷)でなされる。
+      </dd>
+      <dt>
+        ユーザエージェント (user agent)
+      </dt>
+      <dd>
+        ユーザエージェントとは、XHTML文書を引き出して処理する<span class="term">実装</span>である。詳しい情報については<a href="#uaconf">ユーザエージェントの適合性</a>を見よ。
+      </dd>
+      <dt>
+        妥当性検証 (validation)
+      </dt>
+      <dd>
+        妥当性検証とは、それにより、結びつけられている<span class="term">DTD</span>に照らして<span class="term">文書</span>を検証して、構造や、<span class="term">要素</span>の使い方、<span class="term">属性</span>の使い方が<span class="term">DTD</span>内の定義と無矛盾であることを確かめる処理である。
+      </dd>
+      <dt>
+        <a name="wellformed" id="wellformed">整形式の (well-formed)</a>
+      </dt>
+      <dd>
+        <span class="term">文書</span>は、XML 1.0 勧告 <a href="#ref-xml">[XML]</a> の <a href="http://www.w3.org/TR/REC-xml#sec-well-formed">Section 2.1</a> に定義されている規則に従って構築されているとき、整形式である。基本的には、この定義は、要素が開始タグと終了タグとで区切られ、互いに適切にネストされているということを言うものである。
+      </dd>
+    </dl>
+    <!--OddPage-->
+    <h1>
+      <a name="normative" id="normative">3. XHTML 1.0 の規範的定義</a>
+    </h1>
+    <h2>
+      <a name="docconf" id="docconf">3.1 文書の適合性</a>
+    </h2>
+    <p>
+      このバージョンのXHTMLは、厳密適合XHTML文書の定義を用意する。この厳密適合XHTML文書とは、XHTML名前空間に由来するタグと属性とに制限されているものである。XHTMLを他の名前空間と一緒に使って、たとえばXHTML文書の中に<abbr title="Resource Description Format">RDF</abbr>で表記されたメタデータを組み込むことに関する情報については、<a href="#well-formed">第3節第1項2</a>を見よ。
+    </p>
+    <h3>
+      <a name="strict" id="strict">3.1.1 厳密適合文書</a>
+    </h3>
+    <p>
+      厳密適合XHTML文書とは、この仕様書で義務的なものとして説明されている装備のみを要求する文書である。そうした文書は、以下の評価基準のすべてに合致しなければならない。
+    </p>
+    <ol>
+      <li>
+        <p>
+          <a href="#dtds">付録A</a>にある3つのDTDのうち1つに照らして正当化されなければならない。
+        </p>
+      </li>
+      <li>
+        <p>
+          文書のルート要素は <code>&lt;html&gt;</code> でなければならない。
+        </p>
+      </li>
+      <li>
+        <p>
+          文書のルート要素は、<code>xmlns</code> 属性を使うXHTML名前空間 <a href="#ref-xmlns">[XMLNAMES]</a> を指し示さなければならない。XHTMLを表す名前空間は <code>http://www.w3.org/1999/xhtml</code> と定義されている。
+        </p>
+      </li>
+      <li>
+        <p>
+          ルート要素に先立って、文書の中に DOCTYPE 宣言が1個なければならない。DOCTYPE 宣言に組み込まれる公開識別子は、<a href="#dtds">付録A</a>にある3つのDTDのうち1つを、それぞれの公式公開識別子を使って参照しなければならない。システム識別子は、ローカルシステム慣習を反映するために変更されてもかまわない。
+        </p>
+<pre>
+&lt;!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "DTD/xhtml1-strict.dtd"&gt;
+
+&lt;!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "DTD/xhtml1-transitional.dtd"&gt;
+
+&lt;!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
+     "DTD/xhtml1-frameset.dtd"&gt;
+</pre>
+      </li>
+    </ol>
+    <p>
+      こちらは、最小のXHTML文書の例である。
+    </p>
+    <div class="good">
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "DTD/xhtml1-strict.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"&gt;
+  &lt;head&gt;
+    &lt;title&gt;バーチャル図書館&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;&lt;a href="http://vlib.org/"&gt;vlib.org&lt;/a&gt; へ移転しました。&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    </div>
+    <p>
+      この例ではXML宣言が組み込まれていることに注意してほしい。上記のようなXML宣言は、すべてのXML文書に必須というわけではない。XHTML文書の制作者は、すべての文書でXML宣言を使うよう強く奨励される。文書のキャラクタエンコーディングがデフォルトの UTF-8 か UTF-16 以外のものであるときは、そうした宣言は必須である。
+    </p>
+    <h3>
+      <a name="well-formed" id="well-formed">3.1.2 XHTMLを他の名前空間と一緒に使う</a>
+    </h3>
+    <p>
+      そうした文書は上記に定義した厳格適合 XHTML 1.0 文書ではないけれども、XHTML名前空間は、<a href="#ref-xmlns">[XMLNAMES]</a>に従って他のXML名前空間と一緒に使ってもかまわない。W3Cによる将来の作業により、複数の名前空間を巻き込む文書についての適合性を規定する方法を処理されるであろう。
+    </p>
+    <p>
+      以下の例は、XHTML 1.0 をMathML勧告と結合して利用できる方法を示したものである。
+    </p>
+    <div class="good">
+<pre>
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja"&gt;
+  &lt;head&gt;
+    &lt;title&gt;数学の例&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;以下はMathMLマークアップである。&lt;/p&gt;
+    &lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+      &lt;apply&gt; &lt;log/&gt;
+        &lt;logbase&gt;
+          &lt;cn&gt; 3 &lt;/cn&gt;
+        &lt;/logbase&gt;
+        &lt;ci&gt; x &lt;/ci&gt;
+      &lt;/apply&gt;
+    &lt;/math&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+    </div>
+    <p>
+      以下の例は、XHTML 1.0 マークアップを他のXML名前空間に統合できる方法を示したものである。
+    </p>
+    <div class="good">
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!-- 初期的にはデフォルト名前空間は "books" である --&gt;
+&lt;book xmlns='urn:loc.gov:books'
+    xmlns:isbn='urn:ISBN:0-395-36341-6' xml:lang="ja" lang="ja"&gt;
+  &lt;title&gt;まとめ買いでおトクに&lt;/title&gt;
+  &lt;isbn:number&gt;1568491379&lt;/isbn:number&gt;
+  &lt;notes&gt;
+    &lt;!-- ハイパーテキストの注釈についてHTMLをデフォルトの名前空間にする --&gt;
+    &lt;p xmlns='http://www.w3.org/1999/xhtml'&gt;
+        これは &lt;a href="http://www.w3.org/"&gt;オンライン&lt;/a&gt; でもお求めになれます。
+    &lt;/p&gt;
+  &lt;/notes&gt;
+&lt;/book&gt;
+</pre>
+    </div>
+    <h2>
+      <a name="uaconf" id="uaconf">3.2 ユーザエージェントの適合性</a>
+    </h2>
+    <p>
+      適合ユーザエージェントは、以下の評価基準のすべてに合致しなければならない。
+    </p>
+    <ol>
+      <li>
+        XML 1.0 勧告 <a href="#ref-xml">[XML]</a> と無矛盾であるために、ユーザエージェントは整形式性についてXHTML文書を解析して評価しなければならない。ユーザエージェントが妥当性検証を行うユーザエージェントであると主張する場合には、<a href="#ref-xml">[XML]</a> に従って参照先のDTDに照らして文書の妥当性も検証しなければならない。
+      </li>
+      <li>
+        ユーザエージェントが、この仕様書で定義されていたり、規範的な参照資料を通じてこの仕様書によって要求されている<a href="#facilities">装備</a>をサポートしていると主張するときは、その装備の定義と無矛盾な方法でそうしなければならない。
+      </li>
+      <li>
+        ユーザエージェントがXHTML文書を汎用XMLとして処理するときは、フラグメント識別子として <code>ID</code> 型の属性(たとえばほとんどのXHTML要素上の <code>id</code> 属性)のみを認識すべし。
+      </li>
+      <li>
+        ユーザエージェントが認識しない要素に遭遇した場合は、その要素の内容をレンダリングしなければならない。
+      </li>
+      <li>
+        ユーザエージェントが認識しない属性に遭遇した場合は、その属性指定全体(すなわち属性とその値)を無視しなければならない。
+      </li>
+      <li>
+        ユーザエージェントが認識しない属性値に遭遇した場合は、デフォルトの属性値を使わなければならない。
+      </li>
+      <li>
+        ユーザエージェントがその宣言を処理していない(定義済み実体以外の)実体参照に遭遇した場合(これはユーザエージェントがまだ読んでいない外部サブセットの中に宣言がある場合に起こりうる。)、その実体参照は、その実体参照を作り上げている(アンパサンドで始まりセミコロンで終わる)キャラクタとしてレンダリングされるべきである。
+      </li>
+      <li>
+        コンテンツをレンダリングするとき、認識するけれどもレンダリングできないキャラクタやキャラクタ実体参照に遭遇したユーザエージェントは、正常なレンダリングが行われていないことがユーザにとって明らかであるような方法で文書を表示するべきである。
+      </li>
+      <li>
+        以下のキャラクタは、[XML] によって空白キャラクタとして定義されている。
+        <ul>
+          <li>
+            スペース (&amp;#x0020;)
+          </li>
+          <li>
+            タブ (&amp;#x0009;)
+          </li>
+          <li>
+            復帰 (&amp;#x000D;)
+          </li>
+          <li>
+            行送り (&amp;#x000A;)
+          </li>
+        </ul>
+        <p>
+          XMLプロセッサは、アプリケーションへ渡されるいろいろなシステムの行末コードを、単一の行送りキャラクタへと通常化する。XHTMLユーザエージェントはさらに、以下のキャラクタを空白として扱わなければならない。
+        </p>
+        <ul>
+          <li>
+            フォームフィード (&amp;#x000C;)
+          </li>
+          <li>
+            ゼロ幅スペース (&amp;#x200B;)
+          </li>
+        </ul>
+        <p>
+          'xml:space' 属性が 'preserve' に設定されている要素では、ユーザエージェントは(先頭及び末尾の空白キャラクタを例外として。これらは除去されるべきである。)すべての空白キャラクタに手をつけずにおかなければならない。それ以外の場合には、空白は以下の規則に従って処理される。
+        </p>
+        <ul>
+          <li>
+            ブロック要素を取り囲む空白は、すべて除去されるべきである。
+          </li>
+          <li>
+            注釈は完全に除去され、空白の処理に影響しない。注釈の片側にある1個の空白キャラクタは、2個の空白キャラクタとして扱われる。
+          </li>
+          <li>
+            ブロック要素内部にある先頭及び末尾の空白は、除去されるべきである。
+          </li>
+          <li>
+            ブロック要素内部にある行送りキャラクタは、スペース1個に変換されなければならない。('xml:space' 属性が 'preserve' に設定されているときを除く。)
+          </li>
+          <li>
+            空白キャラクタの連なりは、単一の空白キャラクタに縮小されなければならない。('xml:space' 属性が 'preserve' に設定されているときを除く。)
+          </li>
+          <li>
+            レンダリングに関して、ユーザエージェントは、コンテンツを書いている言語に適した方法で、コンテンツをレンダリングするべきである。主たる文字がラテン文字である言語では、ASCIIスペースキャラクタは概して、文法上のな単語の境界と印刷術的な空白との双方をエンコードするのに使われる。文字がナガリ文字に関係している言語(例. サンスクリット語、タイ語など)では、文法上のな境界はゼロ幅「スペース」キャラクタを使ってエンコードされることがあるが、レンダリングされたアウトプットには印刷術的なスペースによって表現されないのが典型である アラビア形式の文字を使う言語は、スペースキャラクタを使って印刷術的な空白をエンコードすることがあるが、「内部的な」文法上の境界を区切るのにゼロ幅スペースキャラクタも使われることがある (英語の目にとってアラビア語の単語のように見えるものが、しばしば数個の単語をエンコードしている。例. 'kitAbuhum' = 'kitAbu-hum' = 'book them' == their book)。また、中国文字の伝統にある言語は概して、そうした区切りをエンコードせず、またこのような印刷術的な空白も使わない。
+          </li>
+        </ul>
+        <p>
+          属性値の中の空白は、<a href="#ref-xml">[XML]</a> に従って処理される。
+        </p>
+      </li>
+    </ol>
+    <!--OddPage-->
+    <h1>
+      <a name="diffs" id="diffs">4. HTML4との相違点</a>
+    </h1>
+    <p>
+      XHTMLがXMLアプリケーションであるという事実のために、SGMLベースのHTML4 <a href="#ref-html4">[HTML]</a> では完全に合法であった一定の慣習が変更されなければならない。
+    </p>
+    <h2>
+      <a name="h-4.1" id="h-4.1">4.1 文書は整形式でなければならない</a>
+    </h2>
+    <p>
+      <a href="#wellformed">整形式性</a>は、<a href="#ref-xml">[XML]</a> によって導入された新しい概念である。本質的には、これは、すべての要素が終了タグを持つか(後述のとおり)特殊な形式で書かれるかしなければならず、またすべての要素がネストしていなければならないという意味である。
+    </p>
+    <p>
+      重なり合いはSGMLでも違法であったが、既存のブラウザでは広く容認されていた。
+    </p>
+    <div class="good">
+      <p>
+        <strong><em>正: 要素がネストされている。</em></strong>
+      </p>
+      <p>
+        &lt;p&gt;こちらは強調されている&lt;em&gt;段落&lt;/em&gt;です。&lt;/p&gt;
+      </p>
+    </div>
+    <div class="bad">
+      <p>
+        <strong><em>誤: 要素が重なり合っている。</em></strong>
+      </p>
+      <p>
+        &lt;p&gt;こちらは強調されている&lt;em&gt;段落&lt;/p&gt;です。&lt;/em&gt;
+      </p>
+    </div>
+    <h2>
+      <a name="h-4.2" id="h-4.2">4.2 要素名及び属性名は小文字でなければならない</a>
+    </h2>
+    <p>
+      XHTML文書は、すべてのHTML要素名及び属性名に小文字を使わなければならない。この相違点が必要なのは、XMLが大文字小文字を区別し、たとえば &lt;li&gt; と &lt;LI&gt; とは異なるタグだからである。
+    </p>
+    <h2>
+      <a name="h-4.3" id="h-4.3">4.3 非空要素については終了タグが必須である</a>
+    </h2>
+    <p>
+      SGMLベースのHTML4では、一定の要素は終了タグを省略することが許されていた。そうした要素には黙示的な閉鎖がついていたのである。この省略は、XMLベースのXHTMLにおいては許されない。DTDの中で <code>EMPTY</code> として宣言されているものを除き、すべての要素が終了タグをもたなければならない。
+    </p>
+    <div class="good">
+      <p>
+        <strong><em>正: 要素が終結している。</em></strong>
+      </p>
+      <p>
+        &lt;p&gt;こちらに段落があります。&lt;/p&gt;&lt;p&gt;こちらにもう一つ段落があります。&lt;/p&gt;
+      </p>
+    </div>
+    <div class="bad">
+      <p>
+        <strong><em>誤: 要素が終結していない。</em></strong>
+      </p>
+      <p>
+        &lt;p&gt;こちらに段落があります。&lt;p&gt;こちらにもう一つ段落があります。
+      </p>
+    </div>
+    <h2>
+      <a name="h-4.4" id="h-4.4">4.4 属性値はつねに引用符で括られなければならない</a>
+    </h2>
+    <p>
+      属性値はすべて、たとえ数値のように見えるときであっても、引用符で括られなければならない。
+    </p>
+    <div class="good">
+      <p>
+        <strong><em>正: 属性値が引用符で括られている。</em></strong>
+      </p>
+      <p>
+        &lt;table rows="3"&gt;
+      </p>
+    </div>
+    <div class="bad">
+      <p>
+        <strong><em>誤: 属性値が引用符で括られていない。</em></strong>
+      </p>
+      <p>
+        &lt;table rows=3&gt;
+      </p>
+    </div>
+    <h2>
+      <a name="h-4.5" id="h-4.5">4.5 属性最小化</a>
+    </h2>
+    <p>
+      XMLは、属性最小化をサポートしていない。属性-値のペアは完全形式で書かれなければならない。<code>compact</code> や <code>checked</code> といったような属性名は、その値を指定するのでなければ要素の中に出現することができない。
+    </p>
+    <div class="good">
+      <p>
+        <strong><em>正: 属性が最小化されていない。</em></strong>
+      </p>
+      <p>
+        &lt;dl compact="compact"&gt;
+      </p>
+    </div>
+    <div class="bad">
+      <p>
+        <strong><em>誤: 属性が最小化されている。</em></strong>
+      </p>
+      <p>
+        &lt;dl compact&gt;
+      </p>
+    </div>
+    <h2>
+      <a name="h-4.6" id="h-4.6">4.6 空要素</a>
+    </h2>
+    <p>
+      空要素は、たとえば、<code>&lt;br/&gt;</code> や <code>&lt;hr&gt;&lt;/hr&gt;</code> のように、終了タグをもつか、あるいは開始タグが <code>/&gt;</code> で終わっているかでなければならない。これがHTML4ユーザエージェントと後方互換的であることを確かめる方法に関する情報については、<a href="#guidelines">HTML互換性ガイドライン</a>を見よ。
+    </p>
+    <div class="good">
+      <p>
+        <strong><em>正: 空タグが終結している。</em></strong>
+      </p>
+      <p>
+        &lt;br/&gt;&lt;hr/&gt;
+      </p>
+    </div>
+    <div class="bad">
+      <p>
+        <strong><em>誤: 空タグが終結していない。</em></strong>
+      </p>
+      <p>
+        &lt;br&gt;&lt;hr&gt;
+      </p>
+    </div>
+    <h2>
+      <a name="h-4.7" id="h-4.7">4.7 属性値内での空白の処理</a>
+    </h2>
+    <p>
+      属性値の中では、ユーザエージェントは、属性値から先頭及び末尾の空白を剥ぎ取り、1個以上の空白キャラクタ(改行を含む)が連なったものは単一の単語間スペース(西洋文字ではASCIIスペースキャラクタ)に割り付けることになる。<a href="#ref-xml">[XML]</a> の<a href="http://www.w3.org/TR/REC-xml#AVNormalize">第3節第3項3</a> を見よ。
+    </p>
+    <h2>
+      <a name="h-4.8" id="h-4.8">4.8 スクリプト要素及びスタイル要素</a>
+    </h2>
+    <p>
+      XHTMLでは、スクリプト要素やスタイル要素は、<code>#PCDATA</code> を持つものとして宣言される。結果として、<code>&lt;</code> や <code>&amp;</code> は、マークアップの始まりとして扱われ、<code>&amp;lt;</code> や <code>&amp;amp;</code> といったような実体は、実体参照としてXMLプロセッサがそれぞれ <code>&lt;</code> や <code>&amp;</code> に認識することになる。スクリプト要素やスタイル要素の内容を <code>CDATA</code> マークされた部分の中に包み込むことにより、これらの実体の展開が避けられる。
+    </p>
+    <div class="good">
+<pre>
+&lt;script&gt;
+ &lt;![CDATA[
+ ... エスケープされていないスクリプト内容 ...
+ ]]&gt;
+ &lt;/script&gt;
+</pre>
+    </div>
+    <p>
+      <code>CDATA</code> 部は、XMLプロセッサにより認識され、文書オブジェクトモデルの中ではノードとして出現する。DOM1勧告 <a href="#ref-dom">[DOM]</a> の<a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-E067D597">第1節第3項</a>を見よ。
+    </p>
+    <p>
+      代替策は、外部スクリプトやスタイル文書を使うことである。
+    </p>
+    <h2>
+      <a name="h-4.9" id="h-4.9">4.9 SGMLの排除機能</a>
+    </h2>
+    <p>
+      SGMLは、DTDの筆者に、特定の要素がある要素の中に包含されないよう排除する能力を与えている。そうした禁止(「排除」と呼ばれる)は、XMLでは不可能である。
+    </p>
+    <p>
+      たとえば、HTML 4 Strict DTD は、'<code>a</code>' 要素の中に他の '<code>a</code>' 要素をネストすることを、子孫の深さを問わず禁止している。そうした禁止をXMLで綴ることは不可能である。これらの禁止をDTDの中で定義することはできないが、一定の要素はネストされるべきではない。そうした要素や、そうした要素の中にネストされるべきではない要素をまとめたものは、規範的である<a href="#prohibitions">付録B</a>で見られる。
+    </p>
+    <h2>
+      <a name="h-4.10" id="h-4.10">4.10 'id' 及び 'name' 属性つきの要素</a>
+    </h2>
+    <p>
+      HTML4は、<code>a</code>, <code>applet</code>, <code>form</code>, <code>frame</code>, <code>iframe</code>, <code>img</code>, <code>map</code> 要素について <code>name</code> 属性を定義している。またHTML4は、<code>id</code> 属性も導入している。これらの属性はともにフラグメント識別子として使われるよう設計されている。
+    </p>
+    <p>
+      XMLでは、フラグメント識別子は <code>ID</code> 型であり、要素ごとに <code>ID</code> 型の属性は1個しかありえない。したがって、XHTML 1.0 では、<code>id</code> 属性が <code>ID</code> 型として定義されている。XHTML 1.0 文書が適正に構築されたXML文書であることを保証するために、XHTML 1.0 文書は、フラグメント識別子を定義するときには、歴史的には <code>name</code> 属性ももっている要素であっても、<code>id</code> 属性を使わなければならない。XHTML文書がメディア型 <code>text/html</code> として配布されるときにそうしたアンカーが後方互換であることを保証することに関する情報については、<a href="#guidelines">HTML互換性ガイドライン</a>を見よ。
+    </p>
+    <p>
+      XHTML 1.0 では、これらの要素の <code>name</code> 属性は公式には廃止予定であり、後続バージョンのXHTMLでは取り除かれるであろうから、注意してほしい。
+    </p>
+    <!--OddPage-->
+    <h1>
+      <a name="issues" id="issues">5. 互換性問題</a>
+    </h1>
+    <p>
+      XHTML 1.0 文書が既存のユーザエージェントと互換的であるべしとの必要条件はないものの、実際にはこれは容易に達成できる。互換的な文書を作成するためのガイドラインは、<a href="#guidelines">付録C</a>で見ることができる。
+    </p>
+    <h2>
+      <a name="media" id="media">5.1 インターネットメディア型</a>
+    </h2>
+    <p>
+      この勧告の公開時まででは、XMLベースのアプリケーション用に推奨される一般的なMIMEラベリングは、まだ未解決である。
+    </p>
+    <p>
+      もっとも、<a href="#guidelines">付録C</a> "HTML互換性ガイドライン" で打ち出されているガイドラインに従ったXHTML文書は、ほとんどのHTMLブラウザと互換的であるから、インターネットメディア型 "text/html" でラベル付けしてもよい。この文書は、その他のXHTML文書のMIMEラベリングについての勧告はしない。
+    </p>
+    <!--OddPage-->
+    <h1>
+      <a name="future" id="future">6. 将来的な方向性</a>
+    </h1>
+    <p>
+      XHTML 1.0 は、広範囲の新しいデバイスやアプリケーションをサポートするため、モジュールを定義し、これらのモジュールを組み合わせるメカニズムを指定することにより、XHTMLを拡張したりサブセット化する文書型のファミリーのための基礎を用意するものである。このメカニズムは、新しいモジュールの定義を通じた統一的な方法で XHTML 1.0 の拡張やサブセット化を可能にするであろう。
+    </p>
+    <h2>
+      <a name="mods" id="mods">6.1 HTMLのモジュラ化</a>
+    </h2>
+    <p>
+      XHTMLの利用が伝統的なデスクトップユーザエージェントからその他のプラットフォームへと移行するにつれて、すべてのXHTML要素がすべてのプラットフォームで要求されることになるわけではないことが明らかである。たとえば、ハンドヘルドのデバイスや携帯電話は、XHTML要素のサブセットだけをサポートするのでもかまわない。
+    </p>
+    <p>
+      モジュラ化処理により、XHTMLは、さらに小さい要素セットが連なったものへと分解される。そうして、これらの要素を、いろいろなコミュニティの必要に沿うよう組み合わし直すことができるのである。
+    </p>
+    <p>
+      これらのモジュールは、今後のW3C文書で定義されることになる。
+    </p>
+    <h2>
+      <a name="extensions" id="extensions">6.2 サブセットと拡張性</a>
+    </h2>
+    <p>
+      モジュラ化は、いくつかの利点をもたらす。
+    </p>
+    <ul>
+      <li>
+        <p>
+          XHTMLをサブセット化するための形式面のメカニズムを提供する。
+        </p>
+      </li>
+      <li>
+        <p>
+          既存のXHTMLについて、形式面のメカニズムを用意する。
+        </p>
+      </li>
+      <li>
+        <p>
+          文書型間の変形を単純化する。
+        </p>
+      </li>
+      <li>
+        <p>
+          新しい文書型の中でモジュールを再利用するのを促進する。
+        </p>
+      </li>
+    </ul>
+    <h2>
+      <a name="profiles" id="profiles">6.3 文書プロファイル</a>
+    </h2>
+    <p>
+      文書プロファイルとは、文書のセットの文法や意味論を規定するものである。文書プロファイルに従うことが、相互運用性の保証の基礎を提供する。文書プロファイルは、たとえば使える画像フォーマットやスクリプトのレベル、スタイルシートのサポートなどはどのようなものかといったような、その型の文書を処理するために必要とされる装備を規定する。
+    </p>
+    <p>
+      製品設計者にとっては、このことから、多様なグループが独自の標準プロファイルを定義することが可能になる。
+    </p>
+    <p>
+      制作者にとっては、このことから、いろいろなクライアントのためにいろいろなバーションの文書をいくつか書く必要が事前に除去されることになる。
+    </p>
+    <p>
+      化学者や医者、数学者といったような特殊なグループにとっては、このことから、標準的なHTML要素に加えてその専門家の必要に連動した要素グループを利用するよう、特別なプロファイルを構築することが可能となる。
+    </p>
+    <!--OddPage-->
+    <h1>
+      <a name="appendices" id="appendices"></a><a name="dtds" id="dtds">付録A. DTD</a>
+    </h1>
+    <p>
+      <b>この付録は規範的である。</b>
+    </p>
+    <p>
+      これらのDTDと実体セットとは、この仕様書の規範的部分を構成する。XML宣言やSGMLオープンカタログが一緒になった完全セットのDTDファイルは、この仕様書[原文]の<a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/xhtml1.zip">zipファイル</a>に組み込まれている。
+    </p>
+    <h2>
+      <a name="h-A1" id="h-A1">A.1 文書型定義</a>
+    </h2>
+    <p>
+      これらのDTDは、HTML4 DTD を近似したものである。DTDがモジュラ化されるときには、さらにHTML4に密接に対応したDTD構築の方法が採用されることになる可能性が強い。
+    </p>
+    <ul>
+      <li>
+        <p>
+          <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-strict.dtd" type="text/plain">XHTML-1.0-Strict</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-transitional.dtd" type="text/plain">XHTML-1.0-Transitional</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-frameset.dtd" type="text/plain">XHTML-1.0-Frameset</a>
+        </p>
+      </li>
+    </ul>
+    <h2>
+      <a name="h-A2" id="h-A2">A.2 実体セット</a>
+    </h2>
+    <p>
+      XHTML実体セットはHTML4用と同じものであるが、妥当な XML 1.0 実体宣言であるよう修正されている。ユーロ通貨記号を表す実体 (<code>&amp;euro;</code> あるいは <code>&amp;#8364;</code>, <code>&amp;#x20AC;</code>) は特殊キャラクタの一部として定義されているので注意してほしい。
+    </p>
+    <ul>
+      <li>
+        <p>
+          <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml-lat1.ent">Latin-1 キャラクタ</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml-special.ent">特殊キャラクタ</a>
+        </p>
+      </li>
+      <li>
+        <p>
+          <a href="http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml-symbol.ent">記号</a>
+        </p>
+      </li>
+    </ul>
+    <!--OddPage-->
+    <h1>
+      <a name="prohibitions" id="prohibitions">付録B. 要素の禁止事項</a>
+    </h1>
+    <p>
+      <b>この付録は規範的である。</b>
+    </p>
+    <p>
+      以下の要素には、包含できる要素についての禁止事項がある(<a href="#h-4.9">第4節第9項</a>を見よ)。この禁止事項は、すべてのネスト深度に適用される。すなわち、すべての子孫要素を含んでいるのである。
+    </p>
+    <dl>
+      <dt>
+        <code class="tag">a</code>
+      </dt>
+      <dd>
+        他の <code>a</code> 要素を包含してはいけない。
+      </dd>
+      <dt>
+        <code class="tag">pre</code>
+      </dt>
+      <dd>
+        <code>img</code>, <code>object</code>, <code>big</code>, <code>small</code>, <code>sub</code>, <code>sup</code> 要素を包含してはいけない。
+      </dd>
+      <dt>
+        <code class="tag">button</code>
+      </dt>
+      <dd>
+        <code>input</code>, <code>select</code>, <code>textarea</code>, <code>label</code>, <code>button</code>, <code>form</code>, <code>fieldset</code>, <code>iframe</code>, <code>isindex</code> 要素を包含してはいけない。
+      </dd>
+      <dt>
+        <code class="tag">label</code>
+      </dt>
+      <dd>
+        他の <code class="tag">label</code> を包含してはいけない。
+      </dd>
+      <dt>
+        <code class="tag">form</code>
+      </dt>
+      <dd>
+        他の <code>form</code> 要素を包含してはならない。
+      </dd>
+    </dl>
+    <!--OddPage-->
+    <h1>
+      <a name="guidelines" id="guidelines">付録C. HTML互換性ガイドライン</a>
+    </h1>
+    <p>
+      <b>この付録は参考である。</b>
+    </p>
+    <p>
+      この付録は、XHTML文書を既存のHTMLユーサーエージェントでレンダリングしたいと願う制作者のための設計ガイドラインをまとめたものである。
+    </p>
+    <h2>
+      C.1 処理命令
+    </h2>
+    <p>
+      処理命令をレンダリングするユーザエージェントもあることを意識すること。もっとも、XML宣言が文書に組み込まれていないときには、文書はデフォルトのキャラクタエンコーディングである UTF-8 か UTF-16 しか使えないことにも注意すること。
+    </p>
+    <h2>
+      C.2 空要素
+    </h2>
+    <p>
+      たとえば <code class="greenmono">&lt;br&nbsp;/&gt;</code> や <code class="greenmono">&lt;hr&nbsp;/&gt;</code>, <code class="greenmono">&lt;img src="karen.jpg" alt="Karen"&nbsp;/&gt;</code> といったように、空要素の末尾の <code>/</code> と <code>&gt;</code> との前にスペースを1個組み込むこと。また、たとえば <code class="greenmono">&lt;br /&gt;</code> といったように、空要素には最小化タグ文法を使うこと。これは、XMLで許容されている代わりの文法 <code class="greenmono">&lt;br&gt;&lt;/br&gt;</code> は、多くの既存のユーザエージェントでは与えられる結果が一定しないからである。
+    </p>
+    <h2>
+      C.3 要素最小化と空要素内容
+    </h2>
+    <p>
+      内容モデルが <code>EMPTY</code> ではない要素に空インスタンスが与えられる場合(たとえば空のタイトルや段落)には、最小化形式は使わないこと(たとえば <code class="greenmono">&lt;p&nbsp;/&gt;</code> は使わず <code class="greenmono">&lt;p&gt; &lt;/p&gt;</code> を使う)。
+    </p>
+    <h2>
+      C.4 埋め込みスタイルシート及びスクリプト
+    </h2>
+    <p>
+      スタイルシートが <code>&lt;</code> か <code>&amp;</code> か <code>]]&gt;</code> か <code>--</code> かを使っている場合には、外部スタイルシートを使うこと。スクリプトが <code>&lt;</code> か <code>&amp;</code> か <code>]]&gt;</code> か <code>--</code> かを使っている場合には、外部スクリプトを使うこと。注釈の内容を黙って除去することがXMLパーサには許されていることに注意すること。したがって、文書を後方互換的にするために注釈の中にスクリプトやスタイルシートを「隠す」という歴史的な慣習は、XMLベースの実装では期待したとおりに働かない可能性が強い。
+    </p>
+    <h2>
+      C.5 属性値内部での改行
+    </h2>
+    <p>
+      属性値の内部では改行や重複空白キャラクタは避けること。これらは、ユーザエージェントによって扱いが一貫しない。
+    </p>
+    <h2>
+      C.6 Isindex
+    </h2>
+    <p>
+      文書の <code>head</code> の中に2個以上の <code>isindex</code> を組み込まないこと。<code>isindex</code> 要素は、<code>input</code> 要素の方が好まれて廃止の方向にある。
+    </p>
+    <h2>
+      C.7 <code>lang</code> 属性と <code>xml:lang</code> 属性
+    </h2>
+    <p>
+      要素の言語を指定するときには <code>lang</code> と <code>xml:lang</code> との双方を使うこと。<code>xml:lang</code> 属性の値が優先する。
+    </p>
+    <h2>
+      C.8 フラグメント識別子
+    </h2>
+    <p>
+      XMLでは、<code>"#foo"</code> という形式のフラグメント識別子で終わる<abbr title="Uniform Resource Identifiers">URI</abbr> [<a href="#ref-rfc2396">RFC2396</a>] は、<code>name="foo"</code> という属性をもつ要素を参照するのではない。それよりも、たとえばHTML4の <code>id</code> 属性といったような、<code>ID</code> 型として定義されている属性をもつ要素を参照するのである。多くの既存のHTMLクライアントは、このような <code>ID</code> 型属性の使用法をサポートしていないので、最大の前方互換性と後方互換性とを保証するために、これらの属性の両方について同一の値を補ってもかまわない。(例. <code class="greenmono">&lt;a id="foo" name="foo"&gt;...&lt;/a&gt;</code>)
+    </p>
+    <p>
+      さらに、<code>ID</code> 型の属性の合法的な値のセットは、<code>CDATA</code> 型のものよりも遙かに小さいから、<code>name</code> 属性の型は <code>NMTOKEN</code> に変更されている。この属性は、<code>ID</code> 型か、XML 1.0 第2節第5項の生成規則5にある <code>Name</code> 生成規則かと同じ値しかとれないよう制約されている。残念ながら、この制約は XHTML 1.0 DTD の中に表記することができない。この変更のせいで、既存のHTML文書を変換するときには注意を払わなければならない。これらの属性の値は、文書内部で一意的であり、妥当でなければならず、もしも変換の間に値が変更される場合には、これらのフラグメント識別子(内部てきなものも外部的なものも)への参照はどれも更新されなければならない。
+    </p>
+    <p>
+      最後に、XHTML 1.0 は <code>a</code>, <code>applet</code>, <code>form</code>, <code>frame</code>, <code>iframe</code>, <code>img</code>, <code>map</code> 要素の <code>name</code> 属性を廃止予定としており、後続バージョンのXHTMLからは除去されるであろうから注意すること。
+    </p>
+    <h2>
+      C.9 キャラクタエンコーディング
+    </h2>
+    <p>
+      文書の中でキャラクタエンコーディングを指定するためには、xml 宣言でのエンコーディング属性の指定 (例. <code class="greenmono">&lt;?xml version="1.0" encoding="EUC-JP"?&gt;</code>) と meta http-equive ステートメント (例. <code class="greenmono">&lt;meta http-equiv="Content-type" content='text/html; charset="EUC-JP"'&nbsp;/&gt;</code>) とを両方とも使うこと。xml処理命令のエンコーディング属性の値が優先する。
+    </p>
+    <h2>
+      C.10 ブール値属性
+    </h2>
+    <p>
+      HTMLユーザエージェントによっては、ブール値属性が完全(非最小化)形式で出現したとき、XML 1.0 で要求されているとおりに解釈できないものがある。この問題は、HTML4に準拠したユーザエージェントには影響を及ぼさないことに注意してほしい。以下の属性が関係する。<code>compact</code>, <code>nowrap</code>, <code>ismap</code>, <code>declare</code>, <code>noshade</code>, <code>checked</code>, <code>disabled</code>, <code>readonly</code>, <code>multiple</code>, <code>selected</code>, <code>noresize</code>, <code>defer</code>.
+    </p>
+    <h2>
+      C.11 文書オブジェクトモデルとXHTML
+    </h2>
+    <p>
+      文書オブジェクトモデル第一水準勧告 [<a href="#ref-dom">DOM</a>] は、XMLやHTML4のための文書オブジェクトモデルインターフェイスを定義している。HTML4文書オブジェクトモデルは、HTML要素名及び属性名は大文字で返されることを規定している。XML文書オブジェクトモデルは、要素名及び属性名は、それらが指定されている文字で返されることを規定している。XHTML 1.0 では、要素や属性は小文字で指定される。この明白な相違点は、2つの方法で処理することができる。
+    </p>
+    <ol>
+      <li>
+        インターネットメディア型 <code>text/html</code> として<abbr title="Document Object Model">DOM</abbr>経由で配布されるXHTML文書にアクセスするアプリケーションは HTML-DOMを使うことができ、そのインターフェイスからは要素名や属性名が大文字で返されることを当てにすることができる。
+      </li>
+      <li>
+        インターネットメディア型 <code>text/xml</code> または <code>application/xml</code> として配布されるXHTML文書にアクセスするアプリケーションは、XML-DOMを使うこともできる。要素や属性は、小文字で返されることになる。また、XHTML要素によっては、内容モデルにおいて任意的であるため、オブジェクト樹に出現したりしなかったりするものもある(例. <code>table</code> 要素内の <code>tbody</code> 要素)。このことは、HTML4では、いくつかの要素で、開始タグと終了タグとを両方とも省略されるよう最小化することが許されていた(SGMLの特徴)ために発生する。これはXMLでは起こりえない。無関係な要素を挿入するよう文書制作者に要求する代わりに、XHTMLは要素を任意的なものとしている。アプリケーションは、きちんとこれに対応する必要がある。
+      </li>
+    </ol>
+    <h2>
+      C.12 属性値の中でアンパサンドを使う
+    </h2>
+    <p>
+      属性値にアンパサンドが含まれているとき、アンパサンドはキャラクタ実体参照(例. "<code>&amp;amp;</code>")として表記しなければならない。たとえば、<code>a</code> 要素の <code>href</code> 属性が、パラメータをとるCGIスクリプトを参照しているときには、<code>http://my.site.dom/cgi-bin/myscript.pl?class=guest&amp;name=user</code> ではなく <code>http://my.site.dom/cgi-bin/myscript.pl?class=guest&amp;amp;name=user</code> と表記しなければならない。
+    </p>
+    <h2>
+      C.13 カスケーディングスタイルシート(CSS)とXHTML
+    </h2>
+    <p>
+      カスケーディングスタイルシート第二水準勧告 [<a href="#ref-css2">CSS2</a>] は、HTML文書やXML文書の解析樹に適用されるスタイルプロパティを定義している。解析の際の相違点は、使われているセレクタ次第で視覚的または聴覚的に、異なる結果を生み出すことになる。以下のヒントは、両方のメディア型としての修正がないまま配布される文書について、この効果を小さくすることであろう。
+    </p>
+    <ol>
+      <li>
+        XHTML用のCSSスタイルシートは、小文字の要素名や属性名を使うべきである。
+      </li>
+      <li>
+        テーブルの中では、tbody 要素は、HTMLユーザエージェントのパーサには推断されるが、XMLユーザエージェントのパーサには推断されないことになる。したがって、それがCSSセレクタの中で参照されている場合には、つねに明示的に tbody 要素を追加するべきである。
+      </li>
+      <li>
+        XHTML名前空間の中では、ユーザエージェントは "id" 属性をID型の属性として認識することが予定されている。したがって、ユーザエージェントがDTDを読まない場合であっても、スタイルシートが短縮 "#" セレクタ文法を使い続けられるべきである。
+      </li>
+      <li>
+        XHTML名前空間の中では、ユーザエージェントは "class" 属性を認識できることが予定されている。したがって、スタイルシートが短縮 "." セレクタ文法を使い続けられるべきである。
+      </li>
+      <li>
+        CSSは、HTML文書とXML文書について異なる適合性規則を定義している。HTMLとして引き出されたXHTML文書には規則が適用され、XMLとして引き出されたXHTML文書にはXML規則が適用されることを意識すること。
+      </li>
+    </ol>
+    <!--OddPage-->
+    <h1>
+      <a name="acks" id="acks">付録D. 謝辞</a>
+    </h1>
+    <p>
+      <b>この付録は参考である。</b>
+    </p>
+    <p>
+      この仕様書は、W3C HTMLワーキンググループのメンバーの参加を得て書かれたものである。
+    </p>
+    <dl>
+      <dd>
+        Steven Pemberton, CWI (HTMLワーキンググループ長)<br />
+        Murray Altheim, Sun Microsystems<br />
+        Daniel Austin, AskJeeves (1999年7月まで CNET: The Computer Network)<br />
+        Frank Boumphrey, HTML Writers Guild<br />
+        John Burger, Mitre<br />
+        Andrew W. Donoho, IBM<br />
+        Sam Dooley, IBM<br />
+        Klaus Hofrichter, GMD<br />
+        Philipp Hoschka, W3C<br />
+        Masayasu Ishikawa, W3C<br />
+        Warner ten Kate, Philips Electronics<br />
+        Peter King, Phone.com<br />
+        Paula Klante, JetForm<br />
+        Shin'ichi Matsui, Panasonic (1999年9月まで W3C客員エンジニア)<br />
+        Shane McCarron, Applied Testing and Technology (1999年8月まで The Open Group)<br />
+        Ann Navarro, HTML Writers Guild<br />
+        Zach Nies, Quark<br />
+        Dave Raggett, W3C/HP (W3C HTMLリーダー)<br />
+        Patrick Schmitz, Microsoft<br />
+        Sebastian Schnitzenbaumer, Stack Overflow<br />
+        Peter Stark, Phone.com<br />
+        Chris Wilson, Microsoft<br />
+        Ted Wugofski, Gateway 2000<br />
+        Dan Zigmond, WebTV Networks
+      </dd>
+    </dl>
+    <!--OddPage-->
+    <h1>
+      <a name="refs" id="refs">付録E. 参照資料</a>
+    </h1>
+    <p>
+      <b>この付録は参考である。</b>
+    </p>
+    <dl>
+      <dt>
+        <a name="ref-css2" id="ref-css2"><b>[CSS2]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.w3.org/TR/1998/REC-CSS2-19980512">"Cascading Style Sheets, level 2 (CSS2) Specification"</a>, B. Bos, H. W. Lie, C. Lilley, I. Jacobs, 1998年5月12日.<br />
+        最新バージョンは <a href="http://www.w3.org/TR/REC-CSS2">http://www.w3.org/TR/REC-CSS2</a> で入手可能。
+      </dd>
+      <dt>
+        <a name="ref-dom" id="ref-dom"><b>[DOM]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001">"Document Object Model (DOM) Level 1 Specification"</a>, Lauren Wood <i>他</i>, 1998年10月1日.<br />
+        最新バージョンは <a href="http://www.w3.org/TR/REC-DOM-Level-1">http://www.w3.org/TR/REC-DOM-Level-1</a> で入手可能。
+      </dd>
+      <dt>
+        <a name="ref-html4" id="ref-html4"><b>[HTML]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.w3.org/TR/1999/REC-html401-19991224">"HTML 4.01 Specification"</a>, D. Raggett, A. Le&nbsp;Hors, I. Jacobs, 1999年12月24日.<br />
+        最新バージョンは <a href="http://www.w3.org/TR/html401">http://www.w3.org/TR/html401</a> で入手可能。
+      </dd>
+      <dt>
+        <a name="ref-posix" id="ref-posix"><b>[POSIX.1]</b></a>
+      </dt>
+      <dd>
+        "ISO/IEC 9945-1:1990 Information Technology - Portable Operating System Interface (POSIX) - Part 1: System Application Program Interface (API) [C Language]", Institute of Electrical and Electronics Engineers, Inc, 1990年.
+      </dd>
+      <dt>
+        <a name="ref-rfc2046" id="ref-rfc2046"><b>[RFC2046]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.ietf.org/rfc/rfc2046.txt">"RFC2046: Multipurpose Internet Mail Extensions (MIME) Part Two: Media Types"</a>, N. Freed and N. Borenstein, 1996年11月.<br />
+        <a href="http://www.ietf.org/rfc/rfc2046.txt">http://www.ietf.org/rfc/rfc2046.txt</a> で入手可能。このRFCは RFC1521, RFC1522, RFC1590 を破棄するものであるので注意すること。
+      </dd>
+      <dt>
+        <a name="ref-rfc2119" id="ref-rfc2119"><b>[RFC2119]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.ietf.org/rfc/rfc2119.txt">"RFC2119: Key words for use in RFCs to Indicate Requirement Levels"</a>, S. Bradner, 1997年3月.<br />
+        <a href="http://www.ietf.org/rfc/rfc2119.txt">http://www.ietf.org/rfc/rfc2119.txt</a> で入手可能。
+      </dd>
+      <dt>
+        <a name="ref-rfc2376" id="ref-rfc2376"><b>[RFC2376]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.ietf.org/rfc/rfc2376.txt">"RFC2376: XML Media Types"</a>, E. Whitehead, M. Murata, 1998年7月.<br />
+        <a href="http://www.ietf.org/rfc/rfc2376.txt">http://www.ietf.org/rfc/rfc2376.txt</a> で入手可能。
+      </dd>
+      <dt>
+        <a name="ref-rfc2396" id="ref-rfc2396"><b>[RFC2396]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.ietf.org/rfc/rfc2396.txt">"RFC2396: Uniform Resource Identifiers (URI): Generic Syntax"</a>, T. Berners-Lee, R. Fielding, L. Masinter, 1998年8月.<br />
+        この文書は RFC1738 と RFC1808 とを更新するものである。<a href="http://www.ietf.org/rfc/rfc2396.txt">http://www.ietf.org/rfc/rfc2396.txt</a> で入手可能。
+      </dd>
+      <dt>
+        <a name="ref-xml" id="ref-xml"><b>[XML]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.w3.org/TR/1998/REC-xml-19980210">"Extensible Markup Language (XML) 1.0 Specification"</a>, T. Bray, J. Paoli, C. M. Sperberg-McQueen, 1998年2月10日.<br />
+        最新バージョンは <a href="http://www.w3.org/TR/REC-xml">http://www.w3.org/TR/REC-xml</a> で入手可能。
+      </dd>
+      <dt>
+        <a name="ref-xmlns" id="ref-xmlns"><b>[XMLNAMES]</b></a>
+      </dt>
+      <dd>
+        <a href="http://www.w3.org/TR/1999/REC-xml-names-19990114">"Namespaces in XML"</a>, T. Bray, D. Hollander, A. Layman, 1999年1月14日.<br />
+        XML名前空間は、XML文書の中で使われている名前を、URIによって識別される名前空間に結びつけることにより修飾するための単純な手段を提供するものである。<br />
+        最新バージョンは <a href="http://www.w3.org/TR/REC-xml-names">http://www.w3.org/TR/REC-xml-names</a> で入手可能。
+      </dd>
+    </dl>
+    <p>
+      <a href="http://www.w3.org/WAI/WCAG1AAA-Conformance" title="トリプルAレベル適合の説明"><img height="32" width="88" src="./../../../common/wcag1AAA.gif" alt="トリプルAレベル適合アイコン. W3C-WAI ウェブコンテンツ アクセシビリティガイドライン 1.0" /></a>
+    </p>
+    <div class="navbar">
+      <hr />
+      <a href="#toc">目次</a>
+    </div>
+    <hr />
+    <div class="doraneko">
+      <address>
+        どら猫本舗 (<a href="mailto:webmaster@doraneko.org">webmaster@doraneko.org</a>)
+      </address>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="form" icon="" publicID="" extensions="xml">
+ <root name="form">
+  <namespace prefix="" uri=""/>
+ </root>
+ <template src="" type="xsd"/>
+ <validation src="../relax/VoiceXML10.full.rng" type="rng" useDocumentLocation="false"/>
+ <schema src="VoiceXML10.full.xsd"/>
+</type>

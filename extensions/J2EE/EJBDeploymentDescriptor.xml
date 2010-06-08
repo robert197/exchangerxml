@@ -1,0 +1,39 @@
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"	"http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<!--
+The following conventions apply to all J2EE deployment descriptor
+elements unless indicated otherwise.
+
+- In elements that contain PCDATA, leading and trailing whitespace
+  in the data may be ignored.
+
+- In elements whose value is an "enumerated type", the value is
+  case sensitive.
+
+- In elements that specify a pathname to a file within the same
+  JAR file, relative filenames (i.e., those not starting with "/")
+  are considered relative to the root of the JAR file's namespace.
+  Absolute filenames (i.e., those starting with "/") also specify
+  names in the root of the JAR file's namespace.  In general, relative
+  names are preferred.  The exception is .war files where absolute
+  names are preferred for consistency with the servlet API.
+-->
+
+
+<!--
+The ejb-jar element is the root element of the EJB deployment
+descriptor. It contains
+
+	- an optional description of the ejb-jar file
+	- an optional display name
+	- an optional small icon file name
+	- an optional large icon file name
+	- mandatory structural information about all included
+	  enterprise beans
+	- a descriptor for container managed relationships, if any
+	- an optional application-assembly descriptor
+	- an optional name of an ejb-client-jar file for the ejb-jar.
+-->
+
+<ejb-jar>
+</ejb-jar>

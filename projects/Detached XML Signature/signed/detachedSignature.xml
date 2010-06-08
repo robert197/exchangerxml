@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference URI="http://www.exchangerxml.com/Cladonia.gif">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>QIV1YQJ4jCnt3RB73WZmBR/dG9s=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+FV9cWYZnlfUjk4rkpbnBjsnvfeetfV0ZgUNt1qN8KVMhgo9Xjubz/ZJRfWPqI5123i8yMAJIPGID
+YvZjefPJMGEYVMnU4/IEn9jCaOxG1G9RbEOOV3J/fxM2chLRlZv//sBzT0/cESVrSq6LPHqk+NW+
+gBh55w6C+VRYf7E/1Kg=
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509SubjectName>CN=Exchanger,OU=Development,O=Cladonia,C=IE</ds:X509SubjectName>
+<ds:X509Certificate>
+MIICBjCCAW8CBEBMlo8wDQYJKoZIhvcNAQEEBQAwSjELMAkGA1UEBhMCSUUxETAPBgNVBAoTCENs
+YWRvbmlhMRQwEgYDVQQLEwtEZXZlbG9wbWVudDESMBAGA1UEAxMJRXhjaGFuZ2VyMB4XDTA0MDMw
+ODE1NTE0M1oXDTEyMDUyNTE1NTE0M1owSjELMAkGA1UEBhMCSUUxETAPBgNVBAoTCENsYWRvbmlh
+MRQwEgYDVQQLEwtEZXZlbG9wbWVudDESMBAGA1UEAxMJRXhjaGFuZ2VyMIGfMA0GCSqGSIb3DQEB
+AQUAA4GNADCBiQKBgQC/363xtXik6JrwR4vNx6xrp+OOc8fPO2jQif3yech8OvEXnGxLyoyK+xEA
+2h1JAzkzoyzSu1ursHYbnFwWFF/P65oYzv6BdI2aWY7g7HPLpZd4sawVPg9BbqaF4wBtTMAxRAi3
+Eql6fQXG4gRPp3yaTuWgQ+ydHy2TbaE6+z/dAQIDAQABMA0GCSqGSIb3DQEBBAUAA4GBAFr9UXaK
+gKv2S21T4PIZMjQePHzybpoMhq8JQQ2292foweThz2wfKTw36o+bYIdcNoI1dV9zQO3sCAGxKXTh
+9pZQLNjnH9jAGb7OQ+ogmxjwIiA9KXD3U7eZ4kzCBEvf28Tp6/HsEsOlWGBrbC1/hnvHVgZQD+En
+xog0MwTfTLms
+</ds:X509Certificate>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+v9+t8bV4pOia8EeLzcesa6fjjnPHzzto0In98nnIfDrxF5xsS8qMivsRANodSQM5M6Ms0rtbq7B2
+G5xcFhRfz+uaGM7+gXSNmlmO4Oxzy6WXeLGsFT4PQW6mheMAbUzAMUQItxKpen0FxuIET6d8mk7l
+oEPsnR8tk22hOvs/3QE=
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+</ds:Signature>

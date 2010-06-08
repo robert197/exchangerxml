@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+       <h2 class="title" style="clear: both">XPath</h2>
+      <p>Ease of browsing and navigation is significantly improved through the use of XPath searches. 
+         				To perform a sample XPath search,  open the document (<tt class="filename">Contacts.xml</tt>) in the <b>XPath</b> project, choose the Editor view and 
+         				 in the <b>XPath:</b> text field (at the upper left of the application) enter the text <b class="userinput"><tt>/Contacts//Address</tt></b>.
+         				
+      </p>
+      <p></p>
+      <p></p><img src="../../images/xpath.gif" alt="XPath Search"></img><p class="title"><b>Figure&nbsp;1.&nbsp;XPath Search</b></p>
+      <p></p>
+      <p></p>
+      <p>Press <b>Enter</b> or the <b>Execute</b> button (<img src="../../images/buttonExecuteXPath.gif"></img>)and a number of results will be listed in the XPath Results tab in the Messages window at the bottom of the application.
+         
+         			
+         			
+         			
+         			
+      </p>
+      <p></p>
+      <p></p><img src="../../images/xpathresults.gif" alt="XPath Results"></img><p class="title"><b>Figure&nbsp;2.&nbsp;XPath Results</b></p>
+      <p>Click on a result in the XPath Results tab in the Messages window and the Editor will scroll to the appropriate location in
+         the file and highlight the element.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/xpathresult2.gif" alt="XPath Result"></img><p class="title"><b>Figure&nbsp;3.&nbsp;XPath Result</b></p>
+      <p>(Note: XPath queries can be executed in either the Editor or Viewer).</p>
+      <p></p>
+      <p></p>
+      <p>It is possible to query for objects other than elements using the XPath functionality.
+         Enter the query <b class="userinput"><tt>/Contacts//Address/@type</tt></b> and the two appropriate attributes will be returned as the result of the query. Again, click on a result and the corresponding
+         content will be highlighted in the Editor.
+      </p>
+      <p>The XPath displayed in the text field changes automatically, by default, as you move the cursor position in a file. To alter
+         this behaviour and to maintain a particular path in the field for repeated use, click on the pin icon to the left of the field.
+         To acccess previously used XPath queries, click on the down arrow to the right of the text field.
+      </p>
+      <p>The style of the XPath displayed in the text field can also be controlled. In <b>File-&gt;Preferences (Views Tab)</b> select <b>Generate unique XPath</b> in the <b>XPath Editor</b> section to see fully qualified paths of the form <b>/Contacts/Person[1]/Address[1]/City</b> rather than less specific ones such as <b>/Contacts/Person/Address/City</b>. 
+      </p>
+      <h3 class="title">XPath and Namespace Prefix Mapping</h3>
+      <p>There is no built-in support for namespaces in XPath 1.0 - open the document <tt class="filename">ContactsNS.xml</tt> in the <b>XPath</b> project and try the same query (<b class="userinput"><tt>/Contacts//Address</tt></b>). No results are returned because the <b>http://www.somewhere.com/Address/</b> namespace is used on the Address elements in this example. It might be expected that changing the query to <b class="userinput"><tt>/Contacts//addr:Address</tt></b> would result in the expected results but again this proves not to be the case. The reason why this does not work is that
+         the XPath processor has no built-in knowledge of the prefix. One way to get around this is to use the general query  <b class="userinput"><tt>/*[local-name()='Contacts']//*[local-name()='Address']</tt></b> but this will return Address elements in any namespace, which may not be what you want.
+      </p>
+      <p> To specifically query for Address elements in the <b>http://www.somewhere.com/Address/</b> namespace, you must tell the XPath processor how to associate a prefix with a namespace and then use that prefix in your
+         query. In Exchanger you can do this using the <b>XML</b> tab in the  <b>File-&gt;Preferences</b> dialog. In the <b>Namespace Prefix Mappings</b> section of the dialog, press <b>Add</b> and enter the Prefix as <b>ad</b> and the URI as <b>http://www.somewhere.com/Address/</b>. Notice how you can use a prefix that is different to the one used in the actual document content if you like. Now enter
+         the query as <b class="userinput"><tt>/Contacts//ad:Address</tt></b> and the two Address elements in that namespace will be returned in the results.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/xpathPrefixMapping.gif" alt="XPath Result"></img><p class="title"><b>Figure&nbsp;4.&nbsp;XPath Result</b></p>
+   </body>
+</html>

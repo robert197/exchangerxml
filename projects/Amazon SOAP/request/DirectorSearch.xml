@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+	<SOAP-ENV:Body>
+		<namesp1:DirectorSearchRequest xmlns:namesp1="urn:PI/DevCentral/SoapService">
+			<DirectorSearchRequest xsi:type="namesp1:DirectorRequest">
+				<director>coppola</director>
+				<page>1</page>
+				<mode>dvd</mode>
+				<tag>webservices-20</tag>
+				<type>heavy</type>
+				<devtag>DIW30UXATCIPB</devtag>
+				<format>xml</format>
+				<version>1.0</version>
+			</DirectorSearchRequest>
+		</namesp1:DirectorSearchRequest>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

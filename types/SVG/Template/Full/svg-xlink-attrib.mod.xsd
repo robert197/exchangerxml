@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 XLink Attribute Module ........................................ -->
+<!--
+  file: svg-xlink-attrib.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-xlink-attrib.mod.xsd,v 1.1 2004/03/26 10:24:34 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 XLink Attribute//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-xlink-attrib.mod"
+  
+  .......................................................................
+-->
+<!--
+  XLink Attribute
+  
+    type, href, role, arcrole, title, show, actuate
+  
+  This module defines the XLink, XLinkRequired, XLinkEmbed, and
+  XLinkReplace attribute set.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/1999/xlink" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:attributeGroup name="SVG.XLink.attrib">
+    <xs:attribute name="type" default="simple" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="simple"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="href" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="role" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="arcrole" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="title" form="qualified"/>
+    <xs:attribute name="show" default="other" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="actuate" default="onLoad" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="onLoad"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.XLinkRequired.attrib">
+    <xs:attribute name="type" default="simple" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="simple"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="href" use="required" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="role" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="arcrole" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="title" form="qualified"/>
+    <xs:attribute name="show" default="other" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="actuate" default="onLoad" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="onLoad"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.XLinkEmbed.attrib">
+    <xs:attribute name="type" default="simple" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="simple"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="href" use="required" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="role" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="arcrole" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="title" form="qualified"/>
+    <xs:attribute name="show" default="embed" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="embed"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="actuate" default="onLoad" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="onLoad"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.XLinkReplace.attrib">
+    <xs:attribute name="type" default="simple" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="simple"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="href" use="required" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="role" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="arcrole" form="qualified" type="URI.datatype"/>
+    <xs:attribute name="title" form="qualified"/>
+    <xs:attribute name="show" default="replace" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="replace"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="actuate" default="onRequest" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="onRequest"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of svg-xlink-attrib.mod -->

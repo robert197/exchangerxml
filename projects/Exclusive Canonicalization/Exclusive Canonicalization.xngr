@@ -1,0 +1,18 @@
+<xngr>
+	<projects>	
+<project name="Exclusive Canonicalization">
+  <folder name="input">
+   <document src="input/xc14ntest.xml"/>
+  </folder>
+  <folder name="output">
+   <document src="output/xc14ntest.xml"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

@@ -1,0 +1,21 @@
+<xngr>
+	<projects>	
+<project name="Envelope XML Signature">
+  <folder name="input">
+   <document src="input/full.xml"/>
+   <document src="input/id.xml"/>
+   <document src="input/xpath.xml"/>
+  </folder>
+  <folder name="signed">
+   <document src="signed/full.xml"/>
+   <document src="signed/id.xml"/>
+   <document src="signed/xpath.xml"/>
+  </folder>
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

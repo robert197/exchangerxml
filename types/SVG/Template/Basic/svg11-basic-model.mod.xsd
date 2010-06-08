@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Basic Document Model Module ................................... -->
+<!--
+  file: svg11-basic-model.mod
+  
+  This is SVG Basic, a proper subset of SVG.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg11-basic-model.mod.xsd,v 1.1 2004/03/26 10:24:10 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Basic Document Model//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic-model.mod"
+  
+  .......................................................................
+-->
+<!--
+  SVG 1.1 Basic Document Model
+  
+  This module describes the groupings of elements that make up
+  common content models for SVG elements.
+-->
+<!-- Content Models (Default) .......................... -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11-basic.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <!-- module: svg-structure.mod ......................... -->
+  <xs:element name="SVG.Description.class" abstract="true"/>
+  <xs:element name="SVG.Use.class" abstract="true" substitutionGroup="SVG.Structure.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.use.content">
+          <xs:attributeGroup ref="svg:attlist.use"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SVG.Structure.class" abstract="true"/>
+  <!-- module: svg-conditional.mod ....................... -->
+  <xs:element name="SVG.Conditional.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.switch.content">
+          <xs:attributeGroup ref="svg:attlist.switch"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-image.mod ............................. -->
+  <xs:element name="SVG.Image.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.image.content">
+          <xs:attributeGroup ref="svg:attlist.image"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-style.mod ............................. -->
+  <xs:element name="SVG.Style.class" abstract="true">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="svg:attlist.style"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-shape.mod ............................. -->
+  <xs:element name="SVG.Shape.class" abstract="true"/>
+  <!-- module: svg-text.mod .............................. -->
+  <xs:element name="SVG.Text.class" abstract="true"/>
+  <xs:element name="SVG.TextContent.class" abstract="true"/>
+  <!-- module: svg-profile.mod ........................... -->
+  <xs:element name="SVG.ColorProfile.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.color-profile.content">
+          <xs:attributeGroup ref="svg:attlist.color-profile"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-gradient.mod .......................... -->
+  <xs:element name="SVG.Gradient.class" abstract="true"/>
+  <!-- module: svg-pattern.mod ........................... -->
+  <xs:element name="SVG.Pattern.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.pattern.content">
+          <xs:attributeGroup ref="svg:attlist.pattern"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-basic-clip.mod ........................ -->
+  <xs:element name="SVG.Clip.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.clipPath.content">
+          <xs:attributeGroup ref="svg:attlist.clipPath"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-mask.mod .............................. -->
+  <xs:element name="SVG.Mask.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.mask.content">
+          <xs:attributeGroup ref="svg:attlist.mask"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-basic-filter.mod ...................... -->
+  <xs:element name="SVG.Filter.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.filter.content">
+          <xs:attributeGroup ref="svg:attlist.filter"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SVG.FilterPrimitive.class" abstract="true"/>
+  <!-- module: svg-hyperlink.mod ......................... -->
+  <xs:element name="SVG.Hyperlink.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.a.content">
+          <xs:attributeGroup ref="svg:attlist.a"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-view.mod .............................. -->
+  <xs:element name="SVG.View.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.view.content">
+          <xs:attributeGroup ref="svg:attlist.view"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-script.mod ............................ -->
+  <xs:element name="SVG.Script.class" abstract="true">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="svg:attlist.script"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-animation.mod ......................... -->
+  <xs:element name="SVG.Animation.class" abstract="true"/>
+  <!-- module: svg-font.mod .............................. -->
+  <xs:element name="SVG.Font.class" abstract="true"/>
+  <!-- module: svg-extensibility.mod ..................... -->
+  <xs:element name="SVG.Extensibility.class" abstract="true">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="svg:attlist.foreignObject"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- end of svg11-basic-model.mod -->

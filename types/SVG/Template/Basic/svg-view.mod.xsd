@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 View Module ................................................... -->
+<!--
+  file: svg-view.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-view.mod.xsd,v 1.1 2004/03/26 10:24:10 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 View//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-view.mod"
+  
+  .......................................................................
+-->
+<!--
+  View
+  
+     view
+  
+  This module declares markup to provide support for view.
+-->
+<!-- Qualified Names (Default) ......................... -->
+<!-- Attribute Collections (Default) ................... -->
+<!-- SVG.View.class .................................... -->
+<!-- view: View Element ................................ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:complexType name="SVG.view.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="view" substitutionGroup="SVG.View.class"/>
+  <!-- end of SVG.view.element -->
+  <xs:attributeGroup name="attlist.view">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="viewBox" type="ViewBoxSpec.datatype"/>
+    <xs:attribute name="preserveAspectRatio" default="xMidYMid meet" type="PreserveAspectRatioSpec.datatype"/>
+    <xs:attribute name="zoomAndPan" default="magnify">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="disable"/>
+          <xs:enumeration value="magnify"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="viewTarget"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.view.attlist -->
+<!-- end of svg-view.mod -->

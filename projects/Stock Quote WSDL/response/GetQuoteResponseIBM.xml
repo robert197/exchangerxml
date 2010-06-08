@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <soap:Body>
+  <GetQuoteResponse xmlns="http://www.xignite.com/services/">
+   <GetQuoteResult>
+    <Outcome>Success</Outcome>
+    <Identity>IP</Identity>
+    <Delay>0.9843813</Delay>
+    <Name>INTL BUS MACHINE</Name>
+    <Exchange>NYSE</Exchange>
+    <Quote>
+     <Symbol>IBM</Symbol>
+     <Previous_Close>86.06</Previous_Close>
+     <Open>87.40</Open>
+     <High>87.89</High>
+     <Low>87.21</Low>
+     <Last>87.83</Last>
+     <Bid>N/A</Bid>
+     <Ask>N/A</Ask>
+     <Percent_Change>2.06</Percent_Change>
+     <Change>1.77</Change>
+     <Volume>1,022,900</Volume>
+     <High_52_Weeks>100.43</High_52_Weeks>
+     <Low_52_Weeks>78.73</Low_52_Weeks>
+     <Date>5/19/2004</Date>
+     <Time>9:58AM ET</Time>
+    </Quote>
+    <Statistics>
+     <Price_Earnings>19.62</Price_Earnings>
+     <Market_Cap>148.03B</Market_Cap>
+     <EPS>4.477</EPS>
+     <EPS_Estimate>108.00</EPS_Estimate>
+    </Statistics>
+    <Chart>http://data.moneycentral.msn.com/scripts/chrtsrv.dll?Symbol=IBM&amp;C1=1&amp;C2=&amp;C3=1&amp;C4=3C9=1&amp;Width=352&amp;Height=184&amp;legend=0&amp;banner=2</Chart>
+    <News>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>Cometa says will shut down Wi-Fi business</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Wed, May 19</Date>
+      <Time>10:03am ET</Time>
+      <Source>Reuters</Source>
+      <Url>http://biz.yahoo.com/rc/040519/tech_cometa_1.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>[external] Hewlett-Packard shares surge after stellar Q2, upgrade</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Wed, May 19</Date>
+      <Time>10:01am ET</Time>
+      <Source>CBS MarketWatch</Source>
+      <Url>http://us.rd.yahoo.com/finance/external/cbsm/SIG=11g622ocl/*http://www.marketwatch.com/news/yhoo/story.asp?source=blq/yhoo&amp;siteid=yhoo&amp;dist=yhoo&amp;guid=%7B2936A8A5%2DED7C%2D48B0%2DB09F%2DBC504ED1B6B2%7D</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>IBM Celebrates National Small Business Week at SBA Expo 2004</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Wed, May 19</Date>
+      <Time>10:00am ET</Time>
+      <Source>Market Wire</Source>
+      <Url>http://biz.yahoo.com/iw/040519/067555.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>IBM "Lightens Up" Presentations With New Featherweight Projectors 30% Smaller, 60% Brighter, 100% Portable</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Wed, May 19</Date>
+      <Time>9:47am ET</Time>
+      <Source>Market Wire</Source>
+      <Url>http://biz.yahoo.com/iw/040519/067553.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>Wall Street Remains Skeptical About HP</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Wed, May 19</Date>
+      <Time>1:30am ET</Time>
+      <Source>Associated Press</Source>
+      <Url>http://biz.yahoo.com/ap/040519/earns_hp_11.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>[$$] Business, Agencies To Standardize Their Benchmarks</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Wed, May 19</Date>
+      <Time>12:00am ET</Time>
+      <Source>The Wall Street Journal Online</Source>
+      <Url>http://us.rd.yahoo.com/finance/external/wsj/SIG=11v636m8b/*http://online.wsj.com/article/0,,SB108491817789515008,00.html?mod=yahoo_hs&amp;ru=yahoo</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>[$$] Cometa Shutters Wi-Fi Operations After Failing to Raise More Funds</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>11:09pm ET</Time>
+      <Source>The Wall Street Journal Online</Source>
+      <Url>http://us.rd.yahoo.com/finance/external/wsj/SIG=11v2rhees/*http://online.wsj.com/article/0,,SB108491953073515064,00.html?mod=yahoo_hs&amp;ru=yahoo</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>Wi-Fi provider Cometa shutting down - report</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>8:47pm ET</Time>
+      <Source>Reuters</Source>
+      <Url>http://biz.yahoo.com/rc/040518/tech_cometanetworks_1.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>HP profit jumps 34 percent, but analysts remain cautious</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>7:25pm ET</Time>
+      <Source>Associated Press</Source>
+      <Url>http://biz.yahoo.com/ap/040518/na_fin_earns_us_hewlett_packard_2.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>Hewlett-Packard's Profit Jumps 34 Percent</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>6:36pm ET</Time>
+      <Source>Associated Press</Source>
+      <Url>http://biz.yahoo.com/ap/040518/earns_hp_24.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>[external] PeopleSoft's Conway Takes Aim At SAP</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>5:25pm ET</Time>
+      <Source>Forbes.com</Source>
+      <Url>http://us.rd.yahoo.com/finance/external/forbes/SIG=127qd9kt6/*http://www.forbes.com/enterprisetech/2004/05/18/cx_ld_0518conway.html?partner=yahoo&amp;referrer=</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>IBM, Cisco Put Muscle Behind VoIP Push</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>2:19pm ET</Time>
+      <Source>NewsFactor</Source>
+      <Url>http://story.news.yahoo.com/news?tmpl=story&amp;u=/nf/20040518/bs_nf/24090</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>E.piphany and IBM Team on Insurance Suite</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>2:12pm ET</Time>
+      <Source>NewsFactor</Source>
+      <Url>http://story.news.yahoo.com/news?tmpl=story&amp;u=/nf/20040518/bs_nf/24095</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>S&amp;amp;P says Amkor rtgs unaffected by IBM agreement</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>2:12pm ET</Time>
+      <Source>Reuters</Source>
+      <Url>http://biz.yahoo.com/rf/040518/tech_amkor_s_p_comment_1.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>PeopleSoft and IBM Launch New Global SMB Channel Initiative</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>2:06pm ET</Time>
+      <Source>Business Wire</Source>
+      <Url>http://biz.yahoo.com/bw/040518/185894_1.html</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>[external] Computer Sciences Computes</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>2:05pm ET</Time>
+      <Source>Motley Fool</Source>
+      <Url>http://us.rd.yahoo.com/finance/external/mfool/SIG=11jtjsin8/*http://www.fool.com/News/mft/2004/mft04051817.htm?source=eptyholnk303100&amp;logvisit=y&amp;npu=y</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>[external] Fixing Software's Black Eye</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>2:00pm ET</Time>
+      <Source>Forbes.com</Source>
+      <Url>http://us.rd.yahoo.com/finance/external/forbes/SIG=125i93veq/*http://www.forbes.com/enterprisetech/2004/05/18/cx_ld_0518psft.html?partner=yahoo&amp;referrer=</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>New ARM Processor Boosts Multimedia</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>1:25pm ET</Time>
+      <Source>NewsFactor</Source>
+      <Url>http://story.news.yahoo.com/news?tmpl=story&amp;u=/nf/20040518/bs_nf/24080</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>[external] Motorola Names New CEO Of Chip Unit</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>10:46am ET</Time>
+      <Source>Forbes.com</Source>
+      <Url>http://us.rd.yahoo.com/finance/external/forbes/SIG=12bqs8p76/*http://www.forbes.com/infoimaging/2004/05/18/0518motorolapinnacor_ii.html?partner=yahoo&amp;referrer=</Url>
+     </StockNews>
+     <StockNews>
+      <Outcome>Success</Outcome>
+      <Delay>0</Delay>
+      <Headline>[external] Lucent's Cloudy Picture</Headline>
+      <Ticker>IBM</Ticker>
+      <Date>Tue, May 18</Date>
+      <Time>10:21am ET</Time>
+      <Source>Motley Fool</Source>
+      <Url>http://us.rd.yahoo.com/finance/external/mfool/SIG=11j7rk4a0/*http://www.fool.com/News/mft/2004/mft04051805.htm?source=eptyholnk303100&amp;logvisit=y&amp;npu=y</Url>
+     </StockNews>
+    </News>
+   </GetQuoteResult>
+  </GetQuoteResponse>
+ </soap:Body>
+</soap:Envelope>

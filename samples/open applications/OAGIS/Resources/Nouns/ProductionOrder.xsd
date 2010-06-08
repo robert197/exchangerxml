@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    License information for this file is provided in LICENSE.TXT
+    For support, more information, or to report implementation bugs, 
+    please contact the Open Applications Group at xml@openapplications.org 
+     
+    ** Revision: 8.0 **
+    ** Date: 05 April 2002 **
+    Open Applications Group XSD
+    Copyright 1998-2002, All Rights Reserved
+    
+    Name: Nouns/ProductionOrder.xsd
+-->
+<xs:schema targetNamespace="http://www.openapplications.org/oagis" xmlns:saxon="http://icl.com/saxon" xmlns="http://www.openapplications.org/oagis" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="../MfgComponents.xsd"/>
+	<xs:complexType name="ProductionOrder">
+		<xs:complexContent>
+			<xs:extension base="Noun">
+				<xs:sequence>
+					<xs:element ref="Header" minOccurs="0"/>
+					<xs:element ref="Line" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProductionOrderHeader">
+		<xs:annotation>
+			<xs:documentation source="http://www.openapplications.org/oagis">The LOTSERIAL in the header specifies the lot and/or serial information about the final assembly defined in this production order</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="DocumentId" type="ProductionOrderIdType" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the ProductionOrder Identifier</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DocumentDateTime" type="DateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the timestamp that the production order was originally created.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="Type" minOccurs="0"/>
+			<xs:choice minOccurs="0">
+				<xs:element ref="BOMDocumentReference" minOccurs="0"/>
+				<xs:sequence>
+					<xs:element ref="Item" minOccurs="0"/>
+					<xs:group ref="ItemLotSerialIdentifier" minOccurs="0"/>
+				</xs:sequence>
+			</xs:choice>
+			<xs:element ref="Status" minOccurs="0"/>
+			<xs:element ref="Site" minOccurs="0"/>
+			<xs:element ref="Parties" minOccurs="0"/>
+			<xs:element name="OriginationCountry" type="Country" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Indicates the country of origin of the item.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DestinationCountry" type="Country" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Indicates the country that the item being manufactured is destinated to go to.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Priority" type="Priority" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the priority of the production order.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="OrderQuantity" type="Quantity" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the quantity ordered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DueQuantity" type="Quantity" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the quantity that is due.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ProductionTimePeriod" type="TimePeriod" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">The TimePeriod indicating the start and finish times of the production order run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NeedDeliveryDateTime" type="DateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the timestamp indicating the date and time that the items need be delivered to the customer.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ForecastedTimePeriod" type="TimePeriod" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">TimePeriod indicating the forecasted start and finish datetimes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DueDateTime" type="DateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the datetime that the order is due.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RequiredDateTime" type="DateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the datetime that the production order is required to run.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AvailableDateTime" type="DateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the datetime that the items from the production order are available.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Description" type="Description" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Description of the production order.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReasonCode" type="ReasonCode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the reason for the production order.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Kanban" type="Kanban" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the reference number associated with in-plant routing information.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Note" type="Note" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="LotSerial" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Distribution" minOccurs="0"/>
+			<xs:element ref="OperationReference" minOccurs="0"/>
+			<xs:element ref="DocumentReferences" minOccurs="0"/>
+			<xs:element ref="Attachments" minOccurs="0"/>
+			<xs:element ref="UserArea" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProductionOrderLine">
+		<xs:annotation>
+			<xs:documentation source="http://www.openapplications.org/oagis">The LOTSERIAL in the line specifies the lot and/or serial information about the individual items on the pre-determined Bill of Material structure</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="LineNumber" type="LineNumber" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the LineNumber of the ProductionOrder Line</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="Item" minOccurs="0"/>
+			<xs:group ref="ItemLotSerialIdentifier" minOccurs="0"/>
+			<xs:element ref="Site" minOccurs="0"/>
+			<xs:element name="OrderQuantity" type="Quantity" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the quantity ordered.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ItemQuantity" type="Quantity" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Is the quantity of items produced.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TrackingIndicator" type="Indicator" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation source="http://www.openapplications.org/oagis">Indicates that the item is to be tracked.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="LotSerial" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Distribution" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="Attachments" minOccurs="0"/>
+			<xs:element ref="UserArea" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ProductionOrder" type="ProductionOrder" substitutionGroup="Noun">
+		<xs:annotation>
+			<xs:documentation source="http://www.openapplications.org/oagis">Production Order is a document requesting the manufacture of a specified product and quantity.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Header" type="ProductionOrderHeader">
+		<xs:annotation>
+			<xs:documentation source="http://www.openapplications.org/oagis">Information used to communicate the details of the production order requested to be initiated.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Line" type="ProductionOrderLine">
+		<xs:annotation>
+			<xs:documentation source="http://www.openapplications.org/oagis">Information used to communicate the individual items on the pre-determined Bill of Material structure.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

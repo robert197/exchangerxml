@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xngr>
+
+
+	<projects>	
+<project name="Browsing/Navigation">
+
+   <document src="Browsing Navigation/simple.xml"/>
+
+ </project>
+
+
+<project name="XPath">
+
+   <document src="XPath/Contacts.xml"/>
+   <document src="XPath/ContactsNS.xml"/>
+
+ </project>
+
+
+<project name="XSLT Fragments">
+
+   <document src="XSLT Fragments/poem.xsl"/>
+
+ </project>
+
+
+<project name="cXML DTD">
+   <document src="cXML DTD/OrderRequest.xml"/>
+  <folder name="dtd">
+   <document src="cXML DTD/dtd/cXML.dtd"/>
+  </folder>
+
+ </project>
+
+<project name="VoiceXML RelaxNG">
+   <document src="VoiceXML RelaxNG/voiceform.xml"/>
+  <folder name="relax">
+   <document src="VoiceXML RelaxNG/relax/VoiceXML10.full.rng"/>
+  </folder>
+
+ </project>
+
+<project name="XBRL XML Schema">
+   <document src="XBRL XML Schema/sample_instance.xml"/>
+   <document src="XBRL XML Schema/sample_instance.htm"/>
+  <folder name="schema">
+   <document src="XBRL XML Schema/schema/sample_taxonomy.xsd"/>
+   <document src="XBRL XML Schema/schema/xbrl-instance.xsd"/>
+   <document src="XBRL XML Schema/schema/xbrl-linkbase.xsd"/>
+   <document src="XBRL XML Schema/schema/xl.xsd"/>
+   <document src="XBRL XML Schema/schema/xlink.xsd"/>
+   <document src="XBRL XML Schema/schema/xml.xsd"/>
+  </folder>
+  <folder name="style">
+   <document src="XBRL XML Schema/style/InstView.xsl"/>
+   <document src="XBRL XML Schema/style/TxView.xsl"/>
+   <document src="XBRL XML Schema/style/TxCompress.xsl"/>
+  </folder>
+  <folder name="scenario">
+   <document src="XBRL XML Schema/scenario/xbrl.scenario"/>
+  </folder>
+
+ </project>
+
+
+<project name="International">
+
+   <document src="International/Chinese Glossary Big5.xhtml"/>
+   <document src="International/Chinese Glossary GB2312.xhtml"/>
+   <document src="International/Chinese Glossary UTF-8.xhtml"/>
+   <document src="International/XHTML 1.0 Japanese.xhtml"/>
+
+ </project>
+
+<project name="XInclude">
+
+   <document src="XInclude/poem.xml"/>
+   <document src="XInclude/verse1.xml"/>
+   <document src="XInclude/verse2.xml"/>
+   <document src="XInclude/verse3.xml"/>
+
+ </project>
+
+
+<project name="XML Refactoring">
+
+  <folder name="input">
+   <document src="XML Refactoring/input/elements.xml"/>
+   <document src="XML Refactoring/input/attributes.xml"/>
+  </folder>
+
+ </project>
+
+<project name="Schema Viewer">
+
+   <document src="Schema Viewer/contacts.xml"/>
+
+  <folder name="schema">
+   <document src="Schema Viewer/schema/contacts.xsd"/>
+   <document src="Schema Viewer/schema/inferred.xsd"/>
+   <document src="Schema Viewer/schema/converted.xsd"/>
+  </folder>
+  <folder name="dtd">
+   <document src="Schema Viewer/dtd/contacts.dtd"/>
+  </folder>
+ </project>
+
+
+<project name="UBL XSLFO">
+  <folder name="input">
+   <document src="UBL XSLFO/input/OfficeOrder.xml"/>
+  </folder>
+  <folder name="fo">
+   <document src="UBL XSLFO/fo/OfficeOrder.html.fo"/>
+  </folder>
+  <folder name="output">
+   <document src="UBL XSLFO/output/OfficeOrder.html"/>
+   <document src="UBL XSLFO/output/OfficeOrder.pdf"/>
+  </folder>
+  <folder name="scenario">
+   <document src="UBL XSLFO/scenario/UBL to FO.scenario"/>
+   <document src="UBL XSLFO/scenario/FO to HTML.scenario"/>
+   <document src="UBL XSLFO/scenario/UBL to SVG.scenario"/>
+   <document src="UBL XSLFO/scenario/UBL to PDF.scenario"/>
+  </folder>
+  <folder name="schema">
+   <document src="UBL XSLFO/schema/CoreComponentParameters.xsd"/>
+   <document src="UBL XSLFO/schema/CoreComponentTypes.xsd"/>
+   <document src="UBL XSLFO/schema/UBL_Library_0p70_Order.xsd"/>
+   <document src="UBL XSLFO/schema/UBL_Library_0p70_Reusable.xsd"/>
+  </folder>
+  <folder name="style">
+   <document src="UBL XSLFO/style/OfficeOrder.xsl"/>
+   <document src="UBL XSLFO/style/fo2html.xsl"/>
+   <document src="UBL XSLFO/style/OfficeOrder-htmlfo.xsl"/>
+  </folder>
+
+ </project>
+
+<project name="XSLT Debugger Sample">
+  <folder name="input">
+   <document src="XSLT Debugger Sample/input/poem.xml"/>
+  </folder>
+  <folder name="style">
+   <document src="XSLT Debugger Sample/style/poem.xsl"/>
+  </folder>
+  <folder name="output">
+   <document src="XSLT Debugger Sample/output/poem.html"/>
+  </folder>
+
+ </project>
+
+
+<project name="Import Text">
+
+  <folder name="input">
+   <document src="Import Text/input/assets.txt"/>
+  </folder>
+
+ </project>
+
+<project name="Import Excel">
+
+  <folder name="input">
+   <document src="Import Excel/input/sample.xls"/>
+  </folder>
+
+ </project>
+
+<project name="Import SQL/XML">
+
+   <document src="Import SQL XML/script.sqx"/>
+
+ </project>
+
+
+<project name="XML Diff and Merge">
+
+  <folder name="input">
+   <document src="XML Diff and Merge/input/contacts.xsd"/>
+   <document src="XML Diff and Merge/input/contacts2.xsd"/>
+  </folder>
+
+ </project>
+
+
+
+<project name="Amazon SOAP">
+  <folder name="request">
+   <document src="Amazon SOAP/request/DirectorSearch.xml"/>
+  </folder>
+  <folder name="response">
+   <document src="Amazon SOAP/response/DirectorSearchResponse.xml"/>
+  </folder>
+  <folder name="style">
+   <document src="Amazon SOAP/style/heavy-data-to-html.xsl"/>
+   <document src="Amazon SOAP/style/lite-data-to-html.xsl"/>
+  </folder>
+  <folder name="html">
+   <document src="Amazon SOAP/html/DirectorSearch.htm"/>
+  </folder>
+  <folder name="wsdl">
+   <document src="http://soap.amazon.com/schemas3/AmazonWebServices.wsdl"/>
+  </folder>
+  <folder name="schema">
+   <document src="http://xml.amazon.com/schemas3/dev-heavy.xsd"/>
+   <document src="http://xml.amazon.com/schemas3/dev-lite.xsd"/>
+  </folder>
+
+ </project>
+
+
+<project name="Stock Quote WSDL">
+  <folder name="wsdl">
+   <document src="http://www.xignite.com/xquotes.asmx?WSDL"/>
+   <document src="Stock Quote WSDL/wsdl/local.wsdl"/>
+  </folder>
+  <folder name="request">
+   <document src="Stock Quote WSDL/request/GetIndices.xml"/>
+   <document src="Stock Quote WSDL/request/GetQuoteIBM.xml"/>
+  </folder>
+  <folder name="response">
+   <document src="Stock Quote WSDL/response/GetIndicesResponse.xml"/>
+   <document src="Stock Quote WSDL/response/GetQuoteResponseIBM.xml"/>
+  </folder>
+ </project>
+
+
+<project name="Inclusive Canonicalization">
+  <folder name="input">
+   <document src="Inclusive Canonicalization/input/books.xml"/>
+  </folder>
+  <folder name="output">
+   <document src="Inclusive Canonicalization/output/books.xml"/>
+  </folder>
+
+ </project>
+
+<project name="Exclusive Canonicalization">
+  <folder name="input">
+   <document src="Exclusive Canonicalization/input/xc14ntest.xml"/>
+  </folder>
+  <folder name="output">
+   <document src="Exclusive Canonicalization/output/xc14ntest.xml"/>
+  </folder>
+
+ </project>
+
+
+<project name="Envelope XML Signature">
+  <folder name="input">
+   <document src="Envelope XML Signature/input/full.xml"/>
+   <document src="Envelope XML Signature/input/id.xml"/>
+   <document src="Envelope XML Signature/input/xpath.xml"/>
+  </folder>
+  <folder name="signed">
+   <document src="Envelope XML Signature/signed/full.xml"/>
+   <document src="Envelope XML Signature/signed/id.xml"/>
+   <document src="Envelope XML Signature/signed/xpath.xml"/>
+  </folder>
+ </project>
+
+
+<project name="Detached XML Signature">
+  <folder name="input">
+   <document src="http://www.exchangerxml.com/Cladonia.gif"/>
+  </folder>
+  <folder name="signed">
+   <document src="Detached XML Signature/signed/detachedSignature.xml"/>
+  </folder>
+ </project>
+
+<project name="XQuery">
+  <folder name="input">
+   <document src="XQuery/input/books.xml"/>
+  </folder>
+  <folder name="query">
+   <document src="XQuery/query/books.xq"/>
+  </folder>
+  <folder name="result">
+   <document src="XQuery/result/result.xml"/>
+  </folder>
+ </project>
+ 
+<project name="SVG">
+
+   <document src="SVG/moonPhases.svg"/>
+ </project>
+
+	</projects>	
+</xngr>

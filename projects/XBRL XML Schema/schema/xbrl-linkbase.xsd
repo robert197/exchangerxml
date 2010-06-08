@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<schema targetNamespace="http://www.xbrl.org/2001/XLink/xbrllinkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xl="http://www.xbrl.org/2001/XLink" xmlns:link="http://www.xbrl.org/2001/XLink/xbrllinkbase" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<import namespace="http://www.xbrl.org/2001/XLink" schemaLocation="xl.xsd"/>
+	<!-- schemaLocation="http://www.w3.org/2001/xml.xsd" -->
+	<import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+	<!--                 useEnum             -->
+	<simpleType name="useEnum">
+		<restriction base="string">
+			<enumeration value="optional"/>
+			<enumeration value="required"/>
+			<enumeration value="prohibited"/>
+		</restriction>
+	</simpleType>
+	<!--                 xbrlArcType             -->
+	<complexType name="xbrlArcType">
+		<complexContent>
+			<extension base="xl:arcType">
+				<attribute name="use" type="link:useEnum"/>
+				<attribute name="priority" type="decimal"/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!--                 calculationLink             -->
+	<element name="calculationLink" type="xl:extendedType" substitutionGroup="xl:extended">
+	</element>
+	<!--                 presentationLink             -->
+	<element name="presentationLink" type="xl:extendedType" substitutionGroup="xl:extended"/>
+	<!--                 definitionLink             -->
+	<element name="definitionLink" type="xl:extendedType" substitutionGroup="xl:extended"/>
+	<!--                 labelLink             -->
+	<element name="labelLink" type="xl:extendedType" substitutionGroup="xl:extended">
+	</element>
+	<!--                 footnoteLink             -->
+	<element name="footnoteLink" type="xl:extendedType" substitutionGroup="xl:extended"/>
+	<!--                 referenceLink             -->
+	<element name="referenceLink" type="xl:extendedType" substitutionGroup="xl:extended"/>
+	<!--                 extendedLink             -->
+	<element name="extendedLink" type="xl:extendedType" substitutionGroup="xl:extended"/>
+	<!--                 calculationArc             -->
+	<element name="calculationArc" substitutionGroup="xl:arc">
+		<complexType>
+			<complexContent>
+				<extension base="link:xbrlArcType">
+					<attribute name="weight" type="decimal" use="required"/>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!--                 presentationArc             -->
+	<element name="presentationArc" substitutionGroup="xl:arc">
+		<complexType>
+			<complexContent>
+				<extension base="link:xbrlArcType">
+					<attribute name="order" type="decimal" use="required"/>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!--                 definitionArc             -->
+	<element name="definitionArc" type="link:xbrlArcType" substitutionGroup="xl:arc"/>
+	<!--                 labelArc             -->
+	<element name="labelArc" type="link:xbrlArcType" substitutionGroup="xl:arc">
+	</element>
+	<!--                 footnoteArc             -->
+	<element name="footnoteArc" type="link:xbrlArcType" substitutionGroup="xl:arc"/>
+	<!--                 referenceArc             -->
+	<element name="referenceArc" type="link:xbrlArcType" substitutionGroup="xl:arc"/>
+	<!--                 arc             -->
+	<element name="arc" type="xl:arcType" substitutionGroup="xl:arc"/>
+	<!--                 loc             -->
+	<element name="loc" type="xl:locatorType" substitutionGroup="xl:locator"/>
+	<!--                 linkbase             -->
+	<element name="linkbase">
+		<complexType>
+			<choice minOccurs="0" maxOccurs="unbounded">
+				<element ref="link:linkbaseRef" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="xl:extended" minOccurs="0" maxOccurs="unbounded"/>
+			</choice>
+		</complexType>
+	</element>
+	<!--                 linkbaseRef             -->
+	<element name="linkbaseRef">
+		<complexType>
+			<complexContent>
+				<extension base="xl:simpleType">
+					<sequence>
+						<any namespace="http://www.w3.org/1999/xhtml" minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+					</sequence>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!--                 label             -->
+	<element name="label" substitutionGroup="xl:resource">
+		<complexType mixed="true">
+			<complexContent mixed="true">
+				<extension base="xl:resourceType">
+					<sequence>
+						<any namespace="http://www.w3.org/1999/xhtml" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+					</sequence>
+					<attribute ref="xml:lang"/>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!--                 footnote             -->
+	<element name="footnote" substitutionGroup="xl:resource">
+		<complexType>
+			<complexContent>
+				<extension base="xl:resourceType">
+					<attribute ref="xml:lang"/>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	<!--                 part             -->
+	<element name="part" type="string" abstract="true"/>
+	<!--                 reference             -->
+	<element name="reference" substitutionGroup="xl:resource">
+		<annotation>
+			<documentation>
+		This datatype defines the reference to authoritative literature that may appear for a financial concept.
+		These are references to published documents, not online resources.
+	</documentation>
+		</annotation>
+		<complexType>
+			<complexContent>
+				<extension base="xl:resourceType">
+					<choice minOccurs="0" maxOccurs="unbounded">
+						<element ref="link:part" minOccurs="0" maxOccurs="unbounded"/>
+					</choice>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+</schema>

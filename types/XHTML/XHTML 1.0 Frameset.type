@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="XHTML 1.0 Frameset" icon="XHTMLIcon.gif" publicID="-//W3C//DTD XHTML 1.0 Frameset//EN" extensions="htm html">
+	<root name="html">
+		<namespace prefix="" uri="http://www.w3.org/1999/xhtml"/>
+	</root>
+	<fragment block="false" name="Bold" key="Alt+Shift+B" order="0" icon="Bold16.gif">&lt;b&gt;${selection}${cursor}&lt;/b&gt;</fragment>
+	<fragment block="false" name="Italic" key="Alt+Shift+I" order="1" icon="Italic16.gif">&lt;i&gt;${selection}${cursor}&lt;/i&gt;</fragment>
+	<fragment block="false" name="Break" key="Alt+Shift+R" order="2" icon="br.gif">&lt;br/&gt;${cursor}</fragment>
+	<fragment block="true" name="Paragraph" key="Alt+Shift+P" order="3" icon="para.gif">&lt;p&gt;
+${selection}${cursor}
+&lt;/p&gt;</fragment>
+	<fragment block="true" name="Image" key="Alt+Shift+M" order="4" icon="image.gif">&lt;img src="${src}" border="0" alt="${alts}"/&gt;${cursor}</fragment>
+	<fragment block="false" name="Link" key="Alt+Shift+L" order="5" icon="link.gif">&lt;a href="${cursor}"&gt;${selection}&lt;/a&gt;</fragment>
+	<fragment block="true" name="Unordered List" key="Alt+Shift+U" order="6" icon="itemizedlist.gif">&lt;ul&gt;
+	&lt;li&gt;${cursor}&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</fragment>
+	<fragment block="true" name="Ordered List" key="Alt+Shift+O" order="7" icon="orderedlist.gif">&lt;ol&gt;
+	&lt;li&gt;${cursor}&lt;/li&gt;
+  &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</fragment>
+	<fragment block="true" name="Table" key="Alt+Shift+T" order="8" icon="table.gif">&lt;table border="0"&gt;
+	&lt;tr&gt;&lt;td&gt;${cursor}&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</fragment>
+	<template src="Template/xhtml1-frameset.xsd" type="xsd"/>
+	<validation src="Validation/xhtml1-frameset.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

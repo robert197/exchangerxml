@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Namespace Routing Language" icon="NRLIcon.gif" publicID="" extensions="nrl">
+	<root name="rules">
+		<namespace prefix="" uri="http://www.thaiopensource.com/validate/nrl"/>
+	</root>
+	<template src="" type="xsd"/>
+	<validation src="nrl.rng" type="rng" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

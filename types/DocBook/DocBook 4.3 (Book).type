@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="DocBook 4.3 (Book)" icon="DocbookIcon.gif" publicID="-//OASIS//DTD DocBook XML V4.3//EN" systemID="" extensions="xml db">
+	<root name="book">
+		<namespace prefix="" uri=""/>
+	</root>
+	<fragment block="false" name="emphasis (bold)" key="Alt+Shift+B" order="0" icon="Bold16.gif">&lt;emphasis role="bold"&gt;${cursor}${selection}&lt;/emphasis&gt;</fragment>
+	<fragment block="false" name="emphasis" key="Alt+Shift+E" order="1" icon="Italic16.gif">&lt;emphasis&gt;${cursor}${selection}&lt;/emphasis&gt;</fragment>
+	<fragment block="true" name="para" key="Alt+Shift+P" order="2" icon="para.gif">&lt;para&gt;${selection}${cursor}&lt;para&gt;</fragment>
+	<fragment block="true" name="orderedlist" key="Alt+Shift+O" order="3" icon="orderedlist.gif">&lt;orderedlist&gt;
+	&lt;listitem&gt; 
+		&lt;para&gt;${cursor}&lt;/para&gt;
+	&lt;/listitem&gt;
+	&lt;listitem&gt;
+		&lt;para&gt;&lt;/para&gt;
+	&lt;/listitem&gt;
+&lt;/orderedlist&gt;</fragment>
+	<fragment block="true" name="itemizedlist" key="Alt+Shift+I" order="4" icon="itemizedlist.gif">&lt;itemizedlist&gt;
+	&lt;listitem&gt; 
+		&lt;para&gt;${cursor}&lt;/para&gt;
+	&lt;/listitem&gt;
+	
+	&lt;listitem&gt;
+		&lt;para&gt;&lt;/para&gt;
+	&lt;/listitem&gt;
+&lt;/itemizedlist&gt;</fragment>
+	<fragment block="true" name="variablelist" key="Alt+Shift+V" order="5" icon="">&lt;variablelist&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+ 	&lt;varlistentry&gt;
+		&lt;term&gt;&lt;/term&gt;
+		&lt;listitem&gt;&lt;para&gt;&lt;/para&gt;&lt;/listitem&gt;
+	&lt;/varlistentry&gt;
+	&lt;varlistentry&gt;
+		&lt;term&gt;&lt;/term&gt;
+		&lt;listitem&gt;&lt;para&gt;&lt;/para&gt;&lt;/listitem&gt;
+	&lt;/varlistentry&gt;
+&lt;/variablelist&gt;</fragment>
+	<fragment block="true" name="table" key="Alt+Shift+T" order="6" icon="table.gif">&lt;table&gt;
+	&lt;title&gt;&lt;/title&gt;
+	&lt;tgroup cols="2"&gt;
+		&lt;thead&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+			&lt;row&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+				&lt;entry&gt;&lt;/entry&gt;
+			&lt;/row&gt;
+		&lt;/tbody&gt;
+	&lt;/tgroup&gt;
+&lt;/table&gt;</fragment>
+	<fragment block="true" name="note" key="Alt+Shift+Q" order="7" icon="">&lt;note&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/note&gt;</fragment>
+	<fragment block="true" name="warning" key="Alt+Shift+R" order="8" icon="">&lt;warning&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/warning&gt;</fragment>
+	<fragment block="true" name="caution" key="Alt+Shift+C" order="9" icon="">&lt;caution&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/caution&gt;</fragment>
+	<fragment block="true" name="important" key="Alt+Shift+N" order="10" icon="">&lt;important&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/important&gt;</fragment>
+	<fragment block="true" name="tip" key="Alt+Shift+Z" order="11" icon="">&lt;tip&gt;&lt;para&gt;${cursor} &lt;/para&gt;&lt;/tip&gt;</fragment>
+	<fragment block="true" name="menuchoice" key="Alt+Shift+M" order="12" icon="">&lt;menuchoice&gt;
+	&lt;shortcut&gt;
+		&lt;keycombo&gt;
+			&lt;keycap&gt;${cursor}&lt;/keycap&gt;
+			&lt;keycap&gt;&lt;/keycap&gt;
+		&lt;/keycombo&gt;
+	&lt;/shortcut&gt;
+	&lt;guimenu&gt;&lt;/guimenu&gt;
+	&lt;guimenuitem&gt;&lt;/guimenuitem&gt;
+&lt;/menuchoice&gt;</fragment>
+	<fragment block="true" name="author" key="Alt+Shift+U" order="13" icon="">&lt;author&gt;
+	&lt;firstname&gt;${cursor}&lt;/firstname&gt;
+	&lt;surname&gt;&lt;/surname&gt;
+	&lt;affiliation&gt;
+		&lt;address&gt;&lt;email&gt;&lt;/email&gt;&lt;/address&gt;
+	&lt;/affiliation&gt;
+&lt;/author&gt;</fragment>
+	<fragment block="true" name="abstract" key="Alt+Shift+Y" order="14" icon="">&lt;abstract&gt;
+	&lt;para&gt;${cursor}&lt;/para&gt;
+&lt;/abstract&gt;</fragment>
+	<fragment block="true" name="sect1" key="Alt+Shift+1" order="15" icon="">&lt;sect1&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt; 
+	&lt;/para&gt;
+&lt;/sect1&gt;</fragment>
+	<fragment block="true" name="sect2" key="Alt+Shift+2" order="16" icon="">&lt;sect2&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect2&gt;</fragment>
+	<fragment block="true" name="sect3" key="Alt+Shift+3" order="17" icon="">&lt;sect3&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect3&gt;</fragment>
+	<fragment block="true" name="sect4" key="Alt+Shift+4" order="18" icon="">&lt;sect4&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/sect4&gt;</fragment>
+	<fragment block="true" name="section" key="Alt+Shift+0" order="19" icon="">&lt;section&gt;
+	&lt;title&gt;${cursor}&lt;/title&gt;
+	&lt;para&gt;&lt;/para&gt;
+&lt;/section&gt;</fragment>
+	<fragment block="false" name="indexterm" key="Alt+Shift+X" order="20" icon="">${selection}&lt;indexterm&gt;&lt;primary&gt;${selection}&lt;/primary&gt;&lt;secondary&gt;${cursor}&lt;/secondary&gt;&lt;indexterm&gt;</fragment>
+	<xpath name="Sections and Titles" xpath="//title/text() | //section | //sect1 | //sect2 | //sect3 | // sect4 | /article | /book" default="false" showElementNames="true" showElementContent="true" showAttributes="false" showAttributeNames="false"/>
+	<xpath name="Titles" xpath="//title" default="true" showElementNames="false" showElementContent="true" showAttributes="false" showAttributeNames="false"/>
+	<template src="dtd/docbookx.dtd" type="dtd"/>
+	<validation src="dtd/docbookx.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src="schema/docbook.xsd"/>
+</type>

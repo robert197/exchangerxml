@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Core Attribute Module ......................................... -->
+<!--
+  file: svg-core-attrib.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-core-attrib.mod.xsd,v 1.1 2004/03/26 10:24:10 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Core Attribute//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-core-attrib.mod"
+  
+  .......................................................................
+-->
+<!--
+  Core Attribute
+  
+     id, xml:base, xml:lang, xml:space
+  
+  This module defines the core set of attributes that can be present on
+  any element.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/XML/1998/namespace" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11-basic.xsd"/>
+  <xs:attributeGroup name="SVG.id.attrib">
+    <xs:attribute name="id" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.base.attrib">
+    <xs:attribute name="base" form="qualified" type="URI.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.lang.attrib">
+    <xs:attribute name="lang" form="qualified" type="LanguageCode.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.space.attrib">
+    <xs:attribute name="space" form="qualified">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="default"/>
+          <xs:enumeration value="preserve"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.Core.attrib">
+    <xs:attributeGroup ref="xml:SVG.id.attrib"/>
+    <xs:attributeGroup ref="xml:SVG.base.attrib"/>
+    <xs:attributeGroup ref="xml:SVG.lang.attrib"/>
+    <xs:attributeGroup ref="xml:SVG.space.attrib"/>
+  </xs:attributeGroup>
+  <xs:attribute name="space">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="preserve"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:attribute>
+</xs:schema>
+<!-- end of svg-core-attrib.mod -->

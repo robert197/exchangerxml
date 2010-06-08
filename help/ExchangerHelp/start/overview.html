@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+  
+      <h2 class="title" style="clear: both">Window Overview</h2>
+      <h3 class="title">Exchanger XML</h3><img src="../../images/ExchangerXMLOverview.gif" alt="Exchanger XML"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Exchanger XML</b></p>
+      <p>The Exchanger XML Editor consists of 3 windows</p>
+      <ul type="disc">
+         <li>
+            <p>The Main Window which usually contains the Editor View, but can also display a Tree Viewer, an Outliner for tag-free data
+               entry and a Schema Viewer for visualizing the XML Schema associated with the open XML file. 
+            </p>
+         </li>
+         <li>
+            <p>The Output Window (below the Main Window) that contains the Errors tab showing the results of the latest check for well-formedness
+               or validation, the XPath Results tab containing clickable links to the nodes corresponding to the query entered in the XPath
+               query field at the top of the Editor, the Bookmarks tab containing clickable links to all defined bookmarks  and the Find
+               In Files results tab.
+            </p>
+         </li>
+         <li>
+            <p>The Controller Window (to the left of the Main Window) that contains the Projects tree view, the Navigator which displays
+               a tree view of the nodes in the current document that can be filtered by Namespace or using an XPath query, and the Helpers
+               tab that provides a means of easily adding elements and attributes in the active document. The Controller Window also contains
+               a collapsable Document Properties window at the bottom. 
+            </p>
+         </li>
+      </ul>
+      <p>Other components  include the General Toolbar   and the XPath Query field. 
+         					
+      </p>
+      <h3 class="title">Projects</h3><img src="../../images/projectsOverview.gif" alt="Projects"></img><p class="title"><b>Figure&nbsp;2.&nbsp;Projects</b></p>
+      <p></p>
+      <p></p>
+      <p>The first tab in the Controller Window (to the left of the Main Window) contains the Projects view.  Projects are used for
+         grouping related documents and facilitate the use of batch operations such as checking for well-formedness and validation
+         across a number of files.
+      </p>
+      <h3 class="title">Navigator</h3><img src="../../images/navigatorNamespace.gif" alt="Navigator using Namespaces"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Navigator using Namespaces</b></p>
+      <p></p>
+      <p></p>
+      <p>The second tab in the Controller Window (to the left of the Main Window) contains a Navigator that can be used to traverse
+         the content in the editor (or outliner). The tree is updated whenever the current document is saved or checked for well-formedness.
+         By default, the navigator shows all element nodes in the document, with colored icons used to differentiate elements from
+         different namespaces. Customized views can be created by filtering based on Namespace or XPath. Clicking on the Namespace
+         button <img src="../../images/buttonSelectNamespaces.gif"></img> causes element nodes in all namespaces to be displayed, but specific namespaces can be chosen by clicking on the drop-down
+         button to the right of the Namespace button and choosing from the list displayed.
+      </p><img src="../../images/navigatorXPath.gif" alt="Navigator using XPaths"></img><p class="title"><b>Figure&nbsp;4.&nbsp;Navigator using XPaths</b></p>
+      <p></p>
+      <p></p>
+      <p> Click on the XPath Filter button <img src="../../images/buttonXPathFilter.gif"></img> to specify the subset of nodes you would like to see in the navigator. 
+         				 By default, only elements  are displayed in the navigator but it is possible to turn on/off the display of element names,
+         element content, attribute names and attribute values in the Navigator Properties dialog by pressing the preferences dropdown
+         <img src="../../images/buttonNavigatorProperties.gif"></img>. In the above example, a simple but effective table of contents has been generated for the input file based on section titles.
+         Similar lists of figures, tables, etc could easily be used to greatly improve navigation in large documents. 
+      </p>
+      <h3 class="title">Element and Attribute Helpers</h3><img src="../../images/helpersOverview.gif" alt="Element and Attribute Helpers"></img><p class="title"><b>Figure&nbsp;5.&nbsp;Element and Attribute Helpers</b></p>
+      <p></p>
+      <p></p>
+      <p>The third tab on the left hand side of the editor contains helpers that can be used to easily add elements and attributes
+         in the editor (or outliner).
+      </p>
+      <h3 class="title">Editor</h3><img src="../../images/editorOverview.gif" alt="Editor"></img><p class="title"><b>Figure&nbsp;6.&nbsp;Editor</b></p>
+      <p></p>
+      <p></p>
+      <p>The Editor Window contains the core functionality of the Exchanger XML offering, including Tag Prompting, Syntax Highlighting,
+         Refactoring, Find and Replace supporting XPaths and Regular Expressions, etc. The  Editor Toolbar at the top of the Editor
+         Window provides quick access to various features such as Select Element Content, Add Comment, Split Element while all functions
+         are available using customizable keyboard short-cuts. Margins for Bookmark creation, Line Numbering and Content Folding are
+         placed on the left of the Editor pane, while on the right is the Overview margin, giving a document-wide view of Bookmark
+         and Syntax Error locations. 
+      </p>
+      <h3 class="title">Grid</h3><img src="../../images/gridOverview.gif" alt="Grid"></img><p class="title"><b>Figure&nbsp;7.&nbsp;Grid</b></p>
+      <p></p>
+      <p></p>
+      <p>The Grid facilitates tag-free editing of XML data. The user can control grid features using the <b>View-&gt;Grid Properties</b> menu.
+      </p>
+      <h3 class="title">XSLT Debugger</h3><img src="../../images/debuggerOverview.gif" alt="XSLT Debugger"></img><p class="title"><b>Figure&nbsp;8.&nbsp;XSLT Debugger</b></p>
+      <p></p>
+      <p></p>
+      <p>The XSLT Debugger runs in its own window and displays multiple stylesheet files and multiple input files above one or more
+         output files that are generated as a result of the transformation. Information about the current transformation is displayed
+         on the right-hand side of the screen, including names, values and types for global and local variables, call stacks for templates,
+         input and output data and traces for stylesheets, input and output data.
+      </p>
+      <h3 class="title">Unordered XML Differencing and Merge</h3><img src="../../images/diffOverview.gif" alt="XML Diff and Merge"></img><p class="title"><b>Figure&nbsp;9.&nbsp;XML Diff and Merge</b></p>
+      <p></p>
+      <p></p>
+      <p>The Unordered Diff tool runs in its own window and compares two input files and shows additions, deletions and modifications
+         in different colors in a popup window. Changes between the base file and the modified file can be merged, one at a time, and
+         the newly created document can be opened in the editor.
+      </p>
+      <h3 class="title">Viewer</h3><img src="../../images/viewerOverview.gif" alt="Viewer"></img><p class="title"><b>Figure&nbsp;10.&nbsp;Viewer</b></p>
+      <p></p>
+      <p></p>
+      <p>The Viewer displays a tree-view of the current document - the user can control the display of element content, attributes,
+         comments, namespaces etc in the <b>View-&gt;Viewer Properties</b> menus.
+      </p>
+      <h3 class="title">Schema Viewer</h3><img src="../../images/schemaOverview.gif" alt="Schema Viewer"></img><p class="title"><b>Figure&nbsp;11.&nbsp;Schema Viewer</b></p>
+      <p></p>
+      <p></p>
+      <p>The Schema Viewer presents a tree view of the schema associated with the current active document.
+      </p>
+      <h3 class="title">Outliner</h3><img src="../../images/outlinerOverview.gif" alt="Outliner"></img><p class="title"><b>Figure&nbsp;12.&nbsp;Outliner</b></p>
+      <p></p>
+      <p></p>
+      <p>The Outliner facilitates the tag-free editing of XML data.</p>
+      <h3 class="title">Output Window</h3><img src="../../images/errorsOverview.gif" alt="Errors"></img><p class="title"><b>Figure&nbsp;13.&nbsp;Errors</b></p><img src="../../images/xpathResultsOverview.gif" alt="XPath Results"></img><p class="title"><b>Figure&nbsp;14.&nbsp;XPath Results</b></p><img src="../../images/bookmarksOverview.gif" alt="Bookmarks"></img><p class="title"><b>Figure&nbsp;15.&nbsp;Bookmarks</b></p><img src="../../images/findInFilesOverview.gif" alt="Find in Files"></img><p class="title"><b>Figure&nbsp;16.&nbsp;Find in Files</b></p>
+      <p></p>
+      <p></p>
+      <p>The Output Window contains separate tabs for Errors, XPath Results, Bookmarks and Find in Files results. Clicking on the contents
+         in the output window will take you to the corresponding position in the Editor Window.
+      </p>
+   </body>
+</html>

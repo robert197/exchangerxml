@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="XML Stylesheet Language" icon="XSLIcon.gif" publicID="" systemID="" extensions="xsl">
+	<root name="stylesheet">
+		<namespace prefix="xsl" uri="http://www.w3.org/1999/XSL/Transform"/>
+	</root>
+	<fragment block="true" name="apply-templates" key="Alt+Shift+1" order="0" icon="">&lt;xsl:apply-templates select="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="attribute" key="Alt+Shift+U" order="1" icon="">&lt;xsl:attribute name="${name}" select="${select}"/&gt;${cursor}</fragment>
+	<fragment block="true" name="call-template" key="Alt+Shift+J" order="2" icon="">&lt;xsl:call-template name="${Template Name}"&gt;
+  &lt;xsl:with-param name="${Param Name}" select="${Param Select}"/&gt;
+&lt;/xsl:call-template&gt;${cursor}</fragment>
+	<fragment block="true" name="choose" key="Alt+Shift+C" order="3" icon="">&lt;xsl:choose&gt;
+  &lt;xsl:when test="${cursor}"&gt;
+    ${selection}
+  &lt;/xsl:when&gt;
+  &lt;xsl:otherwise&gt;
+
+  &lt;/xsl:otherwise&gt;
+&lt;/xsl:choose&gt;</fragment>
+	<fragment block="true" name="comment" key="Alt+Shift+K" order="4" icon="">&lt;xsl:comment&gt;${cursor}&lt;/xsl:comment&gt;</fragment>
+	<fragment block="true" name="copy" key="Alt+Shift+L" order="5" icon="">&lt;xsl:copy&gt;
+${cursor}
+&lt;/xsl:copy&gt;</fragment>
+	<fragment block="true" name="copy-of" key="Alt+Shift+Q" order="6" icon="">&lt;xsl:copy-of select="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="document" key="Alt+Shift+D" order="7" icon="">&lt;xsl:document href="${cursor}" method="xml"&gt;</fragment>
+	<fragment block="true" name="element" key="Alt+Shift+E" order="8" icon="">&lt;xsl:element name="${cursor}"&gt;
+	
+&lt;/xsl:element&gt;</fragment>
+	<fragment block="true" name="for-each" key="Alt+Shift+F" order="9" icon="">&lt;xsl:for-each select="${cursor}"&gt;
+	
+&lt;/xsl:for-each&gt;</fragment>
+	<fragment block="true" name="if" key="Alt+Shift+I" order="10" icon="">&lt;xsl:if test="${cursor}"&gt;
+	
+&lt;/xsl:if&gt;</fragment>
+	<fragment block="true" name="include" key="Alt+Shift+Y" order="11" icon="">&lt;xsl:include href="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="import" key="Alt+Shift+Z" order="12" icon="">&lt;xsl:import href="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="message" key="Alt+Shift+M" order="13" icon="">&lt;xsl:message&gt;${cursor}&lt;/xsl:message&gt;</fragment>
+	<fragment block="true" name="number" key="Alt+Shift+N" order="14" icon="">&lt;xsl:number count="${cursor}" level="any"/&gt;</fragment>
+	<fragment block="true" name="otherwise" key="Alt+Shift+O" order="15" icon="">&lt;xsl:otherwise&gt;
+	${cursor}
+&lt;/xsl:otherwise&gt;</fragment>
+	<fragment block="true" name="output" key="Alt+Shift+G" order="16" icon="">&lt;xsl:output method="${cursor}html"/&gt;</fragment>
+	<fragment block="true" name="param" key="Alt+Shift+P" order="17" icon="">&lt;xsl:param name="${cursor}" select=""/&gt;</fragment>
+	<fragment block="true" name="stylesheet" key="Alt+Shift+2" order="18" icon="">&lt;xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+	${cursor}
+&lt;/xsl:stylesheet&gt;</fragment>
+	<fragment block="true" name="sort" key="Alt+Shift+R" order="19" icon="">&lt;xsl:sort select="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="template" key="Alt+Shift+T" order="20" icon="">&lt;xsl:template match="${cursor}"&gt;
+	
+&lt;/xsl:template&gt;</fragment>
+	<fragment block="true" name="text" key="Alt+Shift+X" order="21" icon="">&lt;xsl:text&gt;${cursor}&lt;/xsl:text&gt;</fragment>
+	<fragment block="true" name="value-of" key="Alt+Shift+V" order="22" icon="">&lt;xsl:value-of select="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="variable" key="Alt+Shift+B" order="23" icon="">&lt;xsl:variable name="${cursor}" select=""/&gt;</fragment>
+	<fragment block="true" name="when" key="Alt+Shift+W" order="24" icon="">&lt;xsl:when test="${cursor}"&gt;
+	
+&lt;/xsl:when&gt;</fragment>
+	<fragment block="true" name="with-param" key="Alt+Shift+H" order="25" icon="">&lt;xsl:with-param name="${cursor}" select=""/&gt;</fragment>
+	<xpath name="All Templates" xpath="//xsl:template/@name | //xsl:template/@match" default="true" showElementNames="false" showElementContent="false" showAttributes="true" showAttributeNames="true"/>
+	<template src="xslt.rng" type="rng"/>
+	<template src="Template/xhtml1-transitional.xsd" type="xsd"/>
+	<validation src="xslt.rng" type="rng" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

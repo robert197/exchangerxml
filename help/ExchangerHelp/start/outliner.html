@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+       <h2 class="title" style="clear: both">Outliner</h2>
+      <p>The Outliner tool supports the rapid generation and easy editing of XML data without having to worry about the actual markup.
+         Currently, mixed content models are not supported so the Outliner is not ideal for editing documents such as DocBook. The
+         Outliner depends on the presence of an XML Schema, so if you are using a DTD or RelaxNG schema, then perform a conversion
+         as outlined in previous sections.
+      </p>
+      <p>If you haven't already created a Type named <b>Contacts</b> for the Schema Viewer example, then just select <b>Schema-&gt;Manage Type</b>  and <b>import</b> the Contacts type located at <tt class="filename">projects/Schema Viewer/type/Contacts.type</tt>.
+      </p>
+      <p>Create a new document using <b>File-&gt;New</b> and in the <b>New XML Document</b>
+         			 dialog select <b>For Type</b> with the <b>Contacts</b> type highlighted.
+      </p>
+      <p>The new document is opened by default in the Editor. Click on the Outliner button to switch view (<img src="../../images/buttonOutliner.gif"></img>).
+      </p><img src="../../images/initialOutliner.gif" alt="Initial Outliner View"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Initial Outliner View</b></p>
+      <p>In the Outliner, optional nodes are gray in color, required nodes are red and existing nodes are black. Double-click
+         				on the gray <b>Person</b> node to create a Person element. Notice that the Person node changes from gray to 
+         				black and another (optional) Person node is diplayed. 
+      </p><img src="../../images/firstPersonOutliner.gif" alt="New Element in Outliner"></img><p class="title"><b>Figure&nbsp;2.&nbsp;New Element in Outliner</b></p>
+      <p>Double-clicking on the first (black) Person node causes the element sub-structure to be displayed.</p><img src="../../images/requiredOutliner.gif" alt="Required Elements in Outliner"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Required Elements in Outliner</b></p>
+      <p>Depending on
+         			 	your settings (<b>View-&gt;Outliner Properties</b>), there are two possibilities. Firstly, If the 
+         			 	<b>Automatically Create Required Nodes</b> field is not set in the Outliner section of the View tab, then the
+         			 	nodes <b>Firstname</b> and <b>Lastname</b> will be displayed in red to hightlight that they
+         			 	are both required elements. Double-click on the Firstname node to create it, and enter the name "Tom" in the textfield
+         at
+         	the top of the Outliner view. Press the <b>Esc</b> key to complete data entry. 
+         	
+      </p><img src="../../images/dataEntryOutliner.gif" alt="Data Entry in Outliner"></img><p class="title"><b>Figure&nbsp;4.&nbsp;Data Entry in Outliner</b></p>
+      <p>The second possibity arises when the 
+         			 	<b>Automatically Create Required Nodes</b> field is set in the Outliner properties (<b>View-&gt;Outliner Properties</b>), then the
+         			 	nodes <b>Firstname</b> and <b>Lastname</b> will have been created. Click on the 
+         			 	<b>Firstname</b> node and enter the name "Tom" in the textfield at
+         	the top of the Outliner view. Press the <b>Esc</b> key to complete data entry. Next, click on the 
+         			 	<b>Lastname</b> node and enter the name "Smith" in the textfield, again pressing the <b>Esc</b> 
+         			 	key to complete data entry
+      </p>
+      <p>Now create some more elements. Add a <b>Birthday</b> element and enter 1965-03-29 as the content - note: 
+         			 	the content must match the XML Schema type for date. Add an Address and fill in the required <b>type</b> attribute (for example <b>work</b> or <b>home</b>) and 
+         			 	the required elements such as <b>Street</b>, <b>City</b> and <b>Country</b>. 
+         			 	In the schema definition for <b>Address</b>, there is a choice between <b>PostCode</b> and <b>ZIP</b>.
+         			 	Once the user chooses to create one of these elements, the other will automatically be removed from the Outliner. 
+         			 	
+      </p>
+      <p>At any stage, you can switch to the Editor to see the text version of what has been created.</p>
+      <p>
+         		 	All navigation and data entry in the Outliner can be achieved using the keyboard alone, instead of switching between the
+         
+         		 	keyboard and mouse. Use the <b>Right-Arrow</b> key to expand a node in the tree, <b>Up-Arrow</b> 
+         		 	and <b>Down-Arrow</b> to move vertically in the 
+         		 	tree, <b>Left-Arrow</b> to collapse a node, <b>Enter</b> to create an element or 
+         		 	attribute, <b>Esc</b> to complete data entry for an element and <b>Delete</b> to remove an element and its substructure.
+      </p>
+   </body>
+</html>

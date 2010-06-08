@@ -1,0 +1,6 @@
+<q:verbatim xmlns:q="http://www.q.com/sample/" xml:space="preserve">
+    <b xmlns="http://www.y.com/sample/" ref="w:bold" xml:lang="fr">def 
+     <w:i xmlns:w="http://www.w.com/sample/" xml:space="reset">jkl</w:i> 
+    </b> 
+    <a xmlns="http://www.y.com/sample/"></a>
+   </q:verbatim>

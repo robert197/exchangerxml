@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="MathML 2.0" icon="MathMLIcon.gif" publicID="-//W3C//DTD MathML 2.0//EN" extensions="mml">
+	<root name="math">
+		<namespace prefix="" uri="http://www.w3.org/1998/Math/MathML"/>
+	</root>
+	<template src="Template/mathml2.xsd" type="xsd"/>
+	<validation src="Validation/mathml2.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Builds the Exchanger XML Editor TEI project.
+-->
+
+<project name="tei" default="release" basedir=".">
+<!--  CHANGE THE VERSION NUMBER FOR A NEW RELEASE! -->
+  <property name="version" value="v10"/>
+  <property name="zip.file" value="TEI-P4-${version}"/>
+  <property name="release.dir" value="release"/>
+  
+  <target name="init">
+    <delete file="${zip.file}.zip"/>
+    <delete file="${zip.file}.tar.gz"/>
+    <delete dir="${release.dir}"/>
+  	
+  	<copy todir="${release.dir}">
+  		<fileset dir="." excludes="build.xml"/>
+  	</copy>
+  </target>
+  
+  <target name="release" depends="init">
+    <zip zipfile="${zip.file}.zip" basedir="${release.dir}"/>
+    <tar tarfile="${zip.file}.tar" basedir="${release.dir}"/>
+    <gzip zipfile="${zip.file}.tar.gz" src="${zip.file}.tar"/>
+    <delete file="${zip.file}.tar"/>
+  </target>
+</project>

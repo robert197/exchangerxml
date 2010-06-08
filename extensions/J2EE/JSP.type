@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type xmlns="http://www.cladonia.com/xngr-editor/2.1/" name="JSP" icon="J2EEIcon.gif" publicID="" extensions="xml">
+	<root name="root">
+		<namespace prefix="jsp" uri="http://java.sun.com/JSP/Page"/>
+	</root>
+	<template src="dtd/jspxml.xsd" type="xsd"/>
+	<validation src="dtd/jspxml.xsd" type="xsd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">WSDL Analyser</h2>
+      <p>Exchanger XML Editor  provides a tool for analyzing a Web Services Decsription Language (WSDL) document and generating appropriate
+         SOAP requests for invoking operations described in the document.
+      </p>
+      <p>Open the  <b>Stock Quote WSDL</b> project and in the <b>wsdl</b> folder, open the remote file <tt class="filename">http://www.xignite.com/xquotes.asmx?WSDL</tt> (or alternatively, open the local copy of this file, named <tt class="filename">local.wsdl</tt>).  Now  select <b>Tools-&gt;Analyse WSDL</b> and choose <b>From Current Document</b> in the dialog.
+      </p><img src="../../images/WSDLAnalyzer.gif" alt="WSDL Analyzer"></img><p class="title"><b>Figure&nbsp;1.&nbsp;WSDL Analyzer</b></p>
+      <p> The WSDL file will be analysed and you will be presented with a dialog displaying the information relating to the Services
+         and Operations available, the connection details including URL and SOAP Action (if any) and a sample SOAP message in the SOAP
+         Request tab. In the Operations drop down menu, navigate to the end and choose the <b>GetIndices</b> operation and press <b>Send</b>. 
+      </p><img src="../../images/WSDLAnalyzerSOAPResponse.gif" alt="WSDL GetIndices SOAP Response"></img><p class="title"><b>Figure&nbsp;2.&nbsp;WSDL GetIndices SOAP Response</b></p>
+      <p>The information returned from the web service (in this case a summary of the Nasdaq and NYSE stock indices) will be displayed
+         in the SOAP Response tab. Press the <b>Format</b> button to make the response easier to read and press the <b>Edit</b> button if you would like to use the data inside the editor.
+      </p>
+      <p>To see how to call a web service where an input is required, select the <b>GetQuote</b> operation and notice how in the SOAP Request, there is a &lt;Symbol&gt; tag with the content "string". Replace this content with
+         a symbol, say, <b>IBM</b> press <b>Send</b>. The SOAP Response should display the current stock price for IBM (or, if the markets are closed, the previous closing price).
+      </p>
+   </body>
+</html>

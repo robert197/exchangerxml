@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Connector 1.0 Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD Connector 1.0//EN" extensions="xml">
+	<root name="connector">
+		<namespace prefix="" uri=""/>
+	</root>
+	<template src="" type="xsd"/>
+	<validation src="dtd/connector_1_0.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

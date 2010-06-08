@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scenario name="Create xs3p schema documentation">
+	<xml src="" type="current"/>
+	<xsl src="xs3p.xsl" type="url" processor="default"/>
+	<output src="" type="document" browser="true" browserURL=""/>
+</scenario>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scenarios>
+<scenario name="Simple Database Access">
+	<xml src="database/test.xml" type="url"/>
+	<xsl src="database/sql-query.xsl" type="url" processor="saxon2">
+		<parameter name="driver" value="org.gjt.mm.mysql.Driver"/>
+		<parameter name="database" value="jdbc:mysql://localhost/testDatabase"/>
+		<parameter name="user" value="testUser"/>
+		<parameter name="password" value="testPassword"/>
+		<parameter name="table" value="testTable"/>
+	</xsl>
+	<output src="" type="document"/>
+</scenario>
+<scenario name="Create xs3p schema documentation">
+	<xml src="" type="current"/>
+	<xsl src="xs3p/xs3p.xsl" type="url" processor="default"/>
+	<output src="" type="document" browser="true" browserURL=""/>
+</scenario>
+</scenarios>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<poem>
+<author>Rupert Brooke</author>
+<date>1912</date>
+<title>Song</title>
+
+ <xi:include href="verse1.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+ 
+ <xi:include href="verse2.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+ 
+  <xi:include href="verse3.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  
+</poem>
+

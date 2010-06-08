@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Contacts SYSTEM "./dtd/contacts.dtd">
+
+<Contacts>
+	<Person>
+		<Firstname>John</Firstname>
+		<Lastname>Smith</Lastname>
+		<Birthday>1965-03-29T13:20:00-05:00</Birthday>
+		<Company>IBM</Company>
+		<Position>CEO</Position>
+		<Email>jsmith@ibm.com</Email>
+		<Email>jsmith@yahoo.com</Email>
+		<Address type="home">
+			<Company/>
+			<Street>23 Main St</Street>
+			<City>Dublin</City>
+			<Postcode>4</Postcode>
+			<Country/>
+		</Address>
+		<Address type="work">
+			<Street>1234 High St</Street>
+			<City>London</City>
+			<ZIP>1234</ZIP>
+			<Country>Ireland</Country>
+		</Address>
+	</Person>
+	<Person>
+		<Firstname>Tom</Firstname>
+		<Lastname>Dunne</Lastname>
+		<Company>Today FM</Company>
+    <Position/>
+		<Email>tom.dunn@todayfm.com</Email>
+	</Person>
+</Contacts>

@@ -1,0 +1,14 @@
+<xngr>
+	<projects>	
+<project name="XSLT Fragments">
+
+   <document src="poem.xsl"/>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

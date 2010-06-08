@@ -1,0 +1,13 @@
+<?testpi1 here is a message ?>
+<?testpi2 here is a message ?>
+<BOOKLIST>
+<BOOKS>
+	<ITEM CAT="S" TYPE="PAPERBACK">
+    	<TITLE>Number ‐ the Language of Science testing 123</TITLE>
+    	<AUTHOR>Smith &amp; Jones</AUTHOR>
+    	<PRICE>€5.95</PRICE>
+    	<QUANTITY>3</QUANTITY>
+    	<REVIEW></REVIEW>
+	</ITEM>
+</BOOKS>
+</BOOKLIST>

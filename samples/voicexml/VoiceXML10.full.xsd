@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  VoiceXML Ver.1.0		RELAX NG grammar
+  $Id: VoiceXML10.full.xsd,v 1.1 2004/03/26 10:12:02 edankert Exp $
+  	Written by Kohsuke KAWAGUCHI (kohsukekawaguchi@yahoo.com)
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:simpleType name="event.name">
+    <xs:restriction base="xs:NMTOKEN"/>
+  </xs:simpleType>
+  <xs:simpleType name="event.names">
+    <xs:list itemType="event.name"/>
+  </xs:simpleType>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:normalizedString"/>
+  </xs:simpleType>
+  <xs:simpleType name="content.type">
+    <xs:restriction base="xs:normalizedString"/>
+  </xs:simpleType>
+  <xs:group name="executable.content">
+    <xs:choice>
+      <xs:group ref="audio.class"/>
+      <xs:element ref="assign"/>
+      <xs:element ref="clear"/>
+      <xs:element ref="disconnect"/>
+      <xs:element ref="prompt"/>
+      <xs:element ref="reprompt"/>
+      <xs:element ref="script"/>
+      <xs:element ref="executable.control.flow"/>
+      <xs:element ref="throw"/>
+      <xs:element ref="var"/>
+    </xs:choice>
+  </xs:group>
+  <xs:element name="assign">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="field.name"/>
+      <xs:attribute name="expr" use="required" type="expression"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="clear">
+    <xs:complexType>
+      <xs:attribute name="namelist" type="field.names"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="disconnect">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="throw">
+    <xs:complexType>
+      <xs:attribute name="event" use="required" type="event.name"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="expression">
+    <xs:restriction base="xs:normalizedString"/>
+  </xs:simpleType>
+  <xs:simpleType name="field.name">
+    <xs:restriction base="xs:NMTOKEN"/>
+  </xs:simpleType>
+  <xs:simpleType name="field.names">
+    <xs:list itemType="field.name"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="item.attrs">
+    <xs:attribute name="name" type="field.name"/>
+    <xs:attribute name="cond" type="expression"/>
+    <xs:attribute name="expr" type="expression"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="cache.attrs">
+    <xs:attribute name="caching">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="safe"/>
+          <xs:enumeration value="fast"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="fetchint">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="prefetch"/>
+          <xs:enumeration value="safe"/>
+          <xs:enumeration value="stream"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="fetchtimeout" type="duration"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="next.attrs">
+    <xs:attribute name="next" type="xs:anyURI"/>
+    <xs:attribute name="expr" type="expression"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="submit.attrs">
+    <xs:attribute name="method">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="get"/>
+          <xs:enumeration value="post"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="enctype" type="content.type"/>
+    <xs:attribute name="namelist" type="field.names"/>
+  </xs:attributeGroup>
+  <xs:element name="variable.class" abstract="true"/>
+  <xs:element name="block" substitutionGroup="variable.class">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="executable.content"/>
+      <xs:attributeGroup ref="item.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- ================================= Root ================================ -->
+  <xs:element name="vxml">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="event.handler"/>
+        <xs:element ref="form"/>
+        <xs:element ref="link"/>
+        <xs:element ref="menu"/>
+        <xs:element ref="meta"/>
+        <xs:element ref="property"/>
+        <xs:element ref="script"/>
+        <xs:element ref="var"/>
+      </xs:choice>
+      <xs:attribute name="application" type="xs:anyURI"/>
+      <xs:attribute name="base" type="xs:anyURI"/>
+      <xs:attribute name="lang" type="xs:normalizedString"/>
+      <xs:attribute name="version" use="required" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="meta">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:NMTOKEN"/>
+      <xs:attribute name="content" use="required" type="xs:normalizedString"/>
+      <xs:attribute name="http-equiv" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- ================================= Dialogs ============================= -->
+  <xs:element name="input.class" abstract="true">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="grammar.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="scope">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="document"/>
+      <xs:enumeration value="dialog"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="form">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="input.class"/>
+        <xs:element ref="event.handler"/>
+        <xs:element ref="filled"/>
+        <xs:element ref="initial"/>
+        <xs:element ref="object"/>
+        <xs:element ref="link"/>
+        <xs:element ref="property"/>
+        <xs:element ref="record"/>
+        <xs:element ref="subdialog"/>
+        <xs:element ref="transfer"/>
+        <xs:element ref="variable.class"/>
+      </xs:choice>
+      <xs:attribute name="id" type="xs:ID"/>
+      <xs:attribute name="scope" type="scope"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="initial">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="event.handler"/>
+        <xs:element ref="link"/>
+        <xs:element ref="prompt"/>
+        <xs:element ref="property"/>
+      </xs:choice>
+      <xs:attributeGroup ref="item.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="object">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="event.handler"/>
+        <xs:element ref="filled"/>
+        <xs:element ref="param"/>
+        <xs:element ref="prompt"/>
+        <xs:element ref="property"/>
+      </xs:choice>
+      <xs:attributeGroup ref="item.attrs"/>
+      <xs:attributeGroup ref="cache.attrs"/>
+      <xs:attribute name="classid" type="xs:anyURI"/>
+      <xs:attribute name="codebase" type="xs:anyURI"/>
+      <xs:attribute name="data" type="xs:anyURI"/>
+      <xs:attribute name="type" type="xs:normalizedString"/>
+      <xs:attribute name="codetype" type="xs:normalizedString"/>
+      <xs:attribute name="archive" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="record">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="event.handler"/>
+        <xs:element ref="filled"/>
+        <xs:element ref="grammar"/>
+        <xs:element ref="prompt"/>
+        <xs:element ref="property"/>
+      </xs:choice>
+      <xs:attributeGroup ref="item.attrs"/>
+      <xs:attribute name="type" type="xs:normalizedString"/>
+      <xs:attribute name="beep" type="xs:boolean"/>
+      <xs:attribute name="maxtime" type="duration"/>
+      <xs:attribute name="modal" type="xs:boolean"/>
+      <xs:attribute name="finalsilence" type="duration"/>
+      <xs:attribute name="dtmfterm" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="subdialog">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="event.handler"/>
+        <xs:element ref="filled"/>
+        <xs:element ref="param"/>
+        <xs:element ref="prompt"/>
+        <xs:element ref="property"/>
+      </xs:choice>
+      <xs:attributeGroup ref="item.attrs"/>
+      <xs:attribute name="src" use="required" type="xs:anyURI"/>
+      <xs:attributeGroup ref="cache.attrs"/>
+      <xs:attribute name="fecthaudio" type="xs:anyURI"/>
+      <xs:attributeGroup ref="submit.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="transfer">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="event.handler"/>
+        <xs:element ref="dtmf"/>
+        <xs:element ref="filled"/>
+        <xs:element ref="grammar"/>
+        <xs:element ref="prompt"/>
+        <xs:element ref="property"/>
+      </xs:choice>
+      <xs:attributeGroup ref="item.attrs"/>
+      <xs:attribute name="dest" type="xs:anyURI"/>
+      <xs:attribute name="destexpr" type="expression"/>
+      <xs:attribute name="bridge" type="xs:boolean"/>
+      <xs:attribute name="connecttimeout" type="duration"/>
+      <xs:attribute name="maxtime" type="duration"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="menu">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="choice"/>
+        <xs:element ref="event.handler"/>
+        <xs:element ref="prompt"/>
+        <xs:element ref="property"/>
+      </xs:choice>
+      <xs:attribute name="id" type="xs:ID"/>
+      <xs:attribute name="scope" type="scope"/>
+      <xs:attribute name="dtmf" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="choice">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="grammar"/>
+        <xs:element ref="tts.class"/>
+      </xs:choice>
+      <xs:attributeGroup ref="cache.attrs"/>
+      <xs:attribute name="dtmf" type="xs:normalizedString"/>
+      <xs:attribute name="event" type="event.name"/>
+      <xs:attribute name="fetchaudio" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- ================================ Prompts ============================== -->
+  <xs:element name="prompt">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="tts.class"/>
+      </xs:choice>
+      <xs:attribute name="bargein" type="xs:boolean"/>
+      <xs:attribute name="cond" type="expression"/>
+      <xs:attribute name="count" type="xs:integer"/>
+      <xs:attribute name="timeout" type="duration"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="enumerate">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="tts.class"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="reprompt">
+    <xs:complexType/>
+  </xs:element>
+  <!-- ================================ Fields =============================== -->
+  <xs:element name="field" substitutionGroup="variable.class">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="event.handler"/>
+        <xs:element ref="filled"/>
+        <xs:element ref="input.class"/>
+        <xs:element ref="link"/>
+        <xs:element ref="option"/>
+        <xs:element ref="prompt"/>
+        <xs:element ref="property"/>
+      </xs:choice>
+      <xs:attributeGroup ref="item.attrs"/>
+      <xs:attribute name="type" type="xs:normalizedString"/>
+      <xs:attribute name="slot" type="xs:NMTOKEN"/>
+      <xs:attribute name="modal" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="option">
+    <xs:complexType mixed="true">
+      <xs:attribute name="dtmf" type="xs:normalizedString"/>
+      <xs:attribute name="value" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="var" substitutionGroup="variable.class">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="field.name"/>
+      <xs:attribute name="expr" type="expression"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- ================================== Events ============================= -->
+  <xs:element name="event.handler" abstract="true"/>
+  <xs:element name="catch" substitutionGroup="event.handler">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="executable.content"/>
+      <xs:attributeGroup ref="event.handler.attrs"/>
+      <xs:attribute name="event" use="required" type="event.names"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="help" substitutionGroup="event.handler">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="executable.content"/>
+      <xs:attributeGroup ref="event.handler.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="noinput" substitutionGroup="event.handler">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="executable.content"/>
+      <xs:attributeGroup ref="event.handler.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nomatch" substitutionGroup="event.handler">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="executable.content"/>
+      <xs:attributeGroup ref="event.handler.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="error" substitutionGroup="event.handler">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="executable.content"/>
+      <xs:attributeGroup ref="event.handler.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="event.handler.attrs">
+    <xs:attribute name="count" type="xs:integer"/>
+    <xs:attribute name="cond" type="expression"/>
+  </xs:attributeGroup>
+  <xs:element name="link">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="dtmf"/>
+        <xs:element ref="grammar"/>
+      </xs:choice>
+      <xs:attributeGroup ref="cache.attrs"/>
+      <xs:attributeGroup ref="next.attrs"/>
+      <xs:attribute name="fetchaudio" type="xs:anyURI"/>
+      <xs:attribute name="event" type="event.name"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- ============================== Audio Output =========================== -->
+  <xs:group name="audio.class">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:element ref="audio"/>
+        <xs:element ref="enumerate"/>
+        <xs:element ref="value"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="audio">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="tts.class"/>
+      </xs:choice>
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attributeGroup ref="cache.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="value">
+    <xs:complexType>
+      <xs:attribute name="class" type="xs:normalizedString"/>
+      <xs:attribute name="expr" use="required" type="expression"/>
+      <xs:attribute name="mode">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="tts"/>
+            <xs:enumeration value="recorded"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="recsrc" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tts.class" abstract="true"/>
+  <xs:element name="break" substitutionGroup="tts.class">
+    <xs:complexType>
+      <xs:attribute name="msecs" type="xs:integer"/>
+      <xs:attribute name="size">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="small"/>
+            <xs:enumeration value="medium"/>
+            <xs:enumeration value="large"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="div" substitutionGroup="tts.class">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="tts.class"/>
+      </xs:choice>
+      <xs:attribute name="type" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="emp" substitutionGroup="tts.class">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="tts.class"/>
+      </xs:choice>
+      <xs:attribute name="level">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="strong"/>
+            <xs:enumeration value="moderate"/>
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="reduced"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pros" substitutionGroup="tts.class">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="audio.class"/>
+        <xs:element ref="tts.class"/>
+      </xs:choice>
+      <xs:attribute name="rate" type="xs:normalizedString"/>
+      <xs:attribute name="vol" type="xs:normalizedString"/>
+      <xs:attribute name="pitch" type="xs:normalizedString"/>
+      <xs:attribute name="range" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="sayas" substitutionGroup="tts.class">
+    <xs:complexType mixed="true">
+      <xs:attribute name="sub" type="xs:normalizedString"/>
+      <xs:attribute name="class" type="xs:normalizedString"/>
+      <xs:attribute name="phon" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- ============================= Audio Input ============================= -->
+  <xs:simpleType name="key">
+    <xs:restriction base="xs:normalizedString"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="grammar.attrs">
+    <xs:attributeGroup ref="cache.attrs"/>
+    <xs:attribute name="scope" type="scope"/>
+    <xs:attribute name="src" type="xs:anyURI"/>
+    <xs:attribute name="type" type="xs:normalizedString"/>
+  </xs:attributeGroup>
+  <xs:element name="dtmf" substitutionGroup="input.class"/>
+  <xs:element name="grammar" substitutionGroup="input.class"/>
+  <!-- ============================ Call Control ============================ -->
+  <!-- ============================ Control Flow ============================ -->
+  <xs:attributeGroup name="if.attrs">
+    <xs:attribute name="cond" use="required" type="expression"/>
+  </xs:attributeGroup>
+  <xs:element name="executable.control.flow" abstract="true"/>
+  <xs:element name="if" substitutionGroup="executable.control.flow">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="executable.content"/>
+        <xs:element ref="elseif"/>
+        <xs:element ref="else"/>
+      </xs:choice>
+      <xs:attributeGroup ref="if.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="elseif">
+    <xs:complexType mixed="true">
+      <xs:group ref="executable.content"/>
+      <xs:attributeGroup ref="if.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="else">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="exit" substitutionGroup="executable.control.flow">
+    <xs:complexType>
+      <xs:attribute name="expr" type="expression"/>
+      <xs:attribute name="namelist" type="field.names"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="goto" substitutionGroup="executable.control.flow">
+    <xs:complexType>
+      <xs:attributeGroup ref="cache.attrs"/>
+      <xs:attributeGroup ref="next.attrs"/>
+      <xs:attribute name="fetchaudio" type="xs:anyURI"/>
+      <xs:attribute name="expritem" type="expression"/>
+      <xs:attribute name="nextitem" type="field.name"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="return" substitutionGroup="executable.control.flow">
+    <xs:complexType>
+      <xs:attribute name="namelist" type="field.names"/>
+      <xs:attribute name="event" type="event.name"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="submit" substitutionGroup="executable.control.flow">
+    <xs:complexType>
+      <xs:attributeGroup ref="cache.attrs"/>
+      <xs:attributeGroup ref="next.attrs"/>
+      <xs:attribute name="fetchaudio" type="xs:anyURI"/>
+      <xs:attributeGroup ref="submit.attrs"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="filled">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="executable.content"/>
+      <xs:attribute name="mode">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="any"/>
+            <xs:enumeration value="all"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="namelist" type="field.names"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="param">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="expr" type="expression"/>
+      <xs:attribute name="value" type="xs:normalizedString"/>
+      <xs:attribute name="valuetype">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="data"/>
+            <xs:enumeration value="ref"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="type" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- ========================== Miscellaneous ============================== -->
+  <xs:element name="property">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="value" use="required" type="xs:normalizedString"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="script">
+    <xs:complexType mixed="true">
+      <xs:attribute name="src" type="xs:anyURI"/>
+      <xs:attribute name="charset" type="xs:normalizedString"/>
+      <xs:attributeGroup ref="cache.attrs"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

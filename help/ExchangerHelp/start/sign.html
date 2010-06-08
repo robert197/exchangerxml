@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+
+      <h2 class="title" style="clear: both">XML Signatures</h2>
+      <p>It is possible to create and verify a digital signature in Exchanger XML Editor according to the XML Digital Signature specification.</p>
+      <h3 class="title">How to Create and Verify a Signature</h3>
+      <p> Open the file
+         				<tt class="filename">input/full.xml</tt> in the <b>Envelope XML Signature</b> project. To create a signature for this document, select <b>Security-&gt;Sign Document...</b> and the following dialog will appear.
+      </p><img src="../../images/sign.gif" alt="Sign Document"></img><p class="title"><b>Figure&nbsp;2.&nbsp;Sign Document</b></p>
+      <p>Ensure that <b>Current Document</b> is selected as Input and in the Transforms section of the dialog, leave the C14N Method with its default setting (None) and
+         leave the XPath field blank for now. Make sure that the output is set <b>To New Document</b> so as to not  overwrite the existing file and then press <b>Sign</b>. A new document will open, consisting of the original document and a new Signature element made up of: 
+      </p>
+      <ul type="disc">
+         <li>
+            <p>A SignedInfo element with details of how the signature was generated.</p>
+         </li>
+         <li>
+            <p>A SignatureValue element.</p>
+         </li>
+         <li>
+            <p>A KeyInfo element with details of the key used. In this instance, the document was signed using a key that is shipped with
+               the Exchanger XML Editor as can be seen in the SubjectName element: &lt;ds:X509SubjectName&gt;CN=Exchanger,OU=Development,O=Cladonia,C=IE&lt;/ds:X509SubjectName&gt;
+            </p>
+         </li>
+      </ul>
+      <p>To verify that the signature is correct, just select <b>Security-&gt;Verify Signature</b> and a dialog should popup to say that the signature is valid. Now change the data in the new document (for example, change
+         the second person's name from Jane Smith to Jane Jones) and verify the signature again. This time you will be notified that
+         the signature is no longer valid.
+      </p>
+      <h3 class="title">Signing using an ID attribute value</h3>
+      <p>Instead of signing an entire document, it is sometimes desirable to sign a particular subsection, for example, a manager may
+         wish to sign the part of an employee's purchase order that deals with approval. One way to do this is using an ID attribute
+         on the element that should be signed.  Open the file
+         				<tt class="filename">input/id.xml</tt> in the <b>Envelope XML Signature</b> project - notice that this document is the same as in the preceding example, except now each Person element has an extra
+         "id" attribute.  Select <b>Security-&gt;Sign Document...</b> but this time enter the value <b>123</b> in the Id section of the Signature Type field in order to sign the first Person element in the document (containing the details
+         of John Doe). Again, select <b>To New Document</b> for the output so as not to modify the original file and press Sign. In the new document, modify the second Person element,
+         changing the name from Jane Smith to Jane Jones and select <b>Security-&gt;Verify Signature</b>. The signature is still reported as valid even though the overall document has been changed. Now modify the first Person
+         element, changing the name from John Doe to Tom Doe and again select <b>Security-&gt;Verify Signature</b>. This time the signature is invalid because the element to which it relates has been changed. Notice in the SignedInfo section
+         that the <b>&lt;ds:Reference URI="#123"&gt;</b> element identifies which element has been signed. By default, when a schema/DTD is not present, only attributes named "id",
+         "ID" and "Id" can be used for generating signtures in this way.
+      </p>
+      <h3 class="title">Signing using an XPath</h3>
+      <p>XPaths can also be used to specify what portion of a document is to be signed. Note that an XPath such as <b>//section</b> only identifies individual <b>section</b> nodes, whereas a construction similar to <b>(//. | //@* | //namespace::*)[ancestor-or-self::section]</b> is needed to describe the list of nodes in each <b>section</b> element (for more details, see the Canonicalization specification and the XML Signature specification). To create a signature
+         based on an XPath, open the file
+         				<tt class="filename">input/xpath.xml</tt> in the <b>Envelope XML Signature</b> project and select <b>Security-&gt;Sign Document...</b>. Ensure that the Id field is blank and in the XPath field in the Transform section, enter &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ancestor-or-self::Salary</b> - this predicate is used by the signature code to refine the path <b>(//. | //@* | //namespace::*)</b>. Again, select To New Document for the output so as not to modify the original file and press Sign. Now modifying the Salary
+         element will invalidate the signature while changes to the Name or SSN element will not.
+      </p>
+      <h3 class="title">Signature Type: Envelope versus Detached</h3>
+      <p>In the preceding examples, we chose by default to create Envelope signatures, where the signature information is combined
+         with the input data in a single file. It is also possible to create Detached signatures where the signature information lives
+         in an entirely separate file from the input. Because the detached signature needs a URI for the file being signed, there is
+         a slight restriction in Exchanger XML Editor that only files on disk can be signed using detached signatures (simply save
+         any changes to an open document before creating a detached signature). Select <b>Security-&gt;Sign Document...</b> and set the input to <b>From URL</b> and select the desired XML file (for example, <tt class="filename">http://www.exchangerxml.com/Cladonia.gif</tt>). Set the Signature Type to Detached, set the appropriate XPath if required (the output is automatically set To New Document)
+         and press Sign. The detached signature is displayed in a new window and can be saved to file for future use. (An example of
+         a detached signature is available in the <b>Detached XML Signature</b> project in the <tt class="filename">signed</tt> folder.)
+      </p>
+      <p>Note: Exchanger XML Editor does not currently support Enveloping signatures, the third type of signature defined in the XML
+         Signature specification.
+      </p>
+      <h3 class="title">Signing large or non-XML documents</h3>
+      <p>Any file can be signed, irrespective of whether it is XML or not, by specifying the URI and creating a detached signature
+         with C14N Method set to None and not specifying an XPath transformation. Note that if an XML file is signed in this way, then
+         no changes can be made to it (even non-significant whitespace changes) without invalidating the signature. Also, the URI of
+         the input file is encoded in the detached signature so the file cannot be moved without invalidating the signature also. However,
+         using a detached signature with extremely large XML files is sometimes the only possibility as the requirement to read the
+         entire document into memory for a canonicalization or XPath transform can cause significant performance problems and with
+         larger documents will cause out of memory errors (an expansion factor of between 4 and 10 is typical when building a DOM from
+         an XML file on disk.)
+      </p>
+      <h3 class="title">C14N Method</h3>
+      <p>The <b>C14N Method</b> drop down in the Transform section of the <b>Sign Document...</b> dialog specified which canonicalization method should be used. The choices are Inclusive Canonicalization removing comments,
+         Inclusive Canonicalization preserving comments, Exclusive Canonicalization removing comments, Exclusive Canonicalization preserving
+         comments and None. By default, the method is set to None. For more information on Canonicalization in general, see the earlier
+         section.
+      </p>
+   </body>
+</html>

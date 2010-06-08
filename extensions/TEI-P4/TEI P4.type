@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * $Id: TEI\040P4.type,v 1.1 2004/11/15 14:46:05 edankert Exp $
+ *
+ * Copyright (C) 2004, Cladonia Ltd. All rights reserved.
+ *
+ * This software is the proprietary information of Cladonia Ltd.  
+ * Use is subject to license terms.
+ -->
+
+<type xmlns="http://www.cladonia.com/xngr-editor/3.0/" name="TEI P4" icon="TEIIcon.gif" publicID="-//TEI P4//DTD Main Document Type//EN" extensions="xml tei">
+	<root name="TEI.2">
+		<namespace prefix="" uri=""/>
+	</root>
+	<fragment block="false" name="Highlight (bold)" key="Alt+Shift+B" order="0" icon="Bold16.gif">&lt;hi rend="bo"&gt;${selection}${cursor}&lt;/hi&gt;</fragment>
+	<fragment block="false" name="Highlight (Italic)" key="Alt+Shift+I" order="1" icon="Italic16.gif">&lt;hi rend="it"&gt;${selection}${cursor}&lt;/hi&gt;</fragment>
+	<fragment block="false" name="Highlight" key="Alt+Shift+H" order="2" icon="Highlight16.gif">&lt;hi&gt;${selection}${cursor}&lt;/hi&gt;</fragment>
+	<fragment block="true" name="Paragraph" key="Alt+Shift+P" order="3" icon="para.gif">&lt;p&gt;
+${selection}${cursor}
+&lt;/p&gt;</fragment>
+	<fragment block="true" name="List" key="Alt+Shift+L" order="4" icon="itemizedlist.gif">&lt;list&gt;
+	&lt;item&gt;${cursor}${selection}&lt;/item&gt;
+	&lt;item&gt;&lt;/item&gt;
+	&lt;item&gt;&lt;/item&gt;
+&lt;/list&gt;</fragment>
+	<fragment block="true" name="Ordered List" key="Alt+Shift+O" order="5" icon="orderedlist.gif">&lt;list type="ordered"&gt;
+	&lt;item&gt;${selection}${cursor}&lt;/item&gt;
+	&lt;item&gt;&lt;/item&gt;
+&lt;/list&gt;
+</fragment>
+	<fragment block="false" name="Table" key="Alt+Shift+T" order="6" icon="table.gif">&lt;table&gt;
+	&lt;head&gt;${selection}${cursor}&lt;/head&gt;
+	&lt;row role="data"&gt;
+		&lt;cell role="label"&gt;&lt;/cell&gt;
+		&lt;cell&gt;&lt;/cell&gt;
+	&lt;/row&gt;
+	&lt;row role="data"&gt;
+		&lt;cell role="label"&gt;&lt;/cell&gt;
+		&lt;cell&gt;&lt;/cell&gt;
+	&lt;/row&gt;
+&lt;/table&gt;</fragment>
+	<xpath name="All DIV Headings" xpath="//div/head" default="false" showElementNames="false" showElementContent="true" showAttributes="false" showAttributeNames="false"/>
+	<xpath name="All DIVs and Headings" xpath="//div/head | //div" default="true" showElementNames="false" showElementContent="true" showAttributes="true" showAttributeNames="true"/>
+	<template src="dtd-lite/teixlite.dtd" type="dtd"/>
+	<validation src="dtd/tei2.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>
