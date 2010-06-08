@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Basic Attribute Collection Module ............................. -->
+<!--
+  file: svg11-basic-attribs.mod
+  
+  This is SVG Basic, a proper subset of SVG.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg11-basic-attribs.mod.xsd,v 1.1 2004/03/26 10:24:10 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Basic Attribute Collection//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-basic-attribs.mod"
+  
+  .......................................................................
+-->
+<!--
+  SVG 1.1 Basic Attribute Collection
+  
+  This module defines the set of common attributes that can be present
+  on many SVG elements.
+-->
+<!-- module: svg-conditional.mod ....................... -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11-basic.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:simpleType name="ExtensionList.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="FeatureList.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.Conditional.attrib">
+    <xs:attribute name="requiredFeatures" type="FeatureList.datatype"/>
+    <xs:attribute name="requiredExtensions" type="ExtensionList.datatype"/>
+    <xs:attribute name="systemLanguage" type="LanguageCodes.datatype"/>
+  </xs:attributeGroup>
+  <!-- module: svg-style.mod ............................. -->
+  <xs:simpleType name="ClassList.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="StyleSheet.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.Style.attrib">
+    <xs:attribute name="style" type="StyleSheet.datatype"/>
+    <xs:attribute name="class" type="ClassList.datatype"/>
+  </xs:attributeGroup>
+  <!-- module: svg-text.mod .............................. -->
+  <xs:simpleType name="BaselineShiftValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="FontFamilyValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="FontSizeValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="FontSizeAdjustValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="GlyphOrientationHorizontalValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="GlyphOrientationVerticalValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="KerningValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="SpacingValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="TextDecorationValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.Text.attrib">
+    <xs:attribute name="writing-mode">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="lr-tb"/>
+          <xs:enumeration value="rl-tb"/>
+          <xs:enumeration value="tb-rl"/>
+          <xs:enumeration value="lr"/>
+          <xs:enumeration value="rl"/>
+          <xs:enumeration value="tb"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.TextContent.attrib">
+    <xs:attribute name="alignment-baseline">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="auto"/>
+          <xs:enumeration value="baseline"/>
+          <xs:enumeration value="before-edge"/>
+          <xs:enumeration value="text-before-edge"/>
+          <xs:enumeration value="middle"/>
+          <xs:enumeration value="central"/>
+          <xs:enumeration value="after-edge"/>
+          <xs:enumeration value="text-after-edge"/>
+          <xs:enumeration value="ideographic"/>
+          <xs:enumeration value="alphabetic"/>
+          <xs:enumeration value="hanging"/>
+          <xs:enumeration value="mathematical"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="baseline-shift" type="BaselineShiftValue.datatype"/>
+    <xs:attribute name="direction">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="ltr"/>
+          <xs:enumeration value="rtl"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="dominant-baseline">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="auto"/>
+          <xs:enumeration value="use-script"/>
+          <xs:enumeration value="no-change"/>
+          <xs:enumeration value="reset-size"/>
+          <xs:enumeration value="ideographic"/>
+          <xs:enumeration value="alphabetic"/>
+          <xs:enumeration value="hanging"/>
+          <xs:enumeration value="mathematical"/>
+          <xs:enumeration value="central"/>
+          <xs:enumeration value="middle"/>
+          <xs:enumeration value="text-after-edge"/>
+          <xs:enumeration value="text-before-edge"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="glyph-orientation-horizontal" type="GlyphOrientationHorizontalValue.datatype"/>
+    <xs:attribute name="glyph-orientation-vertical" type="GlyphOrientationVerticalValue.datatype"/>
+    <xs:attribute name="kerning" type="KerningValue.datatype"/>
+    <xs:attribute name="letter-spacing" type="SpacingValue.datatype"/>
+    <xs:attribute name="text-anchor">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="start"/>
+          <xs:enumeration value="middle"/>
+          <xs:enumeration value="end"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="text-decoration" type="TextDecorationValue.datatype"/>
+    <xs:attribute name="unicode-bidi">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="embed"/>
+          <xs:enumeration value="bidi-override"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="word-spacing" type="SpacingValue.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.Font.attrib">
+    <xs:attribute name="font-family" type="FontFamilyValue.datatype"/>
+    <xs:attribute name="font-size" type="FontSizeValue.datatype"/>
+    <xs:attribute name="font-size-adjust" type="FontSizeAdjustValue.datatype"/>
+    <xs:attribute name="font-stretch">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="wider"/>
+          <xs:enumeration value="narrower"/>
+          <xs:enumeration value="ultra-condensed"/>
+          <xs:enumeration value="extra-condensed"/>
+          <xs:enumeration value="condensed"/>
+          <xs:enumeration value="semi-condensed"/>
+          <xs:enumeration value="semi-expanded"/>
+          <xs:enumeration value="expanded"/>
+          <xs:enumeration value="extra-expanded"/>
+          <xs:enumeration value="ultra-expanded"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="font-style">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="italic"/>
+          <xs:enumeration value="oblique"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="font-variant">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="small-caps"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="font-weight">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="bold"/>
+          <xs:enumeration value="bolder"/>
+          <xs:enumeration value="lighter"/>
+          <xs:enumeration value="100"/>
+          <xs:enumeration value="200"/>
+          <xs:enumeration value="300"/>
+          <xs:enumeration value="400"/>
+          <xs:enumeration value="500"/>
+          <xs:enumeration value="600"/>
+          <xs:enumeration value="700"/>
+          <xs:enumeration value="800"/>
+          <xs:enumeration value="900"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- module: svg-profile.mod ........................... -->
+  <xs:attributeGroup name="SVG.ColorProfile.attrib">
+    <xs:attribute name="color-profile"/>
+  </xs:attributeGroup>
+  <!-- module: svg-gradient.mod .......................... -->
+  <xs:simpleType name="NumberOrPercentage.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.Gradient.attrib">
+    <xs:attribute name="stop-color" type="SVGColor.datatype"/>
+    <xs:attribute name="stop-opacity" type="OpacityValue.datatype"/>
+  </xs:attributeGroup>
+  <!-- module: svg-basic-clip.mod ........................ -->
+  <xs:simpleType name="ClipPathValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.Clip.attrib">
+    <xs:attribute name="clip-path" type="ClipPathValue.datatype"/>
+    <xs:attribute name="clip-rule" type="ClipFillRule.datatype"/>
+  </xs:attributeGroup>
+  <!-- module: svg-mask.mod .............................. -->
+  <xs:simpleType name="MaskValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.Mask.attrib">
+    <xs:attribute name="mask" type="MaskValue.datatype"/>
+  </xs:attributeGroup>
+  <!-- module: svg-basic-filter.mod ...................... -->
+  <xs:simpleType name="FilterValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="NumberOptionalNumber.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.Filter.attrib">
+    <xs:attribute name="filter" type="FilterValue.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.FilterColor.attrib">
+    <xs:attribute name="color-interpolation-filters">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="auto"/>
+          <xs:enumeration value="sRGB"/>
+          <xs:enumeration value="linearRGB"/>
+          <xs:enumeration value="inherit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of svg11-basic-attribs.mod -->

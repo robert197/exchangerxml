@@ -1,0 +1,17 @@
+<xngr>
+	<projects>	
+<project name="International">
+
+   <document src="Chinese Glossary Big5.xhtml"/>
+   <document src="Chinese Glossary GB2312.xhtml"/>
+   <document src="Chinese Glossary UTF-8.xhtml"/>
+   <document src="XHTML 1.0 Japanese.xhtml"/>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

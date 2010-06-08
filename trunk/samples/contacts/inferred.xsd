@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="Contacts">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Person" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Firstname" type="xsd:string"/>
+							<xsd:element name="Lastname" type="xsd:string"/>
+							<xsd:element name="Birthday" minOccurs="0" type="xsd:integer"/>
+							<xsd:element name="Company" type="xsd:string"/>
+							<xsd:element name="Position" type="xsd:string"/>
+							<xsd:element name="Email" maxOccurs="unbounded" type="xsd:string"/>
+							<xsd:element name="Address" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Company" minOccurs="0"/>
+										<xsd:element name="Street" type="xsd:string"/>
+										<xsd:element name="City" type="xsd:string"/>
+										<xsd:element name="Postcode" minOccurs="0" type="xsd:integer"/>
+										<xsd:element name="Country" type="xsd:string"/>
+										<xsd:element name="ZIP" minOccurs="0" type="xsd:integer"/>
+									</xsd:sequence>
+									<xsd:attribute name="type" type="xsd:string"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

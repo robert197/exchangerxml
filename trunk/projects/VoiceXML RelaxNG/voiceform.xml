@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vxml version="1.0">
+ <form id="getChoice">
+  <var name="noDialogProblems" expr="0"/>
+  <field name="choiceVoice" type="number">
+   <prompt count="1" timeout="4s">Please look at the list of flights. From that list, what is the flight number you prefer?</prompt>
+   <prompt count="2" timeout="4s">Please take you time. I will wait for up to 1 minute for you to make up your mind.</prompt>
+   <catch event="nomatch noinput">
+    <goto nextitem="resultIM"/>
+   </catch>
+   <help>
+    <prompt>Please say the flight number.</prompt>
+   </help>
+   <filled>
+    <prompt>Thank you for choosing flight <value class="digits" expr="choiceVoice"/>.</prompt>
+    <goto next="#topMenu"/>
+   </filled>
+  </field>
+ </form>
+</vxml>

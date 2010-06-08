@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Contacts" icon="" publicID="" extensions="">
+    <root name="Contacts">
+        <namespace prefix="" uri=""/>
+    </root>
+    <template src="../schema/inferred.xsd" type="xsd"/>
+    <validation src="../dtd/contacts.dtd" type="dtd" useDocumentLocation="false"/>
+    <schema src="../schema/contacts.xsd"/>
+</type>

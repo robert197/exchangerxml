@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<?testpi1 here is a message ?><?testpi2 here is a message ?>
+<!-- test comment1 --><!-- test comment2 -->
+
+<!DOCTYPE BOOKLIST [
+<!ENTITY test "testing 123">
+<!ENTITY hyphen "&#8208;">
+]>
+
+<BOOKLIST><!-- test comment -->
+<BOOKS>
+	<ITEM TYPE="PAPERBACK" CAT='S' >
+    	<TITLE>Number &hyphen; the Language of Science &test;</TITLE>
+    	<AUTHOR><![CDATA[Smith & Jones]]></AUTHOR>
+    	<PRICE>&#8364;5.95</PRICE>
+    	<QUANTITY>3</QUANTITY>
+    	<REVIEW/>
+	</ITEM>
+</BOOKS>
+</BOOKLIST>

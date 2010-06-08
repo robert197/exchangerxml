@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.xbrl.org/2001/XLink" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xl="http://www.xbrl.org/2001/XLink" xmlns:xlink="http://www.w3.org/1999/xlink" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlink.xsd"/>
+	<!--                 titleType             -->
+	<complexType name="titleType">
+		<complexContent>
+			<restriction base="anyType">
+				<attribute ref="xlink:type"/>
+			</restriction>
+		</complexContent>
+	</complexType>
+	<!--                 simpleType             -->
+	<complexType name="simpleType">
+		<complexContent>
+			<restriction base="anyType">
+				<attribute ref="xlink:type"/>
+				<attribute ref="xlink:href"/>
+				<attribute ref="xlink:role"/>
+				<attribute ref="xlink:arcrole"/>
+				<attribute ref="xlink:title"/>
+				<attribute ref="xlink:show"/>
+				<attribute ref="xlink:actuate"/>
+			</restriction>
+		</complexContent>
+	</complexType>
+	<!--                 extendedType             -->
+	<complexType name="extendedType">
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element ref="xl:locator" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="xl:arc" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="xl:resource" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="xl:title"/>
+		</choice>
+		<attribute ref="xlink:type"/>
+		<attribute ref="xlink:role"/>
+		<attribute ref="xlink:title"/>
+	</complexType>
+	<!--                 locatorType             -->
+	<complexType name="locatorType">
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element ref="xl:title"/>
+		</choice>
+		<attribute ref="xlink:type"/>
+		<attribute ref="xlink:href"/>
+		<attribute ref="xlink:role"/>
+		<attribute ref="xlink:title"/>
+		<attribute ref="xlink:label"/>
+	</complexType>
+	<!--                 arcType             -->
+	<complexType name="arcType">
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element ref="xl:title"/>
+		</choice>
+		<attribute ref="xlink:type"/>
+		<attribute ref="xlink:arcrole"/>
+		<attribute ref="xlink:title"/>
+		<attribute ref="xlink:show"/>
+		<attribute ref="xlink:actuate"/>
+		<attribute ref="xlink:from"/>
+		<attribute ref="xlink:to"/>
+	</complexType>
+	<!--                 arcLinkbaseDefType             -->
+	<complexType name="arcLinkbaseDefType">
+		<complexContent>
+			<restriction base="xl:arcType">
+				<choice minOccurs="0" maxOccurs="unbounded">
+					<element ref="xl:title"/>
+				</choice>
+				<attribute ref="xlink:type"/>
+				<attribute ref="xlink:arcrole"/>
+				<attribute ref="xlink:title"/>
+				<attribute ref="xlink:show"/>
+				<attribute ref="xlink:actuate"/>
+				<attribute ref="xlink:from"/>
+				<attribute ref="xlink:to"/>
+			</restriction>
+		</complexContent>
+	</complexType>
+	<!--                 resourceType             -->
+	<complexType name="resourceType">
+		<complexContent>
+			<restriction base="anyType">
+				<attribute ref="xlink:type"/>
+				<attribute ref="xlink:role"/>
+				<attribute ref="xlink:title"/>
+				<attribute ref="xlink:label"/>
+			</restriction>
+		</complexContent>
+	</complexType>
+	<!--                 elements             -->
+	<element name="title" type="xl:titleType" abstract="true"/>
+	<element name="simple" type="xl:simpleType" abstract="true"/>
+	<element name="extended" type="xl:extendedType" abstract="true"/>
+	<element name="locator" type="xl:locatorType" abstract="true"/>
+	<element name="arc" type="xl:arcType" abstract="true"/>
+	<element name="resource" type="xl:resourceType" abstract="true">
+	</element>
+	<!--                 element arcLinkbaseDef             -->
+	<element name="arcLinkbaseDef" type="xl:arcLinkbaseDefType" abstract="true" substitutionGroup="xl:arc"/>
+</schema>

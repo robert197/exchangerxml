@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	VoiceXML Ver.1.0		RELAX NG grammar
+	$Id: VoiceXML10.full.rng,v 1.1 2004/05/31 09:10:14 gmcgoldrick Exp $
+		Written by Kohsuke KAWAGUCHI (kohsukekawaguchi@yahoo.com)
+-->
+<grammar
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+	xmlns="http://relaxng.org/ns/structure/1.0">
+	
+	
+	<define name="event.name">
+		<data type="NMTOKEN"></data>
+	</define>
+	
+	<define name="event.names">
+		<list>
+			<zeroOrMore>
+				<ref name="event.name"/>
+			</zeroOrMore>
+		</list>
+	</define>
+	
+	<define name="duration">
+		<data type="normalizedString"/>
+	</define>
+	
+	<define name="content.type">
+		<data type="normalizedString"/>
+	</define>
+	
+	
+	<define name="executable.content">
+		<choice>
+			<ref name="audio.class"/>
+			<element name="assign">
+				<attribute name="name">
+					<ref name="field.name"/>
+				</attribute>
+				<attribute name="expr">
+					<ref name="expression"/>
+				</attribute>
+			</element>
+			<element name="clear">
+				<optional>
+					<attribute name="namelist">
+						<ref name="field.names"/>
+					</attribute>
+				</optional>
+			</element>
+			<element name="disconnect">
+				<empty/>
+			</element>
+			<ref name="prompt"/>
+			<ref name="reprompt"/>
+			<ref name="script"/>
+			<ref name="executable.control.flow"/>
+			<element name="throw">
+				<attribute name="event">
+					<ref name="event.name"/>
+				</attribute>
+			</element>
+			<ref name="var"/>
+		</choice>
+	</define>
+	
+	<define name="expression">
+		<data type="normalizedString"/>
+	</define>
+	
+	
+	<define name="field.name">
+		<data type="NMTOKEN"/>
+	</define>
+	
+	<define name="field.names">
+		<list>
+			<zeroOrMore>
+				<ref name="field.name"/>
+			</zeroOrMore>
+		</list>
+	</define>
+	
+	
+	<define name="item.attrs">
+		<optional>
+			<attribute name="name">
+				<ref name="field.name"/>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="cond">
+				<ref name="expression"/>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="expr">
+				<ref name="expression"/>
+			</attribute>
+		</optional>
+	</define>
+	
+	
+	<define name="cache.attrs">
+		<optional>
+			<attribute name="caching">
+				<choice>
+					<value>safe</value>
+					<value>fast</value>
+				</choice>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="fetchint">
+				<choice>
+					<value>prefetch</value>
+					<value>safe</value>
+					<value>stream</value>
+				</choice>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="fetchtimeout">
+				<ref name="duration"/>
+			</attribute>
+		</optional>
+	</define>
+	
+	<define name="next.attrs">
+		<optional>
+			<attribute name="next">
+				<data type="anyURI"/>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="expr">
+				<ref name="expression"/>
+			</attribute>
+		</optional>
+	</define>
+	
+	
+	<define name="submit.attrs">
+		<optional>
+			<attribute name="method">
+				<choice>
+					<value>get</value>
+					<value>post</value>
+				</choice>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="enctype">
+				<ref name="content.type"/>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="namelist">
+				<ref name="field.names"/>
+			</attribute>
+		</optional>
+	</define>
+	
+	
+	
+	<define name="variable.class">
+		<choice>
+			<element name="block">
+				<ref name="item.attrs"/>
+				<zeroOrMore>
+					<ref name="executable.content"/>
+				</zeroOrMore>
+			</element>
+			<ref name="field"/>
+			<ref name="var"/>
+		</choice>
+	</define>
+	
+	
+	<!--================================= Root ================================-->
+	<start>
+		<ref name="vxml"/>
+	</start>
+	
+	<define name="vxml">
+		<element name="vxml">
+			<optional>
+				<attribute name="application">
+					<data type="anyURI"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="base">
+					<data type="anyURI"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="lang">
+					<data type="normalizedString"/>
+				</attribute>
+			</optional>
+			<attribute name="version">
+				<data type="normalizedString" />
+			</attribute>
+			
+			<oneOrMore>
+				<choice>
+					<ref name="event.handler"/>
+					<ref name="form"/>
+					<ref name="link"/>
+					<ref name="menu"/>
+					<element name="meta">
+						<optional>
+							<attribute name="name">
+								<data type="NMTOKEN"/>
+							</attribute>
+						</optional>
+						<attribute name="content">
+							<data type="normalizedString" />
+						</attribute>
+						<optional>
+							<attribute name="http-equiv">
+								<data type="NMTOKEN"/>
+							</attribute>
+						</optional>
+					</element>
+					<ref name="property"/>
+					<ref name="script"/>
+					<ref name="var"/>
+				</choice>
+			</oneOrMore>
+		</element>
+	</define>
+	
+	
+<!--================================= Dialogs =============================-->
+	<define name="input.class">
+		<choice>
+			<ref name="dtmf"/>
+			<ref name="grammar"/>
+		</choice>
+	</define>
+	
+	<define name="scope">
+		<choice>
+			<value>document</value>
+			<value>dialog</value>
+		</choice>
+	</define>
+	
+	<define name="form">
+		<element name="form">
+			<optional>
+				<attribute name="id">
+					<data type="ID"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="scope">
+					<ref name="scope"/>
+				</attribute>
+			</optional>
+			
+			<zeroOrMore>
+				<choice>
+					<ref name="input.class"/>
+					<ref name="event.handler"/>
+					<ref name="filled"/>
+					<element name="initial">
+						<ref name="item.attrs"/>
+						<zeroOrMore>
+							<choice>
+								<ref name="audio.class"/>
+								<ref name="event.handler"/>
+								<ref name="link"/>
+								<ref name="prompt"/>
+								<ref name="property"/>
+							</choice>
+						</zeroOrMore>
+					</element>
+					<element name="object">
+						<ref name="item.attrs"/>
+						<ref name="cache.attrs"/>
+						<optional>
+							<attribute name="classid">
+								<data type="anyURI"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="codebase">
+								<data type="anyURI"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="data">
+								<data type="anyURI"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="type">
+								<data type="normalizedString"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="codetype">
+								<data type="normalizedString"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="archive">
+									<data type="anyURI"/>
+							</attribute>
+						</optional>
+						<zeroOrMore>
+							<choice>
+								<ref name="audio.class"/>
+								<ref name="event.handler"/>
+								<ref name="filled"/>
+								<ref name="param"/>
+								<ref name="prompt"/>
+								<ref name="property"/>
+							</choice>
+						</zeroOrMore>
+					</element>
+					<ref name="link"/>
+					<ref name="property"/>
+					<element name="record">
+						<ref name="item.attrs"/>
+						<optional>
+							<attribute name="type">
+								<data type="normalizedString"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="beep">
+								<data type="boolean"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="maxtime">
+								<ref name="duration"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="modal">
+								<data type="boolean"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="finalsilence">
+								<ref name="duration"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="dtmfterm">
+								<data type="boolean"/>
+							</attribute>
+						</optional>
+						
+						<zeroOrMore>
+							<choice>
+								<ref name="audio.class"/>
+								<ref name="event.handler"/>
+								<ref name="filled"/>
+								<ref name="grammar"/>
+								<ref name="prompt"/>
+								<ref name="property"/>
+							</choice>
+						</zeroOrMore>
+					</element>
+					<element name="subdialog">
+						<ref name="item.attrs"/>
+						<attribute name="src">
+							<data type="anyURI" />
+						</attribute>
+						<ref name="cache.attrs"/>
+						<optional>
+							<attribute name="fecthaudio">
+								<data type="anyURI"/>
+							</attribute>
+						</optional>
+						<ref name="submit.attrs"/>
+						
+						<zeroOrMore>
+							<choice>
+								<ref name="audio.class"/>
+								<ref name="event.handler"/>
+								<ref name="filled"/>
+								<ref name="param"/>
+								<ref name="prompt"/>
+								<ref name="property"/>
+							</choice>
+						</zeroOrMore>
+					</element>
+					<element name="transfer">
+						<ref name="item.attrs"/>
+						<optional>
+							<attribute name="dest">
+								<data type="anyURI"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="destexpr">
+								<ref name="expression"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="bridge">
+								<data type="boolean"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="connecttimeout">
+								<ref name="duration"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="maxtime">
+								<ref name="duration"/>
+							</attribute>
+						</optional>
+						
+						<zeroOrMore>
+							<choice>
+								<ref name="audio.class"/>
+								<ref name="event.handler"/>
+								<ref name="dtmf"/>
+								<ref name="filled"/>
+								<ref name="grammar"/>
+								<ref name="prompt"/>
+								<ref name="property"/>
+							</choice>
+						</zeroOrMore>
+					</element>
+					<ref name="variable.class"/>
+				</choice>
+			</zeroOrMore>
+		</element>
+	</define>
+	
+	<define name="menu">
+		<element name="menu">
+			<optional>
+				<attribute name="id">
+					<data type="ID"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="scope">
+					<ref name="scope"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="dtmf">
+					<data type="boolean"/>
+				</attribute>
+			</optional>
+			
+			<zeroOrMore>
+				<choice>
+					<ref name="audio.class"/>
+					<element name="choice">
+						<ref name="cache.attrs"/>
+						<optional>
+							<attribute name="dtmf">
+								<data type="normalizedString"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="event">
+								<ref name="event.name"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="fetchaudio">
+								<data type="anyURI"/>
+							</attribute>
+						</optional>
+						
+						<zeroOrMore>
+							<choice>
+								<ref name="audio.class"/>
+								<ref name="grammar"/>
+								<ref name="tts.class"/>
+							</choice>
+						</zeroOrMore>
+					</element>
+					<ref name="event.handler"/>
+					<ref name="prompt"/>
+					<ref name="property"/>
+				</choice>
+			</zeroOrMore>
+		</element>
+	</define>
+	
+	
+<!--================================ Prompts ==============================-->
+	<define name="prompt">
+		<element name="prompt">
+			<optional>
+				<attribute name="bargein">
+					<data type="boolean"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="cond">
+					<ref name="expression"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="count">
+					<data type="integer"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="timeout">
+					<ref name="duration"/>
+				</attribute>
+			</optional>
+			
+			<zeroOrMore>
+				<choice>
+					<ref name="audio.class"/>
+					<ref name="tts.class"/>
+				</choice>
+			</zeroOrMore>
+		</element>
+	</define>
+	
+	<define name="enumerate">
+		<element name="enumerate">
+			<zeroOrMore>
+				<choice>
+					<ref name="audio.class"/>
+					<ref name="tts.class"/>
+				</choice>
+			</zeroOrMore>
+		</element>
+	</define>
+	
+	<define name="reprompt">
+		<element name="reprompt">
+			<empty/>
+		</element>
+	</define>
+	
+	
+	
+<!--================================ Fields ===============================-->
+	
+	<define name="field">
+		<element name="field">
+			<ref name="item.attrs"/>
+			<optional>
+				<attribute name="type">
+					<data type="normalizedString"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="slot">
+					<data type="NMTOKEN"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="modal">
+					<data type="boolean"/>
+				</attribute>
+			</optional>
+			
+			<zeroOrMore>
+				<choice>
+					<ref name="audio.class"/>
+					<ref name="event.handler"/>
+					<ref name="filled"/>
+					<ref name="input.class"/>
+					<ref name="link"/>
+					<element name="option">
+						<optional>
+							<attribute name="dtmf">
+								<data type="normalizedString"/>
+							</attribute>
+						</optional>
+						<optional>
+							<attribute name="value">
+								<data type="normalizedString"/>
+							</attribute>
+						</optional>
+						
+						<text/>
+					</element>
+					<ref name="prompt"/>
+					<ref name="property"/>
+				</choice>
+			</zeroOrMore>
+		</element>
+	</define>
+	
+	<define name="var">
+		<element name="var">
+			<attribute name="name">
+				<ref name="field.name"/>
+			</attribute>
+			<optional>
+				<attribute name="expr">
+					<ref name="expression"/>
+				</attribute>
+			</optional>
+		</element>
+	</define>
+	
+	
+<!--================================== Events =============================-->
+	
+	<define name="event.handler">
+		<choice>
+			<element name="catch">
+				<ref name="event.handler.attrs"/>
+				<attribute name="event">
+					<ref name="event.names"/>
+				</attribute>
+				<zeroOrMore>
+					<ref name="executable.content"/>
+				</zeroOrMore>
+			</element>
+			<element name="help">
+				<ref name="event.handler.attrs"/>
+				<zeroOrMore>
+					<ref name="executable.content"/>
+				</zeroOrMore>
+			</element>
+			<element name="noinput">
+				<ref name="event.handler.attrs"/>
+				<zeroOrMore>
+					<ref name="executable.content"/>
+				</zeroOrMore>
+			</element>
+			<element name="nomatch">
+				<ref name="event.handler.attrs"/>
+				<zeroOrMore>
+					<ref name="executable.content"/>
+				</zeroOrMore>
+			</element>
+			<element name="error">
+				<ref name="event.handler.attrs"/>
+				<zeroOrMore>
+					<ref name="executable.content"/>
+				</zeroOrMore>
+			</element>
+		</choice>
+	</define>
+	
+	<define name="event.handler.attrs">
+		<optional>
+			<attribute name="count">
+				<data type="integer"/>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="cond">
+				<ref name="expression"/>
+			</attribute>
+		</optional>
+	</define>
+	
+	<define name="link">
+		<element name="link">
+			<zeroOrMore>
+				<choice>
+					<ref name="dtmf"/>
+					<ref name="grammar"/>
+				</choice>
+			</zeroOrMore>
+			
+			<ref name="cache.attrs"/>
+			<ref name="next.attrs"/>
+			<optional>
+				<attribute name="fetchaudio">
+					<data type="anyURI"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="event">
+					<ref name="event.name"/>
+				</attribute>
+			</optional>
+		</element>
+	</define>
+	
+	
+<!--============================== Audio Output ===========================-->
+	<define name="audio.class">
+		<choice>
+			<text/>
+			<element name="audio">
+				<optional>
+					<attribute name="src">
+						<data type="anyURI"/>
+					</attribute>
+				</optional>
+				<ref name="cache.attrs"/>
+				
+				<zeroOrMore>
+					<choice>
+						<ref name="audio.class"/>
+						<ref name="tts.class"/>
+					</choice>
+				</zeroOrMore>
+			</element>
+			<ref name="enumerate"/>
+			<element name="value">
+				<optional>
+					<attribute name="class">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				<attribute name="expr">
+					<ref name="expression"/>
+				</attribute>
+				<optional>
+					<attribute name="mode">
+						<choice>
+							<value>tts</value>
+							<value>recorded</value>
+						</choice>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="recsrc">
+						<data type="anyURI"/>
+					</attribute>
+				</optional>
+			</element>
+		</choice>
+	</define>
+	
+	<define name="tts.class">
+		<choice>
+			<element name="break">
+				<optional>
+					<attribute name="msecs">
+						<data type="integer"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="size">
+						<choice>
+							<value>none</value>
+							<value>small</value>
+							<value>medium</value>
+							<value>large</value>
+						</choice>
+					</attribute>
+				</optional>
+			</element>
+			<element name="div">
+				<optional>
+					<attribute name="type">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				
+				<zeroOrMore>
+					<choice>
+						<ref name="audio.class"/>
+						<ref name="tts.class"/>
+					</choice>
+				</zeroOrMore>
+			</element>
+			<element name="emp">
+				<optional>
+					<attribute name="level">
+						<choice>
+							<value>strong</value>
+							<value>moderate</value>
+							<value>none</value>
+							<value>reduced</value>
+						</choice>
+					</attribute>
+				</optional>
+				
+				<zeroOrMore>
+					<choice>
+						<ref name="audio.class"/>
+						<ref name="tts.class"/>
+					</choice>
+				</zeroOrMore>
+			</element>
+			<element name="pros">
+				<optional>
+					<attribute name="rate">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="vol">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="pitch">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="range">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				<zeroOrMore>
+					<choice>
+						<ref name="audio.class"/>
+						<ref name="tts.class"/>
+					</choice>
+				</zeroOrMore>
+			</element>
+			<element name="sayas">
+				<optional>
+					<attribute name="sub">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="class">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="phon">
+						<data type="normalizedString"/>
+					</attribute>
+				</optional>
+				<text/>
+			</element>
+		</choice>
+	</define>
+	
+	
+<!--============================= Audio Input =============================-->
+	<define name="key">
+		<data type="normalizedString"/>
+	</define>
+	
+	<define name="grammar.attrs">
+		<ref name="cache.attrs"/>
+		<optional>
+			<attribute name="scope">
+				<ref name="scope"/>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="src">
+				<data type="anyURI"/>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="type">
+				<data type="normalizedString"/>
+			</attribute>
+		</optional>
+	</define>
+	
+	<define name="dtmf">
+		<element name="dtmf">
+			<ref name="grammar.attrs"/>
+			<text/>
+		</element>
+	</define>
+	<define name="grammar">
+		<element name="grammar">
+			<ref name="grammar.attrs"/>
+			<text/>
+		</element>
+	</define>
+	
+<!--============================ Call Control ============================-->
+
+
+<!--============================ Control Flow ============================-->
+	<define name="if.attrs">
+		<attribute name="cond">
+			<ref name="expression"/>
+		</attribute>
+	</define>
+	
+	<define name="executable.control.flow">
+		<choice>
+			<element name="if">
+				<ref name="if.attrs"/>
+				<zeroOrMore>
+					<choice>
+						<ref name="executable.content"/>
+						<element name="elseif">
+							<ref name="if.attrs"/>
+							<ref name="executable.content"/>
+						</element>
+						<element name="else">
+							<empty/>
+						</element>
+					</choice>
+				</zeroOrMore>
+			</element>
+			<element name="exit">
+				<optional>
+					<attribute name="expr">
+						<ref name="expression"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="namelist">
+						<ref name="field.names"/>
+					</attribute>
+				</optional>
+			</element>
+			<element name="goto">
+				<ref name="cache.attrs"/>
+				<ref name="next.attrs"/>
+				<optional>
+					<attribute name="fetchaudio">
+						<data type="anyURI"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="expritem">
+						<ref name="expression"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="nextitem">
+						<ref name="field.name"/>
+					</attribute>
+				</optional>
+			</element>
+			<element name="return">
+				<optional>
+					<attribute name="namelist">
+						<ref name="field.names"/>
+					</attribute>
+				</optional>
+				<optional>
+					<attribute name="event">
+						<ref name="event.name"/>
+					</attribute>
+				</optional>
+			</element>
+			<element name="submit">
+				<ref name="cache.attrs"/>
+				<ref name="next.attrs"/>
+				<optional>
+					<attribute name="fetchaudio">
+						<data type="anyURI"/>
+					</attribute>
+				</optional>
+				<ref name="submit.attrs"/>
+			</element>
+		</choice>
+	</define>
+	
+	<define name="filled">
+		<element name="filled">
+			<optional>
+				<attribute name="mode">
+					<choice>
+						<value>any</value>
+						<value>all</value>
+					</choice>
+				</attribute>
+			</optional>
+			<optional>
+			<attribute name="namelist">
+					<ref name="field.names"/>
+				</attribute>
+			</optional>
+			
+			<zeroOrMore>
+				<ref name="executable.content"/>
+			</zeroOrMore>
+		</element>
+	</define>
+	
+	<define name="param">
+		<element name="param">
+			<attribute name="name">
+				<data type="NMTOKEN" />
+			</attribute>
+			<optional>
+				<attribute name="expr">
+					<ref name="expression"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="value">
+					<data type="normalizedString"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="valuetype">
+					<choice>
+						<value>data</value>
+						<value>ref</value>
+					</choice>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="type">
+					<data type="normalizedString"/>
+				</attribute>
+			</optional>
+		</element>
+	</define>
+
+
+<!--========================== Miscellaneous ==============================-->
+	<define name="property">
+		<element name="property">
+			<attribute name="name">
+				<data type="NMTOKEN" />
+			</attribute>
+			<attribute name="value">
+				<data type="normalizedString" />
+			</attribute>
+		</element>
+	</define>
+	
+	<define name="script">
+		<element name="script">
+			<optional>
+				<attribute name="src">
+					<data type="anyURI"/>
+				</attribute>
+			</optional>
+			<optional>
+				<attribute name="charset">
+					<data type="normalizedString"/>
+				</attribute>
+			</optional>
+			<ref name="cache.attrs"/>
+			<text/>
+		</element>
+	</define>
+</grammar>

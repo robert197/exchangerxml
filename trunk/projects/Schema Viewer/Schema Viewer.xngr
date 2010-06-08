@@ -1,0 +1,22 @@
+<xngr>
+	<projects>	
+<project name="Schema Viewer">
+
+   <document src="contacts.xml"/>
+
+  <folder name="schema">
+   <document src="schema/contacts.xsd"/>
+   <document src="schema/inferred.xsd"/>
+   <document src="schema/converted.xsd"/>
+  </folder>
+  <folder name="dtd">
+   <document src="dtd/contacts.dtd"/>
+  </folder>
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<schema targetNamespace="http://www.xbrl.org/2001/instance" xmlns:xbrli="http://www.xbrl.org/2001/instance" xmlns:link="http://www.xbrl.org/2001/XLink/xbrllinkbase" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<annotation>
+		<documentation>
+		Taxonomy schema for XBRL. 
+		This schema extends the XSchema schema with several linking structures useful for XBRL taxonomies.
+	</documentation>
+	</annotation>
+	<import namespace="http://www.xbrl.org/2001/XLink/xbrllinkbase" schemaLocation="xbrl-linkbase.xsd"/>
+	<!-- ******************* attributes **************************           -->
+	<!-- _____________balance attribute           -->
+	<attribute name="balance">
+		<simpleType>
+			<restriction base="string">
+				<enumeration value="debit"/>
+				<enumeration value="credit"/>
+			</restriction>
+		</simpleType>
+	</attribute>
+	<!-- _____________stockFlow attribute           -->
+	<attribute name="stockFlow">
+		<simpleType>
+			<restriction base="string">
+				<enumeration value="stock"/>
+				<enumeration value="flow"/>
+			</restriction>
+		</simpleType>
+	</attribute>
+	<!-- ******************* simple types **************************           -->
+	<!-- _____________monetary            -->
+	<simpleType name="monetary">
+		<annotation>
+			<documentation>
+		This datatype serves as the datatype for those financial concepts in a taxonomy which denote units in a currency.
+		Instance items with this type should have a unit of measure from the ISO 4217 namespace of currencies.
+	</documentation>
+		</annotation>
+		<restriction base="decimal"/>
+	</simpleType>
+	<!-- _____________shares            -->
+	<simpleType name="shares">
+		<annotation>
+			<documentation>
+		This datatype serves as the datatype for share based financial concepts.
+	</documentation>
+		</annotation>
+		<restriction base="decimal">
+			<minInclusive value="0"/>
+		</restriction>
+	</simpleType>
+	<!-- _____________xbrlDuration            -->
+	<simpleType name="xbrlDuration">
+		<annotation>
+			<documentation>
+A duration element shall not contain a zero length duration, such as P0Y, P0M, P0D, etc.
+It is an error for the duration to contain a negative amount. Applications may recover by using the absolute value (positive amount).
+	</documentation>
+		</annotation>
+		<restriction base="duration">
+			<minExclusive value="P0D"/>
+		</restriction>
+	</simpleType>
+	<!-- ******************* item types **************************           -->
+	<!-- _____________itemType            -->
+	<!-- _____________monetaryItemType            -->
+	<complexType name="monetaryItemType">
+		<simpleContent>
+			<extension base="xbrli:monetary">
+				<attribute name="numericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________sharesItemType            -->
+	<complexType name="sharesItemType">
+		<simpleContent>
+			<extension base="xbrli:shares">
+				<attribute name="numericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________decimalItemType            -->
+	<complexType name="decimalItemType">
+		<simpleContent>
+			<extension base="decimal">
+				<attribute name="numericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________floatItemType            -->
+	<complexType name="floatItemType">
+		<simpleContent>
+			<extension base="float">
+				<attribute name="numericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________doubleItemType            -->
+	<complexType name="doubleItemType">
+		<simpleContent>
+			<extension base="double">
+				<attribute name="numericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________integerItemType            -->
+	<complexType name="integerItemType">
+		<simpleContent>
+			<extension base="integer">
+				<attribute name="numericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________stringItemType            -->
+	<complexType name="stringItemType">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________booleanItemType            -->
+	<complexType name="booleanItemType">
+		<simpleContent>
+			<extension base="boolean">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________hexBinaryItemType            -->
+	<complexType name="hexBinaryItemType">
+		<simpleContent>
+			<extension base="hexBinary">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________base64BinaryItemType            -->
+	<complexType name="base64BinaryItemType">
+		<simpleContent>
+			<extension base="base64Binary">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________anyURIItemType            -->
+	<complexType name="anyURIItemType">
+		<simpleContent>
+			<extension base="anyURI">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________uriItemType            -->
+	<complexType name="uriItemType">
+		<simpleContent>
+			<extension base="anyURI">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________QNameItemType            -->
+	<complexType name="QNameItemType">
+		<simpleContent>
+			<extension base="QName">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________NOTATIONItemType            -->
+	<complexType name="NOTATIONItemType">
+		<simpleContent>
+			<extension base="NOTATION">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________duration           -->
+	<complexType name="durationItemType">
+		<simpleContent>
+			<extension base="duration">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________dateTimeItemType            -->
+	<complexType name="dateTimeItemType">
+		<simpleContent>
+			<extension base="xbrli:dateUnion">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________timeItemType            -->
+	<complexType name="timeItemType">
+		<simpleContent>
+			<extension base="time">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________dateItemType            -->
+	<complexType name="dateItemType">
+		<simpleContent>
+			<extension base="date">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________gYearMonthItemType            -->
+	<complexType name="gYearMonthItemType">
+		<simpleContent>
+			<extension base="gYearMonth">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________gYearItemType            -->
+	<complexType name="gYearItemType">
+		<simpleContent>
+			<extension base="gYear">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________gMonthDayItemType            -->
+	<complexType name="gMonthDayItemType">
+		<simpleContent>
+			<extension base="gMonthDay">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________gDayItemType            -->
+	<complexType name="gDayItemType">
+		<simpleContent>
+			<extension base="gDay">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- _____________gMonthItemType            -->
+	<complexType name="gMonthItemType">
+		<simpleContent>
+			<extension base="gMonth">
+				<attribute name="nonNumericContext" type="IDREF" use="required"/>
+				<anyAttribute namespace="##any" processContents="lax"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- ******************* context: entityType, periodType ****************-->
+	<!-- _____________context:entityType            -->
+	<complexType name="entityType">
+		<sequence>
+			<element name="identifier">
+				<complexType>
+					<simpleContent>
+						<extension base="string">
+							<attribute name="scheme" type="anyURI" use="required"/>
+						</extension>
+					</simpleContent>
+				</complexType>
+			</element>
+			<element ref="xbrli:segment" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<!-- _____________context:periodType            -->
+	<complexType name="periodType">
+		<choice>
+			<sequence minOccurs="0">
+				<element ref="xbrli:startDate"/>
+				<choice>
+					<element ref="xbrli:endDate"/>
+					<element ref="xbrli:duration"/>
+				</choice>
+			</sequence>
+			<sequence minOccurs="0">
+				<element ref="xbrli:duration"/>
+				<element ref="xbrli:endDate"/>
+			</sequence>
+			<element ref="xbrli:instant" minOccurs="0"/>
+			<element ref="xbrli:forever" minOccurs="0"/>
+		</choice>
+	</complexType>
+	<!-- ******************* context: period sub elements **************************           -->
+	<simpleType name="dateUnion">
+		<union memberTypes="date dateTime"/>
+	</simpleType>
+	<!-- _____________startDate            -->
+	<element name="startDate" type="xbrli:dateUnion"/>
+	<!-- _____________endDate            -->
+	<element name="endDate" type="xbrli:dateUnion"/>
+	<!-- _____________duration            -->
+	<element name="duration" type="xbrli:xbrlDuration"/>
+	<!-- _____________instant            -->
+	<element name="instant" type="xbrli:dateUnion"/>
+	<!-- _____________forever            -->
+	<element name="forever">
+		<complexType/>
+	</element>
+	<!-- ******************* context: segment element, scenario element****************          -->
+	<!-- _____________context:segment element            -->
+	<element name="segment">
+		<complexType>
+			<choice minOccurs="0" maxOccurs="unbounded">
+				<any namespace="##any" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+			</choice>
+			<attribute name="name" type="string" use="optional"/>
+		</complexType>
+	</element>
+	<!-- _____________context:scenario element            -->
+	<element name="scenario">
+		<complexType>
+			<choice minOccurs="0" maxOccurs="unbounded">
+				<any namespace="##any" processContents="strict" minOccurs="0" maxOccurs="unbounded"/>
+			</choice>
+			<attribute name="name" type="string" use="optional"/>
+		</complexType>
+	</element>
+	<!-- ******************* context: unit element **************       -->
+	<!-- _____________context:measure element            -->
+	<element name="measure" type="QName"/>
+	<!-- _____________context:operatorNameEnum           -->
+	<simpleType name="operatorNameEnum">
+		<restriction base="string">
+			<enumeration value="multiply"/>
+			<enumeration value="divide"/>
+		</restriction>
+	</simpleType>
+	<!-- _____________context:operator element            -->
+	<element name="operator">
+		<complexType>
+			<choice minOccurs="2" maxOccurs="2">
+				<element ref="xbrli:measure"/>
+				<element ref="xbrli:operator"/>
+			</choice>
+			<attribute name="name" type="xbrli:operatorNameEnum" use="required"/>
+		</complexType>
+	</element>
+	<!-- _____________context:unitType            -->
+	<complexType name="unitType">
+		<choice>
+			<element ref="xbrli:measure"/>
+			<element ref="xbrli:operator"/>
+		</choice>
+	</complexType>
+	<!-- ******************* context: nonNumericContext, numericContext elements **************       -->
+	<!-- _____________nonNumericContext          -->
+	<element name="nonNumericContext">
+		<complexType>
+			<sequence>
+				<element name="entity" type="xbrli:entityType"/>
+				<element name="period" type="xbrli:periodType"/>
+				<element name="unit" type="xbrli:unitType" minOccurs="0"/>
+				<element ref="xbrli:scenario" minOccurs="0"/>
+			</sequence>
+			<attribute name="id" type="ID" use="required"/>
+		</complexType>
+	</element>
+	<!-- _____________numericContext          -->
+	<element name="numericContext">
+		<complexType>
+			<sequence>
+				<element name="entity" type="xbrli:entityType"/>
+				<element name="period" type="xbrli:periodType"/>
+				<element name="unit" type="xbrli:unitType"/>
+				<element ref="xbrli:scenario" minOccurs="0"/>
+			</sequence>
+			<attribute name="id" type="ID" use="required"/>
+			<attribute name="precision" type="positiveInteger" use="required"/>
+			<attribute name="cwa" type="boolean" use="required"/>
+		</complexType>
+	</element>
+	<!-- ******************* xbrl elements **************************           -->
+	<!-- _____________item           -->
+	<element name="item" type="anySimpleType" abstract="true"/>
+	<!-- _____________tupleType           -->
+	<complexType name="tupleType">
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element ref="xbrli:item" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="xbrli:tuple" minOccurs="0" maxOccurs="unbounded"/>
+		</choice>
+		<anyAttribute namespace="##any" processContents="lax"/>
+	</complexType>
+	<!-- _____________tuple           -->
+	<element name="tuple" type="xbrli:tupleType" abstract="true"/>
+	<!-- _____________group           -->
+	<element name="group">
+		<complexType>
+			<choice minOccurs="0" maxOccurs="unbounded">
+				<element ref="xbrli:group" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="xbrli:item" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="xbrli:tuple" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="xbrli:nonNumericContext" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="xbrli:numericContext" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="link:linkbaseRef" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="link:footnoteLink" minOccurs="0" maxOccurs="unbounded"/>
+			</choice>
+		</complexType>
+	</element>
+	<!-- _____________xbrl           -->
+	<element name="xbrl">
+		<complexType>
+			<choice minOccurs="0" maxOccurs="unbounded">
+				<element ref="xbrli:item" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="xbrli:tuple" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="xbrli:nonNumericContext" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="xbrli:numericContext" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="link:linkbaseRef" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="link:footnoteLink" minOccurs="0" maxOccurs="unbounded"/>
+			</choice>
+		</complexType>
+	</element>
+</schema>

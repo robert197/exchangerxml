@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN" "http://java.sun.com/products/javahelp/toc_1_0.dtd">
+
+
+<toc version="1.0">
+	<tocitem text="Exchanger XML Editor" image="toplevelfolder" target="exchanger.intro">
+		<tocitem text="Introduction to Exchanger XML Editor" target="exchanger.intro"/>
+		<tocitem text="Getting Started" target="start.intro">
+			<tocitem text="Introducing Exchanger XML Editor" target="start.overview"/>
+			<tocitem text="Browsing/Navigation" target="start.browsing"/>
+			<tocitem text="XPath" target="start.xpath"/>
+			<tocitem text="Editing XML Content" target="start.editing"/>
+			<tocitem text="Grid" target="start.grid"/>
+			<!--<tocitem text="Using Grammars: XML Schema, DTD and RelaxNG" target="start.grammars"/>
+			<tocitem text="XML Encodings, Schema Location and XIncludes" target="start.xmlmenu"/>
+			<tocitem text="Special Characters and Entities" target="start.specchar"/>
+			<tocitem text="Remote Files: HTTP(S), FTP and WebDAV" target="start.remote"/>-->
+			<tocitem text="Using Projects" target="start.projects"/>
+			<tocitem text="Schema Viewer" target="start.schema"/>
+			<tocitem text="Types" target="start.types"/>
+			<tocitem text="XSLT and XSLFO Transformations" target="start.transforms"/>
+			<tocitem text="Exchanger XSLT Debugger" target="start.debugger"/>
+			<tocitem text="Data Import" target="start.import"/>
+			<tocitem text="XML Unordered Differencing and Merging" target="start.diff"/>
+			<tocitem text="SOAP" target="start.soap"/>
+			<tocitem text="WSDL Analyzer" target="start.wsdl"/>
+			<tocitem text="XML Canonicalization" target="start.canon"/>
+			<tocitem text="XML Signatures" target="start.sign"/>
+			<tocitem text="Query" target="start.query"/>
+			<tocitem text="SVG" target="start.svg"/>
+			<tocitem text="Using the Outliner" target="start.outliner"/>
+			<!--<tocitem text="Database Access" target="start.db"/>-->
+			<tocitem text="Emacs Keyboard Shortcuts" target="start.emacsshort"/>
+			<tocitem text="Windows/Unix Keyboard Shortcuts" target="start.winunixshort"/>
+			<tocitem text="Macintosh Keyboard Shortcuts" target="start.macshort"/>
+
+		</tocitem>
+		<tocitem text="Preferences" target="pref.intro">
+			<tocitem text="Text" target="pref.text"/>
+			<tocitem text="Views" target="pref.views"/>
+			<tocitem text="XML" target="pref.xml"/>
+			<tocitem text="Format" target="pref.format"/>
+			<tocitem text="Print" target="pref.print"/>
+			<tocitem text="Security" target="pref.security"/>
+			<tocitem text="System" target="pref.system"/>
+			<tocitem text="Keys" target="pref.keys"/>
+		</tocitem>
+		<tocitem text="Menus" target="menus.intro">
+			<tocitem text="File Menu" target="menus.file"/>
+			<tocitem text="Edit Menu" target="menus.edit"/>
+			<tocitem text="View Menu" target="menus.view"/>
+			<tocitem text="Project Menu" target="menus.project"/>
+			<tocitem text="XML Menu" target="menus.xml"/>
+			<tocitem text="Schema Menu" target="menus.schema"/>
+			<tocitem text="Transform Menu" target="menus.transform"/>
+			<tocitem text="Security Menu" target="menus.security"/>
+			<tocitem text="Tools Menu" target="menus.tools"/>
+			<tocitem text="Grid Menu" target="menus.grid"/>
+			<tocitem text="Help Menu" target="menus.help"/>			
+		</tocitem>
+		<tocitem text="Toolbars" target="toolbar.intro">
+			<tocitem text="General Toolbar" target="toolbar.general"/>
+			<tocitem text="Edit Toolbar" target="toolbar.edit"/>
+			<tocitem text="Debugger Toolbar" target="toolbar.debugger"/>
+			<tocitem text="Grid Toolbar" target="toolbar.grid"/>
+		</tocitem>
+	</tocitem>
+</toc>

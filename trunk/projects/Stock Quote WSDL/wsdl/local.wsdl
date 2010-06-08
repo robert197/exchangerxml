@@ -1,0 +1,1454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://www.xignite.com/services/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://www.xignite.com/services/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.xignite.com/services/">
+      <s:element name="GetQuickQuotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuickQuotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuickQuotesResult" type="s0:ArrayOfQuickQuote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfQuickQuote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="QuickQuote" nillable="true" type="s0:QuickQuote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QuickQuote">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Last" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Change" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="Time" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Common">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Outcome" type="s0:OutcomeTypes" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Identity" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Delay" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OutcomeTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="SystemError" />
+          <s:enumeration value="RequestError" />
+          <s:enumeration value="RegistrationError" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Header" type="s0:Header" />
+      <s:complexType name="Header">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tracer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetQuotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuotesResult" type="s0:ArrayOfQuote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfQuote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Quote" nillable="true" type="s0:Quote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Quote">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Time" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Open" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="High" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Low" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Last" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Change" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercentChange" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="Previous_Close" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Bid" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Bid_Size" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ask" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ask_Size" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="High_52_Weeks" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Low_52_Weeks" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetQuote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuoteResult" type="s0:ExtendedQuote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExtendedQuote">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Exchange" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quote" type="s0:StockQuote" />
+              <s:element minOccurs="0" maxOccurs="1" name="Statistics" type="s0:StockStatistics" />
+              <s:element minOccurs="0" maxOccurs="1" name="Chart" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="News" type="s0:ArrayOfStockNews" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StockQuote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Previous_Close" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Open" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="High" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Low" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bid_Size" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ask" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ask_Size" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Percent_Change" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Change" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Volume" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="High_52_Weeks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Low_52_Weeks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Time" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StockStatistics">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Price_Earnings" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Price_Sales" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Market_Cap" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EPS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EPS_Estimate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStockNews">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StockNews" nillable="true" type="s0:StockNews" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StockNews">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Headline" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Ticker" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Time" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetFundQuote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFundQuoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFundQuoteResult" type="s0:ExtendedFundQuote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExtendedFundQuote">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Quote" type="s0:FundQuote" />
+              <s:element minOccurs="0" maxOccurs="1" name="Chart" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="News" type="s0:ArrayOfStockNews" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FundQuote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Previous_Close" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NAV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Change" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Percent_Change" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Time" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTDReturn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Net_Assets" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Yield" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetQuoteHistorical">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AsOfDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuoteHistoricalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuoteHistoricalResult" type="s0:HistoricalQuote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="HistoricalQuote">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Open" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="High" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Low" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Last" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercentChange" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="SplitRatio" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="OpenAdjusted" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="HighAdjusted" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="LowAdjusted" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastAdjusted" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="ChangeAdjusted" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="VolumeAdjusted" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Change" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetQuotesHistorical">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuotesHistoricalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuotesHistoricalResult" type="s0:ArrayOfHistoricalQuote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfHistoricalQuote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HistoricalQuote" nillable="true" type="s0:HistoricalQuote" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetQuotesHistoricalAsOf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="DaysOfHistory" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuotesHistoricalAsOfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuotesHistoricalAsOfResult" type="s0:ArrayOfHistoricalQuote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuotesHistoricalRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuotesHistoricalRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuotesHistoricalRangeResult" type="s0:ArrayOfHistoricalQuote" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMarketSummary">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMarketSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMarketSummaryResult" type="s0:MarketSummary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MarketSummary">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Indexes" type="s0:ArrayOfIndex" />
+              <s:element minOccurs="0" maxOccurs="1" name="Indicators" type="s0:ArrayOfIndicator" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfIndex">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Index" nillable="true" type="s0:Index" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Index">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Change" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="PercentChange" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIndicator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Indicator" nillable="true" type="s0:Indicator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Indicator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMarketChart">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMarketChartResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMarketChartResult" type="s0:HTMLResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="HTMLResult">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="HTML" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetTopMovers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTopMoversResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopMoversResult" type="s0:ArrayOfTop" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTop">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Top" nillable="true" type="s0:Top" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Top">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Exchange" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Last" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Change" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="PercentChange" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:double" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetTopGainers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTopGainersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopGainersResult" type="s0:ArrayOfTop" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTopLosers">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTopLosersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopLosersResult" type="s0:ArrayOfTop" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTop">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTopResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTopResult" type="s0:ArrayOfTop" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetIndices">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetIndicesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIndicesResult" type="s0:ArrayOfMarketIndex" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMarketIndex">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MarketIndex" nillable="true" type="s0:MarketIndex" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MarketIndex">
+        <s:complexContent mixed="false">
+          <s:extension base="s0:Common">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Symbol" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Last" type="s:double" />
+              <s:element minOccurs="1" maxOccurs="1" name="Change" type="s:double" />
+              <s:element minOccurs="0" maxOccurs="1" name="PercentChange" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfQuickQuote" nillable="true" type="s0:ArrayOfQuickQuote" />
+      <s:element name="ArrayOfQuote" nillable="true" type="s0:ArrayOfQuote" />
+      <s:element name="ExtendedQuote" nillable="true" type="s0:ExtendedQuote" />
+      <s:element name="ExtendedFundQuote" nillable="true" type="s0:ExtendedFundQuote" />
+      <s:element name="HistoricalQuote" nillable="true" type="s0:HistoricalQuote" />
+      <s:element name="ArrayOfHistoricalQuote" nillable="true" type="s0:ArrayOfHistoricalQuote" />
+      <s:element name="MarketSummary" nillable="true" type="s0:MarketSummary" />
+      <s:element name="HTMLResult" nillable="true" type="s0:HTMLResult" />
+      <s:element name="ArrayOfTop" nillable="true" type="s0:ArrayOfTop" />
+      <s:element name="ArrayOfMarketIndex" nillable="true" type="s0:ArrayOfMarketIndex" />
+    </s:schema>
+  </types>
+  <message name="GetQuickQuotesSoapIn">
+    <part name="parameters" element="s0:GetQuickQuotes" />
+  </message>
+  <message name="GetQuickQuotesSoapOut">
+    <part name="parameters" element="s0:GetQuickQuotesResponse" />
+  </message>
+  <message name="GetQuickQuotesHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetQuotesSoapIn">
+    <part name="parameters" element="s0:GetQuotes" />
+  </message>
+  <message name="GetQuotesSoapOut">
+    <part name="parameters" element="s0:GetQuotesResponse" />
+  </message>
+  <message name="GetQuotesHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetQuoteSoapIn">
+    <part name="parameters" element="s0:GetQuote" />
+  </message>
+  <message name="GetQuoteSoapOut">
+    <part name="parameters" element="s0:GetQuoteResponse" />
+  </message>
+  <message name="GetQuoteHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetFundQuoteSoapIn">
+    <part name="parameters" element="s0:GetFundQuote" />
+  </message>
+  <message name="GetFundQuoteSoapOut">
+    <part name="parameters" element="s0:GetFundQuoteResponse" />
+  </message>
+  <message name="GetFundQuoteHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetQuoteHistoricalSoapIn">
+    <part name="parameters" element="s0:GetQuoteHistorical" />
+  </message>
+  <message name="GetQuoteHistoricalSoapOut">
+    <part name="parameters" element="s0:GetQuoteHistoricalResponse" />
+  </message>
+  <message name="GetQuoteHistoricalHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetQuotesHistoricalSoapIn">
+    <part name="parameters" element="s0:GetQuotesHistorical" />
+  </message>
+  <message name="GetQuotesHistoricalSoapOut">
+    <part name="parameters" element="s0:GetQuotesHistoricalResponse" />
+  </message>
+  <message name="GetQuotesHistoricalHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetQuotesHistoricalAsOfSoapIn">
+    <part name="parameters" element="s0:GetQuotesHistoricalAsOf" />
+  </message>
+  <message name="GetQuotesHistoricalAsOfSoapOut">
+    <part name="parameters" element="s0:GetQuotesHistoricalAsOfResponse" />
+  </message>
+  <message name="GetQuotesHistoricalAsOfHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetQuotesHistoricalRangeSoapIn">
+    <part name="parameters" element="s0:GetQuotesHistoricalRange" />
+  </message>
+  <message name="GetQuotesHistoricalRangeSoapOut">
+    <part name="parameters" element="s0:GetQuotesHistoricalRangeResponse" />
+  </message>
+  <message name="GetQuotesHistoricalRangeHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetMarketSummarySoapIn">
+    <part name="parameters" element="s0:GetMarketSummary" />
+  </message>
+  <message name="GetMarketSummarySoapOut">
+    <part name="parameters" element="s0:GetMarketSummaryResponse" />
+  </message>
+  <message name="GetMarketSummaryHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetMarketChartSoapIn">
+    <part name="parameters" element="s0:GetMarketChart" />
+  </message>
+  <message name="GetMarketChartSoapOut">
+    <part name="parameters" element="s0:GetMarketChartResponse" />
+  </message>
+  <message name="GetMarketChartHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetTopMoversSoapIn">
+    <part name="parameters" element="s0:GetTopMovers" />
+  </message>
+  <message name="GetTopMoversSoapOut">
+    <part name="parameters" element="s0:GetTopMoversResponse" />
+  </message>
+  <message name="GetTopMoversHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetTopGainersSoapIn">
+    <part name="parameters" element="s0:GetTopGainers" />
+  </message>
+  <message name="GetTopGainersSoapOut">
+    <part name="parameters" element="s0:GetTopGainersResponse" />
+  </message>
+  <message name="GetTopGainersHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetTopLosersSoapIn">
+    <part name="parameters" element="s0:GetTopLosers" />
+  </message>
+  <message name="GetTopLosersSoapOut">
+    <part name="parameters" element="s0:GetTopLosersResponse" />
+  </message>
+  <message name="GetTopLosersHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetTopSoapIn">
+    <part name="parameters" element="s0:GetTop" />
+  </message>
+  <message name="GetTopSoapOut">
+    <part name="parameters" element="s0:GetTopResponse" />
+  </message>
+  <message name="GetTopHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetIndicesSoapIn">
+    <part name="parameters" element="s0:GetIndices" />
+  </message>
+  <message name="GetIndicesSoapOut">
+    <part name="parameters" element="s0:GetIndicesResponse" />
+  </message>
+  <message name="GetIndicesHeader">
+    <part name="Header" element="s0:Header" />
+  </message>
+  <message name="GetQuickQuotesHttpGetIn">
+    <part name="Symbol" type="s:string" />
+  </message>
+  <message name="GetQuickQuotesHttpGetOut">
+    <part name="Body" element="s0:ArrayOfQuickQuote" />
+  </message>
+  <message name="GetQuotesHttpGetIn">
+    <part name="Symbol" type="s:string" />
+  </message>
+  <message name="GetQuotesHttpGetOut">
+    <part name="Body" element="s0:ArrayOfQuote" />
+  </message>
+  <message name="GetQuoteHttpGetIn">
+    <part name="Symbol" type="s:string" />
+  </message>
+  <message name="GetQuoteHttpGetOut">
+    <part name="Body" element="s0:ExtendedQuote" />
+  </message>
+  <message name="GetFundQuoteHttpGetIn">
+    <part name="Symbol" type="s:string" />
+  </message>
+  <message name="GetFundQuoteHttpGetOut">
+    <part name="Body" element="s0:ExtendedFundQuote" />
+  </message>
+  <message name="GetQuoteHistoricalHttpGetIn">
+    <part name="Symbol" type="s:string" />
+    <part name="AsOfDate" type="s:string" />
+  </message>
+  <message name="GetQuoteHistoricalHttpGetOut">
+    <part name="Body" element="s0:HistoricalQuote" />
+  </message>
+  <message name="GetQuotesHistoricalHttpGetIn">
+    <part name="Symbol" type="s:string" />
+    <part name="Month" type="s:string" />
+    <part name="Year" type="s:string" />
+  </message>
+  <message name="GetQuotesHistoricalHttpGetOut">
+    <part name="Body" element="s0:ArrayOfHistoricalQuote" />
+  </message>
+  <message name="GetQuotesHistoricalAsOfHttpGetIn">
+    <part name="Symbol" type="s:string" />
+    <part name="EndDate" type="s:string" />
+    <part name="DaysOfHistory" type="s:string" />
+  </message>
+  <message name="GetQuotesHistoricalAsOfHttpGetOut">
+    <part name="Body" element="s0:ArrayOfHistoricalQuote" />
+  </message>
+  <message name="GetQuotesHistoricalRangeHttpGetIn">
+    <part name="Symbol" type="s:string" />
+    <part name="StartDate" type="s:string" />
+    <part name="EndDate" type="s:string" />
+  </message>
+  <message name="GetQuotesHistoricalRangeHttpGetOut">
+    <part name="Body" element="s0:ArrayOfHistoricalQuote" />
+  </message>
+  <message name="GetMarketSummaryHttpGetIn" />
+  <message name="GetMarketSummaryHttpGetOut">
+    <part name="Body" element="s0:MarketSummary" />
+  </message>
+  <message name="GetMarketChartHttpGetIn" />
+  <message name="GetMarketChartHttpGetOut">
+    <part name="Body" element="s0:HTMLResult" />
+  </message>
+  <message name="GetTopMoversHttpGetIn" />
+  <message name="GetTopMoversHttpGetOut">
+    <part name="Body" element="s0:ArrayOfTop" />
+  </message>
+  <message name="GetTopGainersHttpGetIn" />
+  <message name="GetTopGainersHttpGetOut">
+    <part name="Body" element="s0:ArrayOfTop" />
+  </message>
+  <message name="GetTopLosersHttpGetIn" />
+  <message name="GetTopLosersHttpGetOut">
+    <part name="Body" element="s0:ArrayOfTop" />
+  </message>
+  <message name="GetTopHttpGetIn" />
+  <message name="GetTopHttpGetOut">
+    <part name="Body" element="s0:ArrayOfTop" />
+  </message>
+  <message name="GetIndicesHttpGetIn" />
+  <message name="GetIndicesHttpGetOut">
+    <part name="Body" element="s0:ArrayOfMarketIndex" />
+  </message>
+  <message name="GetQuickQuotesHttpPostIn">
+    <part name="Symbol" type="s:string" />
+  </message>
+  <message name="GetQuickQuotesHttpPostOut">
+    <part name="Body" element="s0:ArrayOfQuickQuote" />
+  </message>
+  <message name="GetQuotesHttpPostIn">
+    <part name="Symbol" type="s:string" />
+  </message>
+  <message name="GetQuotesHttpPostOut">
+    <part name="Body" element="s0:ArrayOfQuote" />
+  </message>
+  <message name="GetQuoteHttpPostIn">
+    <part name="Symbol" type="s:string" />
+  </message>
+  <message name="GetQuoteHttpPostOut">
+    <part name="Body" element="s0:ExtendedQuote" />
+  </message>
+  <message name="GetFundQuoteHttpPostIn">
+    <part name="Symbol" type="s:string" />
+  </message>
+  <message name="GetFundQuoteHttpPostOut">
+    <part name="Body" element="s0:ExtendedFundQuote" />
+  </message>
+  <message name="GetQuoteHistoricalHttpPostIn">
+    <part name="Symbol" type="s:string" />
+    <part name="AsOfDate" type="s:string" />
+  </message>
+  <message name="GetQuoteHistoricalHttpPostOut">
+    <part name="Body" element="s0:HistoricalQuote" />
+  </message>
+  <message name="GetQuotesHistoricalHttpPostIn">
+    <part name="Symbol" type="s:string" />
+    <part name="Month" type="s:string" />
+    <part name="Year" type="s:string" />
+  </message>
+  <message name="GetQuotesHistoricalHttpPostOut">
+    <part name="Body" element="s0:ArrayOfHistoricalQuote" />
+  </message>
+  <message name="GetQuotesHistoricalAsOfHttpPostIn">
+    <part name="Symbol" type="s:string" />
+    <part name="EndDate" type="s:string" />
+    <part name="DaysOfHistory" type="s:string" />
+  </message>
+  <message name="GetQuotesHistoricalAsOfHttpPostOut">
+    <part name="Body" element="s0:ArrayOfHistoricalQuote" />
+  </message>
+  <message name="GetQuotesHistoricalRangeHttpPostIn">
+    <part name="Symbol" type="s:string" />
+    <part name="StartDate" type="s:string" />
+    <part name="EndDate" type="s:string" />
+  </message>
+  <message name="GetQuotesHistoricalRangeHttpPostOut">
+    <part name="Body" element="s0:ArrayOfHistoricalQuote" />
+  </message>
+  <message name="GetMarketSummaryHttpPostIn" />
+  <message name="GetMarketSummaryHttpPostOut">
+    <part name="Body" element="s0:MarketSummary" />
+  </message>
+  <message name="GetMarketChartHttpPostIn" />
+  <message name="GetMarketChartHttpPostOut">
+    <part name="Body" element="s0:HTMLResult" />
+  </message>
+  <message name="GetTopMoversHttpPostIn" />
+  <message name="GetTopMoversHttpPostOut">
+    <part name="Body" element="s0:ArrayOfTop" />
+  </message>
+  <message name="GetTopGainersHttpPostIn" />
+  <message name="GetTopGainersHttpPostOut">
+    <part name="Body" element="s0:ArrayOfTop" />
+  </message>
+  <message name="GetTopLosersHttpPostIn" />
+  <message name="GetTopLosersHttpPostOut">
+    <part name="Body" element="s0:ArrayOfTop" />
+  </message>
+  <message name="GetTopHttpPostIn" />
+  <message name="GetTopHttpPostOut">
+    <part name="Body" element="s0:ArrayOfTop" />
+  </message>
+  <message name="GetIndicesHttpPostIn" />
+  <message name="GetIndicesHttpPostOut">
+    <part name="Body" element="s0:ArrayOfMarketIndex" />
+  </message>
+  <portType name="XigniteQuotesSoap">
+    <operation name="GetQuickQuotes">
+      <documentation>This service returns a short (last, change, volume) 20 minutes delayed quote for a list of US Domestic equities. </documentation>
+      <input message="s0:GetQuickQuotesSoapIn" />
+      <output message="s0:GetQuickQuotesSoapOut" />
+    </operation>
+    <operation name="GetQuotes">
+      <documentation>This operation returns a 20 minutes delayed quote for a list of US Domestic equities. </documentation>
+      <input message="s0:GetQuotesSoapIn" />
+      <output message="s0:GetQuotesSoapOut" />
+    </operation>
+    <operation name="GetQuote">
+      <documentation>This operation returns an extended 20 minutes delayed quote for a US Domestic equity. </documentation>
+      <input message="s0:GetQuoteSoapIn" />
+      <output message="s0:GetQuoteSoapOut" />
+    </operation>
+    <operation name="GetFundQuote">
+      <documentation>This operation returns an extended quote for a US mutual fund. </documentation>
+      <input message="s0:GetFundQuoteSoapIn" />
+      <output message="s0:GetFundQuoteSoapOut" />
+    </operation>
+    <operation name="GetQuoteHistorical">
+      <documentation>This operation returns a quote as of a historical date. This includes split and dividend adjusted price. </documentation>
+      <input message="s0:GetQuoteHistoricalSoapIn" />
+      <output message="s0:GetQuoteHistoricalSoapOut" />
+    </operation>
+    <operation name="GetQuotesHistorical">
+      <documentation>This operation returns a full month of historical stock quotes for a US Domestic stock. </documentation>
+      <input message="s0:GetQuotesHistoricalSoapIn" />
+      <output message="s0:GetQuotesHistoricalSoapOut" />
+    </operation>
+    <operation name="GetQuotesHistoricalAsOf">
+      <documentation>This operation returns a range of quotes for a security.</documentation>
+      <input message="s0:GetQuotesHistoricalAsOfSoapIn" />
+      <output message="s0:GetQuotesHistoricalAsOfSoapOut" />
+    </operation>
+    <operation name="GetQuotesHistoricalRange">
+      <documentation>This operation returns a complete range of stock quotes for a US Domestic stock. This includes split and dividend adjusted price. </documentation>
+      <input message="s0:GetQuotesHistoricalRangeSoapIn" />
+      <output message="s0:GetQuotesHistoricalRangeSoapOut" />
+    </operation>
+    <operation name="GetMarketSummary">
+      <documentation>This operation returns the current market level for the Dow, Nasdaq and S&amp;amp;P indices as well as the NYSE and NASDAQ volumes and the 10 Year Bond index.</documentation>
+      <input message="s0:GetMarketSummarySoapIn" />
+      <output message="s0:GetMarketSummarySoapOut" />
+    </operation>
+    <operation name="GetMarketChart">
+      <documentation>Get a market chart. Returned string is HTML code pointing to the proper images.</documentation>
+      <input message="s0:GetMarketChartSoapIn" />
+      <output message="s0:GetMarketChartSoapOut" />
+    </operation>
+    <operation name="GetTopMovers">
+      <documentation>This operation returns quote information about the top moving equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopMoversSoapIn" />
+      <output message="s0:GetTopMoversSoapOut" />
+    </operation>
+    <operation name="GetTopGainers">
+      <documentation>This operation returns quote information about the top gaining equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopGainersSoapIn" />
+      <output message="s0:GetTopGainersSoapOut" />
+    </operation>
+    <operation name="GetTopLosers">
+      <documentation>This operation returns quote information about the top losing equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopLosersSoapIn" />
+      <output message="s0:GetTopLosersSoapOut" />
+    </operation>
+    <operation name="GetTop">
+      <documentation>This operation returns quote information about the top gaining, loosing, and moving equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopSoapIn" />
+      <output message="s0:GetTopSoapOut" />
+    </operation>
+    <operation name="GetIndices">
+      <documentation>This operation returns last value, change, percent change and category information for a collection of US market indices including Dow Jones Averages, NYSE, AMEX, NASDAQ, Standard &amp;amp; Poor's, Commodities, Treasuries and other U.S. Indices.</documentation>
+      <input message="s0:GetIndicesSoapIn" />
+      <output message="s0:GetIndicesSoapOut" />
+    </operation>
+  </portType>
+  <portType name="XigniteQuotesHttpGet">
+    <operation name="GetQuickQuotes">
+      <documentation>This service returns a short (last, change, volume) 20 minutes delayed quote for a list of US Domestic equities. </documentation>
+      <input message="s0:GetQuickQuotesHttpGetIn" />
+      <output message="s0:GetQuickQuotesHttpGetOut" />
+    </operation>
+    <operation name="GetQuotes">
+      <documentation>This operation returns a 20 minutes delayed quote for a list of US Domestic equities. </documentation>
+      <input message="s0:GetQuotesHttpGetIn" />
+      <output message="s0:GetQuotesHttpGetOut" />
+    </operation>
+    <operation name="GetQuote">
+      <documentation>This operation returns an extended 20 minutes delayed quote for a US Domestic equity. </documentation>
+      <input message="s0:GetQuoteHttpGetIn" />
+      <output message="s0:GetQuoteHttpGetOut" />
+    </operation>
+    <operation name="GetFundQuote">
+      <documentation>This operation returns an extended quote for a US mutual fund. </documentation>
+      <input message="s0:GetFundQuoteHttpGetIn" />
+      <output message="s0:GetFundQuoteHttpGetOut" />
+    </operation>
+    <operation name="GetQuoteHistorical">
+      <documentation>This operation returns a quote as of a historical date. This includes split and dividend adjusted price. </documentation>
+      <input message="s0:GetQuoteHistoricalHttpGetIn" />
+      <output message="s0:GetQuoteHistoricalHttpGetOut" />
+    </operation>
+    <operation name="GetQuotesHistorical">
+      <documentation>This operation returns a full month of historical stock quotes for a US Domestic stock. </documentation>
+      <input message="s0:GetQuotesHistoricalHttpGetIn" />
+      <output message="s0:GetQuotesHistoricalHttpGetOut" />
+    </operation>
+    <operation name="GetQuotesHistoricalAsOf">
+      <documentation>This operation returns a range of quotes for a security.</documentation>
+      <input message="s0:GetQuotesHistoricalAsOfHttpGetIn" />
+      <output message="s0:GetQuotesHistoricalAsOfHttpGetOut" />
+    </operation>
+    <operation name="GetQuotesHistoricalRange">
+      <documentation>This operation returns a complete range of stock quotes for a US Domestic stock. This includes split and dividend adjusted price. </documentation>
+      <input message="s0:GetQuotesHistoricalRangeHttpGetIn" />
+      <output message="s0:GetQuotesHistoricalRangeHttpGetOut" />
+    </operation>
+    <operation name="GetMarketSummary">
+      <documentation>This operation returns the current market level for the Dow, Nasdaq and S&amp;amp;P indices as well as the NYSE and NASDAQ volumes and the 10 Year Bond index.</documentation>
+      <input message="s0:GetMarketSummaryHttpGetIn" />
+      <output message="s0:GetMarketSummaryHttpGetOut" />
+    </operation>
+    <operation name="GetMarketChart">
+      <documentation>Get a market chart. Returned string is HTML code pointing to the proper images.</documentation>
+      <input message="s0:GetMarketChartHttpGetIn" />
+      <output message="s0:GetMarketChartHttpGetOut" />
+    </operation>
+    <operation name="GetTopMovers">
+      <documentation>This operation returns quote information about the top moving equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopMoversHttpGetIn" />
+      <output message="s0:GetTopMoversHttpGetOut" />
+    </operation>
+    <operation name="GetTopGainers">
+      <documentation>This operation returns quote information about the top gaining equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopGainersHttpGetIn" />
+      <output message="s0:GetTopGainersHttpGetOut" />
+    </operation>
+    <operation name="GetTopLosers">
+      <documentation>This operation returns quote information about the top losing equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopLosersHttpGetIn" />
+      <output message="s0:GetTopLosersHttpGetOut" />
+    </operation>
+    <operation name="GetTop">
+      <documentation>This operation returns quote information about the top gaining, loosing, and moving equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopHttpGetIn" />
+      <output message="s0:GetTopHttpGetOut" />
+    </operation>
+    <operation name="GetIndices">
+      <documentation>This operation returns last value, change, percent change and category information for a collection of US market indices including Dow Jones Averages, NYSE, AMEX, NASDAQ, Standard &amp;amp; Poor's, Commodities, Treasuries and other U.S. Indices.</documentation>
+      <input message="s0:GetIndicesHttpGetIn" />
+      <output message="s0:GetIndicesHttpGetOut" />
+    </operation>
+  </portType>
+  <portType name="XigniteQuotesHttpPost">
+    <operation name="GetQuickQuotes">
+      <documentation>This service returns a short (last, change, volume) 20 minutes delayed quote for a list of US Domestic equities. </documentation>
+      <input message="s0:GetQuickQuotesHttpPostIn" />
+      <output message="s0:GetQuickQuotesHttpPostOut" />
+    </operation>
+    <operation name="GetQuotes">
+      <documentation>This operation returns a 20 minutes delayed quote for a list of US Domestic equities. </documentation>
+      <input message="s0:GetQuotesHttpPostIn" />
+      <output message="s0:GetQuotesHttpPostOut" />
+    </operation>
+    <operation name="GetQuote">
+      <documentation>This operation returns an extended 20 minutes delayed quote for a US Domestic equity. </documentation>
+      <input message="s0:GetQuoteHttpPostIn" />
+      <output message="s0:GetQuoteHttpPostOut" />
+    </operation>
+    <operation name="GetFundQuote">
+      <documentation>This operation returns an extended quote for a US mutual fund. </documentation>
+      <input message="s0:GetFundQuoteHttpPostIn" />
+      <output message="s0:GetFundQuoteHttpPostOut" />
+    </operation>
+    <operation name="GetQuoteHistorical">
+      <documentation>This operation returns a quote as of a historical date. This includes split and dividend adjusted price. </documentation>
+      <input message="s0:GetQuoteHistoricalHttpPostIn" />
+      <output message="s0:GetQuoteHistoricalHttpPostOut" />
+    </operation>
+    <operation name="GetQuotesHistorical">
+      <documentation>This operation returns a full month of historical stock quotes for a US Domestic stock. </documentation>
+      <input message="s0:GetQuotesHistoricalHttpPostIn" />
+      <output message="s0:GetQuotesHistoricalHttpPostOut" />
+    </operation>
+    <operation name="GetQuotesHistoricalAsOf">
+      <documentation>This operation returns a range of quotes for a security.</documentation>
+      <input message="s0:GetQuotesHistoricalAsOfHttpPostIn" />
+      <output message="s0:GetQuotesHistoricalAsOfHttpPostOut" />
+    </operation>
+    <operation name="GetQuotesHistoricalRange">
+      <documentation>This operation returns a complete range of stock quotes for a US Domestic stock. This includes split and dividend adjusted price. </documentation>
+      <input message="s0:GetQuotesHistoricalRangeHttpPostIn" />
+      <output message="s0:GetQuotesHistoricalRangeHttpPostOut" />
+    </operation>
+    <operation name="GetMarketSummary">
+      <documentation>This operation returns the current market level for the Dow, Nasdaq and S&amp;amp;P indices as well as the NYSE and NASDAQ volumes and the 10 Year Bond index.</documentation>
+      <input message="s0:GetMarketSummaryHttpPostIn" />
+      <output message="s0:GetMarketSummaryHttpPostOut" />
+    </operation>
+    <operation name="GetMarketChart">
+      <documentation>Get a market chart. Returned string is HTML code pointing to the proper images.</documentation>
+      <input message="s0:GetMarketChartHttpPostIn" />
+      <output message="s0:GetMarketChartHttpPostOut" />
+    </operation>
+    <operation name="GetTopMovers">
+      <documentation>This operation returns quote information about the top moving equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopMoversHttpPostIn" />
+      <output message="s0:GetTopMoversHttpPostOut" />
+    </operation>
+    <operation name="GetTopGainers">
+      <documentation>This operation returns quote information about the top gaining equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopGainersHttpPostIn" />
+      <output message="s0:GetTopGainersHttpPostOut" />
+    </operation>
+    <operation name="GetTopLosers">
+      <documentation>This operation returns quote information about the top losing equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopLosersHttpPostIn" />
+      <output message="s0:GetTopLosersHttpPostOut" />
+    </operation>
+    <operation name="GetTop">
+      <documentation>This operation returns quote information about the top gaining, loosing, and moving equities from NYSE, NASDAQ and AMEX.</documentation>
+      <input message="s0:GetTopHttpPostIn" />
+      <output message="s0:GetTopHttpPostOut" />
+    </operation>
+    <operation name="GetIndices">
+      <documentation>This operation returns last value, change, percent change and category information for a collection of US market indices including Dow Jones Averages, NYSE, AMEX, NASDAQ, Standard &amp;amp; Poor's, Commodities, Treasuries and other U.S. Indices.</documentation>
+      <input message="s0:GetIndicesHttpPostIn" />
+      <output message="s0:GetIndicesHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="XigniteQuotesSoap" type="s0:XigniteQuotesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="GetQuickQuotes">
+      <soap:operation soapAction="http://www.xignite.com/services/GetQuickQuotes" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetQuickQuotesHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetQuotes">
+      <soap:operation soapAction="http://www.xignite.com/services/GetQuotes" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetQuotesHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetQuote">
+      <soap:operation soapAction="http://www.xignite.com/services/GetQuote" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetQuoteHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetFundQuote">
+      <soap:operation soapAction="http://www.xignite.com/services/GetFundQuote" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetFundQuoteHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetQuoteHistorical">
+      <soap:operation soapAction="http://www.xignite.com/services/GetQuoteHistorical" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetQuoteHistoricalHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistorical">
+      <soap:operation soapAction="http://www.xignite.com/services/GetQuotesHistorical" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetQuotesHistoricalHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistoricalAsOf">
+      <soap:operation soapAction="http://www.xignite.com/services/GetQuotesHistoricalAsOf" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetQuotesHistoricalAsOfHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistoricalRange">
+      <soap:operation soapAction="http://www.xignite.com/services/GetQuotesHistoricalRange" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetQuotesHistoricalRangeHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetMarketSummary">
+      <soap:operation soapAction="http://www.xignite.com/services/GetMarketSummary" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetMarketSummaryHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetMarketChart">
+      <soap:operation soapAction="http://www.xignite.com/services/GetMarketChart" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetMarketChartHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetTopMovers">
+      <soap:operation soapAction="http://www.xignite.com/services/GetTopMovers" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetTopMoversHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetTopGainers">
+      <soap:operation soapAction="http://www.xignite.com/services/GetTopGainers" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetTopGainersHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetTopLosers">
+      <soap:operation soapAction="http://www.xignite.com/services/GetTopLosers" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetTopLosersHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetTop">
+      <soap:operation soapAction="http://www.xignite.com/services/GetTop" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetTopHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetIndices">
+      <soap:operation soapAction="http://www.xignite.com/services/GetIndices" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetIndicesHeader" part="Header" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="XigniteQuotesHttpGet" type="s0:XigniteQuotesHttpGet">
+    <http:binding verb="GET" />
+    <operation name="GetQuickQuotes">
+      <http:operation location="/GetQuickQuotes" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuotes">
+      <http:operation location="/GetQuotes" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuote">
+      <http:operation location="/GetQuote" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetFundQuote">
+      <http:operation location="/GetFundQuote" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuoteHistorical">
+      <http:operation location="/GetQuoteHistorical" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistorical">
+      <http:operation location="/GetQuotesHistorical" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistoricalAsOf">
+      <http:operation location="/GetQuotesHistoricalAsOf" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistoricalRange">
+      <http:operation location="/GetQuotesHistoricalRange" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetMarketSummary">
+      <http:operation location="/GetMarketSummary" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetMarketChart">
+      <http:operation location="/GetMarketChart" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetTopMovers">
+      <http:operation location="/GetTopMovers" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetTopGainers">
+      <http:operation location="/GetTopGainers" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetTopLosers">
+      <http:operation location="/GetTopLosers" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetTop">
+      <http:operation location="/GetTop" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetIndices">
+      <http:operation location="/GetIndices" />
+      <input>
+        <http:urlEncoded />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <binding name="XigniteQuotesHttpPost" type="s0:XigniteQuotesHttpPost">
+    <http:binding verb="POST" />
+    <operation name="GetQuickQuotes">
+      <http:operation location="/GetQuickQuotes" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuotes">
+      <http:operation location="/GetQuotes" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuote">
+      <http:operation location="/GetQuote" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetFundQuote">
+      <http:operation location="/GetFundQuote" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuoteHistorical">
+      <http:operation location="/GetQuoteHistorical" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistorical">
+      <http:operation location="/GetQuotesHistorical" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistoricalAsOf">
+      <http:operation location="/GetQuotesHistoricalAsOf" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetQuotesHistoricalRange">
+      <http:operation location="/GetQuotesHistoricalRange" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetMarketSummary">
+      <http:operation location="/GetMarketSummary" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetMarketChart">
+      <http:operation location="/GetMarketChart" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetTopMovers">
+      <http:operation location="/GetTopMovers" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetTopGainers">
+      <http:operation location="/GetTopGainers" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetTopLosers">
+      <http:operation location="/GetTopLosers" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetTop">
+      <http:operation location="/GetTop" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+    <operation name="GetIndices">
+      <http:operation location="/GetIndices" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="XigniteQuotes">
+    <documentation>This web service provides multiple quote related operations including several quote formats (simple, extended), market summary information, index information, and top market movers, losers, and gainers.</documentation>
+    <port name="XigniteQuotesSoap" binding="s0:XigniteQuotesSoap">
+      <soap:address location="http://www.xignite.com/xquotes.asmx" />
+    </port>
+    <port name="XigniteQuotesHttpGet" binding="s0:XigniteQuotesHttpGet">
+      <http:address location="http://www.xignite.com/xquotes.asmx" />
+    </port>
+    <port name="XigniteQuotesHttpPost" binding="s0:XigniteQuotesHttpPost">
+      <http:address location="http://www.xignite.com/xquotes.asmx" />
+    </port>
+  </service>
+</definitions>

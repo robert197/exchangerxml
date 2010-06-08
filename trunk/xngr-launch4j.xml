@@ -1,0 +1,47 @@
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>gui</headerType>
+  <obj>w32api/crt2.o</obj>
+  <obj>head/guihead.o</obj>
+  <obj>head/head.o</obj>
+  <lib>w32api/libmingw32.a</lib>
+  <lib>w32api/libgcc.a</lib>
+  <lib>w32api/libmsvcrt.a</lib>
+  <lib>w32api/libkernel32.a</lib>
+  <lib>w32api/libuser32.a</lib>
+  <lib>w32api/libadvapi32.a</lib>
+  <lib>w32api/libshell32.a</lib>
+  <jar>xngr-editor.jar</jar>
+  <outfile>Exchanger XML Editor 3.3.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <customProcName>true</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest></manifest>
+  <icon>xngr-editor.ico</icon>
+  <jre>
+    <path></path>
+    <minVersion>1.6.0_0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <initialHeapSize>256</initialHeapSize>
+    <maxHeapSize>1024</maxHeapSize>
+    <opt>-noclassgc -Xss1m</opt>
+  </jre>
+  <versionInfo>
+    <fileVersion>3.3.01.0</fileVersion>
+    <txtFileVersion>3.3.01</txtFileVersion>
+    <fileDescription>Exchanger XML Editor 3.3</fileDescription>
+    <copyright>Cladonia Ltd.</copyright>
+    <productVersion>3.3.01.0</productVersion>
+    <txtProductVersion>3.3.01</txtProductVersion>
+    <productName>Exchanger XML Editor 3.3.01</productName>
+    <companyName>Cladonia Ltd.</companyName>
+    <internalName>Exchanger XML Editor 3.3.01</internalName>
+    <originalFilename>Exchanger XML Editor 3.3.exe</originalFilename>
+  </versionInfo>
+</launch4jConfig>

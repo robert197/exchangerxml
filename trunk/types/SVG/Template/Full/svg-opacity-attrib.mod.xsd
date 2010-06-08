@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Paint Opacity Attribute Module ................................ -->
+<!--
+  file: svg-opacity-attrib.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-opacity-attrib.mod.xsd,v 1.1 2004/03/26 10:24:34 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Paint Opacity Attribute//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-opacity-attrib.mod"
+  
+  .......................................................................
+-->
+<!--
+  Paint Opacity Attribute
+  
+     opacity, fill-opacity, stroke-opacity
+  
+  This module defines the Opacity attribute set.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:attributeGroup name="SVG.opacity.attrib">
+    <xs:attribute name="opacity" type="OpacityValue.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.fill-opacity.attrib">
+    <xs:attribute name="fill-opacity" type="OpacityValue.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.stroke-opacity.attrib">
+    <xs:attribute name="stroke-opacity" type="OpacityValue.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.Opacity.attrib">
+    <xs:attributeGroup ref="SVG.opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.fill-opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.stroke-opacity.attrib"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of svg-opacity-attrib.mod -->

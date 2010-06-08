@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance" xmlns:xsd="http://www.w3.org/1999/XMLSchema"
+	xmlns:amazon="urn:PI/DevCentral/SoapService"
+	SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+	<SOAP-ENV:Body>
+		<namesp1:DirectorSearchRequestResponse xmlns:namesp1="urn:PI/DevCentral/SoapService">
+			<return xsi:type="amazon:ProductInfo">
+				<Details SOAP-ENC:arrayType="amazon:Details[10]" xsi:type="SOAP-ENC:Array">
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/B00003CXAA/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">B00003CXAA</Asin>
+						<ProductName xsi:type="xsd:string">The Godfather DVD Collection</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">09 October, 2001</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Paramount Home Video</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/B00003CXAA.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/B00003CXAA.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/B00003CXAA.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$105.90</ListPrice>
+						<OurPrice xsi:type="xsd:string">$79.42</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$35.99</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/0784011168/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">0784011168</Asin>
+						<ProductName xsi:type="xsd:string">Jacob's Ladder</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">21 August, 2001</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Artisan Entertainment</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/0784011168.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/0784011168.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/0784011168.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$14.98</ListPrice>
+						<OurPrice xsi:type="xsd:string">$12.99</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$10.32</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/B00005OWEG/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">B00005OWEG</Asin>
+						<ProductName xsi:type="xsd:string">Apocalypse Now Redux</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">20 November, 2001</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Paramount Home Video</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/B00005OWEG.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/B00005OWEG.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/B00005OWEG.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$19.99</ListPrice>
+						<OurPrice xsi:type="xsd:string">$16.99</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$10.97</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/0800177177/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">0800177177</Asin>
+						<ProductName xsi:type="xsd:string">Bram Stoker's Dracula</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">26 December, 2000</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Columbia/Tristar Studios</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/0800177177.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/0800177177.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/0800177177.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$19.95</ListPrice>
+						<OurPrice xsi:type="xsd:string">$16.99</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$10.99</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/6305941122/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">6305941122</Asin>
+						<ProductName xsi:type="xsd:string">A Personal Journey With Martin Scorsese Through American Movies</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">03 June, 2003</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Miramax</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/6305941122.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/6305941122.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/6305941122.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$19.99</ListPrice>
+						<OurPrice xsi:type="xsd:string">$16.99</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$15.37</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/B00005R23X/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">B00005R23X</Asin>
+						<ProductName xsi:type="xsd:string">Bram Stoker's Dracula (Superbit Collection)</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">11 December, 2001</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Columbia/Tristar Studios</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/B00005R23X.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/B00005R23X.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/B00005R23X.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$27.96</ListPrice>
+						<OurPrice xsi:type="xsd:string">$25.16</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$22.05</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/B00004Y62V/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">B00004Y62V</Asin>
+						<ProductName xsi:type="xsd:string">Tucker - The Man and His Dream</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">24 October, 2000</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Paramount Home Video</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/B00004Y62V.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/B00004Y62V.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/B00004Y62V.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$19.99</ListPrice>
+						<OurPrice xsi:type="xsd:string">$17.99</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$13.99</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/B00003CXCH/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">B00003CXCH</Asin>
+						<ProductName xsi:type="xsd:string">Saturday Night Fever</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">19 August, 2003</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Paramount Home Video</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/B00003CXCH.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/B00003CXCH.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/B00003CXCH.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$24.99</ListPrice>
+						<OurPrice xsi:type="xsd:string">$18.74</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$12.50</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/B000068IET/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">B000068IET</Asin>
+						<ProductName xsi:type="xsd:string">Vampire's Kiss</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">27 August, 2002</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">MGM/UA Video</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/B000068IET.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/B000068IET.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/B000068IET.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$14.95</ListPrice>
+						<OurPrice xsi:type="xsd:string">$13.46</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$7.00</UsedPrice>
+					</Details>
+					<Details xsi:type="amazon:Details">
+						<Url xsi:type="xsd:string">http://www.amazon.com/exec/obidos/ASIN/B00002E237/webservices-20?dev-t=DIW30UXATCIPB</Url>
+						<Asin xsi:type="xsd:string">B00002E237</Asin>
+						<ProductName xsi:type="xsd:string">The Outsiders</ProductName>
+						<Catalog xsi:type="xsd:string">DVD</Catalog>
+						<ReleaseDate xsi:type="xsd:string">30 November, 1999</ReleaseDate>
+						<Manufacturer xsi:type="xsd:string">Warner Studios</Manufacturer>
+						<ImageUrlSmall xsi:type="xsd:string">http://images.amazon.com/images/P/B00002E237.01.THUMBZZZ.jpg</ImageUrlSmall>
+						<ImageUrlMedium xsi:type="xsd:string">http://images.amazon.com/images/P/B00002E237.01.MZZZZZZZ.jpg</ImageUrlMedium>
+						<ImageUrlLarge xsi:type="xsd:string">http://images.amazon.com/images/P/B00002E237.01.LZZZZZZZ.jpg</ImageUrlLarge>
+						<ListPrice xsi:type="xsd:string">$14.98</ListPrice>
+						<OurPrice xsi:type="xsd:string">$12.99</OurPrice>
+						<UsedPrice xsi:type="xsd:string">$7.50</UsedPrice>
+					</Details>
+				</Details>
+			</return>
+		</namesp1:DirectorSearchRequestResponse>
+	</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

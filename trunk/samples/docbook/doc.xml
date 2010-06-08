@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+  <!ENTITY LaTeX "LaTeX">
+  <!ENTITY TeX "TeX">
+  <!ENTITY PTeX "PassiveTeX">
+  <!ENTITY xmltex "<application>xmltex</application>">
+]>
+
+
+<article>
+    <articleinfo>
+    <title>A Docbook document</title>
+    <author><firstname>Michel</firstname> <surname>Goossens</surname>
+    </author>
+ <pubdate>Sunday, 17 March 2002</pubdate>
+    <abstract>
+    <para>
+    This XML document is marked up according the the DocBook schema It
+    shows a few elements of the DocBook vocabulary.
+    </para>
+    </abstract>
+    </articleinfo>
+    
+ <sect1>
+    <title>The Docbook model</title>
+    <para>
+    DocBook <citation><xref role="bib" linkend="bib.TDG99" endterm="bib.TDG99.abbrev"/></citation> proposes an XML model
+  <citation><xref role="bib" linkend="bib.xml" endterm="bib.xml.abbrev"/></citation> for marking up technical
+    documents.  It is particularly well-suited for software reference
+    guides and computer equipment manuals.
+    </para>
+  
+    <para>
+    Docbook contains hundreds of elements to markup up clearly and
+    explicitly the different components of an electronic document (book,
+    article, reference guide, etc.), not only displaying its hierarchical
+ structure but also indicating the semantical meaning of the various
+    elements. The structure of the DTD is optimized to allow for
+    customization, thus making it relatively straightforward to add or
+    eliminate certain elements or attributes, to change the content model
+    for certain structural groups, or to restrict the value that given
+ attributes can take.
+    </para>
+    
+    <para>
+    Norman Walsh developed a set of XSL stylesheets to transform XML
+ documents marked up using the DocBook DTD into HTML or XSL formatting
+    objects. The latter can be interpreted by &PTeX; and &xmltex; to
+    obtain PDF or PostScript output.
+    </para>
+    </sect1>
+
+    <sect1>
+    <title>MathML and mathematics</title>
+    <para>
+    MathML <citation><xref role="bib" linkend="bib.mathml" endterm="bib.mathml.abbrev"/></citation> is a W3C recommendation whose aim
+    is to encode mathematical material for teaching and scientific
+    communication at all levels.
+    </para>
+    
+ <para>
+    MathML consists of two parts: presentation (notation) et contents
+    (meaning). MathML permits the conversion of mathematical information
+    into various representations and output formats, including graphical
+    displays, speech synthesizers, computer algebra programs, other
+ mathematics typesetting languages, such as &TeX;, plain text,
+    printers (PostScript), braille, etc.
+    </para>
+    
+    <para>
+ MathML has support for efficiently browsing long and complex
+    mathematical expressoins and offers an extension mechanism. MathML
+    code is human readable, easy to generate and process by software
+    applications, and well suited for editing (even though MathML syntax
+    might appear unnecessarily verbose and complex to the human reader).
+ </para>
+    
+    <para>
+    The W3C MathMl Working Group released the Second version of the the
+    MathML Specification at the beginning of 2001. Two public initiatives
+ that allow the display of MathML code direcly and that are under
+    active development are W3C's <application>Amaya</application> and
+    <application>Mozilla</application>. Commercial programs, such as IBM's
+    <application>techexplorer</application> (a plugin for
+    <application>Netscape</application> or Microsoft's
+ <application>Internet Explorer</application>) or Design Science
+    <application>Webeq</application> (using the Java applet technology)
+    can display MathML formulae in present day browsers.  Several computer
+    algebra programs, e.g., <application>Mathematica</application>, or
+    editors using e.g., <application>mathtype</application>, offer a
+ user-friendly interface to enter, produce or read mathematics material
+    marked up in MathML.
+    </para>
+    </sect1>
+    
+<sect1>
+    <title>Presentation markup</title>
+    
+    <para>
+    The <emphasis>presentation</emphasis> part of MathML discribes the
+spacial layout of the different elements of a mathematical expression.
+    MathML presenation markup has about thirty elements, that form the
+    basis of a mathematical syntax using classical visual layout model.
+    Some fifty attributes provide precise control on the exact 
+    positioning of the various components of the math expression.
+</para>
+    
+    <para>
+    The list of presentation elements follows.
+    <variablelist>
+<varlistentry>
+    <term>Token elements</term>
+    <listitem><para>
+    <sgmltag class="element">mi</sgmltag>,<sgmltag class="element">mn</sgmltag>,
+    <sgmltag class="element">mo</sgmltag>,<sgmltag class="element">mtext</sgmltag>,
+<sgmltag class="element">mspace/</sgmltag>,<sgmltag class="element">ms</sgmltag>,
+    <sgmltag class="element">mchar</sgmltag>,<sgmltag class="element">mglyph</sgmltag>
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+<term>General layout schemata</term>
+    <listitem><para>
+    <sgmltag class="element">mrow</sgmltag>,<sgmltag class="element">mfrac</sgmltag>,
+    <sgmltag class="element">msqrt</sgmltag>,<sgmltag class="element">mroot</sgmltag>,
+    <sgmltag class="element">mstyle</sgmltag>,<sgmltag class="element">merror</sgmltag>,
+<sgmltag class="element">mpadded</sgmltag>,<sgmltag class="element">mphantom</sgmltag>,
+    <sgmltag class="element">mfenced</sgmltag>,<sgmltag class="element">menclose</sgmltag>
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+<term>Script and limit schemata</term>
+    <listitem><para>
+    <sgmltag class="element">msub</sgmltag>,<sgmltag class="element">msup</sgmltag>,
+    <sgmltag class="element">msubsup</sgmltag>,<sgmltag class="element">munder</sgmltag>,
+    <sgmltag class="element">mover</sgmltag>,<sgmltag class="element">munderover</sgmltag>,
+<sgmltag class="element">mmultiscripts</sgmltag>
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+    <term>Tables and matrices</term>
+<listitem><para>
+    <sgmltag class="element">mtable</sgmltag>,<sgmltag class="element">mtr</sgmltag>,
+    <sgmltag class="element">mtd</sgmltag>,<sgmltag class="element">maligngroup/</sgmltag>,
+    <sgmltag class="element">malignmark/</sgmltag>
+    </para></listitem>
+</varlistentry>
+    <varlistentry>
+    <term>Enlivening expressions</term>
+    <listitem><para>
+    <sgmltag class="element">maction</sgmltag>
+</para></listitem>
+    </varlistentry>
+    </variablelist>
+    </para>
+    
+<sect2>
+    <title>A MathML example</title>
+    
+<para>
+    Note the two attributes <sgmltag class="attribute">open</sgmltag> and
+    <sgmltag class="attribute">close</sgmltag> on the <sgmltag class="element">mfenced</sgmltag> element to specify the style of the
+    braces to be used. The MathML Specification <citation><xref role="bib" linkend="bib.mathml"
+						endterm="bib.mathml.abbrev"/></citation> contains
+    a detailed list of all possible attributes associated to each
+    presentation element.
+    </para>
+    </sect2>
+</sect1>
+    
+    <sect1>
+    <title>Content markup</title>
+    
+<para>
+    The meaning of mathematical symbols (e.g., sums, products, integrals)
+    exists independently of their rendering.  Moreover the presentation
+    markup of an expression is not necessarily sufficient to evaluate its
+    value and use it in calculations. Therefore, MathML defines
+<emphasis>content</emphasis> markup to explicitly encode the
+    underlying mathematical structure of an expressoin.
+    </para>
+    
+    <para>
+It is impossible to cover all of mathematics, so MathML proposes only
+    a relatively small number of commonplace mathematical constructs,
+    chosen carefully to be sufficient in a large number of
+    applications. In addition, it provides a <emphasis>extension
+    mechanism</emphasis> for associating semantics with new notational
+constructs, thus allowing these to be encoded even when they are not
+    in MathML content element base collection.
+    </para>
+    
+    <para>
+MathML's basic set of content elements was chosen to allow for simple
+    coding of most of the formulas used in secondary education, through
+    the first year of university. The subject areas targeted are
+    arithmetic, algebra, logic and relations, calculus and vector
+    calculus, set theory, sequences and series, elementary classical
+functions, and statistics linear algebra.  Using this basic sets more
+    complex constructs can be built.
+    </para>
+    
+    <para>
+The list of the content elements of MathML follows.
+    <variablelist>
+    <varlistentry>
+    <term>token elements</term>
+    <listitem><para>
+<sgmltag class="element">cn</sgmltag>,<sgmltag class="element">ci</sgmltag>,
+    <sgmltag class="element">csymbol</sgmltag> (MathML 2.0).
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+<term>basic content elements</term>
+    <listitem><para>
+    <sgmltag class="element">apply</sgmltag>,<sgmltag class="element">reln (deprecated)</sgmltag>,
+    <sgmltag class="element">fn (deprecated for externally defined 
+    functions)</sgmltag>,
+<sgmltag class="element">interval</sgmltag>,<sgmltag class="element">inverse</sgmltag>,
+    <sgmltag class="element">sep</sgmltag>,<sgmltag class="element">condition</sgmltag>,
+    <sgmltag class="element">declare</sgmltag>,<sgmltag class="element">lambda</sgmltag>,
+    <sgmltag class="element">compose</sgmltag>,<sgmltag class="element">ident</sgmltag>.
+    </para></listitem>
+</varlistentry>
+    <varlistentry>
+    <term>arithmetic, algebra and logic</term>
+    <listitem><para>
+    <sgmltag class="element">quotient</sgmltag>,<sgmltag class="element">exp</sgmltag>,
+<sgmltag class="element">factorial</sgmltag>,<sgmltag class="element">divide</sgmltag>,
+    <sgmltag class="element">max and min</sgmltag>,<sgmltag class="element">minus</sgmltag>,
+    <sgmltag class="element">plus</sgmltag>,<sgmltag class="element">power</sgmltag>,
+    <sgmltag class="element">rem</sgmltag>,<sgmltag class="element">times</sgmltag>,
+    <sgmltag class="element">root</sgmltag>,<sgmltag class="element">gcd</sgmltag>,
+<sgmltag class="element">and</sgmltag>,<sgmltag class="element">or</sgmltag>,
+    <sgmltag class="element">xor</sgmltag>,<sgmltag class="element">not</sgmltag>,
+    <sgmltag class="element">implies</sgmltag>,<sgmltag class="element">forall</sgmltag>,
+    <sgmltag class="element">exists</sgmltag>,<sgmltag class="element">abs</sgmltag>,
+    <sgmltag class="element">conjugate</sgmltag>,<sgmltag class="element">arg</sgmltag> (MathML 2.0),
+<sgmltag class="element">real</sgmltag> (MathML 2.0),<sgmltag class="element">imaginary</sgmltag> (MathML 2.0),
+    <sgmltag class="element">lcm</sgmltag> (MathML 2.0).
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+<term>relations</term>
+    <listitem><para>
+    <sgmltag class="element">eq</sgmltag>,<sgmltag class="element">neq</sgmltag>,
+    <sgmltag class="element">gt</sgmltag>,<sgmltag class="element">lt</sgmltag>,
+    <sgmltag class="element">geq</sgmltag>,<sgmltag class="element">leq</sgmltag>,
+<sgmltag class="element">equivalent</sgmltag> (MathML 2.0),<sgmltag class="element">approx</sgmltag> (MathML 2.0).
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+    <term>calculus and vector calculus</term>
+<listitem><para>
+    <sgmltag class="element">int</sgmltag>,<sgmltag class="element">diff</sgmltag>,
+    <sgmltag class="element">partialdiff</sgmltag>,<sgmltag class="element">lowlimit</sgmltag>,
+    <sgmltag class="element">uplimit</sgmltag>,<sgmltag class="element">bvar</sgmltag>,
+    <sgmltag class="element">degree</sgmltag>,<sgmltag class="element">divergence</sgmltag> (MathML 2.0),
+<sgmltag class="element">grad</sgmltag> (MathML 2.0),<sgmltag class="element">curl</sgmltag> (MathML 2.0),
+    <sgmltag class="element">laplacian</sgmltag> (MathML 2.0).
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+<term>theory of sets</term>
+    <listitem><para>
+    <sgmltag class="element">set</sgmltag>,<sgmltag class="element">list</sgmltag>,
+    <sgmltag class="element">union</sgmltag>,<sgmltag class="element">intersect</sgmltag>,
+    <sgmltag class="element">in</sgmltag>,<sgmltag class="element">notin</sgmltag>,
+<sgmltag class="element">subset</sgmltag>,<sgmltag class="element">prsubset</sgmltag>,
+    <sgmltag class="element">notsubset</sgmltag>,<sgmltag class="element">notprsubset</sgmltag>,
+    <sgmltag class="element">setdiff</sgmltag>,<sgmltag class="element">card</sgmltag> (MathML 2.0).
+    </para></listitem>
+    </varlistentry>
+<varlistentry>
+    <term>sequences and series</term>
+    <listitem><para>
+    <sgmltag class="element">sum</sgmltag>,<sgmltag class="element">product</sgmltag>,
+    <sgmltag class="element">limit</sgmltag>,<sgmltag class="element">tendsto</sgmltag>.
+</para></listitem>
+    </varlistentry>
+    <varlistentry>
+    <term>elementary classical function</term>
+    <listitem><para>
+<sgmltag class="element">exp</sgmltag>,<sgmltag class="element">ln</sgmltag>,
+    <sgmltag class="element">log</sgmltag>,<sgmltag class="element">sin</sgmltag>,
+    <sgmltag class="element">cos</sgmltag>,<sgmltag class="element">tan</sgmltag>,
+    <sgmltag class="element">sec</sgmltag>,<sgmltag class="element">csc</sgmltag>,
+    <sgmltag class="element">cot</sgmltag>,<sgmltag class="element">sinh</sgmltag>,
+<sgmltag class="element">cosh</sgmltag>,<sgmltag class="element">tanh</sgmltag>,
+    <sgmltag class="element">sech</sgmltag>,<sgmltag class="element">csch</sgmltag>,
+    <sgmltag class="element">coth</sgmltag>,<sgmltag class="element">arcsin</sgmltag>,
+    <sgmltag class="element">arccos</sgmltag>,<sgmltag class="element">arctan</sgmltag>,
+    <sgmltag class="element">arccosh</sgmltag>,<sgmltag class="element">arccot</sgmltag>,
+<sgmltag class="element">arccoth</sgmltag>,<sgmltag class="element">arccsc</sgmltag>,
+    <sgmltag class="element">arccsch</sgmltag>,<sgmltag class="element">arcsec</sgmltag>,
+    <sgmltag class="element">arcsech</sgmltag>,<sgmltag class="element">arcsinh</sgmltag>,
+    <sgmltag class="element">arctanh</sgmltag>.
+    </para></listitem>
+</varlistentry>
+    <varlistentry>
+    <term>statistics</term>
+    <listitem><para>
+    <sgmltag class="element">mean</sgmltag>,<sgmltag class="element">sdev</sgmltag>,
+<sgmltag class="element">variance</sgmltag>,<sgmltag class="element">median</sgmltag>,
+    <sgmltag class="element">mode</sgmltag>,<sgmltag class="element">moment</sgmltag>.
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+<term>linear algebra</term>
+    <listitem><para>
+    <sgmltag class="element">vector</sgmltag>,<sgmltag class="element">matrix</sgmltag>,
+    <sgmltag class="element">matrixrow</sgmltag>,<sgmltag class="element">determinant</sgmltag>,
+    <sgmltag class="element">transpose</sgmltag>,<sgmltag class="element">selector</sgmltag>,
+<sgmltag class="element">vectorproduct</sgmltag> (MathML 2.0),<sgmltag class="element">scalarproduct</sgmltag> (MathML 2.0),
+    <sgmltag class="element">outerproduct</sgmltag> (MathML 2.0).
+    </para></listitem>
+    </varlistentry>
+    <varlistentry>
+<term>semantic mapping element</term>
+    <listitem><para>
+    <sgmltag class="element">annotation</sgmltag>,<sgmltag class="element">semantics</sgmltag>,
+    <sgmltag class="element">annotation-xml</sgmltag>.
+    </para></listitem>
+</varlistentry>
+    <varlistentry>
+    <term>constant and symbol element (all MathML 2.0)</term>
+    <listitem><para>
+    <sgmltag class="element">integers</sgmltag>,<sgmltag class="element">reals</sgmltag>,
+<sgmltag class="element">rationals</sgmltag>,<sgmltag class="element">naturalnumbers</sgmltag>,
+    <sgmltag class="element">complexes</sgmltag>,<sgmltag class="element">primes</sgmltag>,
+    <sgmltag class="element">exponentiale</sgmltag>,<sgmltag class="element">imaginaryi</sgmltag>,
+    <sgmltag class="element">notanumber</sgmltag>,<sgmltag class="element">true</sgmltag>,
+    <sgmltag class="element">false</sgmltag>,<sgmltag class="element">emptyset</sgmltag>,
+ <sgmltag class="element">pi</sgmltag>,<sgmltag class="element">eulergamma</sgmltag>,
+    <sgmltag class="element">infinity</sgmltag>.
+    </para></listitem>
+    </varlistentry>
+    </variablelist>
+</para>
+    
+    <sect2>
+    <title>An example with content markup</title>
+    
+<para>
+    The matrix example given in the preceding section in its presentation markup
+    form if recoded here using content markup.
+    <programlisting>&lt;reln>
+      &lt;eq/>
+&lt;ci>A&lt;/ci>
+      &lt;matrix>
+        &lt;matrixrow>
+          &lt;ci>x&lt;/ci>&lt;ci>y&lt;/ci>
+        &lt;/matrixrow>
+&lt;matrixrow>
+          &lt;ci>z&lt;/ci>&lt;ci>w&lt;/ci>
+        &lt;/matrixrow>
+      &lt;/matrix>
+    &lt;/reln>
+</programlisting>
+    </para>
+    </sect2>
+    </sect1>
+    
+<bibliography>
+    <title>Bibliographic references</title>
+    <biblioentry id="bib.xml">
+    <abbrev id="bib.xml.abbrev">XML98</abbrev>
+    <authorgroup>
+<author><othername>World Wide Web Consortium</othername></author>
+    <editor><firstname>Tim</firstname><surname>Bray</surname></editor>
+    <editor><firstname>Jean</firstname><surname>Paoli</surname></editor>
+    <editor><firstname>Michael</firstname><surname>Sperberg-McQueen</surname></editor>
+    </authorgroup>
+<title>
+    <ulink url="http://www.w3.org/TR/REC-xml/">Extensible Markup Language
+    (XML) 1.0</ulink></title>
+    <bibliomisc>
+    See also the <ulink url="http://www.xml.com/axml/axml.html">annotated
+version of the XML specification</ulink>.</bibliomisc>
+    </biblioentry>
+    <biblioentry id="bib.TDG99">
+    <abbrev id="bib.TDG99.abbrev">TDG1999</abbrev>
+    <authorgroup>
+<author><firstname>Norman</firstname><surname>Walsh</surname></author>
+    <author><firstname>Leonard</firstname><surname>Muellner</surname></author>
+    </authorgroup>
+    <title>Docbook. The Definitive Guide.</title>
+    <publisher>
+<publishername>O'Reilly &amp; Associates, Inc.</publishername>
+    </publisher>
+    <copyright><year>1999</year></copyright>
+    <isbn>1-56592-580-7</isbn>
+    <releaseinfo><ulink url="http://www.oreilly.com/catalog/docbook/index.html">Oreilly's
+    catalog entry</ulink>.
+    </releaseinfo>
+    <bibliomisc>
+    You can also consult the <ulink url="http://www.oasis-open.org/docbook/documentation/reference/html/docbook.html">
+    online version of the DocBook reference guide</ulink> and download the
+    <ulink url="http://sourceforge.net/projects/docbook/">Docbook DTD and XSL
+    stylesheets</ulink>.</bibliomisc>
+    </biblioentry>
+<biblioentry id="bib.mathml">
+    <abbrev id="bib.mathml.abbrev">MATHML2</abbrev>
+    <authorgroup>
+    <author><othername>World Wide Web Consortium</othername></author>
+    <editor><firstname>David</firstname><surname>Carlisle</surname></editor>
+<editor><firstname>Patrick</firstname><surname>Ion</surname></editor>
+    <editor><firstname>Robert</firstname><surname>Miner</surname></editor>
+    <editor><firstname>Nico</firstname><surname>Poppelier</surname></editor>
+    </authorgroup>
+    
+<title><ulink url="http://www.w3.org/TR/MathML2/">Mathematical
+    Markup Language (MathML) Version 2.0</ulink>
+    </title>
+    </biblioentry>
+    </bibliography>
+</article>

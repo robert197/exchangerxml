@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="RelaxNG" icon="RNGIcon.gif" publicID="" systemID="" extensions="rng">
+	<root name="grammar">
+		<namespace prefix="rng" uri="http://relaxng.org/ns/structure/1.0"/>
+	</root>
+	<fragment block="true" name="element" key="Alt+Shift+E" order="0" icon="">&lt;element name="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="attribute" key="Alt+Shift+T" order="1" icon="">&lt;attribute name="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="define" key="Alt+Shift+D" order="2" icon="">&lt;define name="${cursor}"/&gt;</fragment>
+	<fragment block="true" name="ref" key="Alt+Shift+R" order="3" icon="">&lt;ref name="${cursor}"/&gt;</fragment>
+	<xpath name="Definitions" xpath="//rng:define/@name" default="true" showElementNames="false" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<validation src="Validation/relaxng.rng" type="rng" useDocumentLocation="false"/>
+	<schema src="Template/relaxng.xsd"/>
+</type>

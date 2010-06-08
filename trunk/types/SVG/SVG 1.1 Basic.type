@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="SVG 1.1 Basic" icon="SVGIcon.gif" publicID="-//W3C//DTD SVG 1.1 Basic//EN" extensions="svg">
+	<root name="svg">
+		<namespace prefix="" uri="http://www.w3.org/2000/svg"/>
+	</root>
+	<namespace prefix="xlink" uri="http://www.w3.org/1999/xlink"/>
+	<template src="Template/Basic/svg11-basic.xsd" type="xsd"/>
+	<validation src="Validation/svg11-basic.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

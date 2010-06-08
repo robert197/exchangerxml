@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Basic Structure Module ........................................ -->
+<!--
+  file: svg-basic-structure.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-basic-structure.mod.xsd,v 1.1 2004/03/26 10:28:59 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 Basic Structure//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-basic-structure.mod"
+  
+  .......................................................................
+-->
+<!--
+  Basic Structure
+  
+     svg, g, defs, desc, title, metadata, use
+  
+  This module declares the major structural elements and their attributes.
+-->
+<!-- Qualified Names (Default) ......................... -->
+<!-- Attribute Collections (Default) ................... -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <!-- SVG.Description.class ............................. -->
+  <!-- SVG.Use.class ..................................... -->
+  <!-- SVG.Structure.class ............................... -->
+  <!-- SVG.Presentation.attrib ........................... -->
+  <xs:attributeGroup name="SVG.Presentation.attrib">
+    <xs:attributeGroup ref="SVG.TextContent.attrib"/>
+    <xs:attributeGroup ref="SVG.Font.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attribute name="flood-color" type="SVGColor.datatype"/>
+    <xs:attribute name="flood-opacity" type="OpacityValue.datatype"/>
+    <xs:attribute name="lighting-color" type="SVGColor.datatype"/>
+  </xs:attributeGroup>
+  <!-- svg: SVG Document Element ......................... -->
+  <xs:complexType name="SVG.svg.content">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="SVG.Description.class"/>
+      <xs:element ref="SVG.Animation.class"/>
+      <xs:element ref="SVG.Structure.class"/>
+      <xs:element ref="SVG.Conditional.class"/>
+      <xs:element ref="SVG.Image.class"/>
+      <xs:element ref="SVG.Shape.class"/>
+      <xs:element ref="SVG.Text.class"/>
+      <xs:element ref="SVG.Hyperlink.class"/>
+      <xs:element ref="SVG.Font.class"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="svg">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.svg.content">
+          <xs:attributeGroup ref="svg:attlist.svg"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.svg.element -->
+  <xs:attributeGroup name="attlist.svg">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="svg:SVG.Presentation.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x" type="Coordinate.datatype"/>
+    <xs:attribute name="y" type="Coordinate.datatype"/>
+    <xs:attribute name="width" type="Length.datatype"/>
+    <xs:attribute name="height" type="Length.datatype"/>
+    <xs:attribute name="viewBox" type="ViewBoxSpec.datatype"/>
+    <xs:attribute name="preserveAspectRatio" default="xMidYMid meet" type="PreserveAspectRatioSpec.datatype"/>
+    <xs:attribute name="zoomAndPan" default="magnify">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="disable"/>
+          <xs:enumeration value="magnify"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="version" default="1.1">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="1.1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="baseProfile" type="Text.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.svg.attlist -->
+  <!-- g: Group Element .................................. -->
+  <xs:complexType name="SVG.g.content">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="SVG.Description.class"/>
+      <xs:element ref="SVG.Animation.class"/>
+      <xs:element ref="SVG.Structure.class"/>
+      <xs:element ref="SVG.Conditional.class"/>
+      <xs:element ref="SVG.Image.class"/>
+      <xs:element ref="SVG.Shape.class"/>
+      <xs:element ref="SVG.Text.class"/>
+      <xs:element ref="SVG.Hyperlink.class"/>
+      <xs:element ref="SVG.Font.class"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="g" substitutionGroup="SVG.Structure.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.g.content">
+          <xs:attributeGroup ref="svg:attlist.g"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.g.element -->
+  <xs:attributeGroup name="attlist.g">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="svg:SVG.Presentation.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.g.attlist -->
+  <!-- defs: Definisions Element ......................... -->
+  <xs:complexType name="SVG.defs.content">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="SVG.Description.class"/>
+      <xs:element ref="SVG.Animation.class"/>
+      <xs:element ref="SVG.Structure.class"/>
+      <xs:element ref="SVG.Conditional.class"/>
+      <xs:element ref="SVG.Image.class"/>
+      <xs:element ref="SVG.Shape.class"/>
+      <xs:element ref="SVG.Text.class"/>
+      <xs:element ref="SVG.Hyperlink.class"/>
+      <xs:element ref="SVG.Font.class"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="defs" substitutionGroup="SVG.Structure.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.defs.content">
+          <xs:attributeGroup ref="svg:attlist.defs"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.defs.element -->
+  <xs:attributeGroup name="attlist.defs">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="svg:SVG.Presentation.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.defs.attlist -->
+  <!-- desc: Description Element ......................... -->
+  <xs:element name="desc" substitutionGroup="SVG.Description.class">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="svg:attlist.desc"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.desc.element -->
+  <xs:attributeGroup name="attlist.desc">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.desc.attlist -->
+  <!-- title: Title Element .............................. -->
+  <xs:element name="title" substitutionGroup="SVG.Description.class">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="svg:attlist.title"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.title.element -->
+  <xs:attributeGroup name="attlist.title">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.title.attlist -->
+  <!-- metadata: Metadata Element ........................ -->
+  <xs:element name="metadata" substitutionGroup="SVG.Description.class">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="svg:attlist.metadata"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.metadata.element -->
+  <xs:attributeGroup name="attlist.metadata">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.metadata.attlist -->
+  <!-- use: Use Element .................................. -->
+  <xs:complexType name="SVG.use.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="use" substitutionGroup="SVG.Use.class"/>
+  <!-- end of SVG.use.element -->
+  <xs:attributeGroup name="attlist.use">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="svg:SVG.Presentation.attrib"/>
+    <xs:attributeGroup ref="xlink:SVG.XLinkEmbed.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x" type="Coordinate.datatype"/>
+    <xs:attribute name="y" type="Coordinate.datatype"/>
+    <xs:attribute name="width" type="Length.datatype"/>
+    <xs:attribute name="height" type="Length.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.use.attlist -->
+<!-- end of svg-basic-structure.mod -->

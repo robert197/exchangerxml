@@ -1,0 +1,17 @@
+<xngr>
+	<projects>	
+<project name="XInclude">
+
+   <document src="poem.xml"/>
+   <document src="verse1.xml"/>
+   <document src="verse2.xml"/>
+   <document src="verse3.xml"/>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

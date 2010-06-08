@@ -1,0 +1,719 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor  V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title">Exchanger XML Editor V3.2 User Guide</h2>
+      <p class="copyright">Copyright &copy; 2005 Cladonia Ltd</p>
+      <h2 class="title" style="clear: both">Editing XML using the Grid</h2>
+      <p>The Grid view provides a convenient means for viewing and  editing XML  while shielding the user from the complexities of
+         the actual markup. While the grid is particularly useful for handling structured data, such as purchase orders or medical
+         records, it  also supports documents that contain mixed content.
+      </p><img src="../../images/gridOverview.gif" alt="Grid Overview"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Grid Overview</b></p>
+      <h3 class="title">Grid Layout</h3>
+      <p>The Grid display is a combination of a single tree and multiple table components. The nodes in the tree represent the element
+         hierarchy. When a  node on the tree is expanded, a table is displayed  to show the children of the current element. Each row
+         in the table represents  a single child element, while the columns correspond to the element name, the text content of the
+         element (if any) and the attribute values for the element (if any).   
+      </p>
+      <p>Grid functionality for creating, modifying and deleting nodes is avilable via the Grid Tool Bar which runs vertically on the
+         left hand side of the Grid display. Alternatively, you can use the Grid Menu  (and create keyboard short cuts for commonly
+         used functions) or right-click in the Grid to display the pop-up Context menu. 
+      </p>
+      <h3 class="title">Opening an XML  Document in the Grid View</h3>
+      <p>Open the file <tt class="filename">PurchaseOrder.xml</tt>  in the <b>Grid Example</b> project.  By default, the Editor view  is selected and contains a text-based view of the file. 
+      </p>
+      <p></p>
+      <p></p><img src="../../images/purchaseOrderEditor.gif" alt="Purchase Order in Editor"></img><p class="title"><b>Figure&nbsp;2.&nbsp;Purchase Order in Editor</b></p>
+      <p></p>
+      <p></p>
+      <p>Make sure that the file is well-formed by looking for any errors or warnings in  the Errors output panel or by explicitly
+         choosing the <b>XML-&gt;Check Well-Formedness </b>menu item or by pressing the Check Well-Formed button <img src="../../images/buttonWellFormed2.gif"></img>. If any well-formedness errors are reported, it is necessary to rectify them before attempting to use the Grid. To switch
+         from the Editor view to the Grid view, press the Grid button <img src="../../images/buttonGrid.gif"></img>in the top right of the application or choose the <b>View-&gt;Grid</b> menu item or press <b>Ctrl-5</b>. The document is displayed in collapsed fashion so that only the root element is initially visible.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/purchaseOrderGrid.gif" alt="Purchase Order in Grid"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Purchase Order in Grid</b></p>
+      <h3 class="title">Expanding and Collapsing Elements</h3>
+      <p>If an element has children,  the child elements are displayed in a table by clicking on the Expand symbol in the tree. Depending
+         on the current Look and Feel, this symbol may be a "plus" sign (<img src="../../images/handlePlus.gif"></img>) or a "handle" ( <img src="../../images/handle.gif"></img>).  Expand the root element and observe how its children are displayed in a table, with each row corresponding to a single
+         child element.  The columns correspond to the element name(<img src="../../images/gridElement.gif"></img>, the text content, if any (<img src="../../images/gridText.gif"></img>) and the attributes, if any (<img src="../../images/gridAttribute.gif"></img>).
+         		
+      </p>
+      <p></p>
+      <p></p><img src="../../images/purchaseOrderGrid1.gif" alt="First Level Table"></img><p class="title"><b>Figure&nbsp;4.&nbsp;First Level Table</b></p>
+      <p>If a child element has descendants itself, then it too will have an Expand icon in the tree outline. Repeatedly click  the
+         Expand icons to open up all  descendant elements. 
+      </p><img src="../../images/purchaseOrderGrid2.gif" alt="Second Level Table"></img><p class="title"><b>Figure&nbsp;5.&nbsp;Second Level Table</b></p>
+      <p> To hide the table displays representing descendant elements,  click the Collapse symbol in the tree outline. Depending on
+         the current Look and Feel, this symbol may be a "minus" sign (<img src="../../images/handleMinus.gif"></img>) or a "opened handle" (<img src="../../images/handleOpen.gif"></img>). 
+      </p>
+      <p>To display an entire document all at once in the Grid, click on the<b> Expand All</b> button on the Editor toolbar <img src="../../images/buttonExpandAll.gif"></img> or choose the <b>View-&gt;Expand All</b> menu item. Similarly, a partially or fully displayed document can be collapsed using the  <b>Collapse All</b> button on the Editor toolbar <img src="../../images/buttonCollapseAll.gif"></img> or  the <b>View-&gt;Collapse All</b> menu item. 
+      </p>
+      <p> <b>Note: </b>Use the Expand All functionality with care as  displaying  very large documents in full in the Grid may consume significant
+         system resources. 
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Tabular Navigation</h3>
+      <p>Normal spreadsheet conventions are used for navigating within the table. <b>Up/Down Arrow</b> keys change the current row, while <b>Left/Right Arrow</b> keys change the current column.
+      </p>
+      <p> The <b>Tab</b> key chooses the next cell in the current row and moves to the first cell in the next row after you encounter the last cell
+         in the current row. Use the Tab key when you want to do a breadth-first traversal of a table. <b>Shift-Tab</b> allows you to navigate in reverse, choosing the previous cell in the current row, and then the last cell in the previous
+         row after you encounter the first cell in the current row.	
+      </p>
+      <p>The<b> Enter</b> key chooses the next cell in the current column and moves to the first cell in the next column after you encounter the last
+         cell in the current column. Use the <b>Enter</b> key when you want to do a depth-first traversal of a table.  <b>Shift-Enter</b> allows you to navigate in reverse, moving focus to the previous cell in the current column, and then the last cell in the
+         previous column after you encounter the first cell in the current column. 
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Tree Navigation</h3>
+      <p>Menu items are also provided for expanding and collapsing the tree. Choose <b>Grid-&gt;Navigate-&gt;Expand Row</b> and <b>Grid-&gt;Navigate-&gt;Collapse Row</b> as an alternative to using the  symbols in the tree. The element that is currently selected will be expanded or collapsed
+         (provided of course that it has children). While the menu items may not be as convenient as using the symbols in the tree
+         outline, they do allow for the possibility of creating corresponding keyboard shortcuts that facilitate navigation without
+         using  the mouse. Choose File-&gt;Preferences... and on the Keys tab, assign keystrokes for the <b>Grid: Expand Row</b> and <b>Grid: Collapse Row</b> actions. 
+      </p>
+      <p>A not-so-obvious benefit of using the Grid Expand Row/Collapse Row menu items surrounds the issue of focus. When expanding
+         an element with the mouse on the Grid tree, the focus is lost and another mouse click is required to select a cell in the
+         expanded table. However, when using the <b>Grid-&gt;Expand Row</b> menu item (or the corresponding keyboard shortcut if assigned), the focus is programatically  set to the first cell in the
+         expanded table.
+      </p>
+      <p>A number of other functions are provided to assist with navigating up and down  the tree structure. </p>
+      <p>To move focus  from the current element to its first child element, choose <b>Grid-&gt;Navigate-&gt;Goto Child Table</b>. The table representing the children will be displayed (if not already visible) and focus will be moved to the first element
+         in the table.
+      </p>
+      <p>Use <b>Grid-&gt;Navigate-&gt;Goto Parent Table</b> to move focus from anywhere in a child table to the parent element. The current table remains visible. 
+      </p>
+      <p>To collapse the current table, choose <b>Grid-&gt;Navigate-&gt;Collapse Current Table</b>. Focus is returned to the parent element. 
+      </p>
+      <p>Together with the tabular navigation keys  (ENTER, TAB, UP/DOWN ARROW, LEFT/RIGHT ARROW), the <b>Grid-&gt;Navigate</b> menu functions  facilitate navigation up and down the Grid and within tables. Setting keyboard shortcuts for these functions
+         supports navigation without having to resort to using the mouse.
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Table Header</h3>
+      <p>The table header is displayed in a different color so that tables can be easily identified from one another. The table header
+         contains an XPath representation for the current element, showing the ancestry from the root node. If the preferences have
+         been set to generate unique XPaths (on the <b>Views</b> tab of the  <b>File-&gt;Preferences</b> dialog) then a fully qualified repesentation will be displayed. 
+      </p><img src="../../images/gridTableHeader.gif" alt="Grid Table Header"></img><p class="title"><b>Figure&nbsp;6.&nbsp;Grid Table Header</b></p>
+      <h3 class="title">Column Header</h3>
+      <p>The Column Header appears directly below the table header and identifies the columns relating to element name, attribute names
+         and text  content of the elements in the table. 
+      </p>
+      <p></p>
+      <p></p><img src="../../images/gridColumnHeader.gif" alt="Grid Column Header"></img><p class="title"><b>Figure&nbsp;7.&nbsp;Grid Column Header</b></p>
+      <p>Columns can be visually sorted in ascending or descending alphabetical order  by clicking on a cell in the column header.
+         Sorting is purely for display purposes and does not affect the underlying document order. 
+      </p>
+      <p>Column widths can be adjusted by positioning the mouse on the divider between any two cells in a column header and dragging
+         the mouse to the left or right.
+      </p>
+      <p>Some or all of the attribute columns and the  text column in a table can be hidden to improve usability. Right-clicking on
+         a cell in the column header and in the popup context menu, choose Show/Hide Columns. 
+      </p>
+      <p> For more information on sorting, resizing and showing/hiding columns, see the following sections. </p>
+      <h3 class="title">Sorting Columns</h3>
+      <p>Element, attribute and text columns can all be sorted by clicking the corresponding cell in the column header. Clicking the
+         first time will sort in ascending alphabetical order, clicking the second time will sort in descending order while clicking
+         a third time will return to document order. It is important to realise that sorting is purely visual and has no effect on
+         the underlying order of the data. To physically move elements with respect to one another requires the use of the <b>Move Element Up</b>, <b>Move Element Down</b> functionality , or the <b>Copy/Cut/Paste</b> functionality described in  the following sections.
+      </p>
+      <p>The sorting functionality can also be accessed though the <b>Grid-&gt;Move/Sort</b> menu or via the Column Header context menu. 
+      </p>
+      <p></p>
+      <p></p><img src="../../images/tableSortedAsc.gif" alt="Attribute Column Sorted in Ascending order"></img><p class="title"><b>Figure&nbsp;8.&nbsp;Attribute Column Sorted in Ascending order</b></p><img src="../../images/tableSortedDesc.gif" alt="Attribute Column Sorted in Descending Order"></img><p class="title"><b>Figure&nbsp;9.&nbsp;Attribute Column Sorted in Descending Order</b></p><img src="../../images/tableUnsorted.gif" alt="Attribute Column Unsorted (Document Order)"></img><p class="title"><b>Figure&nbsp;10.&nbsp;Attribute Column Unsorted (Document Order)</b></p>
+      <h3 class="title">Resizing  Column Widths</h3>
+      <p>By default, table columns have equal width. To resize a column, position the mouse on the divider between two column header
+         cells and drag to the right or left as required.  
+      </p>
+      <p></p>
+      <p></p><img src="../../images/gridColumnsBeforeResizing.gif" alt="Columns before Resizing"></img><p class="title"><b>Figure&nbsp;11.&nbsp;Columns before Resizing</b></p>
+      <p></p>
+      <p></p><img src="../../images/gridColumnHeaderWidths.gif" alt="Columns after Resizing"></img><p class="title"><b>Figure&nbsp;12.&nbsp;Columns after Resizing</b></p>
+      <h3 class="title">Showing/Hiding  Columns</h3>
+      <p>When an element has many attributes, each attribute column can be very narrow and hence difficult to use. To temporarily hide
+         a column,  right-click in the column header. This gives rise to a popup context menu of actions that operate on a table column.
+         			
+      </p>
+      <p></p>
+      <p></p><img src="../../images/gridColumnHeaderContext.gif" alt="Context Menu - Show/Hide Columns"></img><p class="title"><b>Figure&nbsp;13.&nbsp;Context Menu - Show/Hide Columns</b></p>
+      <p> In the popup context menu, choose the <b>Show Columns </b> item and untick the appropriate attribute name or  text column.  To show columns that have already been hidden, reverse the
+         process by  right-clicking in the column header or in the table header and ticking the attribute name or text in the Show
+         Columns sub-menu.
+      </p><img src="../../images/gridColumnHeaderHidden.gif" alt="Grid after Hiding Columns"></img><p class="title"><b>Figure&nbsp;14.&nbsp;Grid after Hiding  Columns</b></p>
+      <h3 class="title">Selecting a Cell</h3>
+      <p>To select a cell, single-click the mouse in a table on the required cell and the cell will be highlighted. The XPath Field
+         below the main toolbar will be updated to reflect the current position and, if the Navigator is visible in the Controller
+         window, the tree outline will be expanded to  the appropriate node.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/gridCellSelection.gif" alt="Cell Selection"></img><p class="title"><b>Figure&nbsp;15.&nbsp;Cell Selection</b></p>
+      <p>It is also possible to select a cell using an XPath query  or using the Navigator. For more information, see the sections
+         <b>Selecting Cells using XPath Queries</b> and <b>Selecting Cells using the Navigator</b>. 
+      </p>
+      <p>When a cell is selected, the entire cell is highlighted. The current row is selected for Row-Based actions and the current
+         column is selected for Column-Based actions - see the sections on editing for more details. 
+      </p>
+      <h3 class="title">Basic Editing in the Grid</h3>
+      <p>Content can be easily added to any cell by simply selecting the cell and starting to  type. The new content will be appended
+         to any existing content.  Press <b>ENTER</b> to finish editing - the cell focus automatically moves onto the next cell in the column. Alternatively, press <b>ESCAPE</b> to undo the editing and return the cell content to its original value.
+      </p>
+      <p>Typing directly into a selected cell is convenient when the cell is empty. However,  when a  cell already has content,  you
+         will typically want to edit the content rather than append to the end. To achieve this,  double-click on a cell to enter editing
+         mode.  The cell outline is highlighted and a cursor appears in the cell and the current word is selected.
+      </p>
+      <p> Normal text editing functionality is available via keyboard short-cuts, including Delete Previous Character (<b>BACKSPACE</b>), Delete Next Character (<b>DELETE</b>), Copy (<b>Ctrl+C</b>), Cut (<b>Ctrl+X </b>), Paste (<b>Ctrl+V</b>), Next Word (<b>Ctrl+Right Arrow</b>), Previous Word (<b>Ctrl-Left Arrow</b>), Start of Text (<b>HOME</b>), End of Text (<b>END</b>).  
+      </p>
+      <p> Press <b>ENTER</b> to finish editing - the cell focus stays in the current cell after exiting edit mode.  Alternatively, press <b>ESCAPE</b> to undo the editing and return the cell content to its original value. Note that while in editing mode, the Expand/Collapse
+         icons in the tree outline disappear so as to disable changes to the overall grid display while editing. The icons reappear
+         on completion of editing. 
+      </p>
+      <h3 class="title">Copy, Cut and Paste in the Grid</h3>
+      <p>The Grid provides two distinct forms of functionality for Copy, Cut and Paste:</p>
+      <ul type="disc">
+         <li>
+            <p>Basic Copy, Cut and Paste for XML Data (Attribute Values and Text Content)</p>
+         </li>
+         <li>
+            <p>XML-Aware Copy, Cut and Paste for XML Structures (Element and Attribute Nodes)</p>
+         </li>
+      </ul>
+      <p>The Basic functionality  makes it simple to move the data content  around in a document while the XML-Aware functionality
+         facilitates moving complete XML structures. The Basic form is explained in the following section while the XML-Aware form
+         is documented later in this guide.  
+      </p>
+      <h3 class="title">Basic Copy, Cut and Paste for Data</h3>
+      <p>The Grid makes it easy to manipulate the data content of an XML document.  Attribute values and text content can easily be
+         copied or cut   by selecting the appropriate cell and using the normal Copy and Cut functions. 
+      </p>
+      <p>To copy an attribute cell, highlight the cell and  use <b>Ctrl+C</b> or <b>Edit-&gt;Copy</b>. To paste the attribute, select the target cell and use <b>Ctrl+V</b> or <b>Edit-&gt;Paste</b>.  If  the target cell is another attribute cell, the attribute value overwrites the contents of the cell. Similarly, if the
+         target cell is a text cell, the attribute value overwrites the contents of the text cell. 
+      </p>
+      <p> However, if the target cell is an element cell, the XML-Aware functionality is used and a new attribute name-value pair is
+         added to the element, provided an attribute of the same name does not already exist there. See the XML-Aware documentation
+         in a later section for more details on pasting attribute nodes into elements.  
+      </p>
+      <p>To copy a text cell, highlight the cell and  use <b>Ctrl+C</b> or <b>Edit-&gt;Copy</b>. To paste the text, select the target cell and use <b>Ctrl+V</b> or <b>Edit-&gt;Paste</b>.  If the target cell is an attribute cell, the text content  overwrites the attribute value. Similarly, if the target cell
+         is another text cell, the text content  overwrites the current content of the target cell. 
+      </p>
+      <p> However, if the text is pasted into an element cell, the XML-Aware form is used and a new text node is added to the element,
+         at the end of any existing text content. See the XML-Aware documentation in a later section for more details on pasting text
+         nodes into elements.
+      </p>
+      <p>To cut an attribute cell  and put it on the clipboard, highlight the cell and  use <b>Ctrl+X</b> or <b>Edit-&gt;Cut</b> Note that the entire attribute node (i.e. both the attribute name and attribute value) is removed. Alternatively, to delete
+         the entire attribute node without putting it on the clipboard, simply highlight the attribute cell and press <b>DELETE</b>.
+         			
+      </p>
+      <p>
+         			To set an attribute value to null, but to leave the attribute node in place (i.e. to go from attr_name="attr_val" to  attr_name=""), just double-click on the cell to enter editing mode, delete the cell contents and press <b>ENTER</b>.
+         			
+      </p>
+      <p>To cut a text cell and put it on the clipboard, highlight the cell and  use <b>Ctrl+X</b> or <b>Edit-&gt;Cut</b>. Alternatively, to delete the text node without putting it on the clipboard, simply highlight the text cell and press <b>DELETE</b>.		
+         			
+      </p>
+      <p></p>
+      <h3 class="title">Special Characters</h3>
+      <p>XML requires the escaping of certain characters in attribute values and in text content. In general, it is good practice to
+         use entites for all special characters - <b>&amp;amp;</b> for the ampersand character, <b>&amp;apos;</b> for the single quote, <b>&amp;quote;</b> for the double quote, <b>&amp;lt;</b> for the less-than sign and <b>&amp;gt;</b> for the greater-than sign. 
+      </p>
+      <p>The Grid interface tries to simplify the user's life  by automatically escaping these characters when entered in attribute
+         values and text content. Type in these characters as normal when editing the contents of a cell and press ENTER to finish
+         editing. The special characters will automatically be converted to their corresponding entities, thus ensuring that the XML
+         is well-formed.  To explicitly enter other entities, simply enter them as named entity, for example, &amp;copy; for the copyright
+         sign. Provided the entity is well-formed, the Grid will not escape the ampersand character when it occurs as part of an entity.
+         Note that this escaping of special characters is turned off when Mixed Content mode has been chosen in the Grid Properties
+         - see the following section for more details.
+      </p>
+      <p></p>
+      <h3 class="title">Mixed Content</h3>
+      <p>Mixed Content is the name given to the situation where an element has both text content and sub-structure. For example, the
+         paragraph element (<b>&lt;P&gt;</b>)  in XHTML can contain text and also styling elements such as bold (<b>&lt;B&gt;</b>) and italics (<b>&lt;I&gt;</b>). While the Grid view is better suited to handling structured XML Data (e.g. Purchase Orders) as opposed to XML Documents
+         (e.g. XHTML or DocBook Article), it does provide some limited support for elements with mixed content. 
+      </p>
+      <p>To enable Mixed Content mode, select <b>View-&gt;Grid Properties-&gt;Support Mixed Content</b> from the main menu. In Mixed Content mode, the automatic escaping of special characters described  earlier in this section
+         is disabled. An element containing both text content and sub-elements will be represented in the grid by a single cell, with
+         the text and element/attribute markup directly editable in the cell. The onus is on the user to ensure that any editing of
+         the  cell  ensures that the cell contents remain well-formed.  
+      </p>
+      <p>If the grid encounters and element with mixed content while not in Mixed Content mode, it does its best to handle the situation
+         by grouping all the text content in a single cell, and creating a table for the sub-elements. The complete element can still
+         be treated in its entireity in the grid for functions such as move, copy, cut and paste. However, if edits are made to the
+         mixed content, the outcome  is unpredictable. In this situation, switch to Mixed Content mode in the Grid, or alternatively
+         switch to the text-based Editor for better support for editing mixed content.
+      </p>
+      <p>In general, Mixed Content mode should only be used in special circumstances, for example, to easily manipulate the overall
+         structure of XML documents, and not for regular editing of mixed content which is probably more suited to the text-based Editor
+         view.
+      </p>
+      <h3 class="title">CDATA</h3>
+      <p>CDATA sections will appear in the Grid as text content, delimited by the normal <b>&lt;![CDATA[</b>  and<b> ]]&gt;</b> strings. 
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Processing Instructions and Comments</h3>
+      <p>The Grid editor does not support creating, editing or deleting  processing instructions or comments. However, if any of these
+         node types already exist in a document, the Grid view will maintain the nodes without modification.
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Undo and Redo in the Grid</h3>
+      <p>Normal Undo/Redo functionality is available for all editing operations on the grid. Use the regular <b>Ctrl+Z </b>and <b>Crtl+Y</b> shortcuts or the <b>Edit-&gt;Undo</b> or <b>Edit-&gt;Redo</b> menu items. TODO
+      </p>
+      <p><b>NOTE:</b> The Undo/Redo history is lost when switching views between the Grid and the Editor.   
+      </p>
+      <h3 class="title"> Row-Based (Atomic) Operations versus Column-Based  (Aggregate) Operations</h3>
+      <p>Editing functionality is divided between Atomic actions that operate on a single element (or row) and Aggregate actions that
+         operate on all elements in a table (column-based). 
+      </p>
+      <p>When a cell is selected (highlighted), the current row is selected for Atomic actions and the current column is selected for
+         Aggregate actions. 
+      </p>
+      <p>Row-Based actions include: </p>
+      <ul type="disc">
+         <li>
+            <p> Add Attribute, Add Text, Add Element Before, Add Element After, Add Child Element.</p>
+         </li>
+         <li>
+            <p>Delete Attribute, Delete Text, Delete All Attributes and Text, Delete Element, Delete Children.</p>
+         </li>
+         <li>
+            <p>Move Element Up, Move Element Down.</p>
+         </li>
+      </ul>
+      <p>Column-Based actions include:</p>
+      <ul type="disc">
+         <li>
+            <p>  Add Attribute to All Elements in Table, Add Text to All Elements in Table</p>
+         </li>
+         <li>
+            <p>Delete Attribute from All Elements in Table and Delete Text from All Elements in Table.</p>
+         </li>
+         <li>
+            <p>Sort Ascending, Sort Descending, Unsort.</p>
+         </li>
+      </ul>
+      <p></p>
+      <p></p>
+      <h3 class="title">Row-Based  (Atomic) Operations </h3>
+      <p></p>
+      <p></p>
+      <h4 class="title">Elements - How to Add, Modify, Move  and Delete Elements</h4>
+      <p></p>
+      <h5 class="title">Add Element Before</h5>
+      <p>To add an element immediately preceding the current element, press the <b>Add Element Before</b> icon on the Grid Toolbar <img src="../../images/buttonGridAddElementBefore.gif"></img> or select <b>Grid-&gt;Add-&gt;Add Element Before</b> from the menu or right-click on the element cell and choose Add Element Before on the pop-up context menu. Enter the element
+         name and text content (if any) in the dialog and press OK. 
+      </p>
+      <p></p>
+      <h5 class="title">Add Element After</h5>
+      <p>To add an element immediately following the current element, press the <b>Add Element After</b> icon on the Grid Toolbar <img src="../../images/buttonGridAddElementAfter.gif"></img>or select <b>Grid-&gt;Add-&gt;Add Element After</b> from the menu or right-click on the element cell and choose Add Element After on the pop-up context menu. Once again, enter
+         the element name and text content (if any) in the dialog and press OK. 
+      </p>
+      <h5 class="title">Add Child Element</h5>
+      <p>To add an element as a child of the current element, press the <b>Add Child Element</b>  icon on the Grid Toolbar <img src="../../images/buttonGridAddChildElement.gif"></img> or select <b>Grid-&gt;Add-&gt;Add Child Element</b> from the menu or right-click on the element row and choose Add Child Element on the pop-up context menu. Enter the element
+         name and text content (if any) in the dialog and press OK.  If you add a child to an element that already has children, the
+         new element  will be appended at the end of the list of existing children. (If you need to change the position of the newly
+         created child, you can use the Move Element functions described later). 
+      </p>
+      <h5 class="title">Rename Element</h5>
+      <p>To modify the name of an element, double-click on the element name cell and use the normal editing functionality to change
+         the name.
+      </p>
+      <p></p>
+      <h5 class="title">Move Element</h5>
+      <p>While sorting only has a visual effect, the underlying order of elements can be changed using <b>Move Element Up</b> and <b>Move Element Down</b>. To move an element  (and all its attributes, text and sub-structure) earlier in document order relative to its siblings,
+         select a cell on the element row and press the <b>Move Element Up</b> icon on the Grid Toolbar <img src="../../images/buttonGridMoveElementUp.gif"></img> (or use the <b>Grid-&gt;Move/Sort-&gt;Move Element Up</b> menu item). 
+      </p>
+      <p>To move an element later in the document relative to its siblings, select a cell on the element row and press the <b>Move Element Down</b> icon on the Grid Toolbar <img src="../../images/buttonGridMoveElementDown.gif"></img>  (or use the <b>Grid-&gt;Move/Sort-&gt;Move Element Down</b> menu item)
+      </p>
+      <p></p>
+      <h5 class="title">Delete Element</h5>
+      <p>To delete the current element, press the  <b>Delete  Element </b> icon on the Grid Toolbar <img src="../../images/buttonGridDeleteElement.gif"></img> or select <b>Grid-&gt;Delete -&gt;Delete  Element</b> from the menu or right-click on the element cell and choose Delete Element on the pop-up context menu. If the deleted element
+         is the last or only row in a table, then the table is removed on the delete operation. To restore a deleted element, select
+         <b>Edit-&gt;Undo</b> from the main menu or press <b>Ctrl-Z</b>.
+      </p>
+      <p></p>
+      <h5 class="title">Delete Children</h5>
+      <p>To delete all the children of an element, select the element and press the <b>Delete Children</b> icon on the Grid Toolbar <img src="../../images/buttonGridDeleteChildren.gif"></img> or select the <b>Grid-&gt;Delete-&gt;Delete Children</b> menu item or right-click on the element cell and choose Delete Children on the popup context menu. Note that Delete Children
+         only removes sub-elements. Any text content and/or  attributes must be removed using the <b>Delete Attributes and Text</b> functions described in the following sections.
+      </p>
+      <h4 class="title">Attributes - How to Add, Modify and Delete Attributes on the current Element </h4>
+      <h5 class="title">Add Attribute</h5>
+      <p>The mechanism for adding a new attribute to an element depends on whether or not the attribute column  already exists in the
+         current table. If the attribute column  exists,  highlight the appropriate cell by single-clicking the mouse, or navigate
+         to it using the arrow keys or other keyboard shortcuts. There is no need to double-click to enter editing mode - simply type
+         in the required attribute value and press <b>ENTER</b> when finished. 
+      </p>
+      <p>To create a new attribute and set its value for the  current element (row), press the <b>Add Attribute</b> icon in the Grid Toolbar <img src="../../images/buttonGridAddAttribute.gif"></img>, or choose the <b>Grid-&gt;Add-&gt;Add Attribute</b> menu item or right-click on the element cell and choose Add Attribute from the popup context menu.  Enter the attribute name
+         and value (if any) in the pop-up dialog and press <b>OK</b>. A new column will be added to the table and the attribute value will appear in the appropriate cell.
+      </p>
+      <p></p>
+      <p></p>
+      <h5 class="title">Edit Attribute Value</h5>
+      <p>To modify an existing attribute value, double-click on the appropriate cell to enter editing mode and then use the normal
+         editing functions to change the value. When finished, press <b>ENTER</b>.
+      </p>
+      <p></p>
+      <h5 class="title">Rename Attribute</h5>
+      <p>To rename a single attribute on an element, highlight the appropriate cell and select <b>Grid-&gt;Edit-&gt;Rename Attribute</b> from the menu. Alternatively, right-click on the cell and on the popup content menu, select Rename Attribute. Enter the new
+         attribute name in the dialog and press <b>OK</b>. If an attribute of that name already exists on the current element, a warning will be given and the rename operation will
+         not succeed. 
+         				
+      </p>
+      <p></p>
+      <h5 class="title">Delete Attribute Value</h5>
+      <p>To delete an attribute value, double-click on the appropriate cell to enter editing mode. Select the contents of the cell,
+         for example, using <b>Ctrl+A</b> and then press the <b> DELETE</b> button. The attribute will remain on the element, but its value will be empty.
+      </p>
+      <p></p>
+      <h5 class="title">Delete Attribute Name-Value Pair</h5>
+      <p>To delete an attribute completely from an element, removing both the attribute name and the attribute value,  highlight the
+         cell corresponding to the attribute  and press the the <b> DELETE</b> button. Alternatively use the <b>Delete Attribute</b> icon on the Grid Toolbar <img src="../../images/buttonGridDeleteAttribute.gif"></img> or select <b>Grid-&gt;Delete-&gt;Delete Attribute</b>.  To remove the attribute completely and put it on the clipboard,  select the cell and use the normal Cut functions (<b>Ctrl+X</b> or <b>Edit-&gt;Cut</b>).
+      </p>
+      <h4 class="title">Text - How to Add, Modify and  Delete Text on the current Element </h4>
+      <h5 class="title">Add Text</h5>
+      <p>The mechanism for adding text content to an element depends on whether or not a Text column already exists in the current
+         table. If the Text column exists, simply select the appropriate cell by single-clicking the mouse, or navigate to it using
+         the arrow keys or other keyboard shortcuts and then start typing. If the Text column is not already present, press the <b>Add Text </b> icon on the Grid Toolbar <img src="../../images/buttonGridAddText.gif"></img> or select <b>Grid-&gt;Add-&gt;Add Text</b> from the menu or right-click on the element cell and choose Add Text on the pop-up context menu. A new colum will appear
+         in the table with the text content in the appropriate cell. 
+      </p>
+      <p>To append content to an existing text cell, simply highlight the cell and start typing. Editing mode is automatically entered,
+         and the normal text editing conventions apply. To finish editing and maintain the changes, press <b>ENTER</b>, or alternatively press <b>ESCAPE</b> to return the cell content to its previous state. 
+      </p>
+      <p></p>
+      <h5 class="title">Edit Text</h5>
+      <p>To edit the content of an existing text cell, double-click on the cell to enter editing mode. Normal text editing functionality
+         is available via keyboard short-cuts, including Delete Previous Character (<b>BACKSPACE</b>), Delete Next Character (<b>DELETE</b>), Copy (<b>Ctrl+C</b>), Cut (<b>Ctrl+X</b> ), Paste (<b>Ctrl+V</b>), Next Word (<b>Ctrl+Right Arrow</b>), Previous Word (<b>Ctrl+Left Arrow</b>), Start of Text (<b>HOME</b>), End of Text (<b>END</b>),   Press <b>ENTER</b> to finish editing - the cell focus is moved to the next cell in the current column.  Alternatively, press <b>ESCAPE</b> to undo the editing and return the cell content to its original value.
+      </p>
+      <p></p>
+      <h5 class="title">Delete Text</h5>
+      <p>To delete the text content of an element, simply highlight the text cell and press <b>DELETE</b>. Alternatively, if the element name cell is selected, press the <b>Delete Text</b> icon on the toolbar <img src="../../images/buttonGridDeleteText.gif"></img> or choose <b>Grid-&gt;Delete-&gt;Delete Text</b>, or right-click on the element cell and choose Delete Text from the popup context menu.  
+      </p>
+      <h3 class="title">Column-Based (Aggregate) Operations </h3>
+      <h4 class="title">How to Add an  Attribute to All Elements in a Table</h4>
+      <p>To add an attribute (and potentially a corresponding attribute value) to all the elements in a table, select any cell in the
+         table and press the<b> Add Attribute Column</b>  icon in the Grid Toolbar <img src="../../images/buttonGridAddAttributeColumn.gif"></img> or  select the <b>Grid-&gt;Add-&gt;Add Attribute Column</b> menu item. In the popup dialog, enter the attribute name and, if required, a  value that will be added for each attribute
+         and then press OK. A new column will appear in the table, with each cell containing the specified attribute value, if one
+         was specified. 
+      </p>
+      <p></p>
+      <h4 class="title">How to Rename an Attribute for all Elements in a Table</h4>
+      <p>To rename an attribute column, highlight a cell and select <b>Grid-&gt;Edit-&gt;Rename Attribute Column</b>  from the menu. Alternatively, right-click on the column header and on the popup menu, select Rename Attribute Column.  Enter
+         the new attribute name in the dialog and press <b>OK</b>. If an attribute column of that name already exists in the current table, a warning will be given and the rename operation
+         will not succeed. 
+      </p>
+      <p></p>
+      <h4 class="title">How to Add Text to all Elements in  a Table</h4>
+      <p>If there is not already a text column in a table (i.e. none of the elements have text content) then a fixed piece of content
+         can  easily be  added to all elements by pressing  the <b>Add Text Column</b>  icon in the Grid Toolbar <img src="../../images/buttonGridAddTextColumn.gif"></img> or  selecting the <b>Grid-&gt;Add-&gt;Add Text Column</b> menu item. Enter the placeholder text in the popup dialog and press OK to have a new text column appear in the table.
+      </p>
+      <p></p>
+      <h4 class="title">How to Delete an Attribute from all Elements in a Table</h4>
+      <p>To remove an attribute from all the elements in a table, select a cell in the appropriate attribute column and press  the
+         <b>Delete  Column</b>  icon in the Grid Toolbar <img src="../../images/buttonGridDeleteColumn.gif"></img> or  select the <b>Grid-&gt;Delete-&gt;Delete  Column</b> menu item. Alternatively use the Column Header context menu as described later in this section.
+      </p>
+      <p></p>
+      <h4 class="title">How to Delete Text from all Elements in a Table</h4>
+      <p>To remove the text content  from all the elements in a table, select a cell in the text column and press  the <b>Delete  Column</b>  icon in the Grid Toolbar <img src="../../images/buttonGridDeleteColumn.gif"></img> or  select the <b>Grid-&gt;Delete-&gt;Delete  Column</b> menu item. 
+      </p>
+      <h3 class="title">XML-Aware Copy, Cut and Paste </h3>
+      <p>The Grid provides special functionality for easily moving complete XML structures. When in editing mode, the Copy, Cut and
+         Paste functions deal only with text, so that element names, attribute values and text content can be copied, cut or pasted
+         on an individual basis. However, it is also possible to copy or cut complete XML structures and paste them in another part
+         of the document. 
+      </p>
+      <h3 class="title">Copy/Cut an XML Element</h3>
+      <p>To copy  an  entire XML element, including its attributes, text content and  sub-structure,  highlight the cell representing
+         the element name by single-clicking on the cell or by navigating to it using the  navigation keystrokes and then use the regular
+         Copy function using <b>Ctrl+C</b> or selecting <b>Edit-&gt;Copy</b> on the main menu or right-click  in the element cell and choose <b>Copy</b> on the popup context menu. Similarly, to cut an entire element, use <b>Ctrl+X</b> or select <b>Edit-&gt;Cut</b> on the main menu or right-click in the element cell and choose Cut on the popup context menu.
+         		
+      </p>
+      <h3 class="title">Paste an XML Element</h3>
+      <p>To paste an entire element, including its sub-structure, select the cell for the element that will act as the parent and use
+         the normal paste action. Either press<b> Ctrl+V</b> or select <b>Edit-&gt;Paste</b> or right-click on the target parent and select <b>Paste</b> from the popup context menu. The element will be inserted as a child of the target element. If the parent element already
+         has children, the pasted element will be inserted as the last child. The pasted element can then be moved into position using
+         the <b>Move Element Up</b> functionality if required.  
+      </p>
+      <h3 class="title">Paste Special</h3>
+      <p>While the default operation for paste is to create a new child element, it is also possible to paste as a sibling of the target
+         element, using the<b> Paste Special </b>functions. Highlight the target element and select <b>Grid-&gt;Edit-&gt;Paste Special</b> from the menu or right-click on the target element and choose <b>Paste Special</b> from the popup context menu. Options are given to paste the source element as a preceeding sibling of  the current (highlighted)
+         element using <b>Paste Before</b> or to paste it as a following sibling using <b>Paste After</b>. The default paste option, <b>Paste as Child</b>, is also provided on the <b>Paste Special</b>  menus. 
+      </p>
+      <h3 class="title">Copy Special</h3>
+      <p>While the default Copy action on a selected element takes all the sub-structure (i.e. it is a "deep" copy), it is also possible
+         to just copy the element name and any attributes by using the <b>Copy Special</b> function. Highlight the element to be copied and select <b>Grid-&gt;Edit-&gt;Copy Special</b> from the menu or right-click on the element cell and choose <b>Copy Special</b> from the popup context menu. On the <b>Copy Special</b> sub-menu, select <b>Copy Shallow</b> to  take the current element  and attributes, but omitting any text  or sub-elements. The regular <b>Paste</b> function or the <b>Paste Special</b> functions can be used to insert the copied nodes.
+      </p>
+      <h3 class="title">Copy/Cut  an XML Attribute (Name-Value Pair)</h3>
+      <p>To copy  an  entire XML attribute, including the attribute name and the attribute value,  highlight the cell representing
+         the attribute  by single-clicking on the cell or by navigating to it using the  navigation keystrokes and then use the regular
+         copy function using <b>Ctrl+C</b> or selecting<b> Edit-&gt;Copy</b> on the main menu or right-click on the attribute cell and choose Copy on the popup context menu. Similarly, to Cut an entire
+         XML attribute, use<b> Ctrl+X</b> or select <b>Edit-&gt;Cut</b> on the main menu or right-click and choose <b>Cut</b> on the popup context menu.
+      </p>
+      <p></p>
+      <h3 class="title">Paste an XML Atrribute (Name-Value Pair)</h3>
+      <p>To paste an entire attribute, including the attribute name and the attribute value, select the cell for the target element
+         and use the normal paste action. Either press <b>Ctrl+V</b> or select <b>Edit-&gt;Paste</b> or right-click on the target element and select <b>Paste</b> from the popup context menu. If the target element already has an attribute of the same name, the paste operation will fail
+         with a warning.
+      </p>
+      <p></p>
+      <p>
+         				
+      </p>
+      <p class="title"><b>Table&nbsp;1.&nbsp;
+            					Copy/Cut/Paste Summary </b></p>
+      <table summary="&#xA;Copy/Cut/Paste Summary " border="0">
+         <colgroup span="1">
+            <col span="1"></col>
+            <col span="1"></col>
+            <col span="1"></col>
+         </colgroup>
+         <thead>
+            <tr>
+               <th align="left" rowspan="1" colspan="1">First Action</th>
+               <th align="left" rowspan="1" colspan="1">Second Action</th>
+               <th align="left" rowspan="1" colspan="1">Description</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Attribute cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Attribute cell</td>
+               <td align="left" rowspan="1" colspan="1">Replaces attribute value in target Attribute cell</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Attribute cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Text cell</td>
+               <td align="left" rowspan="1" colspan="1">Replaces  content  in target Text cell</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Attribute cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Element cell</td>
+               <td align="left" rowspan="1" colspan="1">Adds Attribute name and value to target Element (if attribute with that name does not already exist) </td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Text cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Text cell</td>
+               <td align="left" rowspan="1" colspan="1">Replaces content in target Text cell</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Text cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Attribute cell</td>
+               <td align="left" rowspan="1" colspan="1">Replaces  attribute value in target Attribute cell</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Text cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Element cell</td>
+               <td align="left" rowspan="1" colspan="1">Adds Text node to target Element  (appended to existing text content)</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Element cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Text cell</td>
+               <td align="left" rowspan="1" colspan="1">Replaces text content in target Text cell with element name</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Element cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Attribute cell</td>
+               <td align="left" rowspan="1" colspan="1">Replaces  attribute value in target Attribute cell with element name</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Element cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste to Element cell</td>
+               <td align="left" rowspan="1" colspan="1">Adds child Element  node to target Element  (appended to existing children)</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Element cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste Special-&gt;Paste Before</td>
+               <td align="left" rowspan="1" colspan="1">Adds a sibling Element  node before target Element  </td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy from Element cell</td>
+               <td align="left" rowspan="1" colspan="1">Paste Special-&gt;Paste After</td>
+               <td align="left" rowspan="1" colspan="1">Adds a sibling Element  node after target Element  </td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Copy Special-&gt;Copy Shallow from Element cell</td>
+               <td align="left" rowspan="1" colspan="1"></td>
+               <td align="left" rowspan="1" colspan="1">Copy to the clipboard the  current element plus attributes plus text but minus any child elements</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Cut or DELETE Attribute cell</td>
+               <td align="left" rowspan="1" colspan="1"></td>
+               <td align="left" rowspan="1" colspan="1">Removes attribute name and value from current element</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Cut or DELETE Text cell</td>
+               <td align="left" rowspan="1" colspan="1"></td>
+               <td align="left" rowspan="1" colspan="1">Removes text content from current element</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Cut or DELETE Element cell</td>
+               <td align="left" rowspan="1" colspan="1"></td>
+               <td align="left" rowspan="1" colspan="1">Removes current element (removes table if last/only child element)</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Paste Attribute cell in Editor view</td>
+               <td align="left" rowspan="1" colspan="1"></td>
+               <td align="left" rowspan="1" colspan="1">Attribute name-value pair inserted at cursor</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Paste Text cell in Editor view</td>
+               <td align="left" rowspan="1" colspan="1"></td>
+               <td align="left" rowspan="1" colspan="1">Text content inserted at cursor</td>
+            </tr>
+            <tr>
+               <td align="left" rowspan="1" colspan="1">Paste Element cell in Editor view</td>
+               <td align="left" rowspan="1" colspan="1"></td>
+               <td align="left" rowspan="1" colspan="1">Element inserted at cursor, including attributes, text and sub-elements</td>
+            </tr>
+         </tbody>
+      </table>
+      <p>
+         			
+      </p>
+      <h3 class="title">Multiple Document Interface and Grids</h3>
+      <p>The Copy/Cut/Paste functionality in the Grid is not restricted to the current document. It is possible to move content between
+         multiple documents that are open simultaneously in Grid view, or between one or more Grid views  and one or more  Editor (tag-based)
+         views. 
+         		 
+         		
+      </p>
+      <p>To demonstrate the convenience of concurrent grid views, we will build a new  document for Contacts based on the ShippingAddress entries on the <tt class="filename">PurchaseOrder.xml</tt> file.  The new document will be constructed so as to conform to the Contacts schema from the Schema Viewer project. 
+      </p>
+      <p>Open the <tt class="filename">PurchaseOrder.xml</tt> document in Grid view and navigate to the first ShippingAddress element by entering an XPath query <b>//ShippingAddress[1]</b> or by any other navigation method you prefer. Expand the ShippingAddress element to see the contact data we wish to transfer into the new document.
+      </p>
+      <p>Now create a new file using <b>File-&gt;New</b>, selecting Default XML Document in the dialog. Change the view to Grid by pressing the Grid button or selecting <b>View-&gt;Grid</b>.  Split the view vertically using <b>View-&gt;Split Vertically</b> or press the <b>Split Vertically</b> button on the main toolbar so that the two grids are displayed side-by-side.  
+      </p><img src="../../images/gridMDI1.gif" alt="Multiple Grids"></img><p class="title"><b>Figure&nbsp;16.&nbsp;Multiple Grids</b></p>
+      <p>(Note: If necessary, minimize the controller window and the output window to maximize the screen real estate available for
+         the grids).
+      </p>
+      <p>Rename the root element in the new document from xngr to Contacts by double-clicking on the element cell and entering the new name. </p>
+      <p>Add a Person element to the Contacts element by using the <b>Add Child Element</b>  button or right-clicking and choosing <b>Add Element-&gt;Add Child Element</b>.
+      </p>
+      <p>In the new document, add a Firstname element with text content Joe as a child of Person.</p>
+      <p>With the Firstname element cell selected, use <b>Add Element After</b> to create a sibling element Lastname with text content Smith.
+      </p>
+      <p>In the <tt class="filename">PurchaseOrder.xml</tt>  document,  select the ShippingAddress element  and use the normal copy function (<b>Ctrl+C</b> or <b>Edit-&gt;Copy</b>) to copy the element to the clipboard.  
+      </p>
+      <p>In the new document insert the copied element from the clipboard by right-clicking on the  Lastname element and using <b>Paste Special-&gt;Paste After</b>.
+      </p><img src="../../images/gridMDI2.gif" alt="Multiple Grids - Copy and Paste XML Structure"></img><p class="title"><b>Figure&nbsp;17.&nbsp;Multiple Grids - Copy and Paste XML Structure</b></p>
+      <p>In the new document, rename the ShippingAddress element to Address. </p>
+      <p>Add an attribute with name type and value equal to work to the new  Address element.</p>
+      <p>	Since we want to make the new document conform to Contacts schema from the Schema Viewer project , it is necessary to delete
+         some of the elements in the new Address element. Delete the two elements called DeliverTo and the State element by selecting the relevant element cells and pressing <b>DELETE</b>. 
+      </p>
+      <p>Finally, rename the PostalCode element to Postcode and the newly created document should correspond to the structure required by the Contacts schema. </p>
+      <p>To check this is so, press the Validate button and enter the details for the location of the Contacts schema from the Schema
+         Viewer project. On Windows, this will typically be located at <tt class="filename">C:\Program Files\Exchanger XML Professional 3.2\projects\Schema Viewer\schema\contacts.xsd</tt></p><img src="../../images/gridMDI3.gif" alt="Multiple Grids - Validation"></img><p class="title"><b>Figure&nbsp;18.&nbsp;Multiple Grids - Validation</b></p>
+      <h3 class="title">Advanced Navigation using XPath</h3>
+      <h4 class="title">Selecting Cells using the XPath Queries</h4>
+      <p>Ease of browsing and navigation in the Grid is significantly improved through the use of XPath searches. In the <tt class="filename">PurchaseOrder.xml</tt> file, perform a sample XPath search by entering the query <b>//LineItem </b> in the XPath field and pressing enter. 
+      </p>
+      <p>The  results corresponding to the three LineItem elements  are listed in the Output window at the bottom of the screen in the  XPath Results Tab. Notice how the Grid expands
+         automatically to  highlight the first result.  Clicking on the second result in the XPath Results Tab will cause  the appropriate
+         element to be selected in the Grid.
+      </p>
+      <p>While many XPath queries deal solely with elements, it is also possible to search based on  attributes and text content. 
+         To find all the LineItem  elements relating to hammers, enter the query <b>//LineItem[@description='Hammer' ]</b></p>
+      <p>  To find all the occurrences of attributes named description , use  the XPath query <b>//@description</b> . A number of results are listed in the output panel, showing the fully qualified XPath for the result nodes. Click on any
+         result and the corresponding atttribute cell will be highlighted automatically expanding any necessary tables. 
+      </p>
+      <p>To find the LineItem that is to be shipped to Freemont, enter the query: <b>//LineItem/ShippingAddress/City[.='Freemont']</b></p>
+      <h4 class="title">Selecting Cells using the Navigator</h4>
+      <p>The Navigator is the middle tab in the Contoller window on the left hand side and provides a very convenient means of traversing
+         a complex XML structure. By default, the Navigator shows all
+         element nodes in the document, with colored icons used to differentiate elements from different
+         namespaces. Double-clicking on a node in the Navigator causes the Grid to expand and highlight the appropriate cell.  By default,
+         only elements are displayed in the navigator but it is possible to turn on/off the display of element names, element content,
+         attribute names and attribute values in the Navigator Properties dialog by pressing the Navigator Preferences button <img src="../../images/buttonNavigatorProperties.gif"></img>. 
+      </p>
+      <p> Customized views can be created in the Navigator by filtering based on Namespace or XPath. By default,  element nodes in
+         all namespaces are displayed, but
+         specific namespaces can be chosen by clicking on the drop-down button to the right of the
+         Namespace button and choosing from the list displayed. For more information, see the section on customizing the Navigator
+         in the Exchanger XML documentation.
+         
+         
+      </p>
+      <p>To create an XPath filter in the Navigator, press the XPath button <img src="../../images/buttonXPathFilter.gif"></img>and enter the XPath <b>//LineItem</b>. A tree view is displayed with each node representing a match to the XPath query. Double click on a node in the tree and
+         the corresponding cell in the Grid will be highlighted. The Grid will automatically expand the hierarchy so that the correct
+         table is displayed. 
+      </p>
+      <p>To show attributes as well as elements in the navigator, press the Navigator Preferences button <img src="../../images/buttonNavigatorProperties.gif"></img> and click to <b>Show Attributes</b>. 
+      </p>
+      <p>It is possible to store named XPath queries that can be reused in the Navagtor - see the section on Types in the Exchanger
+         XML documentation for more information.
+      </p>
+      <h3 class="title">The Grid Toolbar</h3>
+      <p>Grid functionality for creating, modifying and deleting nodes is avilable via the Grid Tool Bar which runs vertically on the
+         left hand side of the Grid display. 
+      </p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonGridAddAttribute.gif"></img> 
+         	Use the <b>Add Attribute</b> button or select <b>Grid-&gt;Add-&gt;Add Attribute</b> to add an attribute to the current element.
+      </p>
+      <p><img src="../../images/buttonGridAddText.gif"></img> 
+         	Use the <b>Add Text</b> button or select <b>Grid-&gt;Add-&gt;Add Text</b> to add a text node to the current element.
+      </p>
+      <p><img src="../../images/buttonGridAddElementBefore.gif"></img> 
+         	Use the <b>Add Element Before</b> button or select <b>Grid-&gt;Add-&gt;Add Element Before</b> to add an element immediately preceeding 
+         	 the current element.
+      </p>
+      <p><img src="../../images/buttonGridAddElementAfter.gif"></img> 
+         	Use the <b>Add Element After</b> button or select <b>Grid-&gt;Add-&gt;Add Element After</b> to add an element immediately following 
+         	 the current element.
+      </p>
+      <p><img src="../../images/buttonGridAddChildElement.gif"></img> 
+         	Use the <b>Add Child Element</b> button or select <b>Grid-&gt;Add-&gt;Add Child Element</b> to add an element as a child of 
+         	 the current element.
+      </p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonGridDeleteAttribute.gif"></img> 
+         	Use the <b>Delete Attribute</b> button or select <b>Grid-&gt;Delete-&gt;Delete Attribute</b> to delete the selected attribute. This deletes both the attribute name and value from the current element.
+      </p>
+      <p><img src="../../images/buttonGridDeleteText.gif"></img> 
+         	Use the <b>Delete Text</b> button or select <b>Grid-&gt;Delete-&gt;Delete Text</b> to delete a text node from the current element.
+      </p>
+      <p><img src="../../images/buttonGridDeleteAttributesText.gif"></img> 
+         	Use the <b>Delete Attributes and Text</b> button or select <b>Grid-&gt;Delete-&gt;Delete Attributes and Text</b> to delete all the attributes abd text content 
+         	for the current element.
+      </p>
+      <p><img src="../../images/buttonGridDeleteElement.gif"></img> 
+         	Use the <b>Delete Element</b> button or select <b>Grid-&gt;Delete-&gt;Delete Element</b> to delete
+         	 the current element.
+      </p>
+      <p><img src="../../images/buttonGridDeleteChildren.gif"></img> 
+         	Use the <b>Delete Children</b> button or select <b>Grid-&gt;Delete-&gt;Delete Children</b> to delete all the child elements from
+         	 the current element.
+      </p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonGridAddAttributeColumn.gif"></img> 
+         	Use the <b>Add Attribute Column</b> button or select <b>Grid-&gt;Add-&gt;Add Attribute Column</b> to add an attribute to all the elements in the  current table.
+      </p>
+      <p><img src="../../images/buttonGridAddTextColumn.gif"></img> 
+         	Use the <b>Add Text  Column</b> button or select <b>Grid-&gt;Add-&gt;Add Text Column</b> to add a text node to all the elements in the  current table.
+      </p>
+      <p><img src="../../images/buttonGridDeleteColumn.gif"></img> 
+         	Use the <b>Delete Column</b> button or select <b>Grid-&gt;Delete-&gt;Delete Column</b> to delete the current column from a table. If the current column is an attribute column, this action deletes both the attribute
+         name and value from all the elements in the current table.
+      </p>
+      <p></p>
+      <p></p>
+      <p><img src="../../images/buttonGridMoveElementUp.gif"></img> 
+         	Use the <b>Move Element Up</b> button or select <b>Grid-&gt;Move/Sort-&gt;Move Element Up</b> to move the current element before its immediately preceeding sibling in document order.
+      </p>
+      <p><img src="../../images/buttonGridMoveElementDown.gif"></img> 
+         	Use the <b>Move Element Down</b> button or select <b>Grid-&gt;Move/Sort-&gt;Move Element Down</b> to move the current element after its immediately following sibling in document order.
+      </p>
+      <h3 class="title">Using the Cell Context Menu</h3>
+      <p>Right-clicking on any cell in in the Grid causes the Cell Context Menu to be displayed.  For more information on the actions
+         available, see the section on Row-Based (Atomic) Operations.
+      </p><img src="../../images/gridCellContextMenu.gif" alt="Cell Context Menu"></img><p class="title"><b>Figure&nbsp;19.&nbsp;Cell Context Menu</b></p>
+      <h3 class="title">Using the Column Header Context Menu</h3>
+      <p>Right-clicking on a column header cell gives rise to a popup context menu of actions that operate on a table column. For more
+         information on the actions available, see the section on Column-Based (Aggregate) Operations.
+      </p><img src="../../images/gridColumnHeaderContextMenu.gif" alt="Column Header Context Menu"></img><p class="title"><b>Figure&nbsp;20.&nbsp;Column Header Context Menu</b></p>
+   </body>
+</html>

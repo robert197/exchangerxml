@@ -1,0 +1,16 @@
+<xngr>
+	<projects>	
+<project name="Import Excel">
+
+  <folder name="input">
+   <document src="input/sample.xls"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

@@ -1,0 +1,12 @@
+CompanyID,AssetID,Description,CategoryID,TaxClass,DateInService,AcquisitionCost,SalvageValue,LTDDepreciation,AsOfFiscalYr,SerialID,PONumber,Division,Branch,Department,Cost Center,Key4,Key5,Key6,Key7,Key8,Key9,VendorID,VendorName,Requisitioner,PrimaryID,SecondaryID,InvoiceDate,BusinessUsePerCent,InsPolicy,MaintContract,TaxClassLTD,StateTaxLTD,OtherTaxLTD,StateClass,OtherClass
+100,MX0001,Cement Mixer,TRUCK,CCA16,19970101,124500.59,2000,,,CV10,PO111,10000,10000,10000,10000,,,,,,,,C-Truck Co.,Bud Weiser,Series B,Equipment,19970101,,,,,,,,
+100,MX0002,Cement Mixer,TRUCK,CCA16,19970201,124500.59,,87150.35,1999,CV11,PO112,10000,10000,10000,10000,,,,,,,,C-Truck Co.,Jim Nasium,Series B,Equipment,19970201,,,,47150.35,57150.35,67150.35,,
+100,MX0003,Cement Mixer,TRUCK,CCA16,19970301,150000,5000,,,CV12,PO113,10000,10000,20000,20000,,,,,,,,C-Truck Co.,Art E. Choke,Series B,Vehicles,19970301,,,,,,,,
+100,MX0004,Cement Mixer,TRUCK,CCA16,19970401,124500.59,,87150.35,1999,CV13,PO114,10000,10000,20000,20000,,,,,,,,C-Truck Co.,Bud Weiser,Series B,Vehicles,19970401,,,,47150.35,57150.35,67150.35,,
+100,MX0005,Cement Mixer,TRUCK,CCA16,19970501,124500.59,,87150.35,1999,CV14,PO115,10000,10000,20000,20000,,,,,,,,C-Truck Co.,Art E. Choke,Series C,Vehicles,19970501,,,,47150.35,57150.35,67150.35,,
+100,FF0001,Boardroom Table,FURN,CCA21,19970601,5000,,,,FF01,PO22,10000,10000,30000,30000,,,,,,,,The Furniture Store,Bud Weiser,Series B,Woods,19970601,,,,,,,,
+100,FF0002,Lab Chair,FURN,CCA21,19970701,500,,,,FF02,PO23,10000,10000,30000,30000,,,,,,,,The Furniture Store,Jim Nasium,Series C,Woods,19970701,,,,,,,,
+100,FF0003,Oak Desk with white Moulding,FURN,CCA21,19970801,3500,,,,FF03,PO24,10000,10000,30000,30000,,,,,,,,The Furniture Store,Art E. Choke,Series B,Woods,19970801,,,,,,,,
+100,FF0004,Lecturn,FURN,CCA21,19970901,800,,,,FF04,PO25,10000,10000,40000,40000,,,,,,,,The Furniture Store,Bud Weiser,Series C,Glass,19970901,,,,,,,,
+100,FF0005,Boardroom Chairs,FURN,CCA21,19971001,300,,,,FF05,PO26,10000,10000,40000,40000,,,,,,,,The Furniture Store,Art E. Choke,Series B,Glass,19971001,,,,,,,,
+100,FF0006,Reception Desk,FURN,CCA21,19971101,4000,,,,FF06,PO27,10000,10000,40000,40000,,,,,,,,The Furniture Store,Bud Weiser,Series C,Glass,19971101,,,,,,,,

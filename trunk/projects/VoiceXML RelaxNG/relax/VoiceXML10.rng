@@ -1,0 +1,686 @@
+<?xml version="1.0"?>
+<!--
+	VoiceXML Ver.1.0		RELAX NG grammar
+	$Id: VoiceXML10.rng,v 1.1 2004/05/31 09:10:14 gmcgoldrick Exp $
+		Written by Kohsuke KAWAGUCHI (kohsukekawaguchi@yahoo.com)
+-->
+<grammar xmlns="http://relaxng.sourceforge.net/ns/shorthand"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+	
+	
+	<define name="event.name">
+		<data type="NMTOKEN"/>
+	</define>
+	
+	<define name="event.names">
+		<list>
+			<zeroOrMore>
+				<data type="event.name"/>
+			</zeroOrMore>
+		</list>
+	</define>
+	
+	<define name="executable.content">
+		<choice>
+			<ref name="audio.class"/>
+			<element name="assign">
+				<attribute name="name">
+					<ref name="field.name"/>
+				</attribute>
+				<attribute name="expr">
+					<ref name="expression"/>
+				</attribute>
+			</element>
+			<element name="clear">
+				<attribute name="namelist" occurs="?">
+					<ref name="field.names"/>
+				</attribute>
+			</element>
+			<element name="disconnect">
+				<empty/>
+			</element>
+			<ref name="exit"/>
+			<ref name="goto"/>
+			<ref name="if"/>
+			<ref name="prompt"/>
+			<ref name="reprompt"/>
+			<ref name="return"/>
+			<ref name="script"/>
+			<ref name="executable.control.flow"/>
+			<element name="throw">
+				<attribute name="event">
+					<ref name="event.name"/>
+				</attribute>
+			</element>
+			<ref name="var"/>
+		</choice>
+	</define>
+	
+	<define name="expression">
+		<data type="normalizedString"/>
+	</define>
+	
+	
+	<define name="field.name">
+		<data type="NMTOKEN"/>
+	</define>
+	
+	<define name="field.names">
+		<list>
+			<zeroOrMore>
+				<data type="field.name"/>
+			</zeroOrMore>
+		</list>
+	</define>
+	
+	
+	<define name="item.attrs">
+		<attribute name="name" occurs="?">
+			<ref name="field.name"/>
+		</attribute>
+		<attribute name="cond" occurs="?">
+			<ref name="expression"/>
+		</attribute>
+		<attribute name="expr" occurs="?">
+			<ref name="expression"/>
+		</attribute>
+	</define>
+	
+	
+	<define name="cache.attrs">
+		<attribute name="caching" occurs="?">
+			<choice>
+				<value>safe</value>
+				<value>fast</value>
+			</choice>
+		</attribute>
+		<attribute name="fetchint" occurs="?">
+			<choice>
+				<value>prefetch</value>
+				<value>safe</value>
+				<value>stream</value>
+			</choice>
+		</attribute>
+		<attribute name="fetchtimeout" occurs="?">
+			<ref name="duration"/>
+		</attribute>
+	</define>
+	
+	<define name="next.attrs">
+		<attribute name="next" occurs="?">
+			<data type="anyURI"/>
+		</attribute>
+		<attribute name="expr" occurs="?">
+			<ref name="expression"/>
+		</attribute>
+	</define>
+	
+	
+	<define name="submit.attrs">
+		<attribute name="method" occurs="?">
+			<choice>
+				<value>get</value>
+				<value>post</value>
+			</choice>
+		</attribute>
+		<attribute name="enctype" occurs="?">
+			<data type="content.type"/>
+		</attribute>
+		<attribute name="namelist" occurs="?">
+			<ref name="field.names"/>
+		</attribute>
+	</define>
+	
+	
+	
+	<define name="variable">
+		<choice>
+			<element name="block">
+				<ref name="item.attrs"/>
+				<ref name="executable.content" occurs="*"/>
+			</element>
+			<ref name="field"/>
+			<ref name="var"/>
+		</choice>
+	</define>
+	
+	
+	<!--================================= Root ================================-->
+	<start>
+		<ref name="vxml"/>
+	</start>
+	
+	<define name="vxml">
+		<element name="vxml">
+			<attribute name="application" type="anyURI" occurs="?" />
+			<attribute name="base" type="anyURI" occurs="?" />
+			<attribute name="lang" type="normalizedString" occurs="?"/>
+			<attribute name="version" type="normalizedString"/>
+			
+			<choice occurs="+">
+				<ref name="event.handler"/>
+				<ref name="form"/>
+				<ref name="link"/>
+				<ref name="menu"/>
+				<element name="meta">
+					<attribute name="name" type="NMTOKEN" occurs="?" />
+					<attribute name="content" type="normalizedString" />
+					<attribute name="http-equiv" type="NMTOKEN" occurs="?" />
+				</element>
+				<ref name="property"/>
+				<ref name="script"/>
+				<ref name="var"/>
+			</choice>
+		</element>
+	</define>
+	
+	
+<!--================================= Dialogs =============================-->
+	<define name="input.class">
+		<choice>
+			<ref name="dtmf"/>
+			<ref name="grammar"/>
+		</choice>
+	</define>
+	
+	<define name="scope">
+		<choice>
+			<value>document</value>
+			<value>dialog</value>
+		</choice>
+	</define>
+	
+	<define name="form">
+		<element name="form">
+			<attribute name="id" type="ID" occurs="?"/>
+			<attribute name="scope" occurs="?">
+				<ref name="scope"/>
+			</attribute>
+			
+			<choice occurs="*">
+				<ref name="input.class"/>
+				<ref name="event.handler"/>
+				<ref name="filled"/>
+				<element name="initial">
+					<ref name="item.attrs"/>
+					<choice occurs="*">
+						<ref name="audio.class"/>
+						<ref name="event.handler"/>
+						<ref name="link"/>
+						<ref name="prompt"/>
+						<ref name="property"/>
+					</choice>
+				</element>
+				<element name="object">
+					<ref name="item.attrs"/>
+					<ref name="cache.attrs"/>
+					<attribute name="classid" type="anyURI" occurs="?"/>
+					<attribute name="codebase" type="anyURI" occurs="?"/>
+					<attribute name="data" type="anyURI" occurs="?"/>
+					<attribute name="type" type="normalizedString" occurs="?"/>
+					<attribute name="codetype" type="normalizedString" occurs="?"/>
+					<attribute name="archive" type="anyURI" occurs="?"/>
+					<choice occurs="*">
+						<ref name="audio.class"/>
+						<ref name="event.handler"/>
+						<ref name="filled"/>
+						<ref name="param"/>
+						<ref name="prompt"/>
+						<ref name="property"/>
+					</choice>
+				</element>
+				<ref name="link"/>
+				<ref name="property"/>
+				<element name="record">
+					<ref name="item.attrs"/>
+					<attribute name="type" type="normalizedString" occurs="?"/>
+					<attribute name="beep" type="boolean" occurs="?"/>
+					<attribute name="maxtime" occurs="?">
+						<ref name="duration"/>
+					</attribute>
+					<attribute name="modal" type="boolean" occurs="?"/>
+					<attribute name="finalsilence" occurs="?">
+						<ref name="duration"/>
+					</attribute>
+					<attribute name="dtmfterm" type="boolean" occurs="?"/>
+					
+					<choice occurs="*">
+						<ref name="audio.class"/>
+						<ref name="event.handler"/>
+						<ref name="filled"/>
+						<ref name="grammar"/>
+						<ref name="prompt"/>
+						<ref name="property"/>
+					</choice>
+				</element>
+				<element name="subdialog">
+					<ref name="item.attrs"/>
+					<attribute name="src" type="anyURI"/>
+					<ref name="cache.attrs"/>
+					<attribute name="fecthaudio" type="anyURI" occurs="?"/>
+					<ref name="submit.attrs"/>
+					
+					<choice occurs="*">
+						<ref name="audio.class"/>
+						<ref name="event.handler"/>
+						<ref name="filled"/>
+						<ref name="param"/>
+						<ref name="prompt"/>
+						<ref name="property"/>
+					</choice>
+				</element>
+				<element name="transfer">
+					<ref name="item.attrs"/>
+					<attribute name="dest" type="uri" occurs="?"/>
+					<attribute name="destexpr" occurs="?">
+						<ref name="expression"/>
+					</attribute>
+					<attribute name="bridge" type="boolean" occurs="?"/>
+					<attribute name="connecttimeout" occurs="?">
+						<ref name="duration"/>
+					</attribute>
+					<attribute name="maxtime" occurs="?">
+						<ref name="duration"/>
+					</attribute>
+					
+					<choice occurs="*">
+						<ref name="audio.class"/>
+						<ref name="event.handler"/>
+						<ref name="dtmf"/>
+						<ref name="filled"/>
+						<ref name="grammar"/>
+						<ref name="prompt"/>
+						<ref name="property"/>
+					</choice>
+				</element>
+				<ref name="variable.class"/>
+			</choice>
+		</element>
+	</define>
+	
+	<define name="menu">
+		<element name="menu">
+			<attribute name="id" type="ID" occurs="?"/>
+			<attribute name="scope" occurs="?">
+				<ref name="scope"/>
+			</attribute>
+			<attribute name="dtmf" type="boolean" occurs="?"/>
+			
+			<choice occurs="*">
+				<ref name="audio.class"/>
+				<element name="choice">
+					<ref name="cache.attrs"/>
+					<attribute name="dtmf" type="normalizedString" occurs="?"/>
+					<attribute name="event" occurs="?">
+						<ref name="event.name"/>
+					</attribute>
+					<attribute name="fetchaudio" type="anyURI" occurs="?"/>
+					
+					<choice occurs="*">
+						<ref name="audio.class"/>
+						<ref name="grammar"/>
+						<ref name="tts.class"/>
+					</choice>
+				</element>
+				<ref name="event.handler"/>
+				<ref name="prompt"/>
+				<ref name="property"/>
+			</choice>
+		</element>
+	</define>
+	
+	
+<!--================================ Prompts ==============================-->
+	<define name="prompt">
+		<element name="prompt">
+			<attribute name="bargein" type="boolean" occurs="?"/>
+			<attribute name="cond" occurs="?">
+				<ref name="expression"/>
+			</attribute>
+			<attribute name="count" type="integer" occurs="?"/>
+			<attribute name="timeout" occurs="?">
+				<ref name="duration"/>
+			</attribute>
+			
+			<choice occurs="*">
+				<ref name="audio.class"/>
+				<ref name="tts.class"/>
+			</choice>
+		</element>
+	</define>
+	
+	<define name="enumerate">
+		<element name="enumerate">
+			<choice occurs="*">
+				<ref name="audio.class"/>
+				<ref name="tts.class"/>
+			</choice>
+		</element>
+	</define>
+	
+	<define name="reprompt">
+		<element name="reprompt">
+			<empty/>
+		</element>
+	</define>
+	
+	
+	
+<!--================================ Fields ===============================-->
+	
+	<define name="field">
+		<element name="field">
+			<ref name="item.attrs"/>
+			<attribute name="type" type="normalizedString" occurs="?"/>
+			<attribute name="slot" type="NMTOKEN" occurs="?"/>
+			<attribute name="modal" type="boolean" occurs="?"/>
+			
+			<choice occurs="*">
+				<ref name="audio.class"/>
+				<ref name="event.handler"/>
+				<ref name="filled"/>
+				<ref name="input.class"/>
+				<ref name="link"/>
+				<element name="option">
+					<attribute name="dtmf" type="normalizedString" occurs="?"/>
+					<attribute name="value" type="normalizedString" occurs="?"/>
+					
+					<text/>
+				</element>
+				<ref name="prompt"/>
+				<ref name="property"/>
+			</choice>
+		</element>
+	</define>
+	
+	<define name="var">
+		<element name="var">
+			<attribute name="name">
+				<ref name="field.name"/>
+			</attribute>
+			<attribute name="expr" occurs="?">
+				<ref name="expression"/>
+			</attribute>
+		</element>
+	</define>
+	
+	
+<!--================================== Events =============================-->
+	
+	<define name="event.handler">
+		<choice>
+			<element name="catch">
+				<ref name="event.handler.attrs"/>
+				<attribute name="event">
+					<ref name="event.names"/>
+				</attribute>
+				<ref name="executable.content" occurs="*"/>
+			</element>
+			<element name="help">
+				<ref name="event.handler.attrs"/>
+				<ref name="executable.content" occurs="*"/>
+			</element>
+			<element name="noinput">
+				<ref name="event.handler.attrs"/>
+				<ref name="executable.content" occurs="*"/>
+			</element>
+			<element name="nomatch">
+				<ref name="event.handler.attrs"/>
+				<ref name="executable.content" occurs="*"/>
+			</element>
+			<element name="error">
+				<ref name="event.handler.attrs"/>
+				<ref name="executable.content" occurs="*"/>
+			</element>
+		</choice>
+	</define>
+	
+	<define name="event.handler.attrs">
+		<attribute name="count" type="integer" occurs="?"/>
+		<attribute name="cond" occurs="?">
+			<ref name="expression"/>
+		</attribute>
+	</define>
+	
+	<define name="link">
+		<element name="link">
+			<choice occurs="*">
+				<ref name="dtmf"/>
+				<ref name="grammar"/>
+			</choice>
+			
+			<ref name="cache.attrs"/>
+			<ref name="next.attrs"/>
+			<attribute name="fetchaudio" type="anyURI" occurs="?"/>
+			<attribute name="event" occurs="?">
+				<ref name="event.name"/>
+			</attribute>
+		</element>
+	</define>
+	
+	
+<!--============================== Audio Output ===========================-->
+	<define name="audio.class">
+		<choice>
+			<text/>
+			<element name="audio">
+				<attribute name="src" type="anyURI" occurs="?"/>
+				<ref name="cache.attrs"/>
+				
+				<choice occurs="*">
+					<ref name="audio.class"/>
+					<ref name="tts.class"/>
+				</choice>
+			</element>
+			<ref name="enumerate"/>
+			<element name="value">
+				<attribute name="class" type="normalizedString" occurs="?" />
+				<attribute name="expr">
+					<ref name="expression"/>
+				</attribute>
+				<attribute name="mode" occurs="?">
+					<choice>
+						<value>tts</value>
+						<value>recorded</value>
+					</choice>
+				</attribute>
+				<attribute name="recsrc" type="anyURI" occurs="?"/>
+			</element>
+		</choice>
+	</define>
+	
+	<define name="tts.class">
+		<choice>
+			<element name="break">
+				<attribute name="msecs" type="integer" occurs="?"/>
+				<attribute name="size" occurs="?">
+					<choice>
+						<value>none</value>
+						<value>small</value>
+						<value>medium</value>
+						<value>large</value>
+					</choice>
+				</attribute>
+			</element>
+			<element name="div">
+				<attribute name="type" type="normalizedString" occurs="?"/>
+				
+				<choice occurs="*">
+					<ref name="audio.class"/>
+					<ref name="tts.class"/>
+				</choice>
+			</element>
+			<element name="emp">
+				<attribute name="level" occurs="?">
+					<choice>
+						<value>strong</value>
+						<value>moderate</value>
+						<value>none</value>
+						<value>reduced</value>
+					</choice>
+				</attribute>
+				
+				<choice occurs="*">
+					<ref name="audio.class"/>
+					<ref name="tts.class"/>
+				</choice>
+			</element>
+			<element name="pros">
+				<attribute name="rate" type="normalizedString" occurs="?"/>
+				<attribute name="vol" type="normalizedString" occurs="?"/>
+				<attribute name="pitch" type="normalizedString" occurs="?"/>
+				<attribute name="range" type="normalizedString" occurs="?"/>
+				<choice occurs="*">
+					<ref name="audio.class"/>
+					<ref name="tts.class"/>
+				</choice>
+			</element>
+			<element name="sayas">
+				<attribute name="sub" type="normalizedString" occurs="?"/>
+				<attribute name="class" type="normalizedString" occurs="?"/>
+				<attribute name="phon" type="normalizedString" occurs="?"/>
+				<text/>
+			</element>
+		</choice>
+	</define>
+	
+	
+<!--============================= Audio Input =============================-->
+	<define name="key">
+		<data type="normalizedString"/>
+	</define>
+	
+	<define name="grammar.attrs">
+		<ref name="cache.attrs"/>
+		<attribute name="scope" occurs="?">
+			<ref name="scope"/>
+		</attribute>
+		<attribute name="src" type="anyURI" occurs="?"/>
+		<attribute name="type" type="normalizedString" occurs="?"/>
+	</define>
+	
+	<define name="dtmf">
+		<element name="dtmf">
+			<ref name="grammar.attrs"/>
+			<text/>
+		</element>
+	</define>
+	<define name="grammar">
+		<element name="grammar">
+			<ref name="grammar.attrs"/>
+			<text/>
+		</element>
+	</define>
+	
+<!--============================ Call Control ============================-->
+
+
+<!--============================ Control Flow ============================-->
+	<define name="if.attrs">
+		<attribute name="cond">
+			<ref name="expression"/>
+		</attribute>
+	</define>
+	
+	<define name="executable.control.flow">
+		<choice>
+			<element name="if">
+				<ref name="if.attrs"/>
+				<choice occurs="*">
+					<ref name="executlbe.content"/>
+					<element name="elseif">
+						<ref name="if.attrs"/>
+						<ref name="executable.content"/>
+					</element>
+					<element name="else">
+						<empty/>
+					</element>
+				</choice>
+			</element>
+			<element name="exit">
+				<attribute name="expr" occurs="?">
+					<ref name="expression"/>
+				</attribute>
+				<attribute name="namelist" occurs="?">
+					<ref name="field.names"/>
+				</attribute>
+			</element>
+			<element name="goto">
+				<ref name="cache.attrs"/>
+				<ref name="next.attrs"/>
+				<attribute name="fetchaudio" type="anyURI" occurs="?"/>
+				<attribute name="expritem" occurs="?">
+					<ref name="expression"/>
+				</attribute>
+				<attribute name="nextitem" occurs="?">
+					<ref name="field.name"/>
+				</attribute>
+			</element>
+			<element name="return">
+				<attribute name="namelist" occurs="?">
+					<ref name="field.names"/>
+				</attribute>
+				<attribute name="event" occurs="?">
+					<ref name="event.name"/>
+				</attribute>
+			</element>
+			<element name="submit">
+				<ref name="cache.attrs"/>
+				<ref name="next.attrs"/>
+				<attribute name="fetchaudio" type="anyURI" occurs="?"/>
+				<ref name="submit.attrs"/>
+			</element>
+		</choice>
+	</define>
+	
+	<define name="filled">
+		<element name="filled">
+			<attribute name="mode" occurs="?">
+				<choice>
+					<value>any</value>
+					<value>all</value>
+				</choice>
+			</attribute>
+			<attribute name="namelist" occurs="?">
+				<ref name="field.names"/>
+			</attribute>
+			
+			<ref name="executable.content" occurs="*"/>
+		</element>
+	</define>
+	
+	<define name="param">
+		<element name="param">
+			<attribute name="name" type="NMTOKEN"/>
+			<attribute name="expr" occurs="?">
+				<ref name="expression"/>
+			</attribute>
+			<attribute name="value" type="normalizedString" occurs="?"/>
+			<attribute name="valuetype" occurs="?">
+				<choice>
+					<value>data</value>
+					<value>ref</value>
+				</choice>
+			</attribute>
+			<attribute name="type" type="normalizedString" occurs="?"/>
+		</element>
+	</define>
+
+
+<!--========================== Miscellaneous ==============================-->
+	<define name="property">
+		<element name="property">
+			<attribute name="name" type="NMTOKEN"/>
+			<attribute name="value" type="normalizedString"/>
+		</element>
+	</define>
+	
+	<define name="script">
+		<element name="script">
+			<attribute name="src" type="anyURI" occurs="?"/>
+			<attribute name="charset" type="normalizedString" occurs="?"/>
+			<ref name="cache.attrs"/>
+			<text/>
+		</element>
+	</define>
+</grammar>

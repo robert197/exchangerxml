@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Conditional Processing Module ................................. -->
+<!--
+  file: svg-conditional.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-conditional.mod.xsd,v 1.1 2004/03/26 10:28:59 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 Conditional Processing//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-conditional.mod"
+  
+  .......................................................................
+-->
+<!--
+  Conditional Processing
+  
+     switch
+  
+  This module declares markup to provide support for conditional processing.
+-->
+<!-- extension list specification -->
+<!-- feature list specification -->
+<!-- Qualified Names (Default) ......................... -->
+<!-- Attribute Collections (Default) ................... -->
+<!-- SVG.Conditional.class ............................. -->
+<!-- SVG.Conditional.attrib ............................ -->
+<!-- SVG.Presentation.attrib ........................... -->
+<!-- switch: Switch Element ............................ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:complexType name="SVG.switch.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="svg:svg"/>
+        <xs:element ref="svg:g"/>
+        <xs:element ref="svg:use"/>
+        <xs:element ref="svg:text"/>
+        <xs:element ref="SVG.Animation.class"/>
+        <xs:element ref="SVG.Conditional.class"/>
+        <xs:element ref="SVG.Image.class"/>
+        <xs:element ref="SVG.Shape.class"/>
+        <xs:element ref="SVG.Hyperlink.class"/>
+        <xs:element ref="SVG.Extensibility.class"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="switch" substitutionGroup="SVG.Conditional.class"/>
+  <!-- end of SVG.switch.element -->
+  <xs:attributeGroup name="attlist.switch">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="svg:SVG.Presentation.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.switch.attlist -->
+<!-- end of svg-conditional.mod -->

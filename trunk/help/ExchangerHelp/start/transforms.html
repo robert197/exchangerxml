@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">XSLT and XSLFO Transformations</h2>
+      <h3 class="title">Execute Simple XSLT</h3>
+      <p>Use the menu item <b>Transform-&gt;Execute Simple XSLT</b> to when you want to perform an XSLT transformation but aren't worried about setting input parameters or output file specifications.
+         Simply choose the input file, stylesheet and processor and the output of the transformation will be displayed in a new window
+         in the editor.
+      </p><img src="../../images/executeSimpleXSLTInput.gif" alt="Execute Simple XSLT - XML file"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Execute Simple XSLT - XML file</b></p>
+      <p>When setting the input file for the transformation, you can choose between the current file (if it is XML), or any files that
+         are open in the editor, or any arbitrary file.
+      </p><img src="../../images/executeSimpleXSLTStyle.gif" alt="Execute Simple XSLT - XSLT file"></img><p class="title"><b>Figure&nbsp;2.&nbsp;Execute Simple XSLT - XSLT file</b></p>
+      <p>When setting the stylesheet file for the transformation, you can choose between the current file (if it is an XSL stylesheet),
+         or any files that are open in the editor, or any arbitrary file.
+      </p><img src="../../images/executeSimpleXSLTProcessor.gif" alt="Execute Simple XSLT - Processor"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Execute Simple XSLT - Processor</b></p>
+      <p>You can also explicitly set the XSLT processor to use, or use the default processor as specified in the Preferences.</p><img src="../../images/executeSimpleXSLTStatus.gif" alt="Execute Simple XSLT - Status"></img><p class="title"><b>Figure&nbsp;4.&nbsp;Execute Simple XSLT - Status</b></p>
+      <p>The status of the transformation is displayed in a dialog, along with any messages that may have been generated. The generated
+         output is automatically opened in a new window in the Editor. If you want to control the output destination, use the <b>Execute Advanced XSLT</b> function or create a Scenario.
+      </p>
+      <p>To rerun a simple XSLT transformation without rekeying the settings, select <b>Transform-&gt;Execute Previous-&gt;Execute Previous XSLT</b>. For even quicker access, create a keyboard shortcut for this action in the <b>Keys</b> tab in the <b>File-&gt;Preferences</b> dialog. 
+      </p>
+      <h3 class="title">Execute Advanced XSLT</h3>
+      <p>Use the menu item Transform-&gt;Execute Advanced XSLT  when you want to perform an XSLT transformation and need to set input
+         parameters and control the output destination. 
+      </p><img src="../../images/executeAdvancedXSLT.gif" alt="Execute Advanced XSLT"></img><p class="title"><b>Figure&nbsp;5.&nbsp;Execute Advanced XSLT</b></p>
+      <p>The input file can be chosen from the currently open document, any other open document or any arbitrary file. Alternatively,
+         the input file can be chosen at execution time by selecting <b>Prompt for Document</b> in the XML section of the dialog.
+      </p>
+      <p>The stylesheet can be chosen from the currently open document, any other open document or any arbitrary file. Alternatively,
+         a Processing Instruction in the input file can be used to specify the stylesheet, or it can be chosen at execution time by
+         selecting <b>Prompt for Stylesheet</b> in the XSL section of the dialog.
+      </p>
+      <p>To explicitly set the XSLT processor  for the transformation, press the <b>Processor...</b> button in the  XSL section of the dialog  otherwise the default processor as specified in the Preferences will be used.
+      </p>
+      <p>To set input parameters  for the transformation, press the <b>Parameters...</b> button in the  XSL section of the dialog.
+      </p><img src="../../images/executeAdvancedXSLTParams.gif" alt="Execute Advanced XSLT - Setting Input Parameters"></img><p class="title"><b>Figure&nbsp;6.&nbsp;Execute Advanced XSLT - Setting Input Parameters</b></p>
+      <p>The output can be automatically opened in the editor or redirected to file. It can also be used to replace the current input
+         file, for example, when a  transformation  reformats the input file. The transformation output can also be automatically opened
+         in a browser window, irrespective of which output option has been taken.
+      </p>
+      <p>When the input, style and output setting have been completed, press the <b>Execute</b> button to run the transformation.  The status of the transformation execution is displayed in a dialog, along with any messages
+         that may have been generated. It is possible to set a preference to immediately dismiss the dialog at the end of processing
+         on the Views tab in the <b>File-&gt;Preferences dialog.</b></p>
+      <p>To rerun an advanced  XSLT transformation without rekeying the settings, select <b>Transform-&gt;Execute Previous-&gt;Execute Previous XSLT</b>.  For even quicker access, create a keyboard shortcut for this action in the <b>Keys</b> tab in the <b>File-&gt;Preferences</b> dialog. 
+      </p>
+      <h3 class="title">Execute FO</h3>
+      <p>If the active document is an XSLFO file, <b>Transform-&gt;Execute FO</b> will
+         				prompt for an input XML file. If the active document is an XML file, then <b>Transform-&gt;Execute FO</b> will
+         				prompt for an XSLFO file. The output of the transformation can be sent to a built-in (SVG) viewer or saved to file in
+         a 
+         				number of different formats including PDF, PostScript, Text and SVG.
+      </p>
+      <p>To rerun an XSLFO transformation without rekeying the settings, select <b>Transform-&gt;Execute Previous-&gt;Execute Previous FO</b>.  For even quicker access, create a keyboard shortcut for this action in the <b>Keys</b> tab in the <b>File-&gt;Preferences</b> dialog. 
+      </p>
+      <h4 class="title">TIFF and PNG</h4>
+      <p>To support the use of TIFF and PNG files in XSLFO transformations, you will need to download the relevant libraries from Sun.
+         (See <b>http://java.sun.com/products/jimi/</b> and <b>http://java.sun.com/products/java-media/jai/</b>. Use the System tab in the <b>File-&gt;Preferences dialog</b> to add the Jars and Zips to Exchanger and install any required native libraries.
+      </p>
+      <p></p>
+      <p></p>
+      <h3 class="title">Transformation Scenarios</h3>
+      <p>It is possible to manage XSLT and XSLFO transformations from within Exchanger. Scenarios allow the user to easily perform
+         complex transformations including choosing the XSLT processor, setting input parameters and specifying XSLFO output. Scenarios
+         can also be used to store information including breakpoints between debugging sessions.
+      </p>
+      <h4 class="title">Importing an existing scenario</h4>
+      <p>Open the project <b>UBL XSLFO</b> and in the folder named <b>input</b> open the file <tt class="filename">OfficeOrder.xml</tt>.  Select <b>Transform-&gt;Manage Scenarios</b>, click the <b>Import</b> button and choose
+         				the file <tt class="filename">projects/UBL XSLFO/scenario/UBL to SVG.scenario</tt> to  import a new transformation scenario. To view the details of the imported scenario, highlight it in the <b>Manage Scenarios</b> list and click <b>Edit</b> (or alternatively just double-click it in the list).
+      </p><img src="../../images/scenarioProperties.gif" alt="Scenario Properties"></img><p class="title"><b>Figure&nbsp;7.&nbsp;Scenario Properties</b></p>
+      <p>
+         				
+         				 To test the transformation, select <b>Transform-&gt;Execute Scenario</b> (or press the <b>Execute Scenario</b> button <img src="../../images/buttonExecuteScenario.gif"></img>) and choose the 
+         				this scenario from the list. The result - an SVG rendition of the input purchase order OfficeOrder.xml - should be 
+         				displayed in a popup window. Close the popup window when finished. 
+      </p>
+      <p></p>
+      <p></p><img src="../../images/UBLSVG.gif" alt="UBL SVG"></img><p class="title"><b>Figure&nbsp;8.&nbsp;UBL SVG</b></p>
+      <p>If you would like to view the input UBL document as HTML, import the scenario <b>UBL to FO</b> and the scenario <b>FO to HTML</b> and execute each one in turn.
+      </p>
+      <p></p>
+      <p></p><img src="../../images/UBLHTML.gif" alt="UBL HTML"></img><p class="title"><b>Figure&nbsp;9.&nbsp;UBL HTML</b></p>
+      <h4 class="title">Scenario Execution Dialog</h4>
+      <p>The Scenario Execution Dialog displays information about the progress of transformations and scenarios and also provide a
+         mechanism for halting long-runing processes. It is possible to set a preference to immediately dismiss the dialog at the end
+         of processing on the Views tab in the <b>File-&gt;Preferences dialog.</b></p><img src="../../images/scenarioExecutionDialog.gif" alt="Scenario Execution Dialog"></img><p class="title"><b>Figure&nbsp;10.&nbsp;Scenario Execution Dialog</b></p>
+      <h4 class="title">Creating a new scenario</h4>
+      <p>It is also possible to create a scenario by hand. Select <b>Transform-&gt;Manage Scenarios</b> and click <b>New</b> to create a new transformation scenario.
+      </p>
+      <p>In the Scenario Properties dialog, enter a scenario Name, for example, as "UBL to PDF" and set the XML <b>From URL</b> to <tt class="filename">projects/UBL XSLFO/input/OfficeOrder.xml</tt> Choose <b>Use XSL Stylesheet</b> and set the XSL 
+         				Location as <tt class="filename">projects/UBL XSLFO/style/OfficeOrder.xsl</tt></p>
+      <p>In the Output section of the Scenario Properties dialog, click the "Use FO Processor" tick box and choose output <b>To File</b> in <tt class="filename">projects/UBL XSLFO/output/OfficeOrder.pdf</tt> and set the format to <b>PDF</b>.
+      </p>
+      <p>Click on <b>OK</b> at the bottom of the Scenario Properties dialog to save this scenario.
+         				To test the transformation, select <b>Transform-&gt;Execute Scenario</b> and choose the 
+         				desired scenario from the list. The result - a PDF rendition of the input purchase order OfficeOrder.xml will be created
+         in the output location.
+      </p>
+      <p>To modify or delete scenarios, click on <b>Transform-&gt;Manage Scenarios</b> and choose the 
+         				desired scenario from the list. Scenarios can also be exported for sharing using the <b>Export</b> button on the Manage Scenarios dialog.
+      </p>
+      <h3 class="title">Macros in Transformations</h3>
+      <p>Three macros are supported to improve the reusability of transformations and scenarios. <b>${file}</b> substitutes the input filename, <b>{$ext}</b> is the input file extension and <b>${path}</b> is the file path of the input file. For example, if the input file is <tt class="filename">c:/doc/test.htm</tt> then <b>${path}</b> is <b>c:/doc</b> while <b>${file}</b> is <b>test</b> and <b>${ext}</b> is <b>.htm</b>. Use the macros to control the output destination of a transformation scenario.
+      </p>
+   </body>
+</html>

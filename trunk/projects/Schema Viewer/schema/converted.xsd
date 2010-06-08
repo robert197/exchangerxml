@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Contacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Person"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Person">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Firstname"/>
+        <xs:element ref="Lastname"/>
+        <xs:element minOccurs="0" ref="Birthday"/>
+        <xs:element ref="Company"/>
+        <xs:element ref="Position"/>
+        <xs:element maxOccurs="unbounded" ref="Email"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Address"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Firstname" type="xs:string"/>
+  <xs:element name="Lastname" type="xs:string"/>
+  <xs:element name="Birthday" type="xs:string"/>
+  <xs:element name="Position" type="xs:string"/>
+  <xs:element name="Email" type="xs:string"/>
+  <xs:element name="Address">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="Company"/>
+        <xs:element ref="Street"/>
+        <xs:element ref="City"/>
+        <xs:choice>
+          <xs:element ref="Postcode"/>
+          <xs:element ref="ZIP"/>
+        </xs:choice>
+        <xs:element ref="Country"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Address"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Address">
+    <xs:attribute name="type" type="xs:NMTOKEN"/>
+  </xs:attributeGroup>
+  <xs:element name="Street" type="xs:string"/>
+  <xs:element name="City" type="xs:string"/>
+  <xs:element name="Postcode" type="xs:string"/>
+  <xs:element name="ZIP" type="xs:string"/>
+  <xs:element name="Country" type="xs:string"/>
+  <xs:element name="Company" type="xs:string"/>
+</xs:schema>

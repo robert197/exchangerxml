@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Container Attribute Module .................................... -->
+<!--
+  file: svg-container-attrib.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-container-attrib.mod.xsd,v 1.1 2004/03/26 10:24:34 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Container Attribute//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-container-attrib.mod"
+  
+  .......................................................................
+-->
+<!--
+  Container Attribute
+  
+     enable-background
+  
+  This module defines the Container attribute set.
+-->
+<!-- 'enable-background' property/attribute value (e.g., 'new', 'accumulate') -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:simpleType name="EnableBackgroundValue.datatype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="SVG.enable-background.attrib">
+    <xs:attribute name="enable-background" type="EnableBackgroundValue.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.Container.attrib">
+    <xs:attributeGroup ref="SVG.enable-background.attrib"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of svg-container-attrib.mod -->

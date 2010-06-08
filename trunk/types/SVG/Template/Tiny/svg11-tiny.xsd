@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Tiny DTD ...................................................... -->
+<!-- file: svg11-tiny.dtd -->
+<!--
+  SVG 1.1 Tiny DTD
+  
+  This is SVG Tiny, a proper subset of SVG.
+  
+  The Scalable Vector Graphics (SVG)
+  Copyright 2001, 2002 World Wide Web Consortium
+     (Massachusetts Institute of Technology, Institut National de
+      Recherche en Informatique et en Automatique, Keio University).
+      All Rights Reserved.
+  
+  Permission to use, copy, modify and distribute the SVG DTD and its
+  accompanying documentation for any purpose and without fee is hereby
+  granted in perpetuity, provided that the above copyright notice and
+  this paragraph appear in all copies.  The copyright holders make no
+  representation about the suitability of the DTD for any purpose.
+  
+  It is provided "as is" without expressed or implied warranty.
+  
+     Author:   Jun Fujisawa <fujisawa.jun@canon.co.jp>
+     Revision: $Id: svg11-tiny.xsd,v 1.1 2004/03/26 10:28:59 edankert Exp $
+  
+-->
+<!--
+  This is the driver file for version 1.1 of the SVG Tiny DTD.
+  
+  This DTD is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd"
+-->
+<!--
+  Use this URI to identify the default namespace:
+  
+     "http://www.w3.org/2000/svg"
+  
+  See the Qualified Names module for information
+  on the use of namespace prefixes in the DTD.
+-->
+<!-- reserved for future use with document profiles -->
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+<!-- Pre-Framework Redeclaration Placeholder ..................... -->
+<!-- Document Model Module ....................................... -->
+<!-- Attribute Collection Module ................................. -->
+<!-- Modular Framework Module .................................... -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:include schemaLocation="svg-basic-structure.mod.xsd"/>
+  <xs:include schemaLocation="svg-conditional.mod.xsd"/>
+  <xs:include schemaLocation="svg-image.mod.xsd"/>
+  <xs:include schemaLocation="svg-shape.mod.xsd"/>
+  <xs:include schemaLocation="svg-basic-text.mod.xsd"/>
+  <xs:include schemaLocation="svg-hyperlink.mod.xsd"/>
+  <xs:include schemaLocation="svg-animation.mod.xsd"/>
+  <xs:include schemaLocation="svg-basic-font.mod.xsd"/>
+  <xs:include schemaLocation="svg-extensibility.mod.xsd"/>
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <!-- Post-Framework Redeclaration Placeholder .................... -->
+  <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <!-- Core Attribute Module ....................................... -->
+  <!-- Basic Paint Attribute Module ................................ -->
+  <!-- Basic Graphics Attribute Module ............................. -->
+  <!-- XLink Attribute Module ...................................... -->
+  <!-- External Resources Attribute Module ......................... -->
+  <!-- ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
+  <!-- Basic Structure Module ...................................... -->
+  <!-- Conditional Processing Module ............................... -->
+  <!-- Image Module ................................................ -->
+  <!-- Shape Module ................................................ -->
+  <!-- Basic Text Module ........................................... -->
+  <!-- Hyperlinking Module ......................................... -->
+  <!-- Animation Module ............................................ -->
+  <!-- Basic Font Module ........................................... -->
+  <!-- Extensibility Module ........................................ -->
+</xs:schema>
+<!-- end of SVG 1.1 Tiny DTD ............................................... -->
+<!-- ....................................................................... -->

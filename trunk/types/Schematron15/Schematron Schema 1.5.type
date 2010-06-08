@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Schematron Schema 1.5" icon="SchematronIcon.gif" publicID="" systemID="" extensions="xml">
+	<root name="schema">
+		<namespace prefix="" uri="http://www.ascc.net/xml/schematron"/>
+	</root>
+	<namespace prefix="xlink" uri="http://www.w3.org/1999/xlink"/>
+	<namespace prefix="m" uri="http://www.w3.org/1998/Math/MathML"/>
+	<validation src="Validation/schematron1-5.xsd" type="xsd" useDocumentLocation="false"/>
+	<schema src="Template/schematron1-5.xsd"/>
+</type>

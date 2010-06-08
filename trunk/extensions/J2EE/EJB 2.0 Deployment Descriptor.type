@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="EJB 2.0 Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN" extensions="xml">
+	<root name="ejb-jar">
+		<namespace prefix="" uri=""/>
+	</root>
+	<template src="" type="xsd"/>
+	<validation src="dtd/ejb-jar_2_0.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

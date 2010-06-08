@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Contacts>
+	<Person Firstname="John" 
+		Lastname="Smith" 
+		Birthday="19650302" 
+		Company="IBM" 
+		Position="CEO" 
+		Email="jsmith@ibm.com"/>
+		
+	<Person 
+		Firstname="Tom" 
+		Lastname="Dunne" 
+		Company="Today FM" 
+		Email="tom.dunne@todayfm.com"/>
+</Contacts>

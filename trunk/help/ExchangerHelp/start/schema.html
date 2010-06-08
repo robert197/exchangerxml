@@ -1,0 +1,161 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">XML Schema, DTD and RelaxNG</h2>
+      <p>Exchanger XML Editor has significant built-in support for XML Schemas, DTDs, RelaxNG and the Namespace Routing Language. There
+         are three separate ways of using grammars in the Exchanger XML Editor:
+      </p>
+      <ul type="disc">
+         <li>
+            <p>Instance Validation</p>
+         </li>
+         <li>
+            <p>Tag Completion</p>
+         </li>
+         <li>
+            <p>Schema Viewer and Outliner</p>
+         </li>
+      </ul>
+      <p>Tag Completion and Instance Validation have already been covered in the earlier section on Editing XML Content. One special
+         case worth mentioning is 
+         the  use of one grammar for validation and a separate one for tag completion (or tag prompting). An occasion to do this may
+         be when the grammar has a very 
+         large tag vocabulary and the user typically only needs a very small subset. In this case, it is convenient to use a reduced
+         grammar for tag completion, while still
+         validating against the full grammar. See the section on "Infer XML Schema" below for more information on creating reduced
+         grammars based on sample input data. To
+         set up a grammar for use in Tag Completion, select <b>XML-&gt;Set Properties...</b> and in the <b>Tag Completion</b> section of the dialog, choose the grammar type and set the
+         appropriate location. 
+         				
+      </p>
+      <h3 class="title">Schema Viewer</h3>
+      <p>The schema viewer is a convenient tool for browsing an XML Schema in a tree view and seeing the details for element and attribute
+         definitions. Note that the schema viewer currently only works with XML Schemas but it is possible to convert DTDs and RelaxNG
+         grammars for use in the schema viewer with the functionality available through <b>Schema-&gt;Convert Schema</b> as described later in this section.
+      </p>
+      <p>Open the file <tt class="filename">schema/contacts.xsd</tt> in the <b>Schema Viewer</b> project. The Schema Viewer displays a tree representation of the top level of the schema. Click on the Editor button (or
+         select<b> View-&gt;Editor</b> or press<b> Ctrl-3</b>) to see the corresponding tag-based version of the file.
+         			
+         				
+      </p>
+      <p>Alternatively it is possible to view the tree representation of the schema when editing an instance document. Ensure that
+         validation is turned off when opening files by selecting <b>File-&gt;Preferences</b> and on 
+         				the Views tab, ensure that <b>Validate Document on Opening</b> is turned off.
+      </p>
+      <p>Open the file <tt class="filename">contacts.xml</tt> in the <b>Schema Viewer</b> project.
+      </p>
+      <p>Select <b>XML-&gt;Set Properties</b> and in the <b>Outliner/Schema Viewer</b> section of the dialog, set the file location to <tt class="filename">projects/Schema Viewer/schema/contacts.xsd</tt>. The
+         				Schema and Outliner buttons now become active.
+      </p><img src="../../images/viewButtons.gif" alt="View Buttons"></img><p class="title"><b>Figure&nbsp;1.&nbsp;View Buttons</b></p>
+      <p>Click on the Schema button. The Schema Viewer displays a tree representation of the top level of the schema.</p>
+      <h4 class="title">Schema Tree Viewer</h4><img src="../../images/initialContactsSchema.gif" alt="Schema Viewer top level tree"></img><p class="title"><b>Figure&nbsp;2.&nbsp;Schema Viewer top level tree</b></p>
+      <p>Double-click on the Person node to expand the node. Click on the <b>Expand All Nodes</b> button (<img src="../../images/expandAllNodes.gif"></img>). Note: <b>Expand All Nodes</b> does not always
+         							expand the tree completely in the Schema Viewer, because of the possibility of endless recursion. 
+      </p>
+      <p>The Schema Viewer displays a tree representation of the complete schema.</p><img src="../../images/expandedContactsSchema.gif" alt="Schema Viewer expanded tree"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Schema Viewer expanded tree</b></p>
+      <h4 class="title">Details</h4>
+      <p>Click on the <b>Birthday</b> node in the tree view and the corresponding details are displayed in 2
+windows to the right.
+      </p>
+      <p>The upper window  contains details of the <b>Birthday</b> element definition.
+      </p><img src="../../images/schemaElementDetails.gif" alt="Schema Viewer element details"></img><p class="title"><b>Figure&nbsp;4.&nbsp;Schema Viewer element details</b></p>
+      <p>To see details about the particular schema that includes the current element, click on the link in the <b>schema</b>
+         				 field in the Details panel. (This is useful where there are imported/included schemas).
+      </p>
+      <h4 class="title">References, Substitutions and Globals</h4>
+      <p>The lower window on the right shows References (elements where Birthday is used), Substitutions (elements that can be
+         used in place of Birthday) and Globals (top-level element definitions).
+      </p><img src="../../images/schemaElementRefs.gif" alt="Schema Viewer element references, substitutions and globals"></img><p class="title"><b>Figure&nbsp;5.&nbsp;Schema Viewer element references, substitutions and globals</b></p>
+      <p>Choose the <b>Globals</b> tab, click on <b>Address</b> and press <b>Show</b>.
+         		    The tree view will now have Address as its root element, and the Details panel will change to show the details for the
+         Address element. 
+         		    Using the References, Substitutions and Globals tabs provide an easy way to navigate through a schema definition.
+      </p>
+      <h3 class="title">Editing Associated Grammars</h3>
+      <p>Any associated grammars can be easily viewed or edited by double-clicking on the appropriate filename in the <b>Document Properties</b> window. This causes a new window to be opened in the Editor for the chosen grammar.
+      </p>
+      <h3 class="title">Grammar Validation</h3>
+      <p>An XML Schema, DTD or RelaxNG grammar can be validated by opening the grammar in the editor using <b>File-&gt;Open</b> (or alternatively  double-clicking on the appropriate filename in the <b>Document Properties</b> window as explained above) and then choosing <b>Schema-&gt;Validate XML Schema</b> or  <b>Schema-&gt;Validate Relax NG</b> or <b>Schema-&gt;Validate DTD</b> depending on the type of grammar.
+      </p>
+      <h3 class="title">Infer XML Schema</h3>
+      <p>Given a sample XML file, it is possible to "learn" or infer an XML Schema to which the file adheres. Open the file 
+         	<tt class="filename">contacts.xml</tt> in the <b>Schema Viewer</b> project in the editor, and 
+         	select <b>Schema-&gt;Infer XML Schema</b>. When prompted for a location in which to save the 
+         	inferred schema, enter <tt class="filename">projects/Schema Viewer/schema/inferred.xsd</tt> 
+         	and press <b>Save</b>. Use the schema viewer to compare the original <b>contacts.xsd</b>
+         	with the inferred version - you will notice that there is less detail in the latter, particularly with regards choices and
+         
+         	lower and upper bounds. However, using <b>Schema-&gt;Infer XML Schema</b> can be helpful when creating a
+         	schema from scratch, given sample data.
+      </p>
+      <p>One place where the Infer XML Schema functionality can be very useful is when dealing with a complex schema/DTD like Docbook
+         where there are a lot of elements/attributes but you typically only use a small subset of those available. Open one of your
+         sample (say, Docbook) documents and then use Infer XML Schema to create a temporary schema that can then be used for tag prompting
+         (in the Tag Completion section of the <b>XML-&gt;Set Properties...</b> dialog). This will restrict the prompting to the subset of tags that you regularly use while facilitating the use of the
+         full schema/DTD for validation purposes. This technique is also very helpful in the Outliner tool for simplifying data entry.
+      </p>
+      <h3 class="title">Convert Schema</h3>
+      <p>While it is possible to use Exchanger to edit and validate XML files that use DTD or RelaxNG, 
+         	it is necessary to have a valid XML Schema to take full advantage of some functionality such as  easy content 
+         	generation using the Outliner or schema browsing in the Schema Viewer. To convert an existing DTD or RelaxNG file to XML
+         Schema, access the 
+         	Schema Converter by selecting <b>Tools-&gt;Convert Schema</b>. Set the Input Grammar Type to DTD, for example, and the Input URL to 
+         	<tt class="filename">projects/Schema Viewer/dtd/contacts.dtd</tt>. Set the Output Grammar Type to XSD (XML Schema)
+         	and Output URL to <tt class="filename">projects/Schema Viewer/schema/converted.xsd</tt>
+         	and press <b>Convert</b>.
+      </p>
+      <p>Convert Schema can be used to convert in any direction between DTDs, XML Schemas and RelaxNG grammars (both regular and compact
+         systax). It also provides equivalent functionality to <b>Schema-&gt;Infer XML Schema</b> when the input is an ordinary XML document.
+      </p>
+      <h3 class="title">Generating Sample Instance from XML Schema</h3>
+      <p>It is possible to create an example document that conforms to an XML Schema using the <b>Schema-&gt;Schema Instance Generation</b> function. First open the schema <tt class="filename">schema/contacts.xsd</tt> from the Schema Viewer project in the editor. Now, select <b>Schema-&gt;Schema Instance Generation</b> and set a target schema in the displayed dialog.
+      </p><img src="../../images/schemaInstanceGeneration.gif" alt="Schema Instance Generation"></img><p class="title"><b>Figure&nbsp;6.&nbsp;Schema Instance Generation</b></p>
+      <p>Because you have  the schema already open in the editor, you can select it using <b>Current Document</b> or the <b>Open Document</b> drop-down in the dialog. Alternatively, you could choose any other schema using the <b>From URL</b> option. 
+      </p>
+      <p>If the root element of the schema
+         				cannot be detected automatically, a list of potential root elements will be displayed. 
+      </p><img src="../../images/schemaInstanceGenerationRoot.gif" alt="Schema Instance Generation Root Element"></img><p class="title"><b>Figure&nbsp;7.&nbsp;Schema Instance Generation Root Element</b></p>
+      <p>Select <b>Contacts</b> from the list of global elements and press <b>OK</b>.
+      </p><img src="../../images/schemaInstanceGenerationOptions.gif" alt="Schema Instance Generation Options"></img><p class="title"><b>Figure&nbsp;8.&nbsp;Schema Instance Generation Options</b></p>
+      <p> When generating a sample instance, a number of options are available for configuring the output. Required elements and required
+         attributes will always be generated but optional element, optional attributes and sample data can also be created. In this
+         case , choose  <b>Optional Attributes</b>, <b>Optional Elements</b> and  <b>Generate Content</b>.
+      </p>
+      <p>The generated instance will be opened in a new window. Press the <b>Format </b>button in the editor toolbar or choose <b>Edit-&gt;XML-&gt;Format </b> to tidy up the output. 
+      </p><img src="../../images/schemaInstanceGenerationSample1.gif" alt="Schema Instance Generation Output"></img><p class="title"><b>Figure&nbsp;9.&nbsp;Schema Instance Generation Output</b></p>
+      <p>When generating the sample instance, Exchanger XML will attempt to insert a valid schema location in the output document.
+         To validate the instance against this schema, ensure that the document properties are set that to validate using the location
+         in stored in the document. To check, select <b>XML-&gt;Set Properties...</b> and tick <b>Location defined in Document</b> in the validation section. Now press the <b>Validate</b> button on the main toolbar or press the shortcut <b>F7</b> to check that the output conforms to the target schema.
+      </p>
+      <p>It is not always possible to automatically generate a vaild sample from a schema, particularly when there are  recursive structures
+         and regular expressions, so some manual intervention may be needed on the output before it will validate againat the target
+         schema. 
+      </p>
+      <p>As an example, generate an instance for the <tt class="filename">schema/UBL_Library_0p70_Order.xsd</tt> schema in the <b>UBL XSLFO </b>project. Set the root element to <b>Order</b> and initially set the options to only <b>Generate Content</b>. The output document should validate, but it is really just a skeleton and not very useful.
+      </p>
+      <p> To create a more realistic sample, repeat the process but this time choose to generate <b>Optional Elements</b> as well. The output is a lot richer but it also fails to validate. This is because of the occurrence of the  recursive structures
+         that are generated.  
+      </p>
+      <p>To fix up the output, it is necessary to remove some of the recursive elements. Firstly format the output to make it easier
+         to handle. Press Validate and and a number of errors are reported. Comment out the cat:DeliverySchedule from line 1035 to
+         1043, the cat:OrderLine on line 1044, the cat:TransportEquipmentMeasurement from line 1277 to 1284 and the second occurrences
+         of cat:DeliverySchedule and cat:OrderLine on lines 1789 to 1798. The generated file should now validate against the original
+         schema.
+      </p>
+      <h3 class="title">Editing XML Schemas, RelaxNG grammars and DTDs</h3>
+      <p>It is possible to create an XML Schema or a RelaxNG grammar using the appropriate built-in types and to use the normal tag
+         completion functionality to simplify the editing process. For DTDs, it is necessary to provide specific support as the underlying
+         synax is not XML. To create a new DTD, simply choose <b>File-&gt;New</b> and select DTD Document. Now when you enter a less-than character, you are prompted with the appropiate keywords for a DTD.
+         Syntax highlighting is also available for DTDs and can be specified in the Text tab of <b>File-&gt;Preferences</b>.
+      </p>
+      <h3 class="title">XML Catalogs</h3>
+      <p>XML Catalogs provide a means to map the information in an XML external (PUBLIC or SYSTEM) identifier  into a URI reference
+         for the desired resource. This is convenient where the resource corresponding to an external identifier may not be available
+         due to network issues or where the use of a local resource may be preferred (for performance reasons, maybe). It is possible
+         to set up one or more catalog files in the System tab of <b>File-&gt;Preferences</b> to facilitate the locating of appropriate DTD/Entity files for PUBLIC and SYSTEM identifiers in an XML instance. 
+      </p>
+   </body>
+</html>

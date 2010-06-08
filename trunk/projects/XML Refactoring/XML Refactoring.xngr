@@ -1,0 +1,17 @@
+<xngr>
+	<projects>	
+<project name="XML Refactoring">
+
+  <folder name="input">
+   <document src="input/attributes.xml"/>
+   <document src="input/elements.xml"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

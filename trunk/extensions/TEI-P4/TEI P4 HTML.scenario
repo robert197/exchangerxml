@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scenario name="TEI P4 HTML">
+	<xml src="" type="current"/>
+	<xsl src="xsl/html/teihtml.xsl" type="url" processor="xalan"/>
+	<output src="" type="nothing" browser="true" browserURL="${path}/index.html"/>
+</scenario>

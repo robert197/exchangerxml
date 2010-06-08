@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Clip Module ................................................... -->
+<!--
+  file: svg-clip.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-clip.mod.xsd,v 1.1 2004/03/26 10:24:34 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 Clip//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-clip.mod"
+  
+  .......................................................................
+-->
+<!--
+  Clip
+  
+     clipPath
+  
+  This module declares markup to provide support for clipping.
+-->
+<!-- 'clip-path' property/attribute value (e.g., 'none', <uri>) -->
+<!-- Qualified Names (Default) ......................... -->
+<!-- Attribute Collections (Default) ................... -->
+<!-- SVG.Clip.class .................................... -->
+<!-- SVG.Clip.attrib ................................... -->
+<!-- clipPath: Clip Path Element ....................... -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:complexType name="SVG.clipPath.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="SVG.Animation.class"/>
+        <xs:element ref="SVG.Use.class"/>
+        <xs:element ref="SVG.Shape.class"/>
+        <xs:element ref="SVG.Text.class"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clipPath" substitutionGroup="SVG.Clip.class"/>
+  <!-- end of SVG.clipPath.element -->
+  <xs:attributeGroup name="attlist.clipPath">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Style.attrib"/>
+    <xs:attributeGroup ref="SVG.Text.attrib"/>
+    <xs:attributeGroup ref="SVG.TextContent.attrib"/>
+    <xs:attributeGroup ref="SVG.Font.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.Clip.attrib"/>
+    <xs:attributeGroup ref="SVG.Mask.attrib"/>
+    <xs:attributeGroup ref="SVG.Filter.attrib"/>
+    <xs:attributeGroup ref="SVG.Cursor.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+    <xs:attribute name="clipPathUnits">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="userSpaceOnUse"/>
+          <xs:enumeration value="objectBoundingBox"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.clipPath.attlist -->
+<!-- end of svg-clip.mod -->

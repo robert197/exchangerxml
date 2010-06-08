@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Servlet 2.3 Deployment Descriptor" icon="J2EEIcon.gif" publicID="-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" extensions="">
+	<root name="web-app">
+		<namespace prefix="" uri=""/>
+	</root>
+	<template src="" type="xsd"/>
+	<validation src="dtd/web-app_2_3.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

@@ -1,0 +1,18 @@
+<xngr>
+	<projects>	
+<project name="Inclusive Canonicalization">
+  <folder name="input">
+   <document src="input/books.xml"/>
+  </folder>
+  <folder name="output">
+   <document src="output/books.xml"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

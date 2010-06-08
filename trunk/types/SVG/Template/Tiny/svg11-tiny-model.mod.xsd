@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Tiny Document Model Module .................................... -->
+<!--
+  file: svg11-tiny-model.mod
+  
+  This is SVG Tiny, a proper subset of SVG.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg11-tiny-model.mod.xsd,v 1.1 2004/03/26 10:28:59 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Tiny Document Model//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny-model.mod"
+  
+  .......................................................................
+-->
+<!--
+  SVG 1.1 Tiny Document Model
+  
+  This module describes the groupings of elements that make up
+  common content models for SVG elements.
+-->
+<!-- Content Models (Default) .......................... -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11-tiny.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <!-- module: svg-basic-structure.mod ................... -->
+  <xs:element name="SVG.Description.class" abstract="true"/>
+  <xs:element name="SVG.Use.class" abstract="true" substitutionGroup="SVG.Structure.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.use.content">
+          <xs:attributeGroup ref="svg:attlist.use"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SVG.Structure.class" abstract="true"/>
+  <!-- module: svg-conditional.mod ....................... -->
+  <xs:element name="SVG.Conditional.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.switch.content">
+          <xs:attributeGroup ref="svg:attlist.switch"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-image.mod ............................. -->
+  <xs:element name="SVG.Image.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.image.content">
+          <xs:attributeGroup ref="svg:attlist.image"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-shape.mod ............................. -->
+  <xs:element name="SVG.Shape.class" abstract="true"/>
+  <!-- module: svg-basic-text.mod ........................ -->
+  <xs:element name="SVG.Text.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.text.content">
+          <xs:attributeGroup ref="svg:attlist.text"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-hyperlink.mod ......................... -->
+  <xs:element name="SVG.Hyperlink.class" abstract="true">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.a.content">
+          <xs:attributeGroup ref="svg:attlist.a"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- module: svg-animation.mod ......................... -->
+  <xs:element name="SVG.Animation.class" abstract="true"/>
+  <!-- module: svg-basic-font.mod ........................ -->
+  <xs:element name="SVG.Font.class" abstract="true"/>
+  <!-- module: svg-extensibility.mod ..................... -->
+  <xs:element name="SVG.Extensibility.class" abstract="true">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="svg:attlist.foreignObject"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+<!-- end of svg11-tiny-model.mod -->

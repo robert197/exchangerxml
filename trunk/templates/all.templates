@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+	<template name="SVG 1.0" src="svg/svg-1_0.xml"/>
+	<template name="SVG 1.1 Basic" src="svg/svg-1_1-Basic.xml"/>
+	<template name="SVG 1.1 Full" src="svg/svg-1_1-Full.xml"/>
+	<template name="SVG 1.1 Tiny" src="svg/svg-1_1-Tiny.xml"/>
+
+	<template name="XHTML 1.0 Strict" src="xhtml/xhtml-strict.xml"/>
+	<template name="XHTML 1.0 Transitional" src="xhtml/xhtml-transitional.xml"/>
+	<template name="XHTML 1.0 Frameset" src="xhtml/xhtml-frameset.xml"/>
+
+	<template name="Docbook 4.2 (Article)" src="docbook/book.xml"/>
+	<template name="Docbook 4.2 (Book)" src="docbook/article.xml"/>
+
+	<template name="XML Schema" src="schema/xml-schema.xsd"/>
+
+	<template name="Ant build file" src="ant/build.xml"/>
+
+	<template name="Formatting Objects" src="fop/formatting-objects.fo"/>
+
+	<template name="MathML 2.0" src="mathml/mathml.xml"/>
+
+	<template name="Namespace Routing Language" src="nrl/nrl.xml"/>
+
+	<template name="RelaxNG" src="relaxng/rng.xml"/>
+	
+	<template name="Web Services Definition Language" src="wsdl/wsdl.xml"/>
+
+	<template name="XML Stylesheet Language" src="xsl/stylesheet.xsl"/>
+</templates>

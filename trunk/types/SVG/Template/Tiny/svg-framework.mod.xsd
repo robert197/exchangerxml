@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Modular Framework Module ...................................... -->
+<!--
+  file: svg-framework.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-framework.mod.xsd,v 1.1 2004/03/26 10:28:59 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Modular Framework//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-framework.mod"
+  
+  .......................................................................
+-->
+<!--
+  Modular Framework
+  
+  This module instantiates the modules needed o support the SVG
+  modularization model, including:
+  
+     + Datatypes
+     + Qualified Name
+     + Document Model
+     + Attribute Collection
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:include schemaLocation="svg-datatypes.mod.xsd"/>
+  <xs:include schemaLocation="svg-qname.mod.xsd"/>
+  <xs:include schemaLocation="svg11-tiny-model.mod.xsd"/>
+  <xs:include schemaLocation="svg11-tiny-attribs.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11-tiny.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <!-- instantiate the Document Model declared in the DTD driver -->
+  <!-- instantiate the Attribute Collection declared in the DTD driver -->
+</xs:schema>
+<!-- end of svg-framework.mod -->

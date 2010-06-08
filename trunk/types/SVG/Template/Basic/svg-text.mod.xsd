@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Text Module ................................................... -->
+<!--
+  file: svg-text.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-text.mod.xsd,v 1.1 2004/03/26 10:24:10 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 Text//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-text.mod"
+  
+  .......................................................................
+-->
+<!--
+  Text
+  
+     text, tspan, tref, textPath, altGlyph, altGlyphDef, altGlyphItem,
+     glyphRef
+  
+  This module declares markup to provide support for alternate glyph.
+-->
+<!-- 'baseline-shift' property/attribute value (e.g., 'baseline', 'sub', etc.) -->
+<!-- 'font-family' property/attribute value (i.e., list of fonts) -->
+<!-- 'font-size' property/attribute value -->
+<!-- 'font-size-adjust' property/attribute value -->
+<!-- 'glyph-orientation-horizontal' property/attribute value (e.g., <angle>) -->
+<!-- 'glyph-orientation-vertical' property/attribute value (e.g., 'auto', <angle>) -->
+<!-- 'kerning' property/attribute value (e.g., 'auto', <length>) -->
+<!-- 'letter-spacing' or 'word-spacing' property/attribute value (e.g., 'normal', <length>) -->
+<!-- 'text-decoration' property/attribute value (e.g., 'none', 'underline') -->
+<!-- Qualified Names (Default) ......................... -->
+<!-- Attribute Collections (Default) ................... -->
+<!-- SVG.Text.class .................................... -->
+<!-- SVG.TextContent.class ............................. -->
+<!-- SVG.Text.attrib ................................... -->
+<!-- SVG.TextContent.attrib ............................ -->
+<!-- SVG.Font.attrib ................................... -->
+<!-- text: Text Element ................................ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:complexType name="SVG.text.content" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="SVG.Description.class"/>
+      <xs:element ref="SVG.Animation.class"/>
+      <xs:element ref="SVG.TextContent.class"/>
+      <xs:element ref="SVG.Hyperlink.class"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="text" substitutionGroup="SVG.Text.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.text.content">
+          <xs:attributeGroup ref="svg:attlist.text"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.text.element -->
+  <xs:attributeGroup name="attlist.text">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Style.attrib"/>
+    <xs:attributeGroup ref="SVG.Text.attrib"/>
+    <xs:attributeGroup ref="SVG.TextContent.attrib"/>
+    <xs:attributeGroup ref="SVG.Font.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.Clip.attrib"/>
+    <xs:attributeGroup ref="SVG.Mask.attrib"/>
+    <xs:attributeGroup ref="SVG.Filter.attrib"/>
+    <xs:attributeGroup ref="SVG.GraphicalEvents.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x" type="Coordinates.datatype"/>
+    <xs:attribute name="y" type="Coordinates.datatype"/>
+    <xs:attribute name="dx" type="Lengths.datatype"/>
+    <xs:attribute name="dy" type="Lengths.datatype"/>
+    <xs:attribute name="rotate" type="Numbers.datatype"/>
+    <xs:attribute name="textLength" type="Length.datatype"/>
+    <xs:attribute name="lengthAdjust">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="spacing"/>
+          <xs:enumeration value="spacingAndGlyphs"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.text.attlist -->
+  <!-- tspan: Text Span Element .......................... -->
+  <xs:complexType name="SVG.tspan.content" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="svg:tspan"/>
+      <xs:element ref="svg:tref"/>
+      <xs:element ref="svg:altGlyph"/>
+      <xs:element ref="svg:animate"/>
+      <xs:element ref="svg:set"/>
+      <xs:element ref="svg:animateColor"/>
+      <xs:element ref="SVG.Description.class"/>
+      <xs:element ref="SVG.Hyperlink.class"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="tspan" substitutionGroup="SVG.TextContent.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.tspan.content">
+          <xs:attributeGroup ref="svg:attlist.tspan"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.tspan.element -->
+  <xs:attributeGroup name="attlist.tspan">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Style.attrib"/>
+    <xs:attributeGroup ref="SVG.TextContent.attrib"/>
+    <xs:attributeGroup ref="SVG.Font.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.Clip.attrib"/>
+    <xs:attributeGroup ref="SVG.Mask.attrib"/>
+    <xs:attributeGroup ref="SVG.Filter.attrib"/>
+    <xs:attributeGroup ref="SVG.GraphicalEvents.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x" type="Coordinates.datatype"/>
+    <xs:attribute name="y" type="Coordinates.datatype"/>
+    <xs:attribute name="dx" type="Lengths.datatype"/>
+    <xs:attribute name="dy" type="Lengths.datatype"/>
+    <xs:attribute name="rotate" type="Numbers.datatype"/>
+    <xs:attribute name="textLength" type="Length.datatype"/>
+    <xs:attribute name="lengthAdjust">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="spacing"/>
+          <xs:enumeration value="spacingAndGlyphs"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- end of SVG.tspan.attlist -->
+  <!-- tref: Text Reference Element ...................... -->
+  <xs:complexType name="SVG.tref.content">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="svg:animate"/>
+      <xs:element ref="svg:set"/>
+      <xs:element ref="svg:animateColor"/>
+      <xs:element ref="SVG.Description.class"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="tref" substitutionGroup="SVG.TextContent.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.tref.content">
+          <xs:attributeGroup ref="svg:attlist.tref"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.tref.element -->
+  <xs:attributeGroup name="attlist.tref">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Style.attrib"/>
+    <xs:attributeGroup ref="SVG.TextContent.attrib"/>
+    <xs:attributeGroup ref="SVG.Font.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.Clip.attrib"/>
+    <xs:attributeGroup ref="SVG.Mask.attrib"/>
+    <xs:attributeGroup ref="SVG.Filter.attrib"/>
+    <xs:attributeGroup ref="SVG.GraphicalEvents.attrib"/>
+    <xs:attributeGroup ref="xlink:SVG.XLinkRequired.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x" type="Coordinates.datatype"/>
+    <xs:attribute name="y" type="Coordinates.datatype"/>
+    <xs:attribute name="dx" type="Lengths.datatype"/>
+    <xs:attribute name="dy" type="Lengths.datatype"/>
+    <xs:attribute name="rotate" type="Numbers.datatype"/>
+    <xs:attribute name="textLength" type="Length.datatype"/>
+    <xs:attribute name="lengthAdjust">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="spacing"/>
+          <xs:enumeration value="spacingAndGlyphs"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- end of SVG.tref.attlist -->
+  <!-- textPath: Text Path Element ....................... -->
+  <xs:complexType name="SVG.textPath.content" mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="svg:tspan"/>
+      <xs:element ref="svg:tref"/>
+      <xs:element ref="svg:altGlyph"/>
+      <xs:element ref="svg:animate"/>
+      <xs:element ref="svg:set"/>
+      <xs:element ref="svg:animateColor"/>
+      <xs:element ref="SVG.Description.class"/>
+      <xs:element ref="SVG.Hyperlink.class"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="textPath" substitutionGroup="SVG.TextContent.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.textPath.content">
+          <xs:attributeGroup ref="svg:attlist.textPath"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.textPath.element -->
+  <xs:attributeGroup name="attlist.textPath">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Style.attrib"/>
+    <xs:attributeGroup ref="SVG.TextContent.attrib"/>
+    <xs:attributeGroup ref="SVG.Font.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.Clip.attrib"/>
+    <xs:attributeGroup ref="SVG.Mask.attrib"/>
+    <xs:attributeGroup ref="SVG.Filter.attrib"/>
+    <xs:attributeGroup ref="SVG.GraphicalEvents.attrib"/>
+    <xs:attributeGroup ref="xlink:SVG.XLinkRequired.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="startOffset" type="Length.datatype"/>
+    <xs:attribute name="textLength" type="Length.datatype"/>
+    <xs:attribute name="lengthAdjust">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="spacing"/>
+          <xs:enumeration value="spacingAndGlyphs"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="method">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="align"/>
+          <xs:enumeration value="stretch"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="spacing">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="auto"/>
+          <xs:enumeration value="exact"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- end of SVG.textPath.attlist -->
+  <!-- altGlyph: Alternate Glyph Element ................. -->
+  <xs:element name="altGlyph" substitutionGroup="SVG.TextContent.class">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="svg:attlist.altGlyph"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.altGlyph.element -->
+  <xs:attributeGroup name="attlist.altGlyph">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Style.attrib"/>
+    <xs:attributeGroup ref="SVG.TextContent.attrib"/>
+    <xs:attributeGroup ref="SVG.Font.attrib"/>
+    <xs:attributeGroup ref="SVG.Paint.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.Clip.attrib"/>
+    <xs:attributeGroup ref="SVG.Mask.attrib"/>
+    <xs:attributeGroup ref="SVG.Filter.attrib"/>
+    <xs:attributeGroup ref="SVG.GraphicalEvents.attrib"/>
+    <xs:attributeGroup ref="xlink:SVG.XLink.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x" type="Coordinates.datatype"/>
+    <xs:attribute name="y" type="Coordinates.datatype"/>
+    <xs:attribute name="dx" type="Lengths.datatype"/>
+    <xs:attribute name="dy" type="Lengths.datatype"/>
+    <xs:attribute name="glyphRef"/>
+    <xs:attribute name="format"/>
+    <xs:attribute name="rotate" type="Numbers.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.altGlyph.attlist -->
+  <!-- altGlyphDef: Alternate Glyph Definition Element ... -->
+  <xs:complexType name="SVG.altGlyphDef.content">
+    <xs:choice>
+      <xs:element maxOccurs="unbounded" ref="svg:glyphRef"/>
+      <xs:element maxOccurs="unbounded" ref="svg:altGlyphItem"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="altGlyphDef" substitutionGroup="SVG.Text.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.altGlyphDef.content">
+          <xs:attributeGroup ref="svg:attlist.altGlyphDef"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.altGlyphDef.element -->
+  <xs:attributeGroup name="attlist.altGlyphDef">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.altGlyphDef.attlist -->
+  <!-- altGlyphItem: Alternate Glyph Item Element ........ -->
+  <xs:complexType name="SVG.altGlyphItem.content">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" ref="svg:glyphRef"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="altGlyphItem">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.altGlyphItem.content">
+          <xs:attributeGroup ref="svg:attlist.altGlyphItem"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.altGlyphItem.element -->
+  <xs:attributeGroup name="attlist.altGlyphItem">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.altGlyphItem.attlist -->
+  <!-- glyphRef: Glyph Reference Element ................. -->
+  <xs:element name="glyphRef">
+    <xs:complexType>
+      <xs:attributeGroup ref="svg:attlist.glyphRef"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.glyphRef.element -->
+  <xs:attributeGroup name="attlist.glyphRef">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Style.attrib"/>
+    <xs:attributeGroup ref="SVG.Font.attrib"/>
+    <xs:attributeGroup ref="xlink:SVG.XLink.attrib"/>
+    <xs:attribute name="x" type="Number.datatype"/>
+    <xs:attribute name="y" type="Number.datatype"/>
+    <xs:attribute name="dx" type="Number.datatype"/>
+    <xs:attribute name="dy" type="Number.datatype"/>
+    <xs:attribute name="glyphRef"/>
+    <xs:attribute name="format"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.glyphRef.attlist -->
+<!-- end of svg-text.mod -->

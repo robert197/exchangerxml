@@ -1,0 +1,2932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<!--
+  For cXML license agreement information, please see
+  http://www.cxml.org/home/license.asp
+  
+  $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+-->
+<!--
+  A few character entities the XML recommendation says should be defined
+  "for interoperability" with existing SGML parsers.  By default, these
+  are not included to avoid warnings (about entity redefinition) from
+  many XML parsers.
+-->
+<!--
+  Common types used throughout the cXML definition.
+  
+  The types try to follow the XML DATA definition submitted to the W3C. See
+  the following for more information,
+  
+      http://msdn.microsoft.com/xml/reference/schema/datatypes.asp
+      http://www.w3c.org/TR/1998/NOTE-XML-data-0105/
+  
+-->
+<!-- Atomic-level Types -->
+<!-- 0 is false, 1 is true -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+  <xs:simpleType name="date">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="datetime.tz">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!-- Time zone is required -->
+  <xs:simpleType name="r8">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="number">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!--
+    No limit on number of digits, unlike
+    %r8;
+  -->
+  <xs:simpleType name="string">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!-- Time zone is required -->
+  <xs:simpleType name="ui8">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="uint">
+    <xs:restriction base="ui8"/>
+  </xs:simpleType>
+  <!-- Unique to this specification -->
+  <xs:simpleType name="uri">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!-- Higher-level Types -->
+  <!--
+    NOTE: The following is a temporary *hack* to allow empty values for
+    some attributes with these types.  The nmtoken entity should resolve to
+    NMTOKEN.
+  -->
+  <xs:simpleType name="nmtoken">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <!-- Any combination of XML name chars. -->
+  <!-- ISO 639 Language Code -->
+  <xs:simpleType name="isoCountryCode">
+    <xs:restriction base="nmtoken"/>
+  </xs:simpleType>
+  <!-- ISO 3166 Country Code -->
+  <xs:simpleType name="isoCurrencyCode">
+    <xs:restriction base="nmtoken"/>
+  </xs:simpleType>
+  <!-- ISO 4217 Currency Code -->
+  <xs:simpleType name="xmlLangCode">
+    <xs:restriction base="nmtoken"/>
+  </xs:simpleType>
+  <!--
+    Language code as defined by XML
+    recommendation: Language and
+    country.
+  -->
+  <xs:simpleType name="URL">
+    <xs:restriction base="uri"/>
+  </xs:simpleType>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    This file defines the basic elements used to build higher level
+    constructs in cXML.
+  -->
+  <!-- Basic Name/Data Elements -->
+  <!--
+    Name is used to provide an identifier for other elements.
+    
+    xml:lang
+        The language in which the name is written.
+  -->
+  <xs:element name="Name">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.Name"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.Name">
+    <xs:attribute ref="xml:lang" use="required"/>
+  </xs:attributeGroup>
+  <!--
+    An Extrinsic is an element which can be used to extend the data
+    associated with known elements.
+    
+    Since this Element is of type ANY, it could contain any arbitrary XML
+    document within itself, or a binary ![CDATA[]] document.
+    
+    name
+        Name used to identify this extrinsic.
+  -->
+  <xs:element name="Extrinsic">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="any">
+          <xs:attributeGroup ref="attlist.Extrinsic"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Extrinsic">
+    <xs:attribute name="name" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    Description is a string which describes something.
+    Though text may be interspersed with ShortName elements in this content
+    model, placing the ShortName at the beginning or end of the element is
+    much preferred.  At most one ShortName element is allowed per
+    Description.  The intended content model would be more like
+    (( ShortName, #PCDATA ) | ( #PCDATA | ShortName? )) if DTD syntax
+    supported it.
+    
+    xml:lang
+        The language in which the description is written.
+  -->
+  <xs:element name="Description">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ShortName"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Description"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    mixed: string and
+    ShortName
+  -->
+  <xs:attributeGroup name="attlist.Description">
+    <xs:attribute ref="xml:lang" use="required"/>
+  </xs:attributeGroup>
+  <!--
+    A short string which describes something in fewer characters than the
+    entire Description.  This should be used when limited space is available.
+    For example, a table of elements might show the ShortName's of each.  A
+    linked "details" view would show the entire Description (including the
+    ShortName).  Without a ShortName, the user interface must default to a
+    truncation of the Description.
+    This element does not require an xml:lang attribute since it appears only
+    within a Description element.  The language of the ShortName must match
+    that of the surrounding Description.
+  -->
+  <xs:element name="ShortName" type="xs:string"/>
+  <!-- string -->
+  <!-- Telephone Number Elements -->
+  <!--
+    International ITU dial code for the country code in question.  This
+    code would be entered after any escape code necessary to begin
+    International dialing.  That is, the escape code does not appear in the
+    content of this element.
+    
+    isoCountryCode
+        The ISO 3166 2-letter country code for the dial code in question.
+  -->
+  <xs:element name="CountryCode">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.CountryCode"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- uint -->
+  <xs:attributeGroup name="attlist.CountryCode">
+    <xs:attribute name="isoCountryCode" use="required" type="isoCountryCode"/>
+  </xs:attributeGroup>
+  <!-- The areacode or city code within a CountryCode. -->
+  <xs:element name="AreaOrCityCode" type="xs:string"/>
+  <!-- uint -->
+  <!-- The local number part of a telephone number. -->
+  <xs:element name="Number" type="xs:string"/>
+  <!-- string -->
+  <!--
+    An extension within relative to the Number element. This element has no
+    meaning without an associated Number element.
+  -->
+  <xs:element name="Extension" type="xs:string"/>
+  <!-- uint -->
+  <!-- TelephoneNumber represents international telephone numbers. -->
+  <xs:element name="TelephoneNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CountryCode"/>
+        <xs:element ref="AreaOrCityCode"/>
+        <xs:element ref="Number"/>
+        <xs:element minOccurs="0" ref="Extension"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Phone is a "named" TelephoneNumber.
+    
+    name
+         specifies an identifier which indicates the type of phone number.
+         US examples would include "work","home", etc.
+  -->
+  <xs:element name="Phone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TelephoneNumber"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Phone"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Phone">
+    <xs:attribute name="name" type="string"/>
+  </xs:attributeGroup>
+  <!-- Fax number. -->
+  <xs:element name="Fax">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="TelephoneNumber"/>
+        <xs:element ref="URL"/>
+        <xs:element ref="Email"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.Fax"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Fax">
+    <xs:attribute name="name" type="string"/>
+  </xs:attributeGroup>
+  <!-- Addressing Elements -->
+  <!-- URL. A string which represents a URL -->
+  <xs:element name="URL">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.URL"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- URL -->
+  <xs:attributeGroup name="attlist.URL">
+    <xs:attribute name="name" type="string"/>
+  </xs:attributeGroup>
+  <!-- An email address. Address must conform to RFC 821 (SMTP Standard). -->
+  <xs:element name="Email">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.Email"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.Email">
+    <xs:attribute name="name" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    Contact represents an entity at a location. The nature of this
+    element is that it represents a communication "end point" for a
+    location.
+    
+    role
+        Position this person or group plays in the procurement process.
+        Likely values include endUser, administrator, purchasingAgent,
+        technicalSupport, customerService, sales,
+        supplierCorporate, supplierMasterAccount, supplierAccount,
+        buyerCorporate, buyerMasterAccount, buyerAccount, buyer.
+        Other values may be allowed in some cases.
+    
+        from and to roles are reserved for future use.
+    
+    addressID
+        An id for the address. Needed to support address codes for
+        relationships that require id references.
+  -->
+  <xs:element name="Contact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="PostalAddress"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Email"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Phone"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Fax"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="URL"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Contact"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Contact">
+    <xs:attribute name="role" type="xs:NMTOKEN"/>
+    <xs:attribute name="addressID" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    The DeliverTo part of an Address. This would be internal to the actual
+    address know to the outside world. Similar to what an extension is to a
+    TelephoneNumber.
+  -->
+  <xs:element name="DeliverTo" type="xs:string"/>
+  <!-- string -->
+  <!-- Street is a single line of an Address' location. -->
+  <xs:element name="Street" type="xs:string"/>
+  <!-- string -->
+  <!-- City is the name of the city in an Address' location. -->
+  <xs:element name="City" type="xs:string"/>
+  <!-- string -->
+  <!-- State is an optional state identifier in an Address' location. -->
+  <xs:element name="State" type="xs:string"/>
+  <!-- string -->
+  <!-- PostalCode (I have no idea how to describe it) -->
+  <xs:element name="PostalCode" type="xs:string"/>
+  <!-- string -->
+  <!--
+    Country is the name of the country in an Address' location.  The
+    content of this element is a string which may (for example) be printed
+    directly to a shipping label.  The content is the human-readable
+    equivalent of the isoCountryCode used by applications.
+    
+    isoCountryCode
+        The ISO 3166 2-letter country code for this country.
+  -->
+  <xs:element name="Country">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.Country"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.Country">
+    <xs:attribute name="isoCountryCode" use="required" type="isoCountryCode"/>
+  </xs:attributeGroup>
+  <!-- PostalAddress is a real-world location for a business or person. -->
+  <xs:element name="PostalAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="DeliverTo"/>
+        <xs:element maxOccurs="unbounded" ref="Street"/>
+        <xs:element ref="City"/>
+        <xs:element minOccurs="0" ref="State"/>
+        <xs:element minOccurs="0" ref="PostalCode"/>
+        <xs:element ref="Country"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PostalAddress"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PostalAddress">
+    <xs:attribute name="name" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    Address is the association of a Contact and an Location.
+    
+    isoCountryCode
+        The ISO 3166 2-letter country code for the country containing this
+        location.
+    
+    addressID
+        An id for the address.  Needed to support address codes for
+        relationships that require id references.  An example would be a
+        shipping code.
+  -->
+  <xs:complexType name="element.Address">
+    <xs:sequence>
+      <xs:element ref="Address"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element minOccurs="0" ref="PostalAddress"/>
+        <xs:element minOccurs="0" ref="Email"/>
+        <xs:element minOccurs="0" ref="Phone"/>
+        <xs:element minOccurs="0" ref="Fax"/>
+        <xs:element minOccurs="0" ref="URL"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Address"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Address">
+    <xs:attribute name="isoCountryCode" type="isoCountryCode"/>
+    <xs:attribute name="addressID" type="string"/>
+  </xs:attributeGroup>
+  <!-- Financial Elements -->
+  <!--
+    Money is the representation of the object used to pay for items.
+    
+    currency
+        specifies the currency in which amount is stated, must conform to ISO
+        4217 currency codes.
+    
+    alternateAmount
+        the amount of money in the alternateCurrency. Optional and used to
+        support dual-currency requirements such as the Euro.
+    
+    alternateCurrency
+        specifies the currency in which the alternateAmount is stated, must
+        conform to ISO 4217 currency codes.
+  -->
+  <xs:complexType name="element.Money">
+    <xs:sequence>
+      <xs:element ref="Money"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Money">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.Money"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- number -->
+  <xs:attributeGroup name="attlist.Money">
+    <xs:attribute name="currency" use="required" type="isoCurrencyCode"/>
+    <xs:attribute name="alternateAmount" type="number"/>
+    <xs:attribute name="alternateCurrency" type="isoCurrencyCode"/>
+  </xs:attributeGroup>
+  <!--
+    Optional textual child for communicating arbitrary comments or
+    description along with the parent.
+    Though text may be interspersed with Attachment elements in this content
+    model, grouping the Attachment list at the begging or end of the element
+    is much preferred.  The intended content model would be more like
+    (( Attachment+, #PCDATA ) | ( #PCDATA | Attachment* )) if the DTD syntax
+    supported it.
+    
+    xml:lang
+        The language in which the Comments are written.  This attribute
+    will be required in a future version of cXML.  (Leaving it out is
+    deprecated.)
+  -->
+  <xs:element name="Comments">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Attachment"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Comments"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    mixed: string and
+    opt. Attachment list
+  -->
+  <xs:attributeGroup name="attlist.Comments">
+    <xs:attribute ref="xml:lang"/>
+  </xs:attributeGroup>
+  <!--
+    Optional child of Comments element referencing a part in a multipart MIME
+    transmission.
+    
+    The contained URL must use the scheme "cid:".  This is the identifier for
+    the referenced attachment within the larger transmission.  Must match the
+    Content-ID header of one (and only one) part of the MIME transmission
+    containing this cXML document.  May also be used to retrieve the
+    attachment file separately.
+  -->
+  <xs:element name="Attachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="URL"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    -
+    Reference to a remote attachment. 
+    
+    AttachmentReference is used inside Extrinsic elements that have a
+    predefined name of "Attachments".
+    
+    In the context of AttachmentReference, the domain attribute of
+    InternalID is currently optional. However, as a way to prevent
+    circular request paths, the sending application may use a
+    predefined value of "local" to indicate that the attachment
+    requested is local to the other application.
+    
+    length
+        length of the attachment in bytes.
+  -->
+  <xs:element name="AttachmentReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element ref="Description"/>
+        <xs:element ref="InternalID"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.AttachmentReference"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.AttachmentReference">
+    <xs:attribute name="length" type="uint"/>
+  </xs:attributeGroup>
+  <!-- Price per unit of item. -->
+  <xs:element name="UnitPrice" type="element.Money"/>
+  <!--
+    Reference to an earlier document (for example, OrderRequest).  In a
+    StatusUpdateRequest, this element identifies the purchase order to be
+    updated.
+    
+    payloadID
+        A unique identifier for the document.  Copied directly from the
+        cXML element of the original document.
+  -->
+  <xs:element name="DocumentReference">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.DocumentReference"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.DocumentReference">
+    <xs:attribute name="payloadID" use="required" type="string"/>
+  </xs:attributeGroup>
+  <xs:element name="InternalID">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.InternalID"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.InternalID">
+    <xs:attribute name="domain" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    ====
+        Common to most variants of the PunchOut transaction set.  Defined here
+        to be easily shared between multiple DTD files without requiring
+        inclusion of Transaction.mod in all of them.
+    
+        All of the PunchOut transaction sets include an originating Request
+        (ProviderSetupRequest for example), relatively simple Response
+        (PunchOutSetupResponse for example) and final Message
+        (ProviderDoneMessage or PunchOutOrderMessage).  The Request and
+        Response comprise a back-end transaction between two cooperating
+        applications that wish to extend an interactive session from one to the
+        other.  The Request provides the destination application with
+        authentication, identification and other setup information.  The
+        Response provides the originating application with a unique starting
+        location for the interactive (HTML) session at the destination system.
+    
+        After receiving a Response of this type, the originating application
+        redirects the user's browser to the provided location.  (For some
+        non-HTML applications, opening a new browser window at that location
+        may be more appropriate.)  The destination system eventually provides
+        an HTML form to the user's browser.  This form submits the final
+        Message to close the remote session, return that user to the
+        originating application and carry any required information back to the
+        originating application.
+    ====
+  -->
+  <!--
+    OriginatorCookie - Identification of a specific PunchOut session.  Used
+    in both originating Request and later Message that returns user to
+    originating application.
+    
+    Note: The BuyerCookie element used in a 'regular' PunchOut transaction
+    (defined in Transaction.mod) is of type ANY.  That does not seem
+    useful.  The string required below better matches the needs for this
+    element.  Future transactions similar to the PunchOut transaction will
+    use this element.
+  -->
+  <xs:element name="OriginatorCookie" type="xs:string"/>
+  <!--
+    BrowserFormPost - Location to which the user's browser must submit the
+    final Message.  This location (carried in the originating Request) does
+    not need to be specific to a PunchOut session since the
+    OriginatorCookie is returned in the Message.
+  -->
+  <xs:element name="BrowserFormPost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="URL"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    SelectedService - Identification of a service offered by this provider
+    and requested in this transaction.  Used only in the originating
+    Request.
+  -->
+  <xs:element name="SelectedService" type="xs:string"/>
+  <!--
+    StartPage - Location to which the user's browser must be redirected to
+    begin the interactive portion of the session at the remote site.  The
+    destination system returns this information in the Response document.
+    This location must be specific to a particular session.  It is
+    effectively a one time key, providing authenticated entry into the
+    destination system.
+  -->
+  <xs:complexType name="element.StartPage">
+    <xs:sequence>
+      <xs:element ref="StartPage"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StartPage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="URL"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    ReturnData - Any information the originator must know about the
+    completed operation at the provider site.  The ReturnValue is for
+    applications; the Name is for human consumption (direct presentation in
+    the User Interface of the application).  Where appropriate for the
+    possible services, this element may appear in the final Message for a
+    PunchOut session.
+    
+    name
+        An identifier for the data returned.  Provides a meaning for the
+        contents of a ReturnData element.
+  -->
+  <xs:element name="ReturnData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ReturnValue"/>
+        <xs:element ref="Name"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.ReturnData"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.ReturnData">
+    <xs:attribute name="name" type="string"/>
+  </xs:attributeGroup>
+  <xs:element name="ReturnValue" type="xs:string"/>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    Another top-level entity used in Transport.mod.  Defined here to allow
+    easy updates to the release version of cXML without opening
+    Transport.mod.  This should also provide an easy file to search for
+    the current release version string.
+  -->
+  <!--
+    cxml.version
+    Current default string for the cXML@version attribute.  Corresponds to
+    the final directory of the SYSTEM identifier used in all up-to-date
+    cXML documents.
+    For easy parsing of this file, do not remove whitespace surrounding the
+    actual version string.
+  -->
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    Supplier of goods and services. Includes a list of SupplierIDs which
+    identify the Supplier.
+    
+    corporateURL
+        URL to web site about the supplier
+    
+    storeFrontURL
+        URL to web site where a user can shop or browse
+  -->
+  <xs:element name="Supplier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element minOccurs="0" ref="Comments"/>
+        <xs:element maxOccurs="unbounded" ref="SupplierID"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SupplierLocation"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Supplier"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Supplier">
+    <xs:attribute name="corporateURL" type="URL"/>
+    <xs:attribute name="storeFrontURL" type="URL"/>
+  </xs:attributeGroup>
+  <!--
+    One of the locations for a supplier. Supplier location is
+    generally a physical location.
+  -->
+  <xs:element name="SupplierLocation">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.Address">
+          <xs:sequence>
+            <xs:element ref="OrderMethods"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    OrderMethods is the list of methods by which one can order
+    from a supplier. The contact element is the technical contact
+    who should be able to assist with order processing issues.
+    The list is to be ordered by supplier preference, the first
+    element having the highest degree of preference.
+  -->
+  <xs:element name="OrderMethods">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="OrderMethod"/>
+        <xs:element minOccurs="0" ref="Contact"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    OrderMethod is a method for ordering. It is comprised of a
+    target address for the order and the protocol expected by
+    the address.
+  -->
+  <xs:element name="OrderMethod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="OrderTarget"/>
+        <xs:element minOccurs="0" ref="OrderProtocol"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    OrderTarget represents an address to which orders can be
+    sent.
+  -->
+  <xs:element name="OrderTarget">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="Phone"/>
+        <xs:element ref="Email"/>
+        <xs:element ref="Fax"/>
+        <xs:element ref="URL"/>
+        <xs:element ref="OtherOrderTarget"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    OrderProtocol is the communication method to be used when
+    communicating an order to a supplier. An example would be "cXML".
+  -->
+  <xs:element name="OrderProtocol" type="xs:string"/>
+  <!-- string -->
+  <!--
+    OtherOrderTarget represents an address which is not enumerated by
+    default in the OrderTarget Element. This may contain address targets
+    beyond the ability of this document to describe.
+    
+    name
+        Optional name for target.
+  -->
+  <xs:element name="OtherOrderTarget">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="any">
+          <xs:attributeGroup ref="attlist.OtherOrderTarget"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.OtherOrderTarget">
+    <xs:attribute name="name" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    Definition of a supplier id.  A supplier id is a (domain, value)
+    pair so that suppliers have the flexibility to define their id's
+    according to an arbitrary convention (e.g., (DUNS, 12345),
+    (TaxID, 88888888)).
+    
+    domain
+        the domain of the id
+  -->
+  <xs:element name="SupplierID">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.SupplierID"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.SupplierID">
+    <xs:attribute name="domain" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    Defines a List of Suppliers that might be associated with a quote Item. Used in
+    ItemOut. 
+  -->
+  <xs:element name="SupplierList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Supplier"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!-- Must be a UN/CEFACT (Recommendation 20) unit of measure code. -->
+  <xs:element name="UnitOfMeasure" type="xs:string"/>
+  <!-- nmtoken -->
+  <!-- ID with which the item's manufacturer identifies the item. -->
+  <xs:element name="ManufacturerPartID" type="xs:string"/>
+  <!-- string -->
+  <!--
+    Name of the item's manufacturer.
+    
+    xml:lang
+        The language in which the ManufacturerName is written.  This
+    attribute will be required in a future version of cXML.  (Leaving it
+    out is deprecated.)
+  -->
+  <xs:element name="ManufacturerName">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.ManufacturerName"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.ManufacturerName">
+    <xs:attribute ref="xml:lang"/>
+  </xs:attributeGroup>
+  <!--
+    Classification is used to group items into similar categories.
+    
+    domain
+        "name" of classification, ie., SPSC
+  -->
+  <xs:element name="Classification">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.Classification"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.Classification">
+    <xs:attribute name="domain" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    How the supplier identifies an item they sell.
+    
+    If SupplierPartID does not provide a unique key to identify the item,
+    then the supplier should generate a key which identifies the part
+    uniquely when combined with the SupplierID and SupplierPartID. The
+    key is called SupplierPartAuxiliaryID.
+    
+    An example is where a Supplier would use the same PartID for an
+    item but have a different price for units of "EA" versus "BOX".
+    In this case, the ItemIDs should be:
+    <ItemID>
+        <SupplierPartID>pn12345</SupplierPartID>
+        <SupplierPartAuxiliaryID>EA</SupplierPartAuxiliaryID>
+    </ItemID>
+    <ItemID>
+        <SupplierPartID>pn12345</SupplierPartID>
+        <SupplierPartAuxiliaryID>
+           <foo>well formed XML here</foo>
+        </SupplierPartAuxiliaryID>
+    </ItemID>
+    In this case, the "foo" element must be defined in an internal subset
+    sent with the cXML document.  Otherwise, parsers will not be able to
+    validate that document.
+    
+    In a preferred approach, the sending application may escape the contained
+    XML using CDATA sections.  This would appear as:
+       ...
+       <SupplierPartAuxiliaryID>
+           <![CDATA[<foo>well formed XML here</foo>]]>
+       </SupplierPartAuxiliaryID>
+       ...
+    
+    Finally, the angle brackets could be escaped using XML character
+    entities.  This might be a bit harder for humans to read.  For example:
+       ...
+       <SupplierPartAuxiliaryID>
+           &lt;foo&gt;well formed XML here&lt;/foo&gt;
+       </SupplierPartAuxiliaryID>
+       ...
+  -->
+  <xs:element name="SupplierPartID" type="xs:string"/>
+  <!-- string -->
+  <xs:element name="SupplierPartAuxiliaryID" type="any"/>
+  <!--
+    A unique identification of an item. SupplierID is not required since
+    ItemIDs never travel alone.
+  -->
+  <xs:complexType name="element.ItemID">
+    <xs:sequence>
+      <xs:element ref="ItemID"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SupplierPartID"/>
+        <xs:element minOccurs="0" ref="SupplierPartAuxiliaryID"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    ItemDetail contains detailed information about an item. All the data that
+    a user would want to see about an item instead of the bare essentials
+    that are represented in the ItemID.
+  -->
+  <xs:element name="ItemDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="UnitPrice"/>
+        <xs:element maxOccurs="unbounded" ref="Description"/>
+        <xs:element ref="UnitOfMeasure"/>
+        <xs:element maxOccurs="unbounded" ref="Classification"/>
+        <xs:element minOccurs="0" ref="ManufacturerPartID"/>
+        <xs:element minOccurs="0" ref="ManufacturerName"/>
+        <xs:element minOccurs="0" ref="URL"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Extrinsic"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    For better definitions of these Elements/Entities, refer to the cXML
+    Transaction Specification documents.
+  -->
+  <!-- Basic transactional elements used throughout -->
+  <!-- The total for something. -->
+  <xs:element name="Total" type="element.Money"/>
+  <!-- The bill to for an item. -->
+  <xs:element name="BillTo" type="element.Address"/>
+  <!-- The ship to for a item. -->
+  <xs:element name="ShipTo" type="element.Address"/>
+  <!--
+    Definition of a cXML Shipping item. Represents a shipping cost in the
+    shopping basket (PunchOutOrderMessage) or an order to the supplier
+    (OrderRequest). There could be one of these for the entire order, or one
+    per lineitem.
+    
+    trackingDomain
+        represents the logistics supplier, I.E., "FedEx", "UPS", etc.
+    
+    trackingId
+        an optional element value that represents the logistics supplier
+        tracking number
+    
+    tracking
+        Deprecated - Do Not Use
+  -->
+  <xs:element name="Shipping">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.Money">
+          <xs:sequence>
+            <xs:element ref="Description"/>
+          </xs:sequence>
+          <xs:attributeGroup ref="attlist.Shipping"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Shipping">
+    <xs:attribute name="trackingDomain" type="string"/>
+    <xs:attribute name="trackingId" type="string"/>
+    <xs:attribute name="tracking" type="string"/>
+  </xs:attributeGroup>
+  <!-- Defines a Purchasing Card element used for payment -->
+  <xs:complexType name="element.PCard">
+    <xs:sequence>
+      <xs:element ref="PCard"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PCard" substitutionGroup="cxml.payment"/>
+  <xs:attributeGroup name="attlist.PCard">
+    <xs:attribute name="number" use="required" type="number"/>
+    <xs:attribute name="expiration" use="required" type="date"/>
+    <xs:attribute name="name" type="string"/>
+  </xs:attributeGroup>
+  <!-- The list of valid payment types. -->
+  <xs:element name="cxml.payment" abstract="true">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="PostalAddress"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PCard"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="cxml.payment">
+    <xs:sequence>
+      <xs:element ref="cxml.payment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Payment" type="cxml.payment"/>
+  <!--
+    Defines an accounting segment.  Segment is an older, deprecated way to
+    transport this information.
+    
+    type
+        The accounting type of this segment.
+    
+    id
+        The unique key of this Segment against the type.
+    
+    description
+        Textual description of the Segment. For human readability.
+  -->
+  <xs:element name="Segment">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.Segment"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Segment">
+    <xs:attribute name="type" use="required" type="string"/>
+    <xs:attribute name="id" use="required" type="string"/>
+    <xs:attribute name="description" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    Defines an accounting segment.  AccountingSegment is the newer, better
+    way to transport this information.  Name corresponds to the type
+    attribute of Segment; Description corresponds to description.  Both add
+    required locale attributes to the strings.
+    
+    id
+        The unique key of this Segment against the type.
+  -->
+  <xs:element name="AccountingSegment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element ref="Description"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.AccountingSegment"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.AccountingSegment">
+    <xs:attribute name="id" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    An accounting object.  Use of the Segment element here is deprecated.
+    
+    name
+        The name of the object containing the specified accounting segments.
+  -->
+  <xs:complexType name="cxml.accounting">
+    <xs:choice>
+      <xs:element maxOccurs="unbounded" ref="Segment"/>
+      <xs:element maxOccurs="unbounded" ref="AccountingSegment"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="Accounting">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="cxml.accounting">
+          <xs:attributeGroup ref="attlist.Accounting"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Accounting">
+    <xs:attribute name="name" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!-- A charge against an Accounting element. -->
+  <xs:element name="Charge" type="element.Money"/>
+  <!--
+    The combination of a Charge against an Accounting Element. A distribution
+    represents the breakdown of one overall amount into sub-amounts.
+  -->
+  <xs:element name="Distribution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Accounting"/>
+        <xs:element ref="Charge"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TaxAmount" type="element.Money"/>
+  <xs:element name="TaxableAmount" type="element.Money"/>
+  <!--
+    One language-specific string for the location of tax,
+    e.g. London, Canada, California, etc.
+    
+    xml:lang
+        The language or locale in which the location of tax is written.
+  -->
+  <xs:element name="TaxLocation">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.TaxLocation"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.TaxLocation">
+    <xs:attribute ref="xml:lang" use="required"/>
+  </xs:attributeGroup>
+  <!--
+    Defines details of one type of tax.
+    
+    TaxableAmount
+       The taxable amount.
+    
+    TaxAmount
+       The tax amount.
+    
+    TaxLocation
+       The tax location.
+    
+    Description
+       The textual description of the current type of tax.
+    
+    purpose
+       The purpose of the tax, e.g., tax (tax), custom duty, etc.
+    
+    category
+       The tax category, Sales tax (sales), Use tax (usage), VAT (vat),
+       GST (gst) are defined categories. Other values are permitted.
+    
+    percentageRate
+       The tax rate in number of percentage.
+    
+    isVatRecoverable
+       True if the VAT is recoverable.  Default is false.
+  -->
+  <xs:element name="TaxDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="TaxableAmount"/>
+        <xs:element ref="TaxAmount"/>
+        <xs:element minOccurs="0" ref="TaxLocation"/>
+        <xs:element minOccurs="0" ref="Description"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.TaxDetail"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.TaxDetail">
+    <xs:attribute name="purpose" type="string"/>
+    <xs:attribute name="category" use="required" type="string"/>
+    <xs:attribute name="percentageRate" type="r8"/>
+    <xs:attribute name="isVatRecoverable">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="yes"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Definition of a cXML Tax item. This represents what a Tax element should
+    be in the classic notion of a line on a PO or Invoice. It can also
+    represent a per-lineitem tax element depending on where it appears
+    (inside of a item ELEMENT or inside of a something like a supplierOrder
+    ELEMENT).
+    
+    Represents a tax item in the shopping basket. There could be one of these
+    for the entire order, or one per lineitem.
+  -->
+  <xs:element name="Tax">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.Money">
+          <xs:sequence>
+            <xs:element ref="Description"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="TaxDetail"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- Item Elements -->
+  <!--
+    The representation of a line item as it needs to be for sending to a
+    supplier.
+    
+    quantity
+        How many items are desired.
+    lineNumber
+        Position (counting from 1) of this item in an order.  Used to
+        maintain a reference between items in create and update OrderRequest
+        documents.
+    requisitionID
+        The buyers system requisition id for this line item. It might be the
+        same as orderID, and it might not be included at all.  Must not be
+        included if requisitionID is specified in the OrderRequestHeader.
+    requestedDeliveryDate
+        The date this item was requested for delivery.
+    agreementItemNumber 
+        The corresponding Item Number of the Item in the Master Agreement if this is 
+        a 'release' order item.
+  -->
+  <xs:element name="ItemOut">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.ItemID">
+          <xs:sequence>
+            <xs:element minOccurs="0" ref="Path"/>
+            <xs:element minOccurs="0" ref="ItemDetail"/>
+            <xs:choice minOccurs="0">
+              <xs:element ref="SupplierID"/>
+              <xs:element ref="SupplierList"/>
+            </xs:choice>
+            <xs:element minOccurs="0" ref="ShipTo"/>
+            <xs:element minOccurs="0" ref="Shipping"/>
+            <xs:element minOccurs="0" ref="Tax"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="Distribution"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="Contact"/>
+            <xs:element minOccurs="0" ref="Comments"/>
+          </xs:sequence>
+          <xs:attributeGroup ref="attlist.ItemOut"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.ItemOut">
+    <xs:attribute name="quantity" use="required" type="r8"/>
+    <xs:attribute name="lineNumber" type="uint"/>
+    <xs:attribute name="requisitionID" type="string"/>
+    <xs:attribute name="agreementItemNumber" type="string"/>
+    <xs:attribute name="requestedDeliveryDate" type="date"/>
+    <xs:attribute name="isAdHoc">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="yes"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    The representation of a line item as it needs to be for sending to a
+    buyer.
+    
+    quantity
+        How many items are desired.
+    lineNumber
+        Position (counting from 1) of this item in an order.  Used to
+        maintain a reference between items in create and update OrderRequest
+        documents.
+  -->
+  <xs:element name="ItemIn">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.ItemID">
+          <xs:sequence>
+            <xs:element minOccurs="0" ref="Path"/>
+            <xs:element ref="ItemDetail"/>
+            <xs:element minOccurs="0" ref="SupplierID"/>
+            <xs:element minOccurs="0" ref="ShipTo"/>
+            <xs:element minOccurs="0" ref="Shipping"/>
+            <xs:element minOccurs="0" ref="Tax"/>
+          </xs:sequence>
+          <xs:attributeGroup ref="attlist.ItemIn"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.ItemIn">
+    <xs:attribute name="quantity" use="required" type="r8"/>
+    <xs:attribute name="lineNumber" type="uint"/>
+  </xs:attributeGroup>
+  <!--
+    StatusUpdate for Confirmation (type=RequestToPay) request.
+    
+    transactionTimestamp
+        time when the XMLPay transaction was submitted
+    
+    transactionID
+        an identifier assisgned to the transaction by the payment processing gateway
+    
+    authorizationID
+        the authorization code for the transaction provided by the bank
+    
+    isFailed
+        should have a status code greater than zero.  Zero implies a successful transaction.
+  -->
+  <xs:element name="PaymentStatus" substitutionGroup="cxml.statuses">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.PCard">
+          <xs:sequence>
+            <xs:element ref="Total"/>
+            <xs:element minOccurs="0" ref="Shipping"/>
+            <xs:element minOccurs="0" ref="Tax"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="Extrinsic"/>
+          </xs:sequence>
+          <xs:attributeGroup ref="attlist.PaymentStatus"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PaymentStatus">
+    <xs:attribute name="orderID" use="required" type="string"/>
+    <xs:attribute name="transactionTimestamp" use="required" type="datetime.tz"/>
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Authorization"/>
+          <xs:enumeration value="Settlement"/>
+          <xs:enumeration value="Sale"/>
+          <xs:enumeration value="Credit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="isFailed">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="yes"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="transactionID" type="string"/>
+    <xs:attribute name="authorizationID" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    Partial amount paid against an InvoiceDetail request. Used in InvoiceStatus.
+    If this element exists in an InvoiceStatus element, it should mean that the buyer
+    does not pay the full amount as the InvoiceDetail request specified. 
+  -->
+  <xs:element name="PartialAmount" type="element.Money"/>
+  <!--
+    StatusUpdate for InvoiceDetail request.
+    
+    PartialAmount
+    	The partial amount paid against the InvoiceDetail document.
+    
+    Comments
+    	Comments associated with the status update.
+    
+    type
+    	Type of the invoice status. "reconciled" means that the InvoiceDetail request
+    	has been received and reconciled. "rejected" means that the InvoiceDetail
+    	request has been rejected. "paid" means that the InvoiceDetail request has
+    	been paid.
+  -->
+  <xs:element name="InvoiceStatus" substitutionGroup="cxml.statuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="PartialAmount"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Comments"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.InvoiceStatus"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.InvoiceStatus">
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="reconciled"/>
+          <xs:enumeration value="rejected"/>
+          <xs:enumeration value="paid"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- OrderRequest* Elements -->
+  <!--
+    Definition of an order.  This is the data that is sent to the supplier
+    to have them place an order in their order management system. The new
+    world order equivalent of a PO.
+  -->
+  <xs:element name="OrderRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="OrderRequestHeader"/>
+        <xs:element maxOccurs="unbounded" ref="ItemOut"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Header of an order.  This is the data that is sent to the supplier
+    to have them place an order in their order management system. Money
+    represents the total amount of this order.
+    
+    orderID
+        The buyer system orderID for this request. Basically, what the PO
+        number is today.
+    
+    orderDate
+        The date and time the order request was created.
+    
+    type
+        The type of the order request. Defaults to "new".
+    
+    requisitionID
+        The buyers system requisition id for this entire order. It might be
+        the same as orderID, and it might not be included at all.  Must not
+        be included if requisitionID is specified in any ItemOut elements.
+    
+    shipComplete
+        Optional preference for "hold until complete" processing.  Defaults
+        to shipping when available if not specified.  Future versions of the
+        protocol may extend the datatype of this attribute to include
+        additional possible values (such as "unlessGreatlyBackOrdered"?).
+    orderType
+        "release", indicates that this is a Release Order from an existing 
+        Master Agreement/ Contract. Default is regular.
+    agreementID
+        Identifies associated agreement corresponding to the Release Order. 
+        At an implementation level it has to be validated that if the orderType 
+        is 'release' then the appropriate agreementID is also provided.
+    agreementPayloadID
+        Optional PayloadID for the corresponding Master Agreement.
+    
+    
+    The contained DocumentReference element would appear in a document only
+    when the type is "update" or "delete".  In that case, the
+    DocumentReference would reference the most recent OrderRequest document
+    for the order.  For example when an order is created, updated and then
+    deleted, the final document should contain a DocumentReference
+    referring to the OrderRequest with type="update".  That document would,
+    in turn, refer to the original (type="new") OrderRequest document.
+  -->
+  <xs:element name="OrderRequestHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Total"/>
+        <xs:element minOccurs="0" ref="ShipTo"/>
+        <xs:element ref="BillTo"/>
+        <xs:element minOccurs="0" ref="Shipping"/>
+        <xs:element minOccurs="0" ref="Tax"/>
+        <xs:element minOccurs="0" ref="Payment"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Contact"/>
+        <xs:element minOccurs="0" ref="Comments"/>
+        <xs:element minOccurs="0" ref="Followup"/>
+        <xs:element minOccurs="0" ref="DocumentReference"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Extrinsic"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.OrderRequestHeader"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.OrderRequestHeader">
+    <xs:attribute name="orderID" use="required" type="string"/>
+    <xs:attribute name="orderDate" use="required" type="datetime.tz"/>
+    <xs:attribute name="orderType" default="regular">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="release"/>
+          <xs:enumeration value="regular"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="type" default="new">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="update"/>
+          <xs:enumeration value="delete"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="agreementID" type="string"/>
+    <xs:attribute name="agreementPayloadID" type="string"/>
+    <xs:attribute name="requisitionID" type="string"/>
+    <xs:attribute name="shipComplete">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="yes"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Definition of a Master Agreement.  This is the electronic document representing the 
+    Master Agreement that was created and agreed upon in the Buying organizations.
+  -->
+  <xs:element name="MasterAgreementRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MasterAgreementRequestHeader"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="AgreementItemOut"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Header of an Agreement.  This is the header level information in the Agreement.
+    agreementID
+          The buyer system agreementID for this request.  the Master Agreement Number in Buyer.
+    agreementDate
+          The date and time the agreement request was created. 
+          This is different from the effective and expiry date of the agreement.
+    agreementType
+          Identifies if this is a Value based agreement or quantity based Agreement.
+    requestType
+          The type of the agreement request. Defaults to "new".
+    effectiveDate
+          Date the Master Agreement is available for ordering/releases.
+    expirationDate
+          Date the Master Agreement is no longer available.
+    parentAgreementPayloadID
+          PayloadID for the corresponding parent document that this agreement is derived from.
+    operation: 
+         "delete" operation will be used to cancel an existing Master Agreement, the
+          assumption here is that the delete request will be an exact replica of the 
+          original request.
+          "new" operation identifies a new MasterAgreement transaction.
+          "update" operation identified an update to an existing transaction. 
+          the DocumentReference attribute should be used to indicate the Orignal
+          Document information.
+    Note: 
+          Use "Contact" element to supply any additional Address or Location information.
+  -->
+  <xs:element name="MasterAgreementRequestHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="MaxAmount"/>
+        <xs:element minOccurs="0" ref="MinAmount"/>
+        <xs:element minOccurs="0" ref="MaxReleaseAmount"/>
+        <xs:element minOccurs="0" ref="MinReleaseAmount"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Contact"/>
+        <xs:element minOccurs="0" ref="Comments"/>
+        <xs:element minOccurs="0" ref="DocumentReference"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Extrinsic"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.MasterAgreementRequestHeader"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.MasterAgreementRequestHeader">
+    <xs:attribute name="agreementID" use="required" type="string"/>
+    <xs:attribute name="agreementDate" use="required" type="datetime.tz"/>
+    <xs:attribute name="type" default="value">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="value"/>
+          <xs:enumeration value="quantity"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="effectiveDate" use="required" type="datetime.tz"/>
+    <xs:attribute name="expirationDate" use="required" type="datetime.tz"/>
+    <xs:attribute name="parentAgreementPayloadID" type="string"/>
+    <xs:attribute name="operation" default="new">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="update"/>
+          <xs:enumeration value="delete"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    The representation of a  agreement line item as it needs to be for sending to a
+    supplier.
+    maxQuantity 
+          maximum quantity for this particular lineItem
+    minQuantity 
+          minimum quantity for this particular lineItem
+    maxReleaseQuantity 
+          maximum quantity per release for this particular lineItem
+    minReleaseQuantity 
+          minimum quantity per release for this particular lineItem
+    
+    Note :
+          The #lineNumber attribute in the <ItemOut> will be used to specify the corresponding 
+          lineNumber on the Master Agreement in the Procurement Application.
+          At an implementation, level checks should be made to validate this.
+    Note :
+          The quantity attribute in the ItemOut tag should be set to one and ignored at 
+          the Mater Agreement implementation processing stage. 
+    Note :
+          The MaxReleaseAmount/Quantity and MinReleaseAmount/Quantity at an item level i
+          indicate the ItemLevel amounts and quantities per release.
+  -->
+  <xs:element name="AgreementItemOut">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="MaxAmount"/>
+        <xs:element minOccurs="0" ref="MinAmount"/>
+        <xs:element minOccurs="0" ref="MaxReleaseAmount"/>
+        <xs:element minOccurs="0" ref="MinReleaseAmount"/>
+        <xs:element ref="ItemOut"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.AgreementItemOut"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.AgreementItemOut">
+    <xs:attribute name="maxQuantity" type="r8"/>
+    <xs:attribute name="minQuantity" type="r8"/>
+    <xs:attribute name="maxReleaseQuantity" type="r8"/>
+    <xs:attribute name="minReleaseQuantity" type="r8"/>
+  </xs:attributeGroup>
+  <!-- The maximum amount  for something. -->
+  <xs:element name="MaxAmount" type="element.Money"/>
+  <!-- The minimum amount  for something. -->
+  <xs:element name="MinAmount" type="element.Money"/>
+  <!-- The contractual maximum amount per Release of this Master Agreement. -->
+  <xs:element name="MaxReleaseAmount" type="element.Money"/>
+  <!-- The contractual minimum amount per Release of this Master Agreement -->
+  <xs:element name="MinReleaseAmount" type="element.Money"/>
+  <!--
+    Followup
+    
+    Location to which future StatusUpdateRequest documents should be
+    posted.  In general, this is the input location for any later
+    documents which reference the current OrderRequest document.
+  -->
+  <xs:element name="Followup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="URL"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- PunchOut* Elements -->
+  <!--
+    Definition of a PunchOut Setup Request.  This is the data that is sent
+    to the external system that the procurement application is going to
+    extract catalog data from.
+    
+    The BrowserFormPost element contains the URL we would like the browser
+    re-directed to when the PunchOut shopping experience is finished (where
+    the PunchOutOrder message should be returned).
+  -->
+  <xs:element name="PunchOutSetupRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="BuyerCookie"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Extrinsic"/>
+        <xs:element minOccurs="0" ref="BrowserFormPost"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Contact"/>
+        <xs:element minOccurs="0" ref="SupplierSetup"/>
+        <xs:element minOccurs="0" ref="ShipTo"/>
+        <xs:element minOccurs="0" ref="SelectedItem"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ItemOut"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PunchOutSetupRequest"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PunchOutSetupRequest">
+    <xs:attribute name="operation" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="create"/>
+          <xs:enumeration value="inspect"/>
+          <xs:enumeration value="edit"/>
+          <xs:enumeration value="source"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="BuyerCookie" type="any"/>
+  <!-- any valid XML data -->
+  <xs:element name="SelectedItem" type="element.ItemID"/>
+  <xs:element name="SupplierSetup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="URL"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PunchOutSetupResponse" substitutionGroup="cxml.responses" type="element.StartPage"/>
+  <!--
+    Definition of a PunchOut Order Message.  This is the data that is sent
+    back to the procurement application from the external system that the
+    PunchOut Request was targeted at.
+  -->
+  <xs:element name="PunchOutOrderMessage" substitutionGroup="cxml.messages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="BuyerCookie"/>
+        <xs:element ref="PunchOutOrderMessageHeader"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ItemIn"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Header of a PunchOut Order Request.  This is the data that is sent from
+    the supplier to transfer the supplier acquired shopping basket back to
+    the buyer system.
+    
+    operationAllowed
+         Highest operation allowed on the PunchOut shopping basket.
+         "create" allows only later OrderRequest operations on these items.
+         "inspect" adds a PunchOutSetupRequest with operation="inspect".
+         And, "edit" allows operation="edit" in that later Setup request.
+    
+    quoteStatus 
+         "pending"  - Identifies that the transaction is still pending
+         "final" - Identifies that the transaction is complete
+  -->
+  <xs:element name="PunchOutOrderMessageHeader">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="SourcingStatus"/>
+        <xs:element ref="Total"/>
+        <xs:element minOccurs="0" ref="ShipTo"/>
+        <xs:element minOccurs="0" ref="Shipping"/>
+        <xs:element minOccurs="0" ref="Tax"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.PunchOutOrderMessageHeader"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.PunchOutOrderMessageHeader">
+    <xs:attribute name="operationAllowed" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="create"/>
+          <xs:enumeration value="inspect"/>
+          <xs:enumeration value="edit"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="quoteStatus" default="final">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="pending"/>
+          <xs:enumeration value="final"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    ====
+        Other small Request elements.
+    ====
+  -->
+  <!-- Request to update the status of an earlier transaction. -->
+  <xs:element name="cxml.statuses" abstract="true"/>
+  <xs:element name="StatusUpdateRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DocumentReference"/>
+        <xs:element ref="Status"/>
+        <xs:element minOccurs="0" ref="cxml.statuses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Request to forward a cXML document to another party.  This Request
+    occurs in multiple DTD files and is used depending on where (in which
+    DTD) the forwarded message resides.
+  -->
+  <xs:element name="CopyRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cXML"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Status for a pre-existing sourcing transaction. The textual content indicates
+    the display information. "action" attribute defines the context of this message
+    based on the value.
+    
+    approve : Approve the pending transaction
+    deny : deny pending transaction
+    cancel : cancel any preexisting transaction.
+    
+  -->
+  <xs:element name="SourcingStatus" substitutionGroup="cxml.statuses">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.SourcingStatus"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SourcingStatus">
+    <xs:attribute name="action">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="approve"/>
+          <xs:enumeration value="cancel"/>
+          <xs:enumeration value="deny"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute ref="xml:lang" use="required"/>
+  </xs:attributeGroup>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    Top-level entities used in Transport.mod.  Defined here to allow easy
+    extention of the cXML specification (using additional DTDs) without
+    redefining these entities.
+  -->
+  <!--
+    cxml.messages
+    Possible elements (for particular situations) within Message.  These
+    are all of the messages defined in the base cXML protocol.
+  -->
+  <xs:element name="cxml.messages" abstract="true"/>
+  <!--
+    cxml.requests
+    Possible elements (for particular situations) within Request.  These
+    are all of the requests defined in the base cXML protocol.
+  -->
+  <xs:element name="cxml.requests" abstract="true"/>
+  <xs:complexType name="cxml.requests">
+    <xs:sequence>
+      <xs:element ref="cxml.requests"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--
+    cxml.responses
+    Possible elements (for particular situations) within Response.  These
+    are all of the responses (corresponding to a subset of the possible
+    requests) defined in the base cXML protocol.
+  -->
+  <xs:element name="cxml.responses" abstract="true"/>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    Request for the latest profile from the server.  May also be used as
+    a 'ping' transaction (to check if the server is available).
+  -->
+  <xs:element name="ProfileRequest" substitutionGroup="cxml.requests">
+    <xs:complexType/>
+  </xs:element>
+  <!--
+    Static profile response describing the transactions supported by this
+    server.  The content should not change frequently.
+    
+    effectiveDate
+        When these services were first available.  Should not be in the
+    future since new clients may need to interact with a server.
+    
+    lastRefresh
+        When service information was last received from the end server.
+    
+    a-dtype
+        Datatype enumeration for the attributes of this element.  May be
+    ignored by most XML parsers (used for documentation purposes).
+  -->
+  <xs:element name="ProfileResponse" substitutionGroup="cxml.responses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Option"/>
+        <xs:element maxOccurs="unbounded" ref="Transaction"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.ProfileResponse"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.ProfileResponse">
+    <xs:attribute name="effectiveDate" use="required" type="datetime.tz"/>
+    <xs:attribute name="lastRefresh" type="datetime.tz"/>
+    <xs:attribute name="a-dtype" default="effectiveDate dateTime.tz                              lastRefresh dateTime.tz">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKENS">
+          <xs:enumeration value="effectiveDate dateTime.tz                              lastRefresh dateTime.tz"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Value for a defined option (either for the overall service or a
+    specific transaction.  At this time, no options are defined at either
+    level.
+    
+    name
+        The name of this option.  Future versions of cXML will define
+    values for this attribute.  This is not intended to be viewed
+    directly (the profile is intended mostly for machine consumption).
+    
+    a-dtype
+        Datatype enumeration for the attributes of this element.  May be
+    ignored by most XML parsers (used for documentation purposes).
+  -->
+  <xs:element name="Option">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.Option"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.Option">
+    <xs:attribute name="name" use="required" type="string"/>
+    <xs:attribute name="a-dtype" default="name string">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKENS">
+          <xs:enumeration value="name string"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    A transaction supported by this server.
+    
+    requestName
+        A specific request this server accepts at the given URL.  The
+    %cxml.requests entity (defined in transport.mod) contains the
+    possible values for this attribute.
+    
+    a-dtype
+        Datatype enumeration for the attributes of this element.  May be
+    ignored by most XML parsers (used for documentation purposes).
+  -->
+  <xs:element name="Transaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="URL"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Option"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Transaction"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Transaction">
+    <xs:attribute name="requestName" use="required" type="nmtoken"/>
+    <xs:attribute name="a-dtype" default="requestName NMTOKEN">
+      <xs:simpleType>
+        <xs:restriction base="xs:NMTOKENS">
+          <xs:enumeration value="requestName NMTOKEN"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    For better definitions of these Elements/Entities, refer to the cXML
+    Protocol Specification documents.
+  -->
+  <!--
+    cXML envelope
+    
+    version
+        Version of this cXML transmission.  Should be less than or equal
+    to the version portion of the SYSTEM identifier for this document.
+    
+    payloadID
+        A unique identifier for this document.
+    
+    timestamp
+        The date and time at which this document was originally created.
+    
+    xml:lang
+        The default locale for all strings (not formatted items such as
+    dates, times and numbers) in this document.  This attribute will be
+    required in a future version of cXML.  (Leaving it out is
+    deprecated.)
+  -->
+  <xs:element name="cXML">
+    <xs:complexType>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="Header"/>
+          <xs:choice>
+            <xs:element ref="Message"/>
+            <xs:element ref="Request"/>
+          </xs:choice>
+        </xs:sequence>
+        <xs:element ref="Response"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.cXML"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.cXML">
+    <xs:attribute name="version" default="1.2.008" type="string"/>
+    <xs:attribute name="payloadID" use="required" type="string"/>
+    <xs:attribute name="timestamp" use="required" type="datetime.tz"/>
+    <xs:attribute ref="xml:lang"/>
+  </xs:attributeGroup>
+  <!-- header -->
+  <xs:element name="Header">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="From"/>
+        <xs:element ref="To"/>
+        <xs:element ref="Sender"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Path"/>
+          <xs:element ref="OriginalDocument"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="From">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Credential"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="To">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Credential"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sender">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Credential"/>
+        <xs:element ref="UserAgent"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Path. A list of nodes that records the path taken by a user through 
+    a punchout chaining scenario.
+  -->
+  <xs:element name="Path">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Node"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    A Node is any entity connected to a Network.
+    
+    type
+        A node can define itself as a router node or a copy node.  Routers
+    assume responsibility for the transaction.  Copy Nodes request to only
+    be aware of the transaction.
+    
+    itemDetailsRequired
+        Intermediary Nodes may want to support special operations without
+    having to store specific information required to fulfill that operation.
+    This attribute tells the previous node to send ItemDetail information
+    when performing a PunchOutSetupRequest edit/inspect operation.
+  -->
+  <xs:element name="Node">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Credential"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Node"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Node">
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="copy"/>
+          <xs:enumeration value="route"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="itemDetailsRequired">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="yes"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Identifies the previous document in the situation that a router node
+    forwards a message or request on to a more distant node.
+    
+    payloadID
+        The payloadId of the original document.
+  -->
+  <xs:element name="OriginalDocument">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.OriginalDocument"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.OriginalDocument">
+    <xs:attribute name="payloadID" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    A textual string representing who the UserAgent is conducting the cXML
+    conversation. Analogous to UserAgent for HTTP conversations.
+  -->
+  <xs:element name="UserAgent" type="xs:string"/>
+  <!--
+    A digital signature.  The recommended format is self-contained PK7. The
+    exact signed content is not that significant but current timestamp would
+    be used just as a convention.
+    
+    type
+        The type of digital signature used.
+    
+    encoding
+        How is the signature encoded in the XML stream.
+  -->
+  <xs:element name="DigitalSignature" substitutionGroup="cxml.authentication">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="any">
+          <xs:attributeGroup ref="attlist.DigitalSignature"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.DigitalSignature">
+    <xs:attribute name="type" default="PK7 self-contained" type="string"/>
+    <xs:attribute name="encoding" default="Base64" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    A shared secret. Typically, this is a username/password type of secret
+    exchanged through a secure transport before communication takes place.
+  -->
+  <xs:element name="SharedSecret" substitutionGroup="cxml.authentication"/>
+  <!--
+    Represents an identity for a credential.
+    
+    lastChangedTimestamp
+       When the underlying object last changed in the originating system.
+       This is used in cases where the same object (e.g. a buyer
+       organization) is replicated, and kept synchronized, across two
+       systems.
+  -->
+  <xs:element name="Identity">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="any">
+          <xs:attributeGroup ref="attlist.Identity"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Identity">
+    <xs:attribute name="lastChangedTimestamp" type="datetime.tz"/>
+  </xs:attributeGroup>
+  <!--
+    A combination of an Identity and authentication element. If the
+    authentication element is present, it strongly authenticates who/what
+    someone is.  The authentication element should not be sent within Message
+    documents transported via an end user's browser.  One-way communication
+    must be authenticated in the transport layer.
+    
+    domain
+        In what domain is this Credential represented?
+    type
+        Does this Credential identify a marketplace or one of its member
+        companies?  A Credential without this attribute describes a member
+        company or unaffiliated buying organization.
+  -->
+  <xs:element name="cxml.authentication" abstract="true" type="any"/>
+  <xs:element name="Credential">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Identity"/>
+        <xs:element minOccurs="0" ref="cxml.authentication"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Credential"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Credential">
+    <xs:attribute name="domain" use="required" type="string"/>
+    <xs:attribute name="type">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="marketplace"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Status of a Response or Message.  If present, the element content
+    describes specifics of a problem.
+    
+    code
+        HTTP or cXML-specific status code.
+    
+    text
+        Textual version of the status code (not specific issue).
+    
+    xml:lang
+        The language in which the text attribute and element content are
+    written.  This attribute will be required in a future version of
+    cXML.  (Leaving it out is deprecated.)
+  -->
+  <xs:element name="Status">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.Status"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Status">
+    <xs:attribute name="code" use="required" type="uint"/>
+    <xs:attribute name="text" use="required" type="string"/>
+    <xs:attribute ref="xml:lang"/>
+  </xs:attributeGroup>
+  <!--
+    Message
+    
+    When Status not present, '<Status code="200" text="OK" />' is implied.
+  -->
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="Status"/>
+        <xs:element ref="cxml.messages"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Message"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Message">
+    <xs:attribute name="deploymentMode" default="production">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="production"/>
+          <xs:enumeration value="test"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="inReplyTo" type="string"/>
+  </xs:attributeGroup>
+  <!-- request -->
+  <xs:element name="Request">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="cxml.requests">
+          <xs:attributeGroup ref="attlist.Request"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Request">
+    <xs:attribute name="deploymentMode" default="production">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="production"/>
+          <xs:enumeration value="test"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- response -->
+  <xs:element name="Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Status"/>
+        <xs:element minOccurs="0" ref="cxml.responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    Use of the Contract element is deprecated
+    
+    A  mechanism for sending static contract pricing information.
+  -->
+  <xs:element name="Contract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SupplierID"/>
+        <xs:element minOccurs="0" ref="Comments"/>
+        <xs:element maxOccurs="unbounded" ref="ItemSegment"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Contract"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Contract">
+    <xs:attribute name="effectiveDate" use="required" type="datetime.tz"/>
+    <xs:attribute name="expirationDate" use="required" type="datetime.tz"/>
+  </xs:attributeGroup>
+  <!--
+    Use of the ItemSegment element is deprecated.
+    
+    Defines an item segment for the index.  An item segment is an
+    overlay for index items, allowing suppliers to override certain
+    item attributes on a per-contract basis.
+    
+    Items may be segmented by some agreed-upon user-specific key that
+    is used to determine who is eligible for these particular overlaid
+    attributes (such as reduced or different prices).  Omitting the
+    segmentKey indicates that the supplier wishes to set the given
+    contract price system wide (for all users).
+    
+    segmentKey      - optional agreed-upon string used to segment
+                      custom prices
+  -->
+  <xs:element name="ItemSegment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ContractItem"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.ItemSegment"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.ItemSegment">
+    <xs:attribute name="segmentKey" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    Use of the ContractItem element is deprecated
+    
+    A particular (custom) item overlay for a index item.  The item is
+    referenced by the supplierPartID.
+    
+    ItemID - ID for the part to be overlaid.
+    UnitPrice - Contract price for item
+    Extrinsic - Named overlay. The Extrinsic should be named with the
+    item field name it is to overlay. The Extrinsic must contain a
+    <value> element which supplies the replacement value for the item
+    field.
+    For example:
+    <ContractItem>
+      <ItemID>
+           <SupplierPartID>123456</SupplierPartID>
+      </ItemID>
+      <Extrinsic name="URL">http://www.newaddress.com</Extrinsic>
+    </ContractItem>
+  -->
+  <xs:element name="ContractItem">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.ItemID">
+          <xs:sequence>
+            <xs:element minOccurs="0" ref="UnitPrice"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="Extrinsic"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    IndexItemAdd is the element used to insert an item in an index.
+    
+    ItemID          - uniquely identifies the item
+    ItemDetail      - general information about the item
+    IndexItemDetail - Index specific item detail
+    
+  -->
+  <xs:element name="IndexItemAdd">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.ItemID">
+          <xs:sequence>
+            <xs:element ref="ItemDetail"/>
+            <xs:element ref="IndexItemDetail"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    IndexItemDelete is the element used to remove an item from the
+    index.
+    ItemID          - uniquely identifies the item
+    
+  -->
+  <xs:element name="IndexItemDelete" type="element.ItemID"/>
+  <!--
+    IndexItemPunchout is the element used to dynamically connect an
+    index item to the supplier's resource for that item.
+    
+    ItemID          - uniquely identifies the item
+    PunchoutDetail  - Describes the item being accessed
+  -->
+  <xs:element name="IndexItemPunchout">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="element.ItemID">
+          <xs:sequence>
+            <xs:element ref="PunchoutDetail"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    IndexItem is the general ELEMENT for the list of items in an
+    index.
+    
+    IndexItemAdd      - Item(s) to be added to the index
+    IndexItemDelete   - Item(s) to be removed from the index
+    IndexItemPunchout - PunchOut Item(s) to be added to the index
+    
+  -->
+  <xs:element name="IndexItem">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element maxOccurs="unbounded" ref="IndexItemAdd"/>
+        <xs:element maxOccurs="unbounded" ref="IndexItemDelete"/>
+        <xs:element maxOccurs="unbounded" ref="IndexItemPunchout"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    PunchoutDetail is the description of an item which is referenced
+    in the index.
+    
+  -->
+  <xs:element name="PunchoutDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Description"/>
+        <xs:element ref="URL"/>
+        <xs:element maxOccurs="unbounded" ref="Classification"/>
+        <xs:element minOccurs="0" ref="ManufacturerName"/>
+        <xs:element minOccurs="0" ref="ManufacturerPartID"/>
+        <xs:element minOccurs="0" ref="ExpirationDate"/>
+        <xs:element minOccurs="0" ref="EffectiveDate"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SearchGroupData"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="TerritoryAvailable"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Extrinsic"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Index is the element used to update the list of goods and/or
+    services which are being handled by the system.
+    
+    SupplierID  - One or more identities by which this supplier is
+                  known. NOTE: These are to be considered synonyms
+                  for the same Supplier.
+    SearchGroup - Description(s) of parametric search(es) for this
+                  index.  Use of the SearchGroup element is
+                  deprecated.
+    IndexItem   - The list of items with which to modify the index
+    
+    loadmode    - The mode in which the Index is loaded, either Full
+                  or Incremental.  A full index load will
+                  completely replace a previously loaded index. The
+                  recommended application default is incremental.
+  -->
+  <xs:element name="Index">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SupplierID"/>
+        <xs:element minOccurs="0" ref="Comments"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SearchGroup"/>
+        <xs:element maxOccurs="unbounded" ref="IndexItem"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.Index"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.Index">
+    <xs:attribute name="loadmode">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="Full"/>
+          <xs:enumeration value="Incremental"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Use of the SearchGroup element is deprecated.  Parametric search
+    shapes should be defined using TypeDefinition and its child
+    elements.
+    
+    SearchGroup is a grouping of attributes which constitute a search
+    which can be performed against an index.
+    
+    Name            - Name of the search
+    SearchAttribute - List of searchable index fields.
+  -->
+  <xs:element name="SearchGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element maxOccurs="unbounded" ref="SearchAttribute"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Use of the SearchAttribute element is deprecated.  Parametric
+    search shapes should be defined using TypeDefinition and its
+    child elements.
+    
+    An attribute that can searched parametrically.
+    
+    name - name of the attribute.
+    type - the type of the attribute
+  -->
+  <xs:element name="SearchAttribute">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.SearchAttribute"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SearchAttribute">
+    <xs:attribute name="name" use="required" type="string"/>
+    <xs:attribute name="type" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    LeadTime specifies, in days, the amount of time required to
+    receive the item.
+  -->
+  <xs:element name="LeadTime" type="xs:string"/>
+  <!-- uint -->
+  <!--
+    ExpirationDate is the date and time after which the element is no longer
+    valid.  Must be specified in ISO 8601 format.
+    
+  -->
+  <xs:element name="ExpirationDate" type="xs:string"/>
+  <!-- datetime.tz -->
+  <!--
+    EffectiveDate date and time at which the element becomes valid.
+    Must be specified in ISO 8601 format.
+  -->
+  <xs:element name="EffectiveDate" type="xs:string"/>
+  <!-- datetime.tz -->
+  <!--
+    IndexItemDetail contains various index specific elements which
+    help to define an index item.
+    LeadTime           - time in days to receive the item
+    ExpirationDate     - Expiration date and time for the item in this index
+    EffectiveDate      - Effective date and time for the item in this index
+    SearchGroupData    - Parametric search data
+    TerritoryAvailable - Country codes
+  -->
+  <xs:element name="IndexItemDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LeadTime"/>
+        <xs:element minOccurs="0" ref="ExpirationDate"/>
+        <xs:element minOccurs="0" ref="EffectiveDate"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="SearchGroupData"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="TerritoryAvailable"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Specification of a territory (using ISO country and/or region codes)
+    in which the particular index item is available.
+  -->
+  <xs:element name="TerritoryAvailable" type="xs:string"/>
+  <!--
+    SearchGroupData specifies the data which should be used to identify
+    this item in a search.
+  -->
+  <xs:element name="SearchGroupData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element maxOccurs="unbounded" ref="SearchDataElement"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    SearchDataElement is a field and value which are used to provide the
+    parametric data to a search.
+  -->
+  <xs:element name="SearchDataElement">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.SearchDataElement"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SearchDataElement">
+    <xs:attribute name="name" use="required" type="string"/>
+    <xs:attribute name="value" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    For better definitions of these Elements/Entities, refer to the cXML
+    Specification documents.
+  -->
+  <!--
+    A request used for polling for waiting messages. A waiting message, if
+    any, will be included in the returned stream. The lastReceivedTimestamp
+    attribute, if present, provides the timestamp of the last received
+    message. When the Receiver sees this, it can remove messages with earlier
+    timestamps from the pending queue.
+    
+    The maxMessages attribute is used to indicate the maximum number of
+    pending messages that can be included in the response.
+    
+    
+  -->
+  <xs:element name="GetPendingRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MessageType"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.GetPendingRequest"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.GetPendingRequest">
+    <xs:attribute name="maxMessages" type="uint"/>
+    <xs:attribute name="lastReceivedTimestamp" type="datetime.tz"/>
+  </xs:attributeGroup>
+  <!--
+    Indicates the type of message(s) being polled for. The valid values are
+    the corresponding element names e.g. SubscriptionChangeMessage.
+  -->
+  <xs:element name="MessageType" type="xs:string"/>
+  <!-- nmtoken -->
+  <!--
+    The data elements being carried back in the response. These are fully
+    formed cXML messages being carried through the Request/Response channel.
+  -->
+  <xs:element name="GetPendingResponse" substitutionGroup="cxml.responses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="cXML"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    Indicates that something changed in a buyer's content subscription.
+    Since this is a Message, it can come at any time - no explicit Request
+    needs to be sent first.
+  -->
+  <xs:element name="SubscriptionChangeMessage" substitutionGroup="cxml.messages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Subscription"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.SubscriptionChangeMessage"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SubscriptionChangeMessage">
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="update"/>
+          <xs:enumeration value="delete"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!-- A content subscription. -->
+  <xs:element name="Subscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="InternalID"/>
+        <xs:element ref="Name"/>
+        <xs:element ref="Changetime"/>
+        <xs:element maxOccurs="unbounded" ref="SupplierID"/>
+        <xs:element minOccurs="0" ref="Format"/>
+        <xs:element minOccurs="0" ref="Description"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Changetime" type="xs:string"/>
+  <!-- datetime.tz -->
+  <xs:element name="Format">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.Format"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.Format">
+    <xs:attribute name="version" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!-- Requests a complete list of catalog subscriptions for a buyer. -->
+  <xs:element name="SubscriptionListRequest" substitutionGroup="cxml.requests">
+    <xs:complexType/>
+  </xs:element>
+  <!-- The list of Subscriptions for the given buyer. -->
+  <xs:element name="SubscriptionListResponse" substitutionGroup="cxml.responses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Subscription"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- Requests the contents of a catalog that the buyer is subscribed to. -->
+  <xs:element name="SubscriptionContentRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="InternalID"/>
+        <xs:element maxOccurs="unbounded" ref="SupplierID"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- The data associated with a particular subscription. -->
+  <xs:element name="SubscriptionContentResponse" substitutionGroup="cxml.responses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Subscription"/>
+        <xs:element maxOccurs="unbounded" ref="SubscriptionContent"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    The actual content associated with a particular subscription.
+    
+    Use of the Contract element is deprecated.
+  -->
+  <xs:element name="SubscriptionContent">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="CIFContent"/>
+        <xs:element ref="Index"/>
+        <xs:element ref="Contract"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.SubscriptionContent"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SubscriptionContent">
+    <xs:attribute name="filename" type="string"/>
+  </xs:attributeGroup>
+  <!-- Contents of CIF file in base64 encoding. -->
+  <xs:element name="CIFContent" type="xs:string"/>
+  <!-- bin.base64 -->
+  <!--
+    Indicates that something has changed in the supplier data for
+    a supplier the buyer has a relationship with. Since this is a message, no
+    Request needs to be sent to receive this Message.
+  -->
+  <xs:element name="SupplierChangeMessage" substitutionGroup="cxml.messages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Supplier"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.SupplierChangeMessage"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.SupplierChangeMessage">
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="update"/>
+          <xs:enumeration value="delete"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    Requests for a complete list of suppliers the buyer currently has
+    relationships with.
+  -->
+  <xs:element name="SupplierListRequest" substitutionGroup="cxml.requests">
+    <xs:complexType/>
+  </xs:element>
+  <!-- The list of suppliers requested by SupplierListRequest. -->
+  <xs:element name="SupplierListResponse" substitutionGroup="cxml.responses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Supplier"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    Requests for a data associated with a particular supplier identified by
+    SupplierID.
+  -->
+  <xs:element name="SupplierDataRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="SupplierID"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- The data associated with the desired supplier. -->
+  <xs:element name="SupplierDataResponse" substitutionGroup="cxml.responses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Supplier"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    ====
+        Provider* transaction is used to visually integrate an application with
+        a UI provided by a service provider.
+    ====
+  -->
+  <!--
+    ProviderSetupRequest
+    
+    The originating application would provide the BrowserFormPost location
+    only if it wished the provider site to display a "Done" button or
+    would like information (at least Status) returned at the end of the
+    interactive session.  Inclusion should lead to a ProviderDoneMessage
+    from the provider at the end of a session.
+    
+    The originating application would provide the Followup location if it
+    wished the provider to provide information about later status changes
+    in the service (after the end of a particular Provider session).  This
+    applies only when the initial status (transmitted via a
+    ProviderDoneMessage) was an interim value.
+  -->
+  <xs:element name="ProviderSetupRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="OriginatorCookie"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="BrowserFormPost"/>
+          <xs:element minOccurs="0" ref="Followup"/>
+        </xs:sequence>
+        <xs:element ref="SelectedService"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Extrinsic"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- ProviderSetupResponse -->
+  <xs:element name="ProviderSetupResponse" substitutionGroup="cxml.responses" type="element.StartPage"/>
+  <!-- ProviderDoneMessage -->
+  <xs:element name="ProviderDoneMessage" substitutionGroup="cxml.messages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="OriginatorCookie"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ReturnData"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!-- DataAvailable message. -->
+  <xs:element name="DataAvailableMessage" substitutionGroup="cxml.messages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="InternalID"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    For cXML license agreement information, please see
+    http://www.cxml.org/home/license.asp
+    
+    $Id: cxml.xsd,v 1.1 2004/03/26 10:00:14 edankert Exp $
+  -->
+  <!--
+    Contain all the information related to the catalog upload, the same
+    functionality as the catalog upload provided by supplier.ariba.com
+  -->
+  <xs:element name="CatalogUploadRequest" substitutionGroup="cxml.requests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CatalogName"/>
+        <xs:element ref="Description"/>
+        <xs:element ref="Attachment"/>
+        <xs:element minOccurs="0" ref="Commodities"/>
+        <xs:element minOccurs="0" ref="AutoPublish"/>
+        <xs:element ref="Notification"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.CatalogUploadRequest"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.CatalogUploadRequest">
+    <xs:attribute name="operation" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="new"/>
+          <xs:enumeration value="update"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <!--
+    CatalogName is the name of the uploaded/published catalog. The
+    name is unique per supplier, and it can be defined in the
+    different languages
+  -->
+  <xs:element name="CatalogName">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.CatalogName"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- string -->
+  <xs:attributeGroup name="attlist.CatalogName">
+    <xs:attribute ref="xml:lang" use="required"/>
+  </xs:attributeGroup>
+  <!-- The list of the commodity codes. -->
+  <xs:element name="Commodities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="CommodityCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- The two-digit code -->
+  <xs:element name="CommodityCode" type="xs:string"/>
+  <!-- string -->
+  <!--
+    If the attribute "enabled" set to be "true", the updated catalog
+    will be published to the same buyers according to its previous
+    publish
+  -->
+  <xs:element name="AutoPublish">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.AutoPublish"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.AutoPublish">
+    <xs:attribute name="enabled" use="required" type="string"/>
+  </xs:attributeGroup>
+  <!--
+    The information used by Ariba CSN to send the notification (the
+    status of the catalog upload) to the suppliers.
+  -->
+  <xs:element name="Notification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="Email"/>
+        <xs:element minOccurs="0" ref="URLPost"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    The URL to receive the StatusUpdateRequest, which describes the
+    status of the catalog upload, such as the "success" (means the
+    catalog is validated, or the catalog is published),
+    the "failed" (the catalog has errors, ......)
+  -->
+  <xs:element name="URLPost">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.URLPost"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.URLPost">
+    <xs:attribute name="enabled" use="required" type="string"/>
+  </xs:attributeGroup>
+  <xs:complexType name="any" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Basic Font Module ............................................. -->
+<!--
+  file: svg-basic-font.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-basic-font.mod.xsd,v 1.1 2004/03/26 10:28:59 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 Basic Font//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-basic-font.mod"
+  
+  .......................................................................
+-->
+<!--
+  Basic Font
+  
+     font, font-face, glyph, missing-glyph, hkern, font-face-src,
+     font-face-name
+  
+  This module declares markup to provide support for template.
+-->
+<!-- Qualified Names (Default) ......................... -->
+<!-- Attribute Collections (Default) ................... -->
+<!-- SVG.Font.class .................................... -->
+<!-- font: Font Element ................................ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:complexType name="SVG.font.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element ref="svg:font-face"/>
+      <xs:element ref="svg:missing-glyph"/>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="svg:glyph"/>
+        <xs:element ref="svg:hkern"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="font" substitutionGroup="SVG.Font.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.font.content">
+          <xs:attributeGroup ref="svg:attlist.font"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.font.element -->
+  <xs:attributeGroup name="attlist.font">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="horiz-origin-x" type="Number.datatype"/>
+    <xs:attribute name="horiz-adv-x" use="required" type="Number.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.font.attlist -->
+  <!-- font-face: Font Face Element ...................... -->
+  <xs:complexType name="SVG.font-face.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" ref="svg:font-face-src"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="font-face" substitutionGroup="SVG.Font.class">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.font-face.content">
+          <xs:attributeGroup ref="svg:attlist.font-face"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.font-face.element -->
+  <xs:attributeGroup name="attlist.font-face">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attribute name="font-family"/>
+    <xs:attribute name="font-style"/>
+    <xs:attribute name="font-variant"/>
+    <xs:attribute name="font-weight"/>
+    <xs:attribute name="font-stretch"/>
+    <xs:attribute name="font-size"/>
+    <xs:attribute name="unicode-range"/>
+    <xs:attribute name="units-per-em" type="Number.datatype"/>
+    <xs:attribute name="panose-1"/>
+    <xs:attribute name="stemv" type="Number.datatype"/>
+    <xs:attribute name="stemh" type="Number.datatype"/>
+    <xs:attribute name="slope" type="Number.datatype"/>
+    <xs:attribute name="cap-height" type="Number.datatype"/>
+    <xs:attribute name="x-height" type="Number.datatype"/>
+    <xs:attribute name="accent-height" type="Number.datatype"/>
+    <xs:attribute name="ascent" type="Number.datatype"/>
+    <xs:attribute name="descent" type="Number.datatype"/>
+    <xs:attribute name="widths"/>
+    <xs:attribute name="bbox"/>
+    <xs:attribute name="ideographic" type="Number.datatype"/>
+    <xs:attribute name="alphabetic" type="Number.datatype"/>
+    <xs:attribute name="mathematical" type="Number.datatype"/>
+    <xs:attribute name="hanging" type="Number.datatype"/>
+    <xs:attribute name="underline-position" type="Number.datatype"/>
+    <xs:attribute name="underline-thickness" type="Number.datatype"/>
+    <xs:attribute name="strikethrough-position" type="Number.datatype"/>
+    <xs:attribute name="strikethrough-thickness" type="Number.datatype"/>
+    <xs:attribute name="overline-position" type="Number.datatype"/>
+    <xs:attribute name="overline-thickness" type="Number.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.font-face.attlist -->
+  <!-- glyph: Glyph Element .............................. -->
+  <xs:complexType name="SVG.glyph.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="glyph">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.glyph.content">
+          <xs:attributeGroup ref="svg:attlist.glyph"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.glyph.element -->
+  <xs:attributeGroup name="attlist.glyph">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attribute name="unicode"/>
+    <xs:attribute name="glyph-name"/>
+    <xs:attribute name="d" type="PathData.datatype"/>
+    <xs:attribute name="arabic-form"/>
+    <xs:attribute name="lang" type="LanguageCodes.datatype"/>
+    <xs:attribute name="horiz-adv-x" type="Number.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.glyph.attlist -->
+  <!-- missing-glyph: Missing Glyph Element .............. -->
+  <xs:complexType name="SVG.missing-glyph.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="missing-glyph">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.missing-glyph.content">
+          <xs:attributeGroup ref="svg:attlist.missing-glyph"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.missing-glyph.element -->
+  <xs:attributeGroup name="attlist.missing-glyph">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attribute name="d" type="PathData.datatype"/>
+    <xs:attribute name="horiz-adv-x" type="Number.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.missing-glyph.attlist -->
+  <!-- hkern: Horizontal Kerning Element ................. -->
+  <xs:element name="hkern">
+    <xs:complexType>
+      <xs:attributeGroup ref="svg:attlist.hkern"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.hkern.element -->
+  <xs:attributeGroup name="attlist.hkern">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attribute name="u1"/>
+    <xs:attribute name="g1"/>
+    <xs:attribute name="u2"/>
+    <xs:attribute name="g2"/>
+    <xs:attribute name="k" use="required" type="Number.datatype"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.hkern.attlist -->
+  <!-- font-face-src: Font Face Source Element ........... -->
+  <xs:complexType name="SVG.font-face-src.content">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" ref="svg:font-face-name"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="font-face-src">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="svg:SVG.font-face-src.content">
+          <xs:attributeGroup ref="svg:attlist.font-face-src"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.font-face-src.element -->
+  <xs:attributeGroup name="attlist.font-face-src">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+  </xs:attributeGroup>
+  <!-- end of SVG.font-face-src.attlist -->
+  <!-- font-face-name: Font Face Name Element ............ -->
+  <xs:element name="font-face-name">
+    <xs:complexType>
+      <xs:attributeGroup ref="svg:attlist.font-face-name"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- end of SVG.font-face-name.element -->
+  <xs:attributeGroup name="attlist.font-face-name">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attribute name="name"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.font-face-name.attlist -->
+<!-- end of svg-basic-font.mod -->

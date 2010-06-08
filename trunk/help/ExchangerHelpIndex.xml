@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE index PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Index Version 1.0//EN" "http://java.sun.com/products/javahelp/index_1_0.dtd">
+
+
+<index version="1.0">
+
+   <indexitem text="content folding" target="start.editing">
+  </indexitem>
+
+   
+
+   <indexitem text="database access" target="start.import">
+  </indexitem>
+
+   <indexitem text="differencing" target="start.diff">
+  </indexitem>
+
+   <indexitem text="DTD">
+	   <indexitem text="conversion to XML Schema" target="start.schema"/>
+	   <indexitem text="validation using" target="start.schema"/>
+   </indexitem>
+
+   <indexitem text="Editor">
+	   <indexitem text="end tag completion" target="start.editing"/>
+	   <indexitem text="insert special characters" target="start.editing"/>
+	   <indexitem text="tag prompting" target="start.editing"/>
+	   <indexitem text="toolbar" target="toolbar.edit"/>
+   </indexitem>
+
+  <indexitem text="emacs" target="start.emacsshort">
+  </indexitem>
+
+
+  <indexitem text="encodings" target="start.editing">
+  </indexitem>
+
+   <indexitem text="entities" target="start.editing">
+  </indexitem>
+
+   <indexitem text="fragments" target="start.editing">
+  </indexitem>
+
+  <indexitem text="FTP" target="start.editing">
+  </indexitem>
+
+  <indexitem text="Grid" target="start.grid">
+  </indexitem>
+
+  <indexitem text="HTTP(S)" target="start.editing">
+  </indexitem>
+
+   <indexitem text="import">
+	   <indexitem text="text" target="start.import"/>
+	   <indexitem text="excel" target="start.import"/>
+	   <indexitem text="database table" target="start.import"/>
+	   <indexitem text="SQL/XML" target="start.import"/>
+   </indexitem>
+
+   <indexitem text="merging" target="start.diff">
+  </indexitem>
+
+   <indexitem text="Navigator">
+	   <indexitem text="overview" target="start.overview"/>
+	   <indexitem text="Named XPaths" target="start.types"/>
+   </indexitem>
+
+   <indexitem text="Outliner">
+	   <indexitem text="tag-free editing" target="start.outliner"/>
+   </indexitem>
+
+   <indexitem text="projects">
+	   <indexitem text="menu" target="menus.project"/>
+	   <indexitem text="using" target="start.projects"/>
+  </indexitem>
+
+
+   <indexitem text="Relax NG">
+	   <indexitem text="conversion to XML Schema" target="start.schema"/>
+	   <indexitem text="validation of" target="menus.xml"/>
+  	   <indexitem text="validation using" target="start.schema"/>
+ </indexitem>
+
+  <indexitem text="Remote Files" target="start.editing">
+  </indexitem>
+
+ <indexitem text="Shortcuts">
+	   <indexitem text="emacs" target="start.emacsshort"/>
+	   <indexitem text="Macintosh" target="start.macshort"/>
+	   <indexitem text="Windows/Unix" target="start.winunixshort"/>
+   </indexitem>
+
+   <indexitem text="SOAP" target="start.soap">
+  </indexitem>
+
+   <indexitem text="Special Characters" target="start.editing">
+  </indexitem>
+
+   <indexitem text="SQL/XML" target="start.import">
+  </indexitem>
+
+
+  <indexitem text="Tag Prompting" target="start.editing">
+  </indexitem>
+
+
+   <indexitem text="toolbars">
+	   <indexitem text="edit" target="toolbar.edit"/>
+ 	   <indexitem text="general" target="toolbar.general"/>
+ 	   <indexitem text="debugger" target="toolbar.debugger"/>
+  </indexitem>
+
+   <indexitem text="transformations">
+	   <indexitem text="executing XQuery" target="start.transforms"/>
+	   <indexitem text="executing XSLFO" target="start.transforms"/>
+	   <indexitem text="executing XSLT" target="start.transforms"/>
+	   <indexitem text="scenarios" target="start.transforms"/>
+	   <indexitem text="menu" target="menus.transform"/>
+   </indexitem>
+
+ <indexitem text="Types" target="start.types">
+  </indexitem>
+
+   <indexitem text="Viewer">
+   		<indexitem text="browsing" target="start.browsing"/>
+	   <indexitem text="synchronisation" target="start.viewer"/>
+   </indexitem>
+
+   <indexitem text="WebDAV" target="start.editing">
+  </indexitem>
+
+  <indexitem text="WSDL" target="start.wsdl">
+  </indexitem>
+
+
+   <indexitem text="XIncludes" target="start.editing">
+  </indexitem>
+
+  <indexitem text="XML Canonicalization" target="start.canon">
+  </indexitem>
+
+  <indexitem text="XML Declaration" target="start.editing">
+  </indexitem>
+
+   <indexitem text="XML Schema">
+	   <indexitem text="conversion" target="start.schema"/>
+	   <indexitem text="menu" target="menus.schema"/>
+	   <indexitem text="validation of" target="menus.xml"/>
+	   <indexitem text="validation using" target="start.schema"/>
+	   <indexitem text="viewing" target="start.schema"/>
+   </indexitem>
+
+  <indexitem text="XML Signature" target="start.sign">
+  </indexitem>
+
+
+   <indexitem text="XPath" target="start.xpath">
+  </indexitem>
+
+   <indexitem text="XQuery" target="start.query">
+  </indexitem>
+
+ 
+   <indexitem text="XSLT">
+	   <indexitem text="executing" target="start.transforms"/>
+	   <indexitem text="transformation scenarios" target="start.transforms"/>
+   </indexitem>
+
+   <indexitem text="XSLT Debugger" target="start.debugger">
+  </indexitem>
+
+
+</index>

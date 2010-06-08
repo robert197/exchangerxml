@@ -1,0 +1,23 @@
+<xngr>
+	<projects>	
+<project name="Stock Quote WSDL">
+  <folder name="wsdl">
+   <document src="http://www.xignite.com/xquotes.asmx?WSDL"/>
+   <document src="wsdl/local.wsdl"/>
+  </folder>
+  <folder name="request">
+   <document src="request/GetIndices.xml"/>
+   <document src="request/GetQuoteIBM.xml"/>
+  </folder>
+  <folder name="response">
+   <document src="response/GetIndicesResponse.xml"/>
+   <document src="response/GetQuoteResponseIBM.xml"/>
+  </folder>
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

@@ -1,0 +1,14 @@
+<xngr>
+	<projects>	
+<project name="Browsing/Navigation">
+
+   <document src="simple.xml"/>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

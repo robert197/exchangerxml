@@ -1,0 +1,17 @@
+<xngr>
+	<projects>	
+<project name="XML Diff and Merge">
+
+  <folder name="input">
+   <document src="input/contacts.xsd"/>
+   <document src="input/contacts2.xsd"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

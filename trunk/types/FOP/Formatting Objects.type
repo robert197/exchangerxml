@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Formatting Objects" icon="FOPIcon.gif" publicID="" extensions="fo,fop">
+	<root name="root">
+		<namespace prefix="fo" uri="http://www.w3.org/1999/XSL/Format"/>
+	</root>
+	<template src="Template/fop.xsd" type="xsd"/>
+	<validation src="Validation/fop.xsd" type="xsd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

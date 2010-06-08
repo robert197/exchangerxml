@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Ant build file" icon="AntIcon.gif" publicID="" extensions="xml">
+	<root name="project">
+		<namespace prefix="" uri=""/>
+	</root>
+	<template src="Template/project.xsd" type="xsd"/>
+	<validation src="Validation/project.dtd" type="dtd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

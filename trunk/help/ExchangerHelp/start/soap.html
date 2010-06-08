@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">SOAP</h2>
+      <h3 class="title">Amazon SOAP Example</h3>
+      <p>Open the <b>Amazon SOAP</b> project and from the <b>request</b> folder, open the file <tt class="filename">DirectorSearch.xml</tt> (Alternatively, you can open the file directly from <tt class="filename">projects/Amazon SOAP/request/DirectorSearch.xml</tt>.)
+      </p>
+      <p>Ensure that you are connected to the internet</p>
+      <p>Choose <b>Tools-&gt;Send Soap Message</b>, select <b>Current Document</b> and press  <b>Open.</b></p><img src="../../images/soapRequest.gif" alt="Send SOAP Message"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Send SOAP Message</b></p>
+      <p>The file is displayed in a pop-up window in the Soap Request tab. Now, in the Connection Details section of the dialog, enter
+         the URL as <tt class="filename">http://soap.amazon.com/onca/soap3</tt> and the SOAP Action as <tt class="filename">http://soap.amazon.com/</tt> and press <b>Send</b>.
+      </p>
+      <p>The returned content is displayed in the Soap Response tab in the dialog. Press <b>Format</b> to make the response easier to read and check to ensure that a server error has not occurred. (The Amazon web service can
+         be busy, especially during US work hours - if the call fails, close the new document window and try again.)
+      </p><img src="../../images/soapResponse.gif" alt="SOAP Response"></img><p class="title"><b>Figure&nbsp;2.&nbsp;SOAP Response</b></p>
+      <p>Now press <b>Edit</b> to open the response as a new document in the editor. (A local copy of the response can be found in the <b>response</b> folder in the Amazon SOAP project.)
+      </p>
+      <p>To display the returned information in a web browser,  ensure that the new document is the active document 
+         				in the editor and then execute a  transformation  as follows: 
+         				Select <b>Transform-&gt;Execute Advanced XSLT</b>.
+      </p>
+      <p>In the Execute XSLT dialog:</p>
+      <ul type="disc">
+         <li>
+            <p>Set the XML Location to <b>Current Document</b> 
+            </p>
+         </li>
+         <li>
+            <p>Set the XSL Location in <b>From URL:</b> as <tt class="filename">projects\Amazon SOAP\style\heavy-data-to-html.xsl</tt></p>
+         </li>
+         <li>
+            <p>Set the Output for "To New Document" and check the box for "Open Output in Browser"</p>
+         </li>
+         <li>
+            <p>Press the <b>Execute</b> button.
+            </p>
+         </li>
+      </ul>
+      <p>A list of the top 10 films by Francis Ford Copolla should be displayed. (A local copy of the result can be found in the <b>html</b> folder in the Amazon SOAP project.)
+      </p><img src="../../images/amazonHTML.gif" alt="Amazon Response in Browser"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Amazon Response in Browser</b></p>
+      <h3 class="title">SOAP With Attachments</h3>
+      <p>The <b>Tools-&gt;Send Soap Message</b> functionality also supports SOAP With Attachments. Open the SOAP Request as in the preceding example, and in SOAP Message
+         dialog, press the <b>Attach...</b> button and select any arbitrary file to be attached to the SOAP message. Now click on the <b>Mime Message</b> tab and see how the SOAP message now contains both the original request and the attachment.
+      </p><img src="../../images/soapMIMEMessage.gif" alt="MIME Message"></img><p class="title"><b>Figure&nbsp;4.&nbsp;MIME Message</b></p>
+      <p> Further attachments can be added using the <b>Attach...</b> button and removed using the <b>Remove</b> button and the MIME message will be updated dynamically. Unfortunately we currently know of no public services that will
+         accept SOAP with Attachment messages and pressing <b>Send</b> will result in an error if you use the Amazon Web Service. However, it should be possible to build up a sample ebXML message
+         with attachments given the current functionality in Exchanger XML Editor.
+      </p>
+   </body>
+</html>

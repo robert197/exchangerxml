@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scenario name="xbrl">
+ <xml src="../sample_instance.xml" type="url"/>
+ <xsl src="../style/InstView.xsl" type="url" processor="default"/>
+ <output src="../sample_instance.htm" type="url" browser="true" browserURL=""/>
+</scenario>

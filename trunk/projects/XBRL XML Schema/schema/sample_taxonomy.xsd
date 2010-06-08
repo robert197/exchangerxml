@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  Sample XBRL Version 2 Taxonomy 
+  Schema                        
+  January 2002
+  Don Bruey, Creative Solutions
+  dbruey@creativesolutions.com
+--><?xml-stylesheet type="text/xsl" href="TxView.xsl"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:link="http://www.xbrl.org/2001/XLink/xbrllinkbase" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xbrli="http://www.xbrl.org/2001/instance" xmlns:sample="http://www.sample.org/xbrl/2001-12-31" targetNamespace="http://www.sample.org/xbrl/2001-12-31" elementFormDefault="qualified">
+  <annotation>
+    <appinfo>
+      <link:linkbaseRef xlink:type="simple" xlink:href="sample_calculation.xml" xlink:actuate="onRequest" xlink:role="http://www.xbrl.org/linkprops/linkRef/calculation" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase"/>
+      <link:linkbaseRef xlink:type="simple" xlink:href="sample_label.xml" xlink:actuate="onRequest" xlink:role="http://www.xbrl.org/linkprops/linkRef/label" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase"/>
+      <link:linkbaseRef xlink:type="simple" xlink:href="sample_presentation.xml" xlink:actuate="onRequest" xlink:role="http://www.xbrl.org/linkprops/linkRef/presentation" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase"/>
+      <link:linkbaseRef xlink:type="simple" xlink:href="sample_definition.xml" xlink:actuate="onRequest" xlink:role="http://www.xbrl.org/linkprops/linkRef/definition" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase"/>
+      <link:linkbaseRef xlink:type="simple" xlink:href="sample_reference.xml" xlink:actuate="onRequest" xlink:role="http://www.xbrl.org/linkprops/linkRef/reference" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase"/>
+    </appinfo>
+  </annotation>
+  <import namespace="http://www.xbrl.org/2001/instance" schemaLocation="xbrl-instance.xsd"/>
+  <import namespace="http://www.xbrl.org/2001/XLink/xbrllinkbase" schemaLocation="xbrl-linkbase.xsd"/>  <element name="balanceSheet" type="xbrli:monetaryItemType" substitutionGroup="xbrli:item" id="balanceSheet"/>
+  <element name="currentAssets" type="xbrli:monetaryItemType" substitutionGroup="xbrli:item" id="currentAssets"/>
+  <element name="assets.cash" type="xbrli:monetaryItemType" substitutionGroup="xbrli:item" id="assets.cash"/>
+  <element name="assets.netReceivables" type="xbrli:monetaryItemType" substitutionGroup="xbrli:item" id="assets.netReceivables"/>
+  <element name="business.descriptionOfBusiness" type="xbrli:stringItemType" substitutionGroup="xbrli:item" id="business.descriptionOfBusiness"/>
+  <!-- copied from another XBRL sample by Yufei Wang, KPMG -->
+  <element name="publication" type="string" substitutionGroup="link:part"/>
+  <element name="scenarioType">
+    <simpleType>
+      <restriction base="string">
+        <enumeration value="actual"/>
+        <enumeration value="budgeted"/>
+      </restriction>
+    </simpleType>
+  </element>
+</schema>

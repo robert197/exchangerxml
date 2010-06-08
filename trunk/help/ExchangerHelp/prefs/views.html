@@ -1,0 +1,84 @@
+<div class="section" lang="en">
+   
+   <div class="titlepage">
+      
+      <div>
+         
+         <div>
+            
+            <h2 class="title"><a id="d0e6738"></a>Views Preferences
+            </h2>
+            
+         </div>
+         
+      </div>
+      
+   </div>
+   
+   <div class="figure">
+      <a id="d0e6741"></a>
+      
+      <div>
+         <img src="../../images/prefsViews.gif" alt="Views Preferences">
+         
+      </div>
+      
+      <p class="title">
+         <b>Figure&nbsp;99.&nbsp;Views Preferences</b>
+         
+      </p>
+      
+   </div>
+   
+   <p>The Views Preferences dialog deals with settings for the four different Views available in the Editor.</p>
+   
+   <p>Synchronisation of the cursor position between the Viewer and Editor can be turned off by unsetting the Synchronise Selection
+      option.
+   </p>
+   
+   <p> The same document can be opened multiple times in the editor, but this is not recommended as each occurrence will be treated
+      as an independent document and chnages in one window will not be reflected in the other and will be overwritten on Save. Insted,
+      if you need to edit different sections of a document at the same time, use the Split Document feature using <span class="bold"><b>Ctrl+F6</b></span>. Turn on the "Open multiple occurrences of the same Document" switch if you really do want to open many copies in separate
+      windows.
+   </p>
+   
+   <p>The "Scroll Document Tabs" setting allows the user to change the style of tabs used in Exchanger XML. Turning this on causes
+      only a single row of file tabs to be displayed at the bottom of the editor, thereby maximising screen real estate when you
+      are dealing with lots of open files.
+   </p>
+   
+   <p>If the user has created Types, then the Exchanger editor can match documents with their corresponding Types based on the name
+      of the root element, the namespace used, the Public ID and/or the System ID used. The use of Types greatly improves the range
+      of functionality in Exchnager XML by supporting local validation, multiple tag completion, fragments and Named XPaths in the
+      navigator. By default, matching for Types will not be done when opening a document so as to simplify the File Open process.
+   </p>
+   
+   <p>The user can decide to always validate files against the appropriate Schema or DTD when opening a document. The reasons for
+      not doing so may include situations where the grammars are not available (maybe because the user is off-line), where the files
+      are often saved in a well-formed but not necessarily valid manner or for performance reasons. By default, validation is turned
+      off so that users can easily open files when the grammar is not available.
+   </p>
+   
+   <p>When opening an XML file, if the appropriate schema/DTD can be located then it will automatically be used for Validation and
+      Tag Completion if the  <span class="bold"><b>Set Schema or DTD Defined in Document</b></span> option is set. In the case of an XML Schema, it can also be browsed in the Schema Viewer. Setting this flag avoids the need
+      to create an explicit Type or the use of the <span class="bold"><b>XML-&gt;Set Properties</b></span> feature.
+      					
+   </p>
+   
+   <p>The Scenario Execution Dialog displays information about the status of a Scenario and can be used to stop long-running processes(for
+      example if an endless loop is encountered in a faulty stylesheet). It is possible to set a flag so that the dialog is automatically
+      dismissed once the process completes.
+   </p>
+   
+   <p>By default, <span class="bold"><b>XML-&gt;Resolve XIncludes</b></span> replaces the current file with a version containing copies of the included files. It is possible to change this behaviour
+      so that a new document is automatically created instead of overwriting the current one. 
+   </p>
+   
+   <p>By default, the XPath query field display paths without positions, for example,  <tt class="filename">/article/section/title</tt> To create fully qualified paths of the form <tt class="filename">/article/section[3]/title[1]</tt> set the <span class="bold"><b>Generate Unique XPath</b></span> flag.
+   </p>
+   
+   <p>Full paths can be displayed for files in Projects - alternatively, just hover over the filename and the full path will be
+      displayed as a tooltip.
+   </p>
+   
+</div>

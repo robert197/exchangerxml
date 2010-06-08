@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="XML Schema Definition" icon="XSDIcon.gif" publicID="" systemID="" extensions="xsd">
+	<root name="schema">
+		<namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema"/>
+	</root>
+	<fragment block="false" name="New Element (+Child Element + Attribute)" key="" order="0" icon="">&lt;xs:element name="${Element Name}"&gt;
+  &lt;xs:complexType&gt;
+    &lt;xs:sequence&gt;
+      &lt;xs:element name="${Child Name}"/&gt;
+    &lt;/xs:sequence&gt;
+		&lt;xs:attribute name="${Attribute Name}" use="optional"/&gt;
+  &lt;/xs:complexType&gt;
+&lt;/xs:element&gt;${cursor}
+</fragment>
+	<fragment block="false" name="New Element (+Attribute)" key="" order="1" icon="">&lt;xsd:element name="${Element Name}"&gt;
+  &lt;xsd:complexType&gt;
+    &lt;xsd:simpleContent&gt;
+      &lt;xsd:extension base="${Simple Type}"&gt;
+        &lt;xsd:attribute name="${Attribute Name}"/&gt;
+      &lt;/xsd:extension&gt;
+    &lt;/xsd:simpleContent&gt;
+  &lt;/xsd:complexType&gt;
+&lt;/xsd:element&gt;${cursor}</fragment>
+	<fragment block="false" name="New Empty Element (+Attribute)" key="" order="2" icon="">&lt;xsd:element name="${Element Name}"&gt;
+  &lt;xsd:complexType&gt;
+    &lt;xsd:attribute name="${Attribute Name}"/&gt;
+  &lt;/xsd:complexType&gt;
+&lt;/xsd:element&gt;${cursor}</fragment>
+	<xpath name="All Global Definitions" xpath="/xsd:schema/*/@name" default="true" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global Attribute Definitions" xpath="/xsd:schema/xsd:attribute/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global AttributeGroup Definitions" xpath="/xsd:schema/xsd:attributeGroup/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global ComplexType Definitions" xpath="/xsd:schema/xsd:complexType/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global Element Definitions" xpath="/xsd:schema/xsd:element/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global Group Definitions" xpath="/xsd:schema/xsd:group/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<xpath name="Global SimpleType Definitions" xpath="/xsd:schema/xsd:simpleType/@name" default="false" showElementNames="true" showElementContent="false" showAttributes="true" showAttributeNames="false"/>
+	<template src="Template/XMLSchema.xsd" type="xsd"/>
+	<validation src="Validation/XMLSchema.xsd" type="xsd" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

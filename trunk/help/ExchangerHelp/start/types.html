@@ -1,0 +1,153 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>Exchanger XML Editor V3.2 User Guide</title>
+      <meta name="generator" content="DocBook XSL Stylesheets V1.66.1"></meta>
+   </head>
+   <body>
+      <h2 class="title" style="clear: both">Types</h2>
+      <p>Exchanger XML Editor uses the concept of Types to map one or more grammars used by XML files to physical locations on disk
+         or on the network.
+      </p>
+      <p> Exchanger Types allow the user to specify different grammars for validation, tag completion and Schema Viewer/Outliner functionality.
+         The Type can automatically be associated when opening a file based on a combination of the root element name, the Public ID
+         (if any), System ID (if any) and the namespace prefix/URI (if any). If a file corresponds to more than one Type definition,
+         a dialog prompts the user to choose between the candidate Types. An icon can be specified to easily identify files of this
+         type across the editor and one or more extensions can be specified which can be used as filters in file choosers. Finally,
+         one or more scenarios can be associated with a type - when <b>Transform-&gt;Execute Scenario</b> is chosen, only those scenarios associated with the active Type will be displayed.
+      </p>
+      <h3 class="title">Types Rationale</h3>
+      <p>There are a number of reasons why it may be useful to associate more than one grammar with an XML file.</p>
+      <ul type="disc">
+         <li>
+            <p>Offline versus Online operation: An XML file may reference a grammar on the web that is not available when the user is offline.
+               It would be nice to be able to validate the file using a local copy of the grammar, while not having to change the actual
+               reference to the grammar in the document every time you go on or off line.
+            </p>
+         </li>
+         <li>
+            <p>Some grammars have no defined mechanisms for being referenced from an instance document. XML Schemas can be identified using
+               the  <b>schemaLocation</b> attribute but this is only a "hint" to the processor, while RelaxNG grammars have no standard means at all of being referenced.
+            </p>
+         </li>
+         <li>
+            <p>It is often convenient to use one (potentially large) grammar for validation with a smaller subset of the grammar being used
+               to restrict tag-prompting to commonly used elements and attributes, thus simplifying the editing process.
+            </p>
+         </li>
+         <li>
+            <p>Certain functionality in the Exchanger XML Editor, such as the Schema Viewer or the easy, tag-free content generation using
+               the Outliner, depends on the existence of an XML Schema. It is possible to use these functions with documents that conform
+               to DTDs or RelaxNG grammars by specifying a corresponding XML Schema in a type definition.
+            </p>
+         </li>
+      </ul>
+      <h3 class="title">Document Properties</h3>
+      <p>Because Types can override the actual grammar settings in a document instance, it is important to know which grammars are
+         being used for what purposes at any one time. In light of this, Exchanger displays the active Document Properties in a window
+         on the left-hand side, under the Projects view. (If the Document Properties window is minimized, simply click the small triangle
+         pointing upwards on the right and it will reappear - similarly, to minimize the window, click the downwards-pointing triangle.)
+         The window shows the name of the Validation, Tag Completion and Schema Viewer/Outliner grammars for the active document, if
+         any - hover over each to see a tool tip containg the full file path. Double-click on any filename in the Document Properties
+         window to automatically open it for editing.
+      </p><img src="../../images/documentProperties.gif" alt="Document Properties"></img><p class="title"><b>Figure&nbsp;1.&nbsp;Document Properties</b></p>
+      <h3 class="title">Built-in Types</h3>
+      <p>A number of built-in types ship with Exchanger XML Editor to simplify the editing process, including ones for XHTML, Docbook,
+         SVG, XSLT, 
+         XML Schema, RelaxNG, XSLFO, etc. If you do not want the built-in types to override the settings in your document instance
+         or in any XML Catalogs  you may be using, then go to the <b>File-&gt;Preferences</b> dialog and in the <b>Views</b> tab, ensure that <b>Check for Type opening Document</b> is turned off.  Alternatively, you can  delete the type(s) using the <b>Schema-&gt;Manage Types</b> dialog and can always use the Import feature in  <b>Schema-&gt;Manage Types</b> to restore any deleted built-in types, as described later in this section.
+      </p>
+      <h3 class="title">Create Type</h3>
+      <p>Open the file <tt class="filename">contacts.xml</tt> in the <b>Schema Viewer</b> project. Select <b>Schema-&gt;Create Type</b>. This brings up the Type Properties dialog with the Definition tab showing by default.
+      </p><img src="../../images/typeProperties.gif" alt="Create Type - Definition"></img><p class="title"><b>Figure&nbsp;2.&nbsp;Create Type - Definition</b></p>
+      <p>The <b>Name</b> of the XML Type is set, by default, to that 
+         	of the root element of the active document, if any. This name can be changed to something more appropriate, if you wish.
+         An icon can also be specified for quickly identifying the type associated with a file throughout the editor, for example in
+         the file choosers and the projects window.
+      </p>
+      <p>The optional <b>Extensions</b> field is used to define the file extensions 
+         	that this Type will apply to. This extension can later be used as a filter in File Choosers.
+      </p>
+      <p>The Type is associated with one or more of the following: the root element name; the namespace; and/or the 
+         		Public ID and System ID for DTDs. When opening a document, if the preference <b>Check for Type Opening Document</b> is 
+         		set on the XML tab in the <b>File-&gt;Preferences</b> dialog, the editor will check these four 
+         		features and will automatically set the appropriate Type. So, even if there is no grammar set in the document 
+         		(or the grammar is unavailable), the editor can load an appropriate  grammar to be used for tag prompting and an XML Schema
+         for the
+         		Schema Viewer and Outliner, and also can validate the document against an alternative DTD, XML Schema or RelaxNG schema.
+      </p>
+      <p>In the Grammars tab of the <b>Create Type</b> dialog, it is possible to set one or more grammars for the purposes of validation, tag prompting and/or for the schema viewer/outliner.
+      </p><img src="../../images/typeProperties2.gif" alt="Create Type - Grammars"></img><p class="title"><b>Figure&nbsp;3.&nbsp;Create Type - Grammars</b></p>
+      <p>The Validation section of the dialog allows the user to specify what grammar should be used when validating the document 
+         		using the <b>XML-&gt;Validate</b> menu item (or the <b>Validate</b> button). Supported Grammars for Validation include DTD, XML Schema, RelaxNG, RelaxNG Compact Syntax and Namespace Routing
+         Language.
+      </p>
+      <p>The Outliner/Schema Viewer section of the dialog allows the user to specify what XML Schema should be used for the Schema
+         Viewer and Outliner functionality (Note: this functionality does not currently support DTDs and RelaxNG directly). Therefore,
+         it is possible to have an XML Schema driving the editor functionality such as the Schema Viewer and Outliner, while at the
+         same time validating against a DTD or RelaxNG schema (or even an alternative XML Schema).
+      </p>
+      <p>In the <b>Other</b> tab of the dialog, it is possible to automatically associate fragments, transformation scenarios and XPaths with a Type definition.
+         See the following sections for more information on Fragments and Named XPaths.
+      </p>
+      <p> When executing a scenario, the scenarios associated 
+         	with the Type definition of the active document will be displayed in the <b>Select Scenario</b> dialog. If a default 
+         	scenario has been set for a Type, that scenario will automatically be executed when the user presses the Execute Default
+         Scenario button (<img src="../../images/buttonExecuteScenario.gif"></img>) or  chooses <b>Transform-&gt;Execute Scenario</b>.   	See the section on Transformations for more information about Scenarios.
+      </p>
+      <h3 class="title">Setting Types for instance documents</h3>
+      <p>The Editor will  attempt to set the appropriate Type  when opening a file, provided <b>Check Type on Opening Document</b> is set in the View tab of the Preferences dialog. Alternatively, the type can be set explicitly by choosing <b>Schema-&gt;Set Type...</b></p>
+      <h3 class="title">Viewing, Modifying and Deleting Type Definitions</h3>
+      <p>Type Definitions can be changed using <b>Schema-&gt;Manage Types...</b> and selecting the type from the popup list. Alternatively, the type definition corresponding to the current open document
+         can be quickly modified using <b>Schema-&gt;Type Properties</b>.
+      </p>
+      <h3 class="title">Fragments</h3>
+      <p>Fragments are a mechanism to easily add user-defined chunks of content using simple key strokes. For now, Fragments are linked
+         to Types (i.e. you must create a Type to create Fragments) but this restriction will be relaxed in a future version. To add
+         a fragment to the new Contacts type, choose <b>Schema-&gt;Type Properties</b> dialog and select the <b>Other</b> tab. In the Fragments section of the dialog, press the <b>Add</b> button and the Fragment Properties dialog appears. Enter a name for that fragment, for example, <b>Address</b> and enter a shortcut combination, for example, <b>Ctrl+Shift+A</b> by holding down the 3 keys simultaneously. Note that is the shortcut you have chosen has already been used by the Editor,
+         then the shortcut will not display and you must choose an alternative. (You can change the built-in shortcuts if you really
+         want to assign an already used combination to a fragment). By default, the content will be placed inline, but it is possible
+         to specify that it should be output on a new line by selecting <b>Block</b>. (New Line characters in the content will be honoured, and the content will be indented appropriately if Smart Indentation
+         is turned on).
+      </p><img src="../../images/fragmentProperties.gif" alt="Fragment Properties"></img><p class="title"><b>Figure&nbsp;4.&nbsp;Fragment Properties</b></p>
+      <p>In the Content section of the dialog, enter the desired content for insertion, for example: 
+         			
+         <tt class="literal">			
+            &lt;Address type="${cursor}"&gt; &lt;Company&gt;${Company}&lt;/Company&gt; &lt;Street&gt;${Street}&lt;/Street&gt; &lt;/Address&gt;			
+            </tt>
+         
+         (Note that the content does not have to be well-formed). A number of Macros are availabe that can make Fragments even more
+         powerful. The <b>${cursor}</b> macro will automatically  move the cursor to that location in the editor after the insertion, while the <b>${selection}</b> macro can be used repeatedly to output the text currently highlighted in the Editor. Any other macros, such as ${Company}
+         and ${Street} above, will cause a dialog to be displayed prompting for the actual values when the shortcut is used.
+         			
+      </p>
+      <p>Save the Type definition, then open <tt class="filename">contacts.xml</tt> and set the type, if necessary, using <b>Schema-&gt;Set Type...</b> Now anytime you type the shortcut  <b>Ctrl+Shift+A</b>, a dialog will appear prompting for the Company and Street values. Enter these and the fragment will be inserted in the document
+         (starting on a new line because of the use of Block), and the cursor will move into the "type" attribute value. 
+      </p>
+      <p>Fragments can be accessed via a number of different methods in the Editor. To see a list of all the currently available fragments,
+         type <b>Ctrl+Shift+Space</b>  or choose <b>Edit-&gt;Insert Fragment...</b> Select items on the popup using the up and down arrows or typing the first character of a name repeatedly will cycle through
+         all fragments starting with that letter. Alternatively, if icons have been specified for the fragments, they will be displayed
+         in the Fragment Buttons Toolbar which will appear vertically on the left-hand side of the editing window. The visibility of
+         this toolbar is controlled via the <b>View-&gt;Toolbar</b> menu item.
+      </p>
+      <h3 class="title">Named XPaths and the Navigator</h3>
+      <p>The Navigator displays a tree view of the nodes in the current document that can be filtered by Namespace or using an XPath
+         query. Specific XPaths for the Navigator can be saved with each Type definition, and will be available on the drop-down XPath
+         menu when documents of that type are open. For example, to create a list of figures for DocBook documents, choose  the <b>Other</b> tab in the <b>Schema-&gt;Type Properties</b> dialog. In the <b>Named XPath</b> section, press <b>Add</b>. Add a Name, for example, "List of Figures" and  enter the XPath <tt class="filename">//figure/title</tt>. In the Settings, turn off showing element names, attriibute names and attribute values, leaving just the content of the
+         title elements to be displayed in the Navigator. Now, after saving, click on the drop-down beside the XPath Filter button
+         <img src="../../images/buttonXPathFilter.gif"></img> and select the "List of Figures" names XPath.
+      </p>
+      <h3 class="title">Import and Export Types</h3>
+      <p>Exchanger XML Editor automatically  provides built-in types for common document grammars such as XHTML, Docbook, SVG, XSLT,
+         XML Schema, RelaxNG, 
+         					XSLFO, etc. If these types do not appear when you choose <b>Schema-&gt;Manage Types</b> or in the <b>File-&gt;New</b> dialog (for example, they may previously have been deleted or you may have upgraded from an earlier release that did not
+         include them) then it is possible reinstate them using the Import Types functionality. To enable this functionality, select
+         <b>Schema-&gt;Manage Types</b>, press the
+         					<b>Import</b> button and choose the file <tt class="filename">All.types</tt> in the <tt class="filename">types</tt> directory 					where you installed Exchanger. Now when a user creates new documents (using File-&gt;New),  the types are available
+         for use.					Similarly, when a user opens documents that are of a known type, functionality such as tag-prompting, validation
+         and easy content  creation with the Outliner is automatically available.  
+         				
+      </p>
+      <p>It is also possible to export Type definions for sharing with colleagues, using the <b>Export</b> button on the <b>Schema-&gt;Manage Types</b> dialog.
+      </p>
+   </body>
+</html>

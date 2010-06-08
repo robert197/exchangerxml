@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scenario name="Simple Database Access">
+	<xml src="test.xml" type="url"/>
+	<xsl src="sql-query.xsl" type="url" processor="saxon2">
+		<parameter name="driver" value="org.gjt.mm.mysql.Driver"/>
+		<parameter name="database" value="jdbc:mysql://localhost/testDatabase"/>
+		<parameter name="user" value="testUser"/>
+		<parameter name="password" value="testPassword"/>
+		<parameter name="table" value="testTable"/>
+	</xsl>
+	<output src="" type="document"/>
+</scenario>

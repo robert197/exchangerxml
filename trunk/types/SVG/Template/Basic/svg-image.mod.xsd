@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Image Module .................................................. -->
+<!--
+  file: svg-image.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-image.mod.xsd,v 1.1 2004/03/26 10:24:10 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ELEMENTS SVG 1.1 Image//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-image.mod"
+  
+  .......................................................................
+-->
+<!--
+  Image
+  
+     image
+  
+  This module declares markup to provide support for image.
+-->
+<!-- Qualified Names (Default) ......................... -->
+<!-- Attribute Collections (Default) ................... -->
+<!-- SVG.Image.class ................................... -->
+<!-- image: Image Element .............................. -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:complexType name="SVG.image.content">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Description.class"/>
+      <xs:element minOccurs="0" maxOccurs="unbounded" ref="SVG.Animation.class"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="image" substitutionGroup="SVG.Image.class"/>
+  <!-- end of SVG.image.element -->
+  <xs:attributeGroup name="attlist.image">
+    <xs:attributeGroup ref="xml:SVG.Core.attrib"/>
+    <xs:attributeGroup ref="SVG.Conditional.attrib"/>
+    <xs:attributeGroup ref="SVG.Style.attrib"/>
+    <xs:attributeGroup ref="SVG.Viewport.attrib"/>
+    <xs:attributeGroup ref="SVG.Color.attrib"/>
+    <xs:attributeGroup ref="SVG.Opacity.attrib"/>
+    <xs:attributeGroup ref="SVG.Graphics.attrib"/>
+    <xs:attributeGroup ref="SVG.ColorProfile.attrib"/>
+    <xs:attributeGroup ref="SVG.Clip.attrib"/>
+    <xs:attributeGroup ref="SVG.Mask.attrib"/>
+    <xs:attributeGroup ref="SVG.Filter.attrib"/>
+    <xs:attributeGroup ref="SVG.GraphicalEvents.attrib"/>
+    <xs:attributeGroup ref="xlink:SVG.XLinkEmbed.attrib"/>
+    <xs:attributeGroup ref="SVG.External.attrib"/>
+    <xs:attribute name="x" type="Coordinate.datatype"/>
+    <xs:attribute name="y" type="Coordinate.datatype"/>
+    <xs:attribute name="width" use="required" type="Length.datatype"/>
+    <xs:attribute name="height" use="required" type="Length.datatype"/>
+    <xs:attribute name="preserveAspectRatio" default="xMidYMid meet" type="PreserveAspectRatioSpec.datatype"/>
+    <xs:attribute name="transform" type="TransformList.datatype"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of SVG.image.attlist -->
+<!-- end of svg-image.mod -->

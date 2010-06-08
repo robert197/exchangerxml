@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<type name="Resource Description Framework" icon="RDFIcon.gif" publicID="" systemID="" extensions="rdf">
+	<root name="RDF">
+		<namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+	</root>
+	<validation src="rdfxml.rng" type="rnc" useDocumentLocation="false"/>
+	<schema src=""/>
+</type>

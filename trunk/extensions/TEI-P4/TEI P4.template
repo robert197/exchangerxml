@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+ * $Id: TEI\040P4.template,v 1.1 2004/11/15 14:46:05 edankert Exp $
+ *
+ * Copyright (C) 2004, Cladonia Ltd. All rights reserved.
+ *
+ * This software is the proprietary information of Cladonia Ltd.  
+ * Use is subject to license terms.
+ -->
+
+<template name="TEI P4" src="TEI.xml"/>

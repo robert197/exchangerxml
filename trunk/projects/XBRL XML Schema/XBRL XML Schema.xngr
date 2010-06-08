@@ -1,0 +1,30 @@
+<xngr>
+	<projects>	
+<project name="XBRL XML Schema">
+   <document src="sample_instance.xml"/>
+   <document src="sample_instance.htm"/>
+  <folder name="schema">
+   <document src="schema/sample_taxonomy.xsd"/>
+   <document src="schema/xbrl-instance.xsd"/>
+   <document src="schema/xbrl-linkbase.xsd"/>
+   <document src="schema/xl.xsd"/>
+   <document src="schema/xlink.xsd"/>
+   <document src="schema/xml.xsd"/>
+  </folder>
+  <folder name="style">
+   <document src="style/InstView.xsl"/>
+   <document src="style/TxView.xsl"/>
+   <document src="style/TxCompress.xsl"/>
+  </folder>
+  <folder name="scenario">
+   <document src="scenario/xbrl.scenario"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

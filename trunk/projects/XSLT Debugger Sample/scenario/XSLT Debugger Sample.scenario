@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<scenario name="XSLT Debugger Sample">
+    <xml src="../input/poem.xml" type="url"/>
+    <xsl src="../style/poem.xsl" type="url" processor="saxon"/>
+    <output src="" type="document"/>
+</scenario>

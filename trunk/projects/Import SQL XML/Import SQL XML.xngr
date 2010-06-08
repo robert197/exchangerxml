@@ -1,0 +1,14 @@
+<xngr>
+	<projects>	
+<project name="Import SQL/XML">
+
+   <document src="script.sqx"/>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

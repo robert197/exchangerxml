@@ -1,0 +1,21 @@
+<xngr>
+	<projects>	
+<project name="XQuery">
+  <folder name="input">
+   <document src="input/books.xml"/>
+  </folder>
+  <folder name="query">
+   <document src="query/books.xq"/>
+  </folder>
+  <folder name="result">
+   <document src="result/result.xml"/>
+  </folder>
+
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

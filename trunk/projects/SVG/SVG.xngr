@@ -1,0 +1,13 @@
+<xngr>
+	<projects>	
+<project name="SVG">
+
+   <document src="moonPhases.svg"/>
+ </project>
+	</projects>	
+
+	<scenarios/>
+	<types/>
+	<templates/>
+</xngr>
+

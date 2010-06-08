@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ....................................................................... -->
+<!-- SVG 1.1 Animation Events Attribute Module ............................. -->
+<!--
+  file: svg-animevents-attrib.mod
+  
+  This is SVG, a language for describing two-dimensional graphics in XML.
+  Copyright 2001, 2002 W3C (MIT, INRIA, Keio), All Rights Reserved.
+  Revision: $Id: svg-animevents-attrib.mod.xsd,v 1.1 2004/03/26 10:24:34 edankert Exp $
+  
+  This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+  
+     PUBLIC "-//W3C//ENTITIES SVG 1.1 Animation Events Attribute//EN"
+     SYSTEM "http://www.w3.org/Graphics/SVG/1.1/DTD/svg-animevents-attrib.mod"
+  
+  .......................................................................
+-->
+<!--
+  Animation Events Attribute
+  
+     onbegin, onend, onrepeat, onload
+  
+  This module defines the AnimationEvents attribute set.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svg="http://www.w3.org/2000/svg">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="svg-xlink-attrib.mod.xsd"/>
+  <xs:import namespace="http://www.w3.org/2000/svg" schemaLocation="svg11.xsd"/>
+  <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="svg-core-attrib.mod.xsd"/>
+  <xs:attributeGroup name="SVG.onbegin.attrib">
+    <xs:attribute name="onbegin" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.onend.attrib">
+    <xs:attribute name="onend" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.onrepeat.attrib">
+    <xs:attribute name="onrepeat" type="Script.datatype"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="SVG.AnimationEvents.attrib">
+    <xs:attributeGroup ref="SVG.onbegin.attrib"/>
+    <xs:attributeGroup ref="SVG.onend.attrib"/>
+    <xs:attributeGroup ref="SVG.onrepeat.attrib"/>
+    <xs:attributeGroup ref="SVG.onload.attrib"/>
+  </xs:attributeGroup>
+</xs:schema>
+<!-- end of svg-animevents-attrib.mod -->

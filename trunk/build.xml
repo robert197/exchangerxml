@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="build" basedir=".">
+	
+	<property name="lib.dir" value="lib"/>
+	<property name="source.dir" value="src"/>
+	<property name="build.dir" value="build"/>
+	<property name="release.dir" value="release"/>
+	<property name="manifest.file" value="Manifest.mf"/>
+	<property name="jar.file" value="xngr-editor.jar"/>
+	<property name="launch4j.dir" value="builder/launch4j"/>
+	<property name="install.dir" value="install"/>
+	<property name="installFiles.dir" value="${install.dir}/Exchanger"/>
+	<property name="installJammerExec" value="C:\Program Files\InstallJammer\installjammer.exe"/>
+	<property name="installJammerConfigFile" value="xngr-InstallJammer.mpi"/>
+	
+	<!-- These are not editable -->
+	<property name="installBuild.dir" value="build"/>
+	<property name="installOutput.dir" value="output"/>
+	
+	
+	<target name="build">
+	
+		<antcall target="createBuildFolder"/>
+		<antcall target="buildFiles"/>
+		<antcall target="jar"/>
+		<antcall target="removeBuildFolder"/>
+		
+	</target>
+	
+	<target name="release">
+		<antcall target="createBuildFolder"/>
+		<antcall target="createReleaseFolder"/>
+		<antcall target="buildReleaseFiles"/>
+		<antcall target="jar"/>
+		<antcall target="exe"/>
+		<antcall target="removeBuildFolder"/>
+		<antcall target="removeReleaseFolder"/>
+	</target>
+	
+	<target name="installerPreparation">
+		<antcall target="createInstallFolder"/>
+		<antcall target="createInstallOutputFolder"/>
+		<antcall target="createInstallBuildFolder"/>
+		<antcall target="copyInstallFiles"/>
+	</target>
+	
+	<target name="createInstaller">
+		<antcall target="installerPreparation"/>
+		<antcall target="runInstallJammer"/>
+		<antcall target="removeInstallFolder"/>
+		<antcall target="removeBuildFolder"/>
+		
+	</target>
+	
+	<target name="createBuildFolder">
+		<mkdir dir="${build.dir}"/>
+	</target>
+	
+	<target name="createReleaseFolder">
+		<mkdir dir="${release.dir}"/>
+	</target>
+	
+	<target name="removeReleaseFolder">
+		<delete dir="${release.dir}"/>
+	</target>
+	
+	<target name="buildFiles">
+	    <javac srcdir="${source.dir}" destdir="${build.dir}" deprecation="on" debug="on" optimize="off">
+	      <classpath>
+	      	<pathelement location="${lib.dir}/xercesImpl.jar"/>
+	        <pathelement location="${lib.dir}/xml-apis.jar"/>
+	        <pathelement location="${lib.dir}/jaxp.jar"/>
+	        <pathelement location="${lib.dir}/bounce.jar"/>
+	        <pathelement location="${lib.dir}/castor.jar"/>
+	        <pathelement location="${lib.dir}/dom4j.jar"/>
+	        <pathelement location="${lib.dir}/avalon-framework.jar"/>
+	      	<pathelement location="${lib.dir}/jaxen-1.1.1.jar"/>
+	        <pathelement location="${lib.dir}/MDateSelector.jar"/>
+	        <pathelement location="${lib.dir}/jcalendar.jar"/>
+	        <pathelement location="${lib.dir}/batik-squiggle.jar"/>
+	        <pathelement location="${lib.dir}/batik-rasterizer.jar"/>
+	      	<pathelement location="${lib.dir}/serializer.jar"/>
+	       	<pathelement location="${lib.dir}/batik-awt-util.jar"/>
+	        <pathelement location="${lib.dir}/batik-bridge.jar"/>
+	        <pathelement location="${lib.dir}/batik-css.jar"/>
+	        <pathelement location="${lib.dir}/batik-dom.jar"/>
+	        <pathelement location="${lib.dir}/batik-ext.jar"/>
+	        <pathelement location="${lib.dir}/batik-extension.jar"/>
+	        <pathelement location="${lib.dir}/batik-gui-util.jar"/>
+	        <pathelement location="${lib.dir}/batik-gvt.jar"/>
+	        <pathelement location="${lib.dir}/batik-parser.jar"/>
+	        <pathelement location="${lib.dir}/batik-script.jar"/>
+	        <pathelement location="${lib.dir}/batik-svg-dom.jar"/>
+	        <pathelement location="${lib.dir}/batik-svggen.jar"/>
+	        <pathelement location="${lib.dir}/batik-swing.jar"/>
+	        <pathelement location="${lib.dir}/batik-transcoder.jar"/>
+	        <pathelement location="${lib.dir}/batik-util.jar"/>
+	        <pathelement location="${lib.dir}/batik-xml.jar"/>
+	        <pathelement location="${lib.dir}/pdf-transcoder.jar"/>
+	        <pathelement location="${lib.dir}/fop.jar"/>
+	        <pathelement location="${lib.dir}/jh.jar"/>
+	        <pathelement location="${lib.dir}/jing.jar"/>
+	        <pathelement location="${lib.dir}/trang.jar"/>
+	      	<pathelement location="${lib.dir}/saxon9.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-dom.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-dom4j.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-jdom.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-s9api.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-sql.jar"/>
+	      	<pathelement location="${lib.dir}/saxon9-xom.jar"/>
+	      	<pathelement location="${lib.dir}/saxon9-xpath.jar"/>
+	      	<pathelement location="${lib.dir}/saxon9-xqj.jar"/>
+	        <pathelement location="${lib.dir}/bsf.jar"/>
+	        <pathelement location="${lib.dir}/resolver.jar"/>
+	        <pathelement location="${lib.dir}/xalan.jar"/>
+	        <pathelement location="${lib.dir}/saxon.jar"/>
+	        <pathelement location="${lib.dir}/soap.jar"/>
+	        <pathelement location="${lib.dir}/mail.jar"/>
+	        <pathelement location="${lib.dir}/activation.jar"/>
+	        <pathelement location="${lib.dir}/js.jar"/>
+	        <pathelement location="${lib.dir}/AppleJavaExtensions.jar"/>
+	        <pathelement location="${lib.dir}/saaj-api.jar"/>
+	        <pathelement location="${lib.dir}/saaj-impl.jar"/>
+	        <pathelement location="${lib.dir}/xmlsec.jar"/>
+	        <pathelement location="${lib.dir}/wsdl4j.jar"/>
+	        <pathelement location="${lib.dir}/commons-logging.jar"/>
+	        <pathelement location="${lib.dir}/commons.jar"/>
+	        <pathelement location="${lib.dir}/commons-net.jar"/>
+	        <pathelement location="${lib.dir}/commons-httpclient.jar"/>
+	        <pathelement location="${lib.dir}/jakarta-slide-webdav.jar"/>
+	        <pathelement location="${lib.dir}/nekohtml.jar"/>
+	        <pathelement location="${lib.dir}/poi.jar"/>
+	        <pathelement location="${lib.dir}/xbean.jar"/>
+	        <pathelement location="${lib.dir}/xbean_xpath.jar"/>
+	        <pathelement location="${lib.dir}/jdic.jar"/>
+	        <pathelement location="${lib.dir}/JbcGrid.jar"/>
+	        <pathelement location="${lib.dir}/JbcBeansEvaluation.jar"/>
+	        <pathelement location="${lib.dir}/looks-1.3rc.jar"/>
+	      	<pathelement location="${lib.dir}/l2fprod-common-directorychooser.jar"/>
+	      	<pathelement location="${lib.dir}/l2fprod-common-totd.jar"/>
+	      	<pathelement location="${lib.dir}/rome-0.9.jar"/>
+			<pathelement location="${lib.dir}/rome-fetcher-0.9.jar"/>
+			<pathelement location="${lib.dir}/jdom.jar"/>
+	      </classpath>
+	    </javac>
+	</target>
+	
+	<target name="buildReleaseFiles">
+	    <javac srcdir="${source.dir}" destdir="${build.dir}" deprecation="on" debug="off" optimize="on">
+	      <classpath>
+	      	<pathelement location="${lib.dir}/xercesImpl.jar"/>
+	        <pathelement location="${lib.dir}/xml-apis.jar"/>
+	        <pathelement location="${lib.dir}/jaxp.jar"/>
+	        <pathelement location="${lib.dir}/bounce.jar"/>
+	        <pathelement location="${lib.dir}/castor.jar"/>
+	        <pathelement location="${lib.dir}/dom4j.jar"/>
+	        <pathelement location="${lib.dir}/avalon-framework.jar"/>
+	      	<pathelement location="${lib.dir}/jaxen-1.1.1.jar"/>
+	        <pathelement location="${lib.dir}/MDateSelector.jar"/>
+	        <pathelement location="${lib.dir}/jcalendar.jar"/>
+	        <pathelement location="${lib.dir}/batik-squiggle.jar"/>
+	        <pathelement location="${lib.dir}/batik-rasterizer.jar"/>
+	      	<pathelement location="${lib.dir}/serializer.jar"/>
+	       	<pathelement location="${lib.dir}/batik-awt-util.jar"/>
+	        <pathelement location="${lib.dir}/batik-bridge.jar"/>
+	        <pathelement location="${lib.dir}/batik-css.jar"/>
+	        <pathelement location="${lib.dir}/batik-dom.jar"/>
+	        <pathelement location="${lib.dir}/batik-ext.jar"/>
+	        <pathelement location="${lib.dir}/batik-extension.jar"/>
+	        <pathelement location="${lib.dir}/batik-gui-util.jar"/>
+	        <pathelement location="${lib.dir}/batik-gvt.jar"/>
+	        <pathelement location="${lib.dir}/batik-parser.jar"/>
+	        <pathelement location="${lib.dir}/batik-script.jar"/>
+	        <pathelement location="${lib.dir}/batik-svg-dom.jar"/>
+	        <pathelement location="${lib.dir}/batik-svggen.jar"/>
+	        <pathelement location="${lib.dir}/batik-swing.jar"/>
+	        <pathelement location="${lib.dir}/batik-transcoder.jar"/>
+	        <pathelement location="${lib.dir}/batik-util.jar"/>
+	        <pathelement location="${lib.dir}/batik-xml.jar"/>
+	        <pathelement location="${lib.dir}/pdf-transcoder.jar"/>
+	        <pathelement location="${lib.dir}/fop.jar"/>
+	        <pathelement location="${lib.dir}/jh.jar"/>
+	        <pathelement location="${lib.dir}/jing.jar"/>
+	        <pathelement location="${lib.dir}/trang.jar"/>
+	      	<pathelement location="${lib.dir}/saxon9.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-dom.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-dom4j.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-jdom.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-s9api.jar"/>
+	        <pathelement location="${lib.dir}/saxon9-sql.jar"/>
+	      	<pathelement location="${lib.dir}/saxon9-xom.jar"/>
+	      	<pathelement location="${lib.dir}/saxon9-xpath.jar"/>
+	      	<pathelement location="${lib.dir}/saxon9-xqj.jar"/>
+	        <pathelement location="${lib.dir}/bsf.jar"/>
+	        <pathelement location="${lib.dir}/resolver.jar"/>
+	        <pathelement location="${lib.dir}/xalan.jar"/>
+	        <pathelement location="${lib.dir}/saxon.jar"/>
+	        <pathelement location="${lib.dir}/soap.jar"/>
+	        <pathelement location="${lib.dir}/mail.jar"/>
+	        <pathelement location="${lib.dir}/activation.jar"/>
+	        <pathelement location="${lib.dir}/js.jar"/>
+	        <pathelement location="${lib.dir}/AppleJavaExtensions.jar"/>
+	        <pathelement location="${lib.dir}/saaj-api.jar"/>
+	        <pathelement location="${lib.dir}/saaj-impl.jar"/>
+	        <pathelement location="${lib.dir}/xmlsec.jar"/>
+	        <pathelement location="${lib.dir}/wsdl4j.jar"/>
+	        <pathelement location="${lib.dir}/commons-logging.jar"/>
+	        <pathelement location="${lib.dir}/commons.jar"/>
+	        <pathelement location="${lib.dir}/commons-net.jar"/>
+	        <pathelement location="${lib.dir}/commons-httpclient.jar"/>
+	        <pathelement location="${lib.dir}/jakarta-slide-webdav.jar"/>
+	        <pathelement location="${lib.dir}/nekohtml.jar"/>
+	        <pathelement location="${lib.dir}/poi.jar"/>
+	        <pathelement location="${lib.dir}/xbean.jar"/>
+	        <pathelement location="${lib.dir}/xbean_xpath.jar"/>
+	        <pathelement location="${lib.dir}/jdic.jar"/>
+	        <pathelement location="${lib.dir}/JbcGrid.jar"/>
+	        <pathelement location="${lib.dir}/JbcBeansEvaluation.jar"/>
+	        <pathelement location="${lib.dir}/looks-1.3rc.jar"/>
+	      	<pathelement location="${lib.dir}/l2fprod-common-directorychooser.jar"/>
+	      	<pathelement location="${lib.dir}/l2fprod-common-totd.jar"/>
+	      	<pathelement location="${lib.dir}/rome-0.9.jar"/>
+			<pathelement location="${lib.dir}/rome-fetcher-0.9.jar"/>
+			<pathelement location="${lib.dir}/jdom.jar"/>
+	      </classpath>
+	    </javac>
+	</target>
+	
+	<target name="jar">
+	    <copy todir="${build.dir}/com/cladonia/xngreditor/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xngreditor/icons"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/xml/editor/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xml/editor/icons"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/xml/designer/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xml/designer/icons"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/xml/viewer/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xml/viewer/icons"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/xml/browser/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xml/browser/icons"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/schema/viewer/icons">
+	      <fileset dir="${source.dir}/com/cladonia/schema/viewer/icons"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/xml/transform/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xml/transform/icons"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/xml/svg/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xml/svg/icons"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/xml/transform/resources">
+	      <fileset dir="${source.dir}/com/cladonia/xml/transform/resources"/>
+	    </copy>
+	    <copy todir="${build.dir}/com/cladonia/xngreditor/project/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xngreditor/project/icons"/>
+	    </copy> 
+	    <copy todir="${build.dir}/com/cladonia/xslt/debugger/ui/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xslt/debugger/ui/icons"/>
+	    </copy> 
+	    <!--<copy todir="${build.dir}/com/cladonia/xml/grid/icons">
+	      <fileset dir="${source.dir}/com/cladonia/xml/grid/icons"/>
+	    </copy> -->
+	  	<copy todir="${build.dir}/">
+	  		<fileset file="${basedir}/xngr-splash.gif"></fileset>
+	  	</copy>
+		<copy todir="${build.dir}/com/cladonia/xml/schematron/resources">
+	      <fileset dir="${source.dir}/com/cladonia/xml/schematron/resources"/>
+	    </copy>
+	
+	    <jar jarfile="${jar.file}" basedir="${build.dir}" manifest="${manifest.file}"/>
+	  	
+	  	
+	</target>
+	
+	<target name="exe">
+		<launch4j configFile="./xngr-launch4j.xml" />
+	</target>
+	
+	<target name="removeBuildFolder">
+		<delete dir="${build.dir}"/>
+	</target>
+	
+	<taskdef name="launch4j" classname="net.sf.launch4j.ant.Launch4jTask"
+		classpath="${launch4j.dir}/launch4j.jar:${launch4j.dir}/lib/xstream.jar" />
+	
+	<target name="createInstallFolder">
+		<delete dir="${installFiles.dir}" failonerror="false"/>
+		<mkdir dir="${installFiles.dir}"/>
+		
+	</target>
+	
+	<target name="createInstallOutputFolder">
+		<antcall target="removeInstallOutputFolder"/>
+		<mkdir dir="${installOutput.dir}"/>
+		
+	</target>
+	
+	<target name="createInstallBuildFolder">
+		<delete dir="${installBuild.dir}" failonerror="false"/>
+		<mkdir dir="${installBuild.dir}"/>
+		
+	</target>
+	
+	<target name="removeInstallOutputFolder">
+		<delete>
+			<fileset dir="${installOutput.dir}"></fileset>
+		</delete>
+	</target>
+	
+	<target name="removeInstallFolder">
+		<delete dir="${installFiles.dir}" failonerror="false"/>
+		<delete dir="${install.dir}" failonerror="false"/>
+	</target>
+	
+	<target name="removeInstallBuildFolder">
+		<delete dir="${installBuild.dir}" failonerror="false"/>
+	</target>
+	
+	<target name="copyInstallFiles">
+		<copy todir="${installFiles.dir}" file="Exchanger XML Editor 3.3.exe"/>
+		<copy todir="${installFiles.dir}" file="loader.properties"/>
+		<copy todir="${installFiles.dir}" file="xngr-debugger.bat"/>
+		<copy todir="${installFiles.dir}" file="xngr-debugger.icns"/>
+		<copy todir="${installFiles.dir}" file="xngr-debugger-icon.gif"/>
+		<copy todir="${installFiles.dir}" file="xngr-document.ico"/>
+		<copy todir="${installFiles.dir}" file="xngr-document-icon.gif"/>
+		<copy todir="${installFiles.dir}" file="xngr-editor.bat"/>
+		<copy todir="${installFiles.dir}" file="xngr-editor.icns"/>
+		<copy todir="${installFiles.dir}" file="xngr-editor.ico"/>
+		<copy todir="${installFiles.dir}" file="xngr-editor.jar"/>
+		<copy todir="${installFiles.dir}" file="xngr-editor-icon.gif"/>
+		<copy todir="${installFiles.dir}" file="xngr-splash.gif"/>
+		
+		<copy todir="${installFiles.dir}/ext">
+			<fileset dir="ext">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/extensions">
+			<fileset dir="extensions">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/help">
+			<fileset dir="help">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/lib">
+			<fileset dir="lib">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/projects">
+			<fileset dir="projects">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/samples">
+			<fileset dir="samples">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/scenarios">
+			<fileset dir="scenarios">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/scripts">
+			<fileset dir="scripts">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/templates">
+			<fileset dir="templates">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/types">
+			<fileset dir="types">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${installFiles.dir}/jre">
+			<fileset dir="jre">
+				<exclude name=".svn"/>
+			</fileset>
+		</copy>
+			
+	</target>
+	
+	<target name="runInstallJammer">
+		<exec executable="${installJammerExec}" >
+			<arg value="--build"/>
+			<arg value="${installJammerConfigFile}"/>
+			
+		</exec>
+	</target>
+</project>
