@@ -1,13 +1,1 @@
-#summary Guide to building Exchanger XML
-
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+<div>#summary Guide to building and releasing Exchanger XML</div><div><br></div><div><i>Note: See the requirements wiki for tools needed to build and release Exchanger XML.</i></div><div><br></div><div>=&nbsp;To build use the Ant build.xml file&nbsp;=</div><div><ul><li>The target "build" will build the basic jar file.&nbsp;</li><li>The target "release" will build the basic jar file and create an EXE file for Windows using Launch4J.</li><li>The target "createInstaller" will use installjammer to create an installer for using the exe and jars built above.</li></ul></div><div>The targets should be called in the order of:&nbsp;</div><div><ol><li>"build"</li><li>"release"</li><li>"createInstaller"</li></ol><div>= InstallJammer Config File Setup =</div></div><div>The InstallJammer conifg file assumes that the project is located at:&nbsp;</div><div><span class="Apple-style-span" style="border-collapse: collapse; font-family: monospace; font-size: 12px; white-space: pre-wrap; -webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px; ">C:/Users/Dev/workspace_34/Exchanger</span></div><div>Replace the above path in xngr-InstallJammer.mpi using find and replace with the location of the project.</div><div><br></div>
