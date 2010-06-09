@@ -1,4 +1,4 @@
-#summary = Guide to building and releasing Exchanger XML =
+#summary Guide to building and releasing Exchanger XML
 
 _Note: See the requirements wiki for tools needed to build and release Exchanger XML._
 
