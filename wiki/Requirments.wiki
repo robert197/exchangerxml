@@ -1,0 +1,6 @@
+#summary Tools required to package and release ExchangerXML
+
+= The Following Tools Are Required =
+
+  * InstallJammer: http://www.installjammer.com/
+  * Launch4J: http://launch4j.sourceforge.net/
