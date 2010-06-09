@@ -1,16 +1,18 @@
 #summary Guide to building and releasing Exchanger XML
 
-_italic_ Note: See the requirements wiki for tools needed to build and release Exchanger XML. _italic_
+_Note: See the requirements wiki for tools needed to build and release Exchanger XML._
+
 = To build use the Ant build.xml file =
 
-The target "build" will build the basic jar file.
-The target "release" will build the basic jar file and create an EXE file for Windows using Launch4J.
-The target "createInstaller" will use installjammer to create an installer for using the exe and jars built above.<
+  The target "build" will build the basic jar file.
+  The target "release" will build the basic jar file and create an EXE file for Windows using Launch4J.
+  The target "createInstaller" will use installjammer to create an installer for using the exe and jars built above.
 
 The targets should be called in the order of:
-"build"
-"release"
-"createInstaller"
+  #"build"
+  #"release"
+  #"createInstaller"
+
 = InstallJammer Config File Setup =
 The InstallJammer conifg file assumes that the project is located at:
 C:/Users/Dev/workspace_34/Exchanger
