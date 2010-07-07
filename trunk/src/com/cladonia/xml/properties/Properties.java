@@ -376,7 +376,7 @@ public class Properties {
 	 * @param props the properties to add.
 	 */
 	public void add( Properties props) {
-		element.add( props.getElement());
+		element.add( (XElement) props.getElement().clone());
 	}
 
 	/**
