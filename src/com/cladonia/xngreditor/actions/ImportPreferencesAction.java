@@ -49,6 +49,8 @@ import com.cladonia.xngreditor.template.TemplateProperties;
 	private static final boolean DEBUG = false;
 	private ConfigurationProperties oldProperties = null;
 	private ExchangerDocument newPropsDocument = null;
+	private XngrProgressDialog progressDialog = null;
+	private int totalToBeImported = 0;
 	
  	/**
 	 * The constructor for the copy action.
@@ -81,12 +83,16 @@ import com.cladonia.xngreditor.template.TemplateProperties;
  	}
  	
  	public void execute() {
- 		if ( dialog == null) {
-            dialog = new ImportPreferencesDialog( parent, true);
-        }
- 		
- 		if(this.oldProperties != null) {
- 			dialog.show(oldProperties.getTemplateProperties(), oldProperties.getGrammarProperties(), oldProperties.getProjectProperties(), oldProperties.getScenarioProperties());
+ 		try {
+	 		if ( dialog == null) {
+	            dialog = new ImportPreferencesDialog( parent, true);
+	        }
+	 		
+	 		if(this.oldProperties != null) {
+	 			dialog.show(oldProperties.getTemplateProperties(), oldProperties.getGrammarProperties(), oldProperties.getProjectProperties(), oldProperties.getScenarioProperties());
+	 		}
+ 		}catch(Exception e) {
+ 			e.printStackTrace();
  		}
  		
         if(!dialog.isCancelled()) {
@@ -96,12 +102,12 @@ import com.cladonia.xngreditor.template.TemplateProperties;
         	}
             
             // Run in Thread!!!
-            Runnable runner = new Runnable() {
-                public void run()  {
+            //Runnable runner = new Runnable() {
+            //    public void run()  {
                     try {
                     	
                     	//count how many will be imported
-                    	int totalToBeImported = 0;
+                    	totalToBeImported = 0;
                     	if(dialog.getTemplatesCheckBox().isSelected() == true) {
                     		if((oldProperties.getTemplateProperties() != null) && (oldProperties.getTemplateProperties().size() > 0)) {
                     			totalToBeImported += oldProperties.getTemplateProperties().size();
@@ -126,57 +132,67 @@ import com.cladonia.xngreditor.template.TemplateProperties;
 							}
                     	}
                     	
-                    	
-
-                    	XngrProgressDialog progressDialog  = new XngrProgressDialog(parent, true);
-        	 			progressDialog.setTitle("Importing...");
-        	 			progressDialog.setVisible(0, totalToBeImported);
-                    	
                     	ConfigurationProperties properties = new ConfigurationProperties(newPropsDocument);
-                    	if(dialog.getTemplatesCheckBox().isSelected() == true) {
-                    		if((oldProperties.getTemplateProperties() != null) && (oldProperties.getTemplateProperties().size() > 0)) {
-                    			for(int cnt=0;cnt<oldProperties.getTemplateProperties().size();++cnt) {
-                    				progressDialog.incrementMonitor(1);
-                    				properties.addTemplateProperties((TemplateProperties) oldProperties.getTemplateProperties().get(cnt));
-                    			}
-                    			
-                    		}
-                    	}
-                    	
-                    	
-						if(dialog.getTypesCheckBox().isSelected() == true) {
-							if((oldProperties.getGrammarProperties() != null) && (oldProperties.getGrammarProperties().size() > 0)) {
-                    			for(int cnt=0;cnt<oldProperties.getGrammarProperties().size();++cnt) {
-                    				progressDialog.incrementMonitor(1);
-                    				properties.addGrammarProperties((GrammarProperties) oldProperties.getTemplateProperties().get(cnt));
-                    			}
-                    			
-                    		}
-                    	}
-
-						if(dialog.getSamplesCheckBox().isSelected() == true) {
-							if((oldProperties.getProjectProperties() != null) && (oldProperties.getProjectProperties().size() > 0)) {
-								for(int cnt=0;cnt<oldProperties.getProjectProperties().size();++cnt) {
-									progressDialog.incrementMonitor(1);
-									properties.addProjectProperties((ProjectProperties) oldProperties.getProjectProperties().get(cnt));
+                    	if(totalToBeImported > 0) {
+                    		progressDialog  = new XngrProgressDialog(parent, true);
+	        	 			progressDialog.setTitle("Importing...");
+	        	 			SwingUtilities.invokeLater(new Runnable() {
+								
+								@Override
+								public void run() {
+									// TODO Auto-generated method stub
+									progressDialog.setVisible(0, totalToBeImported);
+								}
+							});
+	        	 			
+	                    	
+	                    	
+	                    	if(dialog.getTemplatesCheckBox().isSelected() == true) {
+	                    		if((oldProperties.getTemplateProperties() != null) && (oldProperties.getTemplateProperties().size() > 0)) {
+	                    			for(int cnt=0;cnt<oldProperties.getTemplateProperties().size();++cnt) {
+	                    				progressDialog.incrementMonitor(1);
+	                    				properties.addTemplateProperties(((TemplateProperties) oldProperties.getTemplateProperties().get(cnt)));
+	                    			}
+	                    			
+	                    		}
+	                    	}
+	                    	
+	                    	
+							if(dialog.getTypesCheckBox().isSelected() == true) {
+								if((oldProperties.getGrammarProperties() != null) && (oldProperties.getGrammarProperties().size() > 0)) {
+	                    			for(int cnt=0;cnt<oldProperties.getGrammarProperties().size();++cnt) {
+	                    				progressDialog.incrementMonitor(1);
+	                    				properties.addGrammarProperties((GrammarProperties) oldProperties.getGrammarProperties().get(cnt));
+	                    			}
+	                    			
+	                    		}
+	                    	}
+	
+							if(dialog.getSamplesCheckBox().isSelected() == true) {
+								if((oldProperties.getProjectProperties() != null) && (oldProperties.getProjectProperties().size() > 0)) {
+									for(int cnt=0;cnt<oldProperties.getProjectProperties().size();++cnt) {
+										progressDialog.incrementMonitor(1);
+										properties.addProjectProperties((ProjectProperties) oldProperties.getProjectProperties().get(cnt));
+									}
 								}
 							}
-						}
-
-						if(dialog.getScenariosCheckBox().isSelected() == true) {
-							if((oldProperties.getScenarioProperties() != null) && (oldProperties.getScenarioProperties().size() > 0)) {
-								for(int cnt=0;cnt<oldProperties.getScenarioProperties().size();++cnt) {
-									progressDialog.incrementMonitor(1);
-									properties.addScenarioProperties((ScenarioProperties) oldProperties.getScenarioProperties().get(cnt));
+	
+							if(dialog.getScenariosCheckBox().isSelected() == true) {
+								if((oldProperties.getScenarioProperties() != null) && (oldProperties.getScenarioProperties().size() > 0)) {
+									for(int cnt=0;cnt<oldProperties.getScenarioProperties().size();++cnt) {
+										progressDialog.incrementMonitor(1);
+										properties.addScenarioProperties((ScenarioProperties) oldProperties.getScenarioProperties().get(cnt));
+									}
 								}
 							}
-						}
-						
-						progressDialog.setVisible(false);
+							
+							progressDialog.setVisible(false);
+                    	}
                         
                     } catch ( Exception e) {
                         // This should never happen, just report and continue
                         MessageHandler.showError( parent, "Cannot Import Preferences","Import Preferences Error");
+                        e.printStackTrace();
                     } finally {
                     	if(parent != null) {
                     		parent.setStatus( "Done");
@@ -184,12 +200,12 @@ import com.cladonia.xngreditor.template.TemplateProperties;
                     	}
                     }
                 }
-            };
+            //};
             
             // Create and start the thread ...
-            Thread thread = new Thread( runner);
-            thread.start();
+            //Thread thread = new Thread( runner);
+            //thread.start();
 //          }
-        }
+        //}
  	}
  }

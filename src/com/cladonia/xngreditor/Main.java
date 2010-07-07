@@ -433,6 +433,9 @@ public class Main {
 
 			if ( oldDocument != null) {
 				oldDocument.setURL( url);
+				XElement root = new XElement( "xngr");
+				root.setText( "\n");
+				document = new ExchangerDocument( url, root);
 				ImportPreferencesAction importPreferencesAction = new ImportPreferencesAction(this.editor, new ConfigurationProperties(oldDocument), document);
 				importPreferencesAction.execute();
 				
