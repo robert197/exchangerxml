@@ -57,7 +57,7 @@ public class Identity {
 		System.setProperty( XMLPLUS_REFERENCE_PROPERTY, "http://www.exchangerxml.com/");
 		System.setProperty( XMLPLUS_VERSION_PROPERTY, "3.3.01");
 		System.setProperty( XMLPLUS_DESCRIPTION_PROPERTY, "XML Editor");
-		System.setProperty( XMLPLUS_COPYRIGHT_PROPERTY, "Copyright 2002 - 2009 \u00a9 Cladonia Ltd.");
+		System.setProperty( XMLPLUS_COPYRIGHT_PROPERTY, "Copyright 2002 - 2010 \u00a9 Cladonia Ltd.");
 		System.setProperty( XMLPLUS_EDITION_PROPERTY, XMLPLUS_EDITION_PROFESSIONAL );
 		//System.setProperty( XMLPLUS_EDITION_PROPERTY, XMLPLUS_EDITION_LITE );
 	}
