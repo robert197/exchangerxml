@@ -168,7 +168,7 @@ UpgradeApplicationID
 {}
 
 Version
-3.3.01
+3.3.1
 
 ViewReadme
 Yes
@@ -210,22 +210,22 @@ test
 
 }
 FileGroup ::1025250C-41F5-4E32-9B44-29FA4A5858CF -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-x86 HPUX-hppa Linux-x86 MacOS-X Solaris-sparc Windows TarArchive ZipArchive FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 Linux-x86_64 Solaris-x86} -name {Program Files} -parent FileGroups
-File ::2C3B7F3B-259B-40D1-828E-C299B5AD349D -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/Exchanger XML Editor 3.3.exe} -active 0 -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::33E6D65E-6DAE-41AC-8D86-D2D4CB2089EE -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/loader.properties} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::45F825C7-63A2-451D-90EB-2BBBC4BCA256 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-debugger.bat} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::BD1B581F-340F-44A9-B0BE-62FB0A2DE7B1 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-debugger.icns} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::05717A2D-7B2F-4425-B85E-57EDBEF19B6E -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-debugger-icon.gif} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::8AB84801-35C5-45B8-A981-3A5E2261AC72 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-document.ico} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::4AC48BCD-C190-48F3-861C-AC9898FFC390 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-document-icon.gif} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::FF6D55ED-B801-4D68-91A1-CB10C03483F4 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-editor.bat} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::94BA1B40-0970-4B7C-9E82-3C8A04E5B0CF -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-editor.icns} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::DF38787A-3203-4F07-9563-DB6430B10182 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-editor.ico} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::A15AB546-82F7-41B8-A1A6-8FB3CA4A6375 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-editor.jar} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::00EBB2D6-D33C-4739-8849-043295B8598C -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-editor-icon.gif} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::82CC93C5-0693-4AAF-9BAA-6BC14E0DE201 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/xngr-splash.gif} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
-File ::9353E0A7-02C8-4924-988A-0BAFFE573A33 -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/ext} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::2C3B7F3B-259B-40D1-828E-C299B5AD349D -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/Exchanger XML Editor 3.3.exe} -active 0 -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::33E6D65E-6DAE-41AC-8D86-D2D4CB2089EE -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/loader.properties} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::45F825C7-63A2-451D-90EB-2BBBC4BCA256 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-debugger.bat} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::BD1B581F-340F-44A9-B0BE-62FB0A2DE7B1 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-debugger.icns} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::05717A2D-7B2F-4425-B85E-57EDBEF19B6E -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-debugger-icon.gif} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::8AB84801-35C5-45B8-A981-3A5E2261AC72 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-document.ico} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::4AC48BCD-C190-48F3-861C-AC9898FFC390 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-document-icon.gif} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::FF6D55ED-B801-4D68-91A1-CB10C03483F4 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-editor.bat} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::94BA1B40-0970-4B7C-9E82-3C8A04E5B0CF -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-editor.icns} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::DF38787A-3203-4F07-9563-DB6430B10182 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-editor.ico} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::A15AB546-82F7-41B8-A1A6-8FB3CA4A6375 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-editor.jar} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::00EBB2D6-D33C-4739-8849-043295B8598C -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-editor-icon.gif} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::82CC93C5-0693-4AAF-9BAA-6BC14E0DE201 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/xngr-splash.gif} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::9353E0A7-02C8-4924-988A-0BAFFE573A33 -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/ext} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::D27C4CF5-B261-42FA-81F7-EA4A1DB0B661 -name mysql.jar -parent 9353E0A7-02C8-4924-988A-0BAFFE573A33
-File ::EE928618-CDC3-40C6-BB8A-146D74C1F4EC -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/extensions} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::EE928618-CDC3-40C6-BB8A-146D74C1F4EC -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/extensions} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::C1EA32C9-44C3-48A4-881D-A616B1E7EF44 -type dir -name J2EE -parent EE928618-CDC3-40C6-BB8A-146D74C1F4EC
 File ::52A81A99-E7B7-4844-9608-9B50016391EF -name ApplicationClientDeploymentDescriptor.xml -parent C1EA32C9-44C3-48A4-881D-A616B1E7EF44
 File ::0583FF3D-6754-4607-80B1-481888CE2154 -name ApplicationDeploymentDescriptor.xml -parent C1EA32C9-44C3-48A4-881D-A616B1E7EF44
@@ -381,7 +381,7 @@ File ::1E2C3CC1-4C6D-4AF1-A47A-F935297424B3 -name teihtml-tables.xsl -parent 39C
 File ::55B61509-2D08-4792-B571-75A66B6BF71A -name teihtml-teic.xsl -parent 39C80A65-06AE-44D6-88E0-0793FC74EB9F
 File ::0EE023D5-6D75-4E40-8088-5E006BF6CA20 -name teihtml-xref.xsl -parent 39C80A65-06AE-44D6-88E0-0793FC74EB9F
 File ::87496238-F6F9-4AFE-85C8-DC9D96BD9F24 -name teihtml.xsl -parent 39C80A65-06AE-44D6-88E0-0793FC74EB9F
-File ::82E59880-D9F8-46AB-82B9-62F70E0B2BD4 -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/help} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::82E59880-D9F8-46AB-82B9-62F70E0B2BD4 -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/help} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::BC486695-F1F4-452F-8870-C69E1DD46024 -name Cladonia.gif -parent 82E59880-D9F8-46AB-82B9-62F70E0B2BD4
 File ::EBA79BEB-E700-49AC-B385-05799DBDF163 -name ExchangerHelp.hs -parent 82E59880-D9F8-46AB-82B9-62F70E0B2BD4
 File ::3253F8EC-7204-4217-94BD-ADF00AA394A8 -name ExchangerHelpIndex.xml -parent 82E59880-D9F8-46AB-82B9-62F70E0B2BD4
@@ -872,7 +872,7 @@ File ::6BD6E94A-2ABD-43E8-8DEA-F697133E9966 -name DOCS.TAB -parent 4A7B1B63-C84B
 File ::B23C05FD-5294-47DC-B268-95B7B2B28727 -name OFFSETS -parent 4A7B1B63-C84B-4F9F-B571-5D710A117CAB
 File ::EA82EC1E-DB9C-45EF-94D1-75BCD0465480 -name SCHEMA -parent 4A7B1B63-C84B-4F9F-B571-5D710A117CAB
 File ::779AA43E-8DA5-4527-B39A-AE1E8AF48017 -name TMAP -parent 4A7B1B63-C84B-4F9F-B571-5D710A117CAB
-File ::84D9A377-8767-4785-9C58-7B2732BADDEF -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/lib} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::84D9A377-8767-4785-9C58-7B2732BADDEF -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/lib} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::03591807-419D-4E3C-B34E-2E2EB481A9B5 -name activation.jar -parent 84D9A377-8767-4785-9C58-7B2732BADDEF
 File ::35942520-DDD5-40D0-8503-87F7E60C237C -name AppleJavaExtensions.jar -parent 84D9A377-8767-4785-9C58-7B2732BADDEF
 File ::015AFC12-DE95-4074-9376-47AB30E6F0A9 -name avalon-framework.jar -parent 84D9A377-8767-4785-9C58-7B2732BADDEF
@@ -950,7 +950,7 @@ File ::00F69397-ECBB-45F8-803F-3CD6EEA28470 -name xercesImpl.jar -parent 84D9A37
 File ::344EA172-771A-44A5-BD50-DEE45CA91071 -name xml-apis.jar -parent 84D9A377-8767-4785-9C58-7B2732BADDEF
 File ::E15C0A1E-0C23-4F73-88DA-82625CC5F5EE -name xmlsec.jar -parent 84D9A377-8767-4785-9C58-7B2732BADDEF
 File ::AEBA600D-5FBA-4984-AF3E-9F35410B8ADA -name xsltc.jar -parent 84D9A377-8767-4785-9C58-7B2732BADDEF
-File ::38411BEA-22C9-4291-BB23-021A2DA96F44 -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/projects} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::38411BEA-22C9-4291-BB23-021A2DA96F44 -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/projects} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::CA3417C6-B3D8-4FE2-A2DA-F93FF177ACBB -name all.projects -parent 38411BEA-22C9-4291-BB23-021A2DA96F44
 File ::31C668DE-DC6F-49D5-8BED-45860CB46689 -name new.projects -parent 38411BEA-22C9-4291-BB23-021A2DA96F44
 File ::4114681B-AEAC-432A-8307-9532EE7DCA0D -type dir -name {Amazon SOAP} -parent 38411BEA-22C9-4291-BB23-021A2DA96F44
@@ -1151,7 +1151,7 @@ File ::31A18CE0-B802-43EF-8CF8-3A1EC9141F49 -name poem.xsl -parent 048794D6-F45D
 File ::93299448-5DF7-4B86-8D1D-3EADDA22DB67 -type dir -name {XSLT Fragments} -parent 38411BEA-22C9-4291-BB23-021A2DA96F44
 File ::D4CDEBF7-1224-4FB0-B023-FC8CC9F1B209 -name poem.xsl -parent 93299448-5DF7-4B86-8D1D-3EADDA22DB67
 File ::9DC9F2EC-7B4D-463D-9ECA-E9F090F3777A -name {XSLT Fragments.xngr} -parent 93299448-5DF7-4B86-8D1D-3EADDA22DB67
-File ::848A1B4C-D77E-4154-A56D-E3B633895D10 -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/samples} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::848A1B4C-D77E-4154-A56D-E3B633895D10 -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/samples} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::245A0999-7E96-420E-BEBC-8FC58E040315 -type dir -name amazon -parent 848A1B4C-D77E-4154-A56D-E3B633895D10
 File ::7322F8AE-B427-4816-9554-9AD3EFCB9653 -type dir -name input -parent 245A0999-7E96-420E-BEBC-8FC58E040315
 File ::138DDB07-D368-4508-A5C8-89F7E15C5D67 -name DirectorSearch.xml -parent 7322F8AE-B427-4816-9554-9AD3EFCB9653
@@ -1281,7 +1281,7 @@ File ::063E5750-3312-4E8C-914D-72A86E0226FE -name xbrl.htm -parent 3131DF89-FD9C
 File ::C45724D8-1DFB-4FB5-BB90-ADC942AB9821 -name xl.xsd -parent 3131DF89-FD9C-47FB-816F-FD6B817EADDE
 File ::F3B195B1-4398-4371-8158-63BA27D512C6 -name xlink.xsd -parent 3131DF89-FD9C-47FB-816F-FD6B817EADDE
 File ::D257AEF4-658F-4527-BA09-AEAFA9DE8523 -name xml.xsd -parent 3131DF89-FD9C-47FB-816F-FD6B817EADDE
-File ::A68D4FF5-185B-4849-A311-B4CD7CBEF1F0 -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/scenarios} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::A68D4FF5-185B-4849-A311-B4CD7CBEF1F0 -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/scenarios} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::DA759F9E-C72B-4AFD-B318-A3BF2FCB5E96 -name all.scenarios -parent A68D4FF5-185B-4849-A311-B4CD7CBEF1F0
 File ::92229C87-84CC-4B3E-8E82-28441254518B -type dir -name database -parent A68D4FF5-185B-4849-A311-B4CD7CBEF1F0
 File ::43E9725E-B5A7-4C18-BAF6-6B812C4C1489 -name {Simple Database Access.scenario} -parent 92229C87-84CC-4B3E-8E82-28441254518B
@@ -1295,14 +1295,14 @@ File ::F5A203F8-B583-4A6F-8207-1104254E44EA -name OfficeOrder.xsl -parent 51CA2F
 File ::FF39CAC8-C37F-494B-AC1A-F1BE6AC23279 -type dir -name xs3p -parent A68D4FF5-185B-4849-A311-B4CD7CBEF1F0
 File ::EACD8125-5F0E-4B25-8EFC-1FAF5128A745 -name xs3p.scenario -parent FF39CAC8-C37F-494B-AC1A-F1BE6AC23279
 File ::B416CB47-6910-48AE-BD97-4E2DF77E24A2 -name xs3p.xsl -parent FF39CAC8-C37F-494B-AC1A-F1BE6AC23279
-File ::5F01CF2C-77F3-497C-9821-31BDDAC12394 -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/scripts} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::5F01CF2C-77F3-497C-9821-31BDDAC12394 -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/scripts} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::F01CC56A-C59C-46E4-9973-6D768B514A91 -name batch_xsl.js -parent 5F01CF2C-77F3-497C-9821-31BDDAC12394
 File ::B4B97DE9-443B-4CF3-A829-B9EBB98104A4 -name bloglines.js -parent 5F01CF2C-77F3-497C-9821-31BDDAC12394
 File ::E942A3D6-B0B7-4231-ABAA-57CA094C3143 -name lowercase.js -parent 5F01CF2C-77F3-497C-9821-31BDDAC12394
 File ::3BF7D533-BA31-4724-B4A9-19326FFCFB59 -name makeBrowserView -parent 5F01CF2C-77F3-497C-9821-31BDDAC12394
 File ::93242D75-29FA-45B2-8E9F-0AA5D65D75FB -name makeBrowserView.js -parent 5F01CF2C-77F3-497C-9821-31BDDAC12394
 File ::97A4C00F-B4B0-4785-B359-940CA254BF50 -name uppercase.js -parent 5F01CF2C-77F3-497C-9821-31BDDAC12394
-File ::701A3FCC-DCA6-49A7-8821-A90AD1B4B0FD -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/templates} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::701A3FCC-DCA6-49A7-8821-A90AD1B4B0FD -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/templates} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::0B1DF6A6-513D-46ED-AE6D-6FD97FA6D029 -name all.templates -parent 701A3FCC-DCA6-49A7-8821-A90AD1B4B0FD
 File ::AF8A805A-AA88-4A44-B10A-84DB19F953A5 -type dir -name ant -parent 701A3FCC-DCA6-49A7-8821-A90AD1B4B0FD
 File ::702FA208-0680-479F-BE5B-9D8E81865C06 -name {Ant build file.template} -parent AF8A805A-AA88-4A44-B10A-84DB19F953A5
@@ -1347,7 +1347,7 @@ File ::EABAFCC0-A20D-41C6-AF6C-78ADCBDB6CA5 -name xhtml-transitional.xml -parent
 File ::AA5E2D40-1AD2-4539-BE89-D3550AE867E2 -type dir -name xsl -parent 701A3FCC-DCA6-49A7-8821-A90AD1B4B0FD
 File ::05B3A898-D557-4DFA-9813-EB4B9EC7C05F -name stylesheet.xsl -parent AA5E2D40-1AD2-4539-BE89-D3550AE867E2
 File ::340E73B2-A8C2-43A2-8134-83DBB7273EA7 -name XSL.template -parent AA5E2D40-1AD2-4539-BE89-D3550AE867E2
-File ::A2C9FB4C-B0FA-4BFC-84F8-0E7D5A3553CE -type dir -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/types} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
+File ::A2C9FB4C-B0FA-4BFC-84F8-0E7D5A3553CE -type dir -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/types} -parent 1025250C-41F5-4E32-9B44-29FA4A5858CF
 File ::F19892FA-49C5-4258-B760-800DF997B4DF -name all.types -parent A2C9FB4C-B0FA-4BFC-84F8-0E7D5A3553CE
 File ::BA3E936A-741F-4D3C-82A7-EFDCB4FF8876 -type dir -name Ant -parent A2C9FB4C-B0FA-4BFC-84F8-0E7D5A3553CE
 File ::194EBA8C-B3A2-4072-A31D-F6B0FBEF7837 -name {Ant build file.type} -parent BA3E936A-741F-4D3C-82A7-EFDCB4FF8876
@@ -1707,7 +1707,7 @@ File ::9EAA3E74-EB36-4D4E-B617-19EC3FAAE189 -name xhtml1-strict.xsd -parent D9DB
 File ::5CDA8B41-5141-40EF-908F-B4FCC777F3A6 -name xhtml1-transitional.xsd -parent D9DBFD15-E302-4974-9802-EA1E516CACB1
 File ::4FAD9035-9D30-4157-AE83-46561D4BB687 -name xml.xsd -parent D9DBFD15-E302-4974-9802-EA1E516CACB1
 FileGroup ::D6C1F39E-A7CB-43F0-AB7F-207111E2F9E7 -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-x86 HPUX-hppa Linux-x86 MacOS-X Solaris-sparc Windows TarArchive ZipArchive FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 Linux-x86_64 Solaris-x86} -name Xngr-Grid -parent FileGroups
-File ::1C5E2476-B84B-40DA-ACD5-992C219F4F5C -type dir -directory <%InstallDir%>/Plugins/Xngr-Grid -name {C:/Users/Dev/workspace_34/xngr-editor/plugins/Xngr-Grid} -parent D6C1F39E-A7CB-43F0-AB7F-207111E2F9E7
+File ::1C5E2476-B84B-40DA-ACD5-992C219F4F5C -type dir -directory <%InstallDir%>/Plugins/Xngr-Grid -name {C:/Users/workspace_34/xngr-editor/plugins/Xngr-Grid} -parent D6C1F39E-A7CB-43F0-AB7F-207111E2F9E7
 File ::9477CDCD-0413-4D4A-8852-7445E18CD00A -name grid.plugin -parent 1C5E2476-B84B-40DA-ACD5-992C219F4F5C
 File ::439C5499-A0DC-4C06-8B0B-95050234EBFE -name xngr-grid.jar -parent 1C5E2476-B84B-40DA-ACD5-992C219F4F5C
 File ::213DD9A2-5DAE-4B9C-942F-12488C71C3F7 -type dir -name .svn -active 0 -parent 1C5E2476-B84B-40DA-ACD5-992C219F4F5C
@@ -1837,9 +1837,9 @@ File ::D65544F2-7923-4813-9417-2C64B88EF747 -type dir -name props -parent 9019F3
 File ::6D30D259-D9AA-4335-B3CD-C79BE69D79F2 -type dir -name text-base -parent 9019F382-D3B6-4181-B2D1-DD1A4E3DBD6A
 File ::E1887F06-707E-408B-9B1E-FDEA3912E4DC -name xngr-lobo.jar -parent 1C5E2476-B84B-40DA-ACD5-992C219F4F5C
 FileGroup ::3B8152FF-4664-46AB-BAC8-5CF3044E9CCC -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-x86 HPUX-hppa Linux-x86 MacOS-X Solaris-sparc Windows TarArchive ZipArchive FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 Linux-x86_64 Solaris-x86} -name {Windows Executable} -parent FileGroups
-File ::B6B60796-68E8-4133-ABD6-261477D0E821 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/Exchanger XML Editor 3.3.exe} -parent 3B8152FF-4664-46AB-BAC8-5CF3044E9CCC
+File ::B6B60796-68E8-4133-ABD6-261477D0E821 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/Exchanger XML Editor 3.3.exe} -parent 3B8152FF-4664-46AB-BAC8-5CF3044E9CCC
 FileGroup ::C832127C-0C05-418C-86FA-954F820B976E -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-x86 HPUX-hppa Linux-x86 MacOS-X Solaris-sparc Windows TarArchive ZipArchive} -name JRE -parent FileGroups
-File ::40AB2B1C-BFB6-4F15-854C-B1A9BA0BA865 -name {C:/Users/Dev/workspace_34/Exchanger/install/Exchanger/jre/jre-6u11-windows-i586-p-s.exe} -parent C832127C-0C05-418C-86FA-954F820B976E
+File ::40AB2B1C-BFB6-4F15-854C-B1A9BA0BA865 -name {C:/Users/workspace_34/ExchangerXML/install/Exchanger/jre/jre-6u11-windows-i586-p-s.exe} -parent C832127C-0C05-418C-86FA-954F820B976E
 Component ::5BB4FCDD-5000-425B-B6CF-6B7BF4534C26 -setup Install -active Yes -platforms {FreeBSD-4-x86 FreeBSD-x86 HPUX-hppa Linux-x86 MacOS-X Solaris-sparc Windows FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 Linux-x86_64 Solaris-x86} -name {Default Component} -parent Components
 Component ::8577C266-647B-42B1-BADD-59DC014AD9FF -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-x86 HPUX-hppa Linux-x86 MacOS-X Solaris-sparc Windows} -name JRE -parent Components
 SetupType ::070F78D7-E162-4C60-B285-B66AF3F9F754 -setup Install -active Yes -platforms {AIX-ppc FreeBSD-4-x86 FreeBSD-x86 HPUX-hppa Linux-x86 MacOS-X Solaris-sparc Windows FreeBSD-5-x86 FreeBSD-6-x86 FreeBSD-7-x86 Linux-x86_64 Solaris-x86} -name Typical -parent SetupTypes
