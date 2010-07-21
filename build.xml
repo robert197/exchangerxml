@@ -12,6 +12,9 @@
 	<property name="installFiles.dir" value="${install.dir}/Exchanger"/>
 	<property name="installJammerExec" value="C:\Program Files\InstallJammer\installjammer.exe"/>
 	<property name="installJammerConfigFile" value="xngr-InstallJammer.mpi"/>
+	<property name="tempzip.dir" value="tempZipFolder"/>
+	<property name="zip.file" value="xngr-editor.zip"/>
+	
 	
 	<!-- These are not editable -->
 	<property name="installBuild.dir" value="build"/>
@@ -33,6 +36,7 @@
 		<antcall target="buildReleaseFiles"/>
 		<antcall target="jar"/>
 		<antcall target="exe"/>
+		<antcall target="zip"/>
 		<antcall target="removeBuildFolder"/>
 		<antcall target="removeReleaseFolder"/>
 	</target>
@@ -273,6 +277,74 @@
 	    <jar jarfile="${jar.file}" basedir="${build.dir}" manifest="${manifest.file}"/>
 	  	
 	  	
+	</target>
+	
+	<target name="run">
+		
+		<java jar="${basedir}/xngr-editor.jar"
+        	fork="true"
+           	failonerror="true"
+           	maxmemory="1024M">
+			<jvmarg value="-ms256M"/>
+			<jvmarg value="-Xss1m"/>
+			<jvmarg value="-noclassgc"/>
+			<jvmarg value="-splash:xngr-splash.gif"/>
+       	</java>
+	</target>
+	
+	<target name="zip">
+		<mkdir dir="${tempzip.dir}"/>
+	    
+		<copy todir="${tempzip.dir}/ext">
+	      <fileset dir="${basedir}/ext"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/extensions">
+	      <fileset dir="${basedir}/extensions"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/help">
+	      <fileset dir="${basedir}/help"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/lib">
+	      <fileset dir="${basedir}/lib"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/projects">
+	      <fileset dir="${basedir}/projects"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/samples">
+	      <fileset dir="${basedir}/samples"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/scenarios">
+	      <fileset dir="${basedir}/scenarios"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/scripts">
+	      <fileset dir="${basedir}/scripts"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/templates">
+	      <fileset dir="${basedir}/templates"/>
+	    </copy>
+		<copy todir="${tempzip.dir}/types">
+	      <fileset dir="${basedir}/types"/>
+	    </copy>
+		<copy todir="${tempzip.dir}" file="${basedir}/loader.properties"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/Manifest.mf"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-debugger-icon.gif"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-debugger.bat"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-debugger.icns"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-document-icon.gif"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-document.ico"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-editor-icon.gif"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-editor.bat"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-editor.icns"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-editor.ico"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-editor.jar"/>
+		<copy todir="${tempzip.dir}" file="${basedir}/xngr-splash.gif"/>
+		
+		
+	    <jar jarfile="${tempzip.dir}/${zip.file}" basedir="${tempzip.dir}" manifest="${basedir}/Manifest.mf"/>
+	  	
+		<copy todir="${basedir}" file="${tempzip.dir}/${zip.file}" overwrite="true"/>
+		
+		<delete dir="${tempzip.dir}"/>
 	</target>
 	
 	<target name="exe">
