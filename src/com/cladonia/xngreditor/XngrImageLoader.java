@@ -85,7 +85,6 @@ public class XngrImageLoader {
 	 */
 	public ImageIcon getImage( String name) {
 		if (DEBUG) System.out.println("ImageLoader.getImage("+name+")");
-
 		ImageIcon icon = (ImageIcon)images.get(name);
 		
 		if (icon == null) {

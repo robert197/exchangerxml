@@ -8,6 +8,7 @@
  */
 package com.cladonia.xngreditor.plugins;
 
+import java.awt.BorderLayout;
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -178,7 +179,7 @@ public class PluginView {
 				Class loadedClass = this.getExchangerEditor().getClassLoader().loadClass(this.getPluginViewPanelFile());
 				Constructor constructor = loadedClass.getConstructor(new Class[] {PluginView.class, ExchangerEditor.class, Properties.class, ConfigurationProperties.class,ExchangerView.class});
 				if(constructor != null) {
-															
+					
 					Object objClass  = constructor.newInstance(new Object[] {this, parent, props, configProps, _view});
 				
 					if(objClass != null) {
