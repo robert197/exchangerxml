@@ -118,7 +118,9 @@ public class ExtensionClassLoader extends URLClassLoader {
 	                    	}
 	                        
 	                    } catch (MalformedURLException e) {
+	                    	e.printStackTrace();
 	                        throw new IllegalArgumentException( e.toString());
+	                        
 	                    }
 	                }
             	}
